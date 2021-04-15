@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csprojAssemblyReference.cache
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\Documents\Universidad\Octavo Semestre\Ingenieria de Software\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.pdb
