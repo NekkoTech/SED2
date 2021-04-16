@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MP_BaseMaster.master.cs" Inherits="Presentacion.PaginasMaestras.MP_BaseMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../CSS/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            Zona De Menu</div>
+        <div>
+            <asp:ContentPlaceHolder ID="CphContenedorBase" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

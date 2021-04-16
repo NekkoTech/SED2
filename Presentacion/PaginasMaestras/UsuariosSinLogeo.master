@@ -1,0 +1,6 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="UsuariosSinLogeo.master.cs" Inherits="Presentacion.PaginasMaestras.UsuariosSinLogeo" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
+    <asp:ContentPlaceHolder ID="CphMainLogin" runat="server" ></asp:ContentPlaceHolder>
+</asp:Content>

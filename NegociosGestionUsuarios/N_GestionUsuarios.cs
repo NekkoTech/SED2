@@ -71,5 +71,9 @@ namespace NegociosGestionUsuarios
                     Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper())
                     select Usuario).ToList();
         }
+        public E_Usuarios ValidaUsuario(string email, string pass)
+        { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
+
     }
+
 }
