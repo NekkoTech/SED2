@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using StrDatosSQL;
 using EntidadesGestionUsuarios;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace NegociosGestionUsuarios
 {
@@ -21,7 +25,48 @@ namespace NegociosGestionUsuarios
             };
             if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
                 return "Exito: Los datos del usuario fueron borrados correctamente";
-            return "Error: El usuario no pudieron ser borrados";
+            return "Error: Los datos del usuario no pudieron ser borrados";
         }
-    }
+
+        public string InsertarUsuario(E_Usuarios EntidadUsuario)
+        {
+            E_Usuarios EU = BuscaUsuario(EntidadUsuario.EmailUsuario);
+            if (EU == null)
+                {
+                    EntidadUsuario.Accion = "INSERTAR";
+                    if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+                        return "Exito: Los datos del usuario fueron registrados correctamente.";
+                    return "Error: Los datos del usuario no pudieron ser registrados correctamente.";
+            }
+            else{return "Error: Los datos del usuario no pudieron ser registrados. <br /El correo electronico ya fue asignado a otro usuario>";}
+            
+        }
+
+        public string ModificarUsuario(E_Usuarios EntidadUsuario)
+        {
+            EntidadUsuario.Accion = "MODIFICAR";
+            if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+            {
+                return "Exito: Los datos del usuario fueron modificados correctamente.";
+            }
+            return "Error: Los datos del usuario no pudieron ser modificados correctamente.";
+        }
+
+        public DataTable DT_LstUsuarios(){return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario");}
+
+        public List<E_Usuarios>LstUsuarios(){return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuarios());}
+
+        public E_Usuarios BuscaUsuario(int pIDUsuario)
+            {return (from Usuario in LstUsuarios() where Usuario.IdUsuario == pIDUsuario select Usuario).FirstOrDefault();}
+        
+    public E_Usuarios BuscaUsuario(string Email)
+            {return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == Email select Usuario).FirstOrDefault();}
+        
+    public List<E_Usuarios> LstBuscaUsuarios(string Criterio)
+            {
+            return (from Usuario in LstUsuarios() where (Usuario.NombreUsuario.ToUpper().Contains(Criterio.ToUpper())) ||
+                    Usuario.APaternoUsuario.ToUpper().Contains(Criterio.ToUpper()) ||
+                    Usuario.AMaternoUsuario.ToUpper().Contains(Criterio.ToUpper()) ||
+                    Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper()) select Usuario).ToList();}
+}
 }
