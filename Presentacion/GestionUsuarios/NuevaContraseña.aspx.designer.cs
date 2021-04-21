@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class ValidaUsuario
+    public partial class NuevaContraseña
     {
 
         /// <summary>

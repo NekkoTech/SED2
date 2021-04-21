@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class OlvidaContraseña : System.Web.UI.Page
+    public partial class Validacion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

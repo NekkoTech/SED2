@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class OlvidaContraseña
+    public partial class Validacion
     {
 
         /// <summary>
