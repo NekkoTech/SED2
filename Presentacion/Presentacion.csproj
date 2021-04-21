@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\OlvidaContraseña.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
     <Content Include="img\fiadlogo.png" />
@@ -162,10 +163,39 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SVG\Modulo2\cerrar sesion.svg" />
+    <Content Include="SVG\Modulo2\Crear usuario.svg" />
+    <Content Include="SVG\Modulo2\desbloqueado main.svg" />
+    <Content Include="SVG\Modulo2\Eliminar  confirmar.svg" />
+    <Content Include="SVG\Modulo2\Eliminar.svg" />
+    <Content Include="SVG\Modulo2\Exitoso.svg" />
+    <Content Include="SVG\Modulo2\Info cuenta docente – 1.svg" />
+    <Content Include="SVG\Modulo2\Info cuenta docente.svg" />
+    <Content Include="SVG\Modulo2\Info cuenta – 1.svg" />
+    <Content Include="SVG\Modulo2\Info cuenta – 2.svg" />
+    <Content Include="SVG\Modulo2\Info cuenta.svg" />
+    <Content Include="SVG\Modulo2\Inicio admin.svg" />
+    <Content Include="SVG\Modulo2\Inicio Docente.svg" />
+    <Content Include="SVG\Modulo2\Modificar main – 1.svg" />
+    <Content Include="SVG\Modulo2\Modificar main.svg" />
+    <Content Include="SVG\Modulo2\Modificar – 1.svg" />
+    <Content Include="SVG\Modulo2\Modificar.svg" />
+    <Content Include="SVG\Modulo2\no firma.svg" />
+    <Content Include="SVG\Modulo2\vacio main.svg" />
+    <Content Include="SVG\Modulo2\vacio.svg" />
+    <Content Include="SVG\Modulo2\Web 1920 – 1.svg" />
+    <Content Include="SVG\Modulo2\Web 1920 – 2.svg" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionUsuarios\InicioMain.aspx.cs">
+      <DependentUpon>InicioMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
+      <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\OlvidaContraseña.aspx.cs">
       <DependentUpon>OlvidaContraseña.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
