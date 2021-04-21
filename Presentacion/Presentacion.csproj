@@ -71,7 +71,10 @@
   <ItemGroup>
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\OlvidaContraseña.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
+    <Content Include="img\fiadlogo.png" />
+    <Content Include="img\uabclogo.png" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -163,6 +166,13 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionUsuarios\OlvidaContraseña.aspx.cs">
+      <DependentUpon>OlvidaContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\OlvidaContraseña.aspx.designer.cs">
+      <DependentUpon>OlvidaContraseña.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\ValidaUsuario.aspx.cs">
       <DependentUpon>ValidaUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,7 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controles\" />
-    <Folder Include="img\" />
     <Folder Include="JavaScript\" />
   </ItemGroup>
   <PropertyGroup>

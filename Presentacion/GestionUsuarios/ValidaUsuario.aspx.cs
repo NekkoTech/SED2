@@ -31,5 +31,10 @@ namespace Presentacion.GestionUsuarios
                 Response.Redirect("http://yahoo.com");
             }
         }
+
+        protected void LBForgot_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
