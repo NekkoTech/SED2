@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="OlvidaContraseña.aspx.cs" Inherits="Presentacion.GestionUsuarios.OlvidaContraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
+    <br />
+    <br />
     <div class="container-sm w-50 card rounded-3 text-center">
         <div class="card-body">
             <div class="card-title">
