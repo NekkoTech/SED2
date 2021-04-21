@@ -10,13 +10,14 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <asp:TextBox ID="tbEmailUsuario" placeholder="Correo" runat="server" CssClass="input-group-text" Width="500px" ></asp:TextBox>
+                    
+                    <asp:TextBox ID="tbEmailUsuario" placeholder="Correo" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
                     <br />
                     <asp:TextBox ID="tbPassWord" placeholder="Contraseña" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
                     <br />
-                    <asp:Button ID="BtnLogin" runat="server" CssClass="btn-success rounded" OnClick="Button1_Click" Text="Iniciar Sesión" Width="150px"/>
+                    <asp:Button ID="BtnLogin" runat="server" CssClass="btn-success rounded" OnClick="Button1_Click" Text="Iniciar Sesión" Width="150px" />
                 </div>
-                
+
             </div>
 
             <br />
