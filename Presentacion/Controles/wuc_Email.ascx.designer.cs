@@ -7,54 +7,36 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
+namespace Presentacion.Controles {
     
     
-    public partial class ValidaUsuario {
+    public partial class wuc_Email {
         
         /// <summary>
-        /// Control Label1.
+        /// Control tbEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox tbEmail;
         
         /// <summary>
-        /// Control tbEmailUsuario.
+        /// Control rfvtbEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Email tbEmailUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtbEmail;
         
         /// <summary>
-        /// Control tbPassWord.
+        /// Control revtbEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_PassWord tbPassWord;
-        
-        /// <summary>
-        /// Control BtnLogin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogin;
-        
-        /// <summary>
-        /// Control LBForgot.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LBForgot;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbEmail;
     }
 }

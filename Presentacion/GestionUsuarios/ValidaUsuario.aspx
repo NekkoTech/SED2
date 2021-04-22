@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="ValidaUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ValidaUsuario" %>
 
+<%@ Register Src="~/Controles/wuc_Email.ascx" TagPrefix="uc1" TagName="wuc_Email" %>
+<%@ Register Src="~/Controles/wuc_PassWord.ascx" TagPrefix="uc1" TagName="wuc_PassWord" %>
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
     <br />
@@ -10,10 +15,9 @@
             </div>
             <div class="row">
                 <div class="col">
-                    
-                    <asp:TextBox ID="tbEmailUsuario" placeholder="Correo" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
+                    <uc1:wuc_Email runat="server" id="tbEmailUsuario" />
                     <br />
-                    <asp:TextBox ID="tbPassWord" placeholder="Contraseña" TextMode="Password" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
+                    <uc1:wuc_PassWord runat="server" id="tbPassWord" />
                     <br />
                     <asp:Button ID="BtnLogin" runat="server" CssClass="btn-success rounded" OnClick="Button1_Click" Text="Iniciar Sesión" Width="150px" />
                 </div>
