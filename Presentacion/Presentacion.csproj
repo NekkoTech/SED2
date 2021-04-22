@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controles\wuc_Email.ascx" />
+    <Content Include="Controles\wuc_PassWord.ascx" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="Controles\wuc_Email.ascx.designer.cs">
       <DependentUpon>wuc_Email.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\wuc_PassWord.ascx.cs">
+      <DependentUpon>wuc_PassWord.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_PassWord.ascx.designer.cs">
+      <DependentUpon>wuc_PassWord.ascx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
