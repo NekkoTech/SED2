@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class Validacion
+    public partial class Verificacion
     {
 
         /// <summary>
@@ -40,6 +40,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbCodigo;
+
+        /// <summary>
+        /// Control LblMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMsg;
 
         /// <summary>
         /// Control BtnIngresar.

@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class OlvidaContraseña
+    public partial class Forgot
     {
 
         /// <summary>
@@ -31,6 +31,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbEmailUsuario;
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// Control BtnSolicitar.

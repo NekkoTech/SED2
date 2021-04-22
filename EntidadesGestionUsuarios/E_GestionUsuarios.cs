@@ -53,4 +53,33 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
+    public class E_Codigo
+    {
+        #region Atributos
+        private string _Accion;
+        private string _Codigo;
+        private string _EmailUsuario;
+
+
+        #endregion
+        #region Encapsulamiento
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public string Codigo { get => _Codigo; set => _Codigo = value; }
+        public string EmailUsuario { get => _EmailUsuario; set => _EmailUsuario = value; }
+        #endregion
+        #region Constructores
+        public E_Codigo(string Accion,string codigo, string EmailUsuario)
+        {
+            this.Accion = Accion;
+            this.Codigo = codigo;
+            this.EmailUsuario = EmailUsuario;
+        }
+        public E_Codigo()
+        {
+            this.Accion = string.Empty;
+            this.Codigo = string.Empty;
+            this.EmailUsuario = string.Empty;
+        }
+        #endregion
+    }
 }

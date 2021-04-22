@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using NegociosGestionUsuarios;
 using EntidadesGestionUsuarios;
 
@@ -11,10 +14,24 @@ namespace Presentacion.GestionUsuarios
 {
     public partial class NuevaContraseña : System.Web.UI.Page
     {
+        N_Usuarios NU = new N_Usuarios();
+        E_Usuarios EU = new E_Usuarios();
+        string Email;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Email = (string)Session["Correo"];
         }
 
+        protected void BtnCambiarContra_Click(object sender, EventArgs e)
+        {
+            if (tbNuevaContraseña.Text.ToString() == tbRepiteContraseña.Text.ToString())
+            {
+                EU=NU.BuscaUsuario(Email);
+                LblMsg.Text = EU.EmailUsuario;
+                EU.PassWordUsuario = tbNuevaContraseña.Text.ToString();
+                string msg=NU.ModificarUsuario(EU);
+                //LblMsg.Text = msg;
+            }
+        }
     }
 }

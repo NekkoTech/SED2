@@ -38,7 +38,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void LBForgot_Click(object sender, EventArgs e)
         {
-            Response.Redirect("OlvidaContraseña.aspx");
+            Response.Redirect("Forgot.aspx");
         }
     }
 }

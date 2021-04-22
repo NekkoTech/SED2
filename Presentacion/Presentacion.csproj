@@ -71,104 +71,26 @@
   <ItemGroup>
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\NuevaContraseña.aspx" />
     <Content Include="GestionUsuarios\Verificacion.aspx" />
-    <Content Include="GestionUsuarios\OlvidaContraseña.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
     <Content Include="img\fiadlogo.png" />
     <Content Include="img\uabclogo.png" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\index.js.flow" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="PaginasMaestras\MP_BaseMaster.Master" />
     <Content Include="PaginasMaestras\UsuariosSinLogeo.master" />
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\popper-utils.js" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\src\index.js" />
-    <Content Include="Scripts\src\methods\defaults.js" />
-    <Content Include="Scripts\src\methods\destroy.js" />
-    <Content Include="Scripts\src\methods\disableEventListeners.js" />
-    <Content Include="Scripts\src\methods\enableEventListeners.js" />
-    <Content Include="Scripts\src\methods\placements.js" />
-    <Content Include="Scripts\src\methods\update.js" />
-    <Content Include="Scripts\src\modifiers\applyStyle.js" />
-    <Content Include="Scripts\src\modifiers\arrow.js" />
-    <Content Include="Scripts\src\modifiers\computeStyle.js" />
-    <Content Include="Scripts\src\modifiers\flip.js" />
-    <Content Include="Scripts\src\modifiers\hide.js" />
-    <Content Include="Scripts\src\modifiers\index.js" />
-    <Content Include="Scripts\src\modifiers\inner.js" />
-    <Content Include="Scripts\src\modifiers\keepTogether.js" />
-    <Content Include="Scripts\src\modifiers\offset.js" />
-    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
-    <Content Include="Scripts\src\modifiers\shift.js" />
-    <Content Include="Scripts\src\utils\clockwise.js" />
-    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
-    <Content Include="Scripts\src\utils\debounce.js" />
-    <Content Include="Scripts\src\utils\find.js" />
-    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
-    <Content Include="Scripts\src\utils\findIndex.js" />
-    <Content Include="Scripts\src\utils\getBordersSize.js" />
-    <Content Include="Scripts\src\utils\getBoundaries.js" />
-    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
-    <Content Include="Scripts\src\utils\getClientRect.js" />
-    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
-    <Content Include="Scripts\src\utils\getOffsetParent.js" />
-    <Content Include="Scripts\src\utils\getOffsetRect.js" />
-    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
-    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
-    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
-    <Content Include="Scripts\src\utils\getOuterSizes.js" />
-    <Content Include="Scripts\src\utils\getParentNode.js" />
-    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
-    <Content Include="Scripts\src\utils\getReferenceNode.js" />
-    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
-    <Content Include="Scripts\src\utils\getRoot.js" />
-    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
-    <Content Include="Scripts\src\utils\getScroll.js" />
-    <Content Include="Scripts\src\utils\getScrollParent.js" />
-    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
-    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
-    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
-    <Content Include="Scripts\src\utils\getWindow.js" />
-    <Content Include="Scripts\src\utils\getWindowSizes.js" />
-    <Content Include="Scripts\src\utils\includeScroll.js" />
-    <Content Include="Scripts\src\utils\index.js" />
-    <Content Include="Scripts\src\utils\isBrowser.js" />
-    <Content Include="Scripts\src\utils\isFixed.js" />
-    <Content Include="Scripts\src\utils\isFunction.js" />
-    <Content Include="Scripts\src\utils\isIE.js" />
-    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
-    <Content Include="Scripts\src\utils\isModifierRequired.js" />
-    <Content Include="Scripts\src\utils\isNumeric.js" />
-    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
-    <Content Include="Scripts\src\utils\removeEventListeners.js" />
-    <Content Include="Scripts\src\utils\runModifiers.js" />
-    <Content Include="Scripts\src\utils\setAttributes.js" />
-    <Content Include="Scripts\src\utils\setStyles.js" />
-    <Content Include="Scripts\src\utils\setupEventListeners.js" />
-    <Content Include="Scripts\umd\popper-utils.js" />
-    <Content Include="Scripts\umd\popper-utils.min.js" />
-    <Content Include="Scripts\umd\popper.js" />
-    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionUsuarios\Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,13 +111,6 @@
     </Compile>
     <Compile Include="GestionUsuarios\Verificacion.aspx.designer.cs">
       <DependentUpon>Verificacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GestionUsuarios\OlvidaContraseña.aspx.cs">
-      <DependentUpon>OlvidaContraseña.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GestionUsuarios\OlvidaContraseña.aspx.designer.cs">
-      <DependentUpon>OlvidaContraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ValidaUsuario.aspx.cs">
       <DependentUpon>ValidaUsuario.aspx</DependentUpon>
@@ -229,18 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper.js.flow" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -257,9 +160,6 @@
       <Project>{bb4f0685-3882-421c-a284-79dd5b78b3c1}</Project>
       <Name>NegociosGestionUsuarios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

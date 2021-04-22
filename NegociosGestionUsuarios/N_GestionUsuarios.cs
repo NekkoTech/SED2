@@ -46,10 +46,13 @@ namespace NegociosGestionUsuarios
         {
             EntidadUsuario.Accion = "MODIFICAR";
             if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+                return "Exito: Los datos del usuario fueron modificados.";
+            return "Error: Los datos del usuario no pudieron modificados.";
+            /*if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
             {
                 return "Exito: Los datos del usuario fueron modificados correctamente.";
             }
-            return "Error: Los datos del usuario no pudieron ser modificados correctamente.";
+            return "Error: Los datos del usuario no pudieron ser modificados correctamente.";*/
         }
 
         public DataTable DT_LstUsuarios() { return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
@@ -74,6 +77,17 @@ namespace NegociosGestionUsuarios
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
 
+        public string InsertarCodigo(E_Codigo EntidadCodigo)
+        {
+            EntidadCodigo.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_Codigo>("InsertCodigo", EntidadCodigo).Contains("Exito"))
+                return "Exito: Codigo Generado y enviado.";
+            return "Error: No se pudo almacenar el codigo en la Base De Datos.";
+        }
+        public DataTable DT_LstCodigos() { return SQLD.DT_ListadoGeneral("CodRecuperacion", "Codigo, EmailUsuario"); }
+        public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
+        public E_Codigo BuscaCodigo(string Email)
+        { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
     }
 
 }

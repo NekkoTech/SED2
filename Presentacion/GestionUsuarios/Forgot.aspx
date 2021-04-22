@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="OlvidaContraseña.aspx.cs" Inherits="Presentacion.GestionUsuarios.OlvidaContraseña" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="Forgot.aspx.cs" Inherits="Presentacion.GestionUsuarios.Forgot" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
     <br />
@@ -12,7 +12,9 @@
                     
                     <asp:TextBox ID="tbEmailUsuario" placeholder="Correo" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
                     <br />
-                    <asp:Button ID="BtnSolicitar" runat="server" CssClass="btn-success rounded" Text="Solicitar" Width="150px" />
+                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                    <br />
+                    <asp:Button ID="BtnSolicitar" runat="server" CssClass="btn-success rounded" Text="Solicitar" Width="150px" OnClick="BtnSolicitar_Click" />
                 </div>
 
             </div>

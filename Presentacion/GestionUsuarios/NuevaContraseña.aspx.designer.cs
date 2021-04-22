@@ -42,6 +42,15 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.TextBox tbRepiteContraseña;
 
         /// <summary>
+        /// Control LblMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMsg;
+
+        /// <summary>
         /// Control BtnCambiarContra.
         /// </summary>
         /// <remarks>
@@ -49,14 +58,5 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCambiarContra;
-
-        /// <summary>
-        /// Control LBForgot.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LBForgot;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="NuevaContraseña.aspx.cs" Inherits="Presentacion.GestionUsuarios.ValidaUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="NuevaContraseña.aspx.cs" Inherits="Presentacion.GestionUsuarios.NuevaContraseña" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
@@ -15,13 +15,14 @@
                     <br />
                     <asp:TextBox ID="tbRepiteContraseña" placeholder="Repita Contraseña" runat="server" CssClass="input-group-text" TextMode="Password" Width="500px"></asp:TextBox>
                     <br />
-                    <asp:Button ID="BtnCambiarContra" runat="server" CssClass="btn-success rounded" Text="Cambiar" Width="150px" />
+                    <asp:Label ID="LblMsg" runat="server"></asp:Label>
+                    <br />
+                    <asp:Button ID="BtnCambiarContra" runat="server" CssClass="btn-success rounded" Text="Cambiar" Width="150px" OnClick="BtnCambiarContra_Click" />
                 </div>
 
             </div>
 
             <br />
-            <asp:LinkButton ID="LBForgot" runat="server" OnClick="LBForgot_Click">Olvidaste tu contraseña?</asp:LinkButton>
             <br />
         </div>
 
