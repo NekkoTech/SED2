@@ -69,6 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controles\wuc_Email.ascx" />
+    <Content Include="Controles\wuc_PassWord.ascx" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
@@ -84,6 +86,20 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\wuc_Email.ascx.cs">
+      <DependentUpon>wuc_Email.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_Email.ascx.designer.cs">
+      <DependentUpon>wuc_Email.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\wuc_PassWord.ascx.cs">
+      <DependentUpon>wuc_PassWord.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_PassWord.ascx.designer.cs">
+      <DependentUpon>wuc_PassWord.ascx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,7 +181,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controles\" />
     <Folder Include="JavaScript\" />
   </ItemGroup>
   <PropertyGroup>

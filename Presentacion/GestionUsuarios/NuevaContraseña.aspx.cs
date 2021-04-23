@@ -24,13 +24,14 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnCambiarContra_Click(object sender, EventArgs e)
         {
-            if (tbNuevaContraseña.Text.ToString() == tbRepiteContraseña.Text.ToString())
+            if (tbNuevaContraseña.Text.ToString().Trim() == tbRepiteContraseña.Text.ToString().Trim())
             {
                 EU=NU.BuscaUsuario(Email);
                 LblMsg.Text = EU.EmailUsuario;
                 EU.PassWordUsuario = tbNuevaContraseña.Text.ToString();
                 string msg=NU.ModificarUsuario(EU);
                 //LblMsg.Text = msg;
+                Response.Redirect("ValidaUsuario.aspx");
             }
         }
     }
