@@ -14,11 +14,12 @@
                 <div class="col">
                     <uc1:wuc_Email runat="server" id="tbEmailUsuario" />
                     <br />
-                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                    <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label>
+                    <br />
                     <br />
                     <asp:Button ID="BtnSolicitar" runat="server" CssClass="btn-success rounded" Text="Solicitar" Width="150px" OnClick="BtnSolicitar_Click" />
                 </div>
-
             </div>
         </div>
+    </div>
 </asp:Content>

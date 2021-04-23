@@ -28,11 +28,10 @@ namespace Presentacion.GestionUsuarios
                 {
                     Response.Redirect("InicioMain.aspx");
                 }
-                //Response.Redirect("HTTP://google.com");
             }
             else
             {
-                Response.Redirect("http://yahoo.com");
+                lblMensaje.Text = "Credenciales incorrectas";
             }
         }
 

@@ -19,13 +19,14 @@
                     <br />
                     <uc1:wuc_PassWord runat="server" id="tbPassWord" />
                     <br />
+                    <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label> <br /><br />
                     <asp:Button ID="BtnLogin" runat="server" CssClass="btn-success rounded" OnClick="Button1_Click" Text="Iniciar Sesión" Width="150px" />
                 </div>
 
             </div>
 
             <br />
-            <asp:LinkButton ID="LBForgot" runat="server" OnClick="LBForgot_Click">Olvidaste tu contraseña?</asp:LinkButton>
+            <asp:LinkButton ID="LBForgot" runat="server" CausesValidation="false" OnClick="LBForgot_Click">Olvidaste tu contraseña?</asp:LinkButton>
             <br />
         </div>
 
