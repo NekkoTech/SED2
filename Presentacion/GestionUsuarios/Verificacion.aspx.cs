@@ -27,7 +27,6 @@ namespace Presentacion.GestionUsuarios
         protected void BtnIngresar_Click(object sender, EventArgs e)
         {
             EC=NU.BuscaCodigo(Email.To.ToString());
-            LblMensaje.Text = EC.Codigo.ToString();
             if (tbCodigo.Text.ToString() == EC.Codigo)
             {
                 Session["Correo"] = EC.EmailUsuario.ToString();

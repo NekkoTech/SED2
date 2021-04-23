@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="Verificacion.aspx.cs" Inherits="Presentacion.GestionUsuarios.Verificacion" %>
+
+<%@ Register Src="~/Controles/wuc_CodVerificacion.ascx" TagPrefix="uc1" TagName="wuc_CodVerificacion" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
     <br />
@@ -9,10 +12,8 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <asp:Label ID="LblMensaje" runat="server" Text="Ingrese el codigo de verificacion"></asp:Label>
-                    <asp:TextBox ID="tbCodigo" placeholder="Codigo" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
+                    <uc1:wuc_CodVerificacion runat="server" id="tbCodigo" />
                     <br />
-                    <asp:Label ID="LblMsg" runat="server"></asp:Label>
                     <br />
                     <asp:Button ID="BtnIngresar" runat="server" CssClass="btn-success rounded" Text="Ingresar" Width="150px" OnClick="BtnIngresar_Click" />
                 </div>

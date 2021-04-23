@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="Forgot.aspx.cs" Inherits="Presentacion.GestionUsuarios.Forgot" %>
+
+<%@ Register Src="~/Controles/wuc_Email.ascx" TagPrefix="uc1" TagName="wuc_Email" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
     <br />
@@ -9,8 +12,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    
-                    <asp:TextBox ID="tbEmailUsuario" placeholder="Correo" runat="server" CssClass="input-group-text" Width="500px"></asp:TextBox>
+                    <uc1:wuc_Email runat="server" id="tbEmailUsuario" />
                     <br />
                     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     <br />

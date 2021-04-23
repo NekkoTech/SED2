@@ -7,45 +7,36 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
+namespace Presentacion.Controles {
     
     
-    public partial class Forgot {
+    public partial class wuc_CodVerificacion {
         
         /// <summary>
-        /// Control Label1.
+        /// Control tbCodVerificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox tbCodVerificacion;
         
         /// <summary>
-        /// Control tbEmailUsuario.
+        /// Control rfvtbCodVerificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Email tbEmailUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtbCodVerificacion;
         
         /// <summary>
-        /// Control lblMensaje.
+        /// Control revtbCodVerificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensaje;
-        
-        /// <summary>
-        /// Control BtnSolicitar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSolicitar;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbCodVerificacion;
     }
 }

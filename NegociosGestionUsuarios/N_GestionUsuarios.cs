@@ -23,7 +23,7 @@ namespace NegociosGestionUsuarios
                 Accion = "BORRAR",
                 IdUsuario = pIdUsuario
             };
-            if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+            if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                 return "Exito: Los datos del usuario fueron borrados correctamente";
             return "Error: Los datos del usuario no pudieron ser borrados";
         }
@@ -34,7 +34,7 @@ namespace NegociosGestionUsuarios
             if (EU == null)
             {
                 EntidadUsuario.Accion = "INSERTAR";
-                if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+                if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                     return "Exito: Los datos del usuario fueron registrados correctamente.";
                 return "Error: Los datos del usuario no pudieron ser registrados correctamente.";
             }
@@ -45,7 +45,7 @@ namespace NegociosGestionUsuarios
         public string ModificarUsuario(E_Usuarios EntidadUsuario)
         {
             EntidadUsuario.Accion = "MODIFICAR";
-            if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))
+            if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                 return "Exito: Los datos del usuario fueron modificados.";
             return "Error: Los datos del usuario no pudieron modificados.";
             /*if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuarios", EntidadUsuario).Contains("Exito"))

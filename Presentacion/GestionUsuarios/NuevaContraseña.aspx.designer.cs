@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios
-{
-
-
-    public partial class NuevaContraseña
-    {
-
+namespace Presentacion.GestionUsuarios {
+    
+    
+    public partial class NuevaContraseña {
+        
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// Control tbNuevaContraseña.
         /// </summary>
@@ -30,26 +28,8 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNuevaContraseña;
-
-        /// <summary>
-        /// Control tbRepiteContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRepiteContraseña;
-
-        /// <summary>
-        /// Control LblMsg.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMsg;
-
+        protected global::Presentacion.Controles.wuc_RepPassWord tbNuevaContraseña;
+        
         /// <summary>
         /// Control BtnCambiarContra.
         /// </summary>
