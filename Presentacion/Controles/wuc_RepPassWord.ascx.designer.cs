@@ -7,45 +7,54 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
+namespace Presentacion.Controles {
     
     
-    public partial class Forgot {
+    public partial class wuc_RepPassWord {
         
         /// <summary>
-        /// Control Label1.
+        /// Control tbPassWord.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox tbPassWord;
         
         /// <summary>
-        /// Control tbEmailUsuario.
+        /// Control rfvtbPassWord.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Email tbEmailUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtbPassWord;
         
         /// <summary>
-        /// Control lblMensaje.
+        /// Control tbRepPassWord.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        protected global::System.Web.UI.WebControls.TextBox tbRepPassWord;
         
         /// <summary>
-        /// Control BtnSolicitar.
+        /// Control rfvtbRepPassWord.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSolicitar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtbRepPassWord;
+        
+        /// <summary>
+        /// Control cvPassWords.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvPassWords;
     }
 }

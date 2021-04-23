@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/UsuariosSinLogeo.master" AutoEventWireup="true" CodeBehind="NuevaContraseña.aspx.cs" Inherits="Presentacion.GestionUsuarios.NuevaContraseña" %>
 
+<%@ Register Src="~/Controles/wuc_RepPassWord.ascx" TagPrefix="uc1" TagName="wuc_RepPassWord" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CphMainLogin" runat="server">
     <br />
     <br />
@@ -10,12 +13,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    
-                    <asp:TextBox ID="tbNuevaContraseña" placeholder="Nueva Contraseña" runat="server" CssClass="input-group-text" TextMode="Password" Width="500px"></asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbRepiteContraseña" placeholder="Repita Contraseña" runat="server" CssClass="input-group-text" TextMode="Password" Width="500px"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="LblMsg" runat="server"></asp:Label>
+                    <uc1:wuc_RepPassWord runat="server" id="tbNuevaContraseña" />
                     <br />
                     <asp:Button ID="BtnCambiarContra" runat="server" CssClass="btn-success rounded" Text="Cambiar" Width="150px" OnClick="BtnCambiarContra_Click" />
                 </div>
