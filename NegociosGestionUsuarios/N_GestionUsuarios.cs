@@ -45,6 +45,7 @@ namespace NegociosGestionUsuarios
         public string ModificarUsuario(E_Usuarios EntidadUsuario)
         {
             EntidadUsuario.Accion = "MODIFICAR";
+            
             if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                 return "Exito: Los datos del usuario fueron modificados.";
             return "Error: Los datos del usuario no pudieron modificados.";

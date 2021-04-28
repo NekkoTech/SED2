@@ -69,10 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controles\wuc_CodVerificacion.ascx" />
     <Content Include="Controles\wuc_Email.ascx" />
     <Content Include="Controles\wuc_PassWord.ascx" />
-    <Content Include="Controles\wuc_RepPassWord.ascx" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
@@ -88,13 +86,6 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controles\wuc_CodVerificacion.ascx.cs">
-      <DependentUpon>wuc_CodVerificacion.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controles\wuc_CodVerificacion.ascx.designer.cs">
-      <DependentUpon>wuc_CodVerificacion.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Controles\wuc_Email.ascx.cs">
       <DependentUpon>wuc_Email.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,13 +99,6 @@
     </Compile>
     <Compile Include="Controles\wuc_PassWord.ascx.designer.cs">
       <DependentUpon>wuc_PassWord.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\wuc_RepPassWord.ascx.cs">
-      <DependentUpon>wuc_RepPassWord.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controles\wuc_RepPassWord.ascx.designer.cs">
-      <DependentUpon>wuc_RepPassWord.ascx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>

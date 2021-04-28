@@ -68,7 +68,15 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnSolicitar_Click(object sender, EventArgs e)
         {
-            EnviaEmail(tbEmailUsuario.Text);
+            E_Usuarios EU = NU.BuscaUsuario(tbEmailUsuario.Text.Trim());
+            if (EU!=null)
+            {
+                EnviaEmail(tbEmailUsuario.Text);
+            }
+            else
+            {
+                lblMensaje.Text = "El correo electronico no esta registrado";
+            }
         }
     }
 }

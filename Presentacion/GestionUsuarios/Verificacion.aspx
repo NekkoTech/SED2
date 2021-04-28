@@ -12,7 +12,8 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <uc1:wuc_CodVerificacion runat="server" id="tbCodigo" />
+                    <uc1:wuc_CodVerificacion runat="server" id="tbCodigo" /> <br />
+                    <asp:Label ID="LblMsg" runat="server" CssClass="text-danger"></asp:Label>
                     <br />
                     <br />
                     <asp:Button ID="BtnIngresar" runat="server" CssClass="btn-success rounded" Text="Ingresar" Width="150px" OnClick="BtnIngresar_Click" />

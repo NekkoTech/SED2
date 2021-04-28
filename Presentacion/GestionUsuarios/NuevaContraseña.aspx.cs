@@ -27,6 +27,7 @@ namespace Presentacion.GestionUsuarios
                 EU=NU.BuscaUsuario(Email);
                 EU.PassWordUsuario = tbNuevaContraseña.Text.ToString();
                 string msg=NU.ModificarUsuario(EU);
+            Response.Redirect("ValidaUsuario.aspx");
         }
     }
 }

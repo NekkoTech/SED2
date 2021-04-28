@@ -32,6 +32,10 @@ namespace Presentacion.GestionUsuarios
                 Session["Correo"] = EC.EmailUsuario.ToString();
                 Response.Redirect("NuevaContraseña.aspx");
             }
+            else
+            {
+                LblMsg.Text = "El codigo de verificacion es incorrecto";
+            }
         }
     }
 }
