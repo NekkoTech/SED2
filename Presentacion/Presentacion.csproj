@@ -69,10 +69,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controles\wuc_CodVerificacion.ascx" />
     <Content Include="Controles\wuc_Email.ascx" />
     <Content Include="Controles\wuc_PassWord.ascx" />
+    <Content Include="Controles\wuc_RepPassWord.ascx" />
+    <Content Include="Controles\wuc_Text.ascx" />
+    <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\NuevaContraseña.aspx" />
@@ -86,6 +91,13 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\wuc_CodVerificacion.ascx.cs">
+      <DependentUpon>wuc_CodVerificacion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_CodVerificacion.ascx.designer.cs">
+      <DependentUpon>wuc_CodVerificacion.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controles\wuc_Email.ascx.cs">
       <DependentUpon>wuc_Email.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,6 +111,27 @@
     </Compile>
     <Compile Include="Controles\wuc_PassWord.ascx.designer.cs">
       <DependentUpon>wuc_PassWord.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\wuc_RepPassWord.ascx.cs">
+      <DependentUpon>wuc_RepPassWord.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_RepPassWord.ascx.designer.cs">
+      <DependentUpon>wuc_RepPassWord.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\wuc_Text.ascx.cs">
+      <DependentUpon>wuc_Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_Text.ascx.designer.cs">
+      <DependentUpon>wuc_Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\AgregaUsuario.aspx.cs">
+      <DependentUpon>AgregaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\AgregaUsuario.aspx.designer.cs">
+      <DependentUpon>AgregaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
