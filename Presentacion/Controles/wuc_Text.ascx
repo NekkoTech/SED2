@@ -4,4 +4,4 @@
 
 <asp:TextBox ID="tbTexto"  CssClass="form-control box" runat="server"></asp:TextBox>
 <asp:RequiredFieldValidator ID="rfvtbTexto" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="tbTexto" CssClass="text-danger" Display="Dynamic">Campo Requerido</asp:RequiredFieldValidator>
-<asp:RegularExpressionValidator ID="revtbTexto" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbTexto" Display="Dynamic" CssClass="text-danger" ValidationExpression="^[a-zA-Z]{50}$">Caracter invalido</asp:RegularExpressionValidator>
+<asp:RegularExpressionValidator ID="revtbTexto" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbTexto" Display="Dynamic" CssClass="text-danger" ValidationExpression="^[A-Za-zñÑ ]+$">Caracter invalido</asp:RegularExpressionValidator>
