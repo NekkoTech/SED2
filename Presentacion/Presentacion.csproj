@@ -83,6 +83,7 @@
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
     <Content Include="GestionUsuarios\NuevaContraseña.aspx" />
     <Content Include="GestionUsuarios\Verificacion.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaUsuarios.aspx.cs">
+      <DependentUpon>ListaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaUsuarios.aspx.designer.cs">
+      <DependentUpon>ListaUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\NuevaContraseña.aspx.cs">
       <DependentUpon>NuevaContraseña.aspx</DependentUpon>
