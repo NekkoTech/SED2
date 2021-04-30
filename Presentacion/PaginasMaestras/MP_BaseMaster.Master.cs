@@ -44,9 +44,17 @@ namespace Presentacion.PaginasMaestras
                     {
                         if (priv.IdModulo == menu.IdModulo && priv.IdTipoUsuario== EU.IdTipoUsuario)
                         {
-                            Mn.Text += "<li class=\"nav-item\">" +
+                            if (menu.IdPadre == 0)
+                            {
+                                Mn.Text += "<li class=\"nav-item\">" +
                                     "<a class=\"nav-link\" href=" + menu.UrlModulo + ">" + menu.NombreModulo + "</a>" +
-                                    "</li>";      
+                                    "</li>";
+                            }
+                            else
+                            {
+
+                            }
+                                 
                         }
                     }
                 }

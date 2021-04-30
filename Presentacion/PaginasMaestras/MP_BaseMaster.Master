@@ -37,7 +37,6 @@
         </div>
         <div class="container-fluid" style="background-color: #00723f;">
             <asp:Panel ID="PnlMenuUsuario" runat="server"></asp:Panel>
-            <asp:Label ID="lblComp" runat="server" Text=""></asp:Label>
         </div>
         <div class="container">
             <asp:ContentPlaceHolder ID="CphContenedorBase" runat="server">
