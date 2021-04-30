@@ -26,6 +26,7 @@ namespace Presentacion.GestionUsuarios
             {
                 if (EU.IdTipoUsuario == 1)
                 {
+                    Session["Usuario"] = EU;
                     Response.Redirect("InicioMain.aspx");
                 }
             }

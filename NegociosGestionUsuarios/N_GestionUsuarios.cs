@@ -89,6 +89,11 @@ namespace NegociosGestionUsuarios
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
         public E_Codigo BuscaCodigo(string Email)
         { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
+        public DataTable DT_LstModulos() { return SQLD.DT_ListadoGeneral("Modulos", "IdModulo,NombreModulo,UrlModulo"); }
+        public List<E_Menu> LstModulos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Menu>(DT_LstModulos()); }
+        public DataTable DT_LstPrivilegios() { return SQLD.DT_ListadoGeneral("Privilegios", "IdTipoUsuario,IdModulo,IdPrivilegio"); }
+        public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }
+
     }
 
 }

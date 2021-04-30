@@ -82,4 +82,62 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
+    public class E_Menu
+    {
+        #region Atributos
+        private int _IdModulo;
+        private string _NombreModulo;
+        private string _UrlModulo;
+        private int _IdPadre;
+        #endregion
+        #region Encapsulamientos
+        public int IdModulo { get => _IdModulo; set => _IdModulo = value; }
+        public string NombreModulo { get => _NombreModulo; set => _NombreModulo = value; }
+        public string UrlModulo { get => _UrlModulo; set => _UrlModulo = value; }
+        public int IdPadre { get => _IdPadre; set => _IdPadre = value; }
+        #endregion
+        #region Constructores
+        public E_Menu()
+        {
+            IdModulo = 0;
+            NombreModulo = string.Empty;
+            UrlModulo = string.Empty;
+        }
+        public E_Menu(int IdModulo, string Nombre, string Url, int idPadre)
+        {
+            this.IdModulo = IdModulo;
+            this.NombreModulo = Nombre;
+            this.UrlModulo = Url;
+            IdPadre = idPadre;
+        }
+        #endregion
+    }
+    public class E_Privilegios
+    {
+        #region Atributos
+        private int _IdTipoUsuario;
+        private int _IdModulo;
+        private int _IdPrivilegio;
+
+        #endregion
+        #region Encapsulamientos
+        public int IdTipoUsuario { get => _IdTipoUsuario; set => _IdTipoUsuario = value; }
+        public int IdModulo { get => _IdModulo; set => _IdModulo = value; }
+        public int IdPrivilegio { get => _IdPrivilegio; set => _IdPrivilegio = value; }
+
+
+        #endregion
+        #region Constructores
+        public E_Privilegios(int idTipoUsuario, int idModulo, int idPrivilegio)
+        {
+            IdTipoUsuario = idTipoUsuario;
+            IdModulo = idModulo;
+            IdPrivilegio = idPrivilegio;
+        }
+
+        public E_Privilegios()
+        {
+        }
+        #endregion
+    }
 }
