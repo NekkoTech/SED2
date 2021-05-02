@@ -46,7 +46,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav align-content-center">
+                        <ul class="navbar-nav align-middle">
                             <!--li class="nav-item"><a class="nav-link" href="ListaUsuarios.aspx">Administrar Usuarios</a></li-->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
@@ -58,9 +58,12 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="PlanesEstudio.aspx">Planes De Estudio</a></li>
                             <li class="nav-item"><a class="nav-link">
-                                <asp:Button ID="BtnCerrarSesion" CssClass="btn-danger form-control" runat="server" Text="Cerrar Sesion" OnClick="BtnCerrarSesion_Click" />
-                                </a></li>
-                            </ul>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MyModal">
+                                    Cerrar Sesíon
+                                </button>
+                                
+                            </a></li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -69,6 +72,30 @@
             <asp:ContentPlaceHolder ID="CphContenedorBase" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <div class="modal fade" id="MyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesíon</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="LblCerrarSesion" runat="server" Text="">¿Seguro que desea salir de la sesíon?</asp:Label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+                        <asp:Button ID="BtnCerrarSesion" runat="server" CssClass="btn btn-danger" OnClick="BtnCerrarSesion_Click" Text="Salir" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#MyModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        </script>
     </form>
 </body>
 </html>

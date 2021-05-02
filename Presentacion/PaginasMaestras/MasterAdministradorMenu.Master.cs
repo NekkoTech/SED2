@@ -19,5 +19,6 @@ namespace Presentacion.PaginasMaestras
             Session.Abandon();
             Response.Redirect("ValidaUsuario.aspx");
         }
+
     }
 }
