@@ -20,7 +20,7 @@ namespace Presentacion.PaginasMaestras
             EU = (E_Usuarios)Session["Usuario"];
             if (EU != null)
             {
-                Literal Mn = new Literal
+                /*Literal Mn = new Literal
                 {
                     Text =
                     "<nav class=\"navbar navbar-expand-lg navbar-dark\" style=\"background-color: #00723f;\">" +
@@ -62,7 +62,7 @@ namespace Presentacion.PaginasMaestras
                 Mn.Text += "</div>";
                 Mn.Text += "</div>";
                 Mn.Text += "</nav>";
-                PnlMenuUsuario.Controls.Add(Mn);
+                PnlMenuUsuario.Controls.Add(Mn);*/
             }
 
         }
