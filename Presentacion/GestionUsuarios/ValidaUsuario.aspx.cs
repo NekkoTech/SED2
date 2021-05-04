@@ -24,10 +24,20 @@ namespace Presentacion.GestionUsuarios
             EU = NU.ValidaUsuario(tbEmailUsuario.Text, tbPassWord.Text);
             if (EU != null)
             {
-                if (EU.IdTipoUsuario == 1)
+                Session["Usuario"] = EU;
+                switch (EU.IdTipoUsuario)
                 {
-                    Session["Usuario"] = EU;
-                    Response.Redirect("InicioMain.aspx");
+                    case 1:
+                        
+                        Response.Redirect("InicioMain.aspx");
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
                 }
             }
             else

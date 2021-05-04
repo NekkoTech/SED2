@@ -6,10 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EntidadesGestionUsuarios;
 
-
 namespace Presentacion.GestionUsuarios
 {
-    public partial class InicioMain : System.Web.UI.Page
+    public partial class InicioDocente : System.Web.UI.Page
     {
         E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
@@ -18,7 +17,7 @@ namespace Presentacion.GestionUsuarios
             if (EU != null)
             {
                 LblMensajeInicio.Text = "Usted Es Administrador";
-               
+                LblNombre.Text = EU.NombreUsuario + " " + EU.APaternoUsuario + " " + EU.AMaternoUsuario;
             }
         }
     }
