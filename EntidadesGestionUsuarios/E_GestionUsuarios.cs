@@ -15,6 +15,7 @@ namespace EntidadesGestionUsuarios
         private string _NombreUsuario;
         private string _APaternoUsuario;
         private string _AMaternoUsuario;
+        private string _NumeroEmpleado;
         private string _EmailUsuario;
         private string _PassWordUsuario;
         #endregion
@@ -27,6 +28,7 @@ namespace EntidadesGestionUsuarios
         public string AMaternoUsuario { get => _AMaternoUsuario; set => _AMaternoUsuario = value; }
         public string EmailUsuario { get => _EmailUsuario; set => _EmailUsuario = value; }
         public string PassWordUsuario { get => _PassWordUsuario; set => _PassWordUsuario = value; }
+        public string NumeroEmpleado { get => _NumeroEmpleado; set => _NumeroEmpleado = value; }
         #endregion
         #region Constructores
         public E_Usuarios()
@@ -39,8 +41,9 @@ namespace EntidadesGestionUsuarios
             _AMaternoUsuario = string.Empty;
             _EmailUsuario = string.Empty;
             _PassWordUsuario = string.Empty;
+            _NumeroEmpleado = string.Empty;
         }
-        public E_Usuarios(string accion, int idUsuario, int idTipoUsuario, string nombreUsuario, string aPaternoUsuario, string aMaternoUsuario, string emailUsuario, string passWordUsuario)
+        public E_Usuarios(string accion, int idUsuario, int idTipoUsuario, string nombreUsuario, string aPaternoUsuario, string aMaternoUsuario, string emailUsuario, string passWordUsuario, string NumeroEmpleado)
         {
             _Accion = accion;
             _IdUsuario = idUsuario;
@@ -50,6 +53,7 @@ namespace EntidadesGestionUsuarios
             _AMaternoUsuario = aMaternoUsuario;
             _EmailUsuario = emailUsuario;
             _PassWordUsuario = passWordUsuario;
+            _NumeroEmpleado = NumeroEmpleado;
         }
         #endregion
     }
