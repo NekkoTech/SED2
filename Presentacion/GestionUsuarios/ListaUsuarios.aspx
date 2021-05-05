@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <br />
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -30,6 +31,9 @@
 
 =======
 
+=======
+
+>>>>>>> Stashed changes
     <asp:SqlDataSource ID="Usuarios" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConexionBD %>"
         SelectCommand="SELECT [IdUsuario],[NombreUsuario], [EmailUsuario] FROM [Usuarios]">
@@ -66,6 +70,9 @@
            
         </Columns>
     </asp:GridView>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </asp:Content>
 
