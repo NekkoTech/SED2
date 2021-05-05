@@ -9,8 +9,7 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    
-    public partial class AgregaUsuario : System.Web.UI.Page
+    public partial class ModificarUsuario : System.Web.UI.Page
     {
         E_Usuarios EU = new E_Usuarios();
         N_Usuarios NU = new N_Usuarios();
@@ -20,11 +19,32 @@ namespace Presentacion.GestionUsuarios
             {
                 Response.Redirect("ValidaUsuario.aspx");
             }*/
-        }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            if (Session["UsuarioSeleccionado"] != null)
+            {
+                EU = (E_Usuarios)Session["UsuarioSeleccionado"];
+                tbNombre.Text = EU.NombreUsuario;
+                tbAPat.Text = EU.APaternoUsuario;
+                tbAMat.Text = EU.AMaternoUsuario;
+                tbEmail.Text = EU.EmailUsuario;
+                tbNumeroEmpleado.Text = EU.NumeroEmpleado;
+                tbPassWord.Text = EU.PassWordUsuario;
+                switch (EU.IdTipoUsuario)
+                {
+                    case 2:
+                        btnSubdirector.Style.Add("background-color", "#00723f");
+                        break;
+                    case 3:
+                        btnCoordinador.Style.Add("background-color", "#00723f");
+                        break;
+                    case 4:
+                        btnDocente.Style.Add("background-color", "#00723f");
+                        break;
+                }
+            }
+            if (Session["showModal"]!=null)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "<script>$('#MyModal').on('shown.bs.modal', function() {$('#myInput').trigger('focus')})</ script >", true);
+            }
         }
 
         protected void ChangeColorSubd(object sender, EventArgs e)
@@ -48,26 +68,27 @@ namespace Presentacion.GestionUsuarios
             btnDocente.Style.Add("background-color", "#00723f");
             Session["TipoUsuario"] = 4;
         }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
             EU.AMaternoUsuario = tbAMat.Text;
-            EU.EmailUsuario = tbEmail.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
+            EU.EmailUsuario = tbEmail.Text;
             EU.PassWordUsuario = tbPassWord.Text;
             EU.IdUsuario = 1;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
-            if(NU.InsertarUsuario(EU).Contains("Exito"))
+            if (NU.ModificarUsuario(EU).Contains("Exito"))
             {
-                lblRespuesta.Text = "El usuario fue agregado exitosamente";
+                lblRespuesta.Text = "Los datos fueron modificados con exito";
             }
             else
             {
                 lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
             }
             
-
+            
         }
     }
 }

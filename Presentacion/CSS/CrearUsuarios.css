@@ -9,12 +9,28 @@
     .boton:hover {
         background-color: #000000
     }
+.boton2 {
+    font-size:medium;
+    background-color: #00723f;
+    border-radius: 30px;
+}
 .box {
-    
+    width: auto;
+    border-radius: 30px;
+    outline: none;
+    padding: 10px;
+}
+.box2 {
+    display: inline-block;
+    width: auto;
     border-radius: 30px;
     outline: none;
     padding: 10px;
 }
 .margen{
     margin-right: 60px;
+}
+
+.xxlarge{
+    font-size:xx-large;
 }

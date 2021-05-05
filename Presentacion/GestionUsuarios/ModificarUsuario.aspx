@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="AgregaUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.AgregaUsuario" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true"  Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ModificarUsuario" %>
 
 <%@ Register Src="../Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
 <%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
@@ -7,22 +7,10 @@
 
 
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
     <br />
-    <br />
-    <div class="container">
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb bg-white">
-                <li class="breadcrumb-item"><a href="InicioMain.aspx">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="ListaUsuarios.aspx">Administrar Usuarios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Agregar Usuarios</li>
-            </ol>
-        </nav>
-        <br />
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre(s)</label>
             <div class="col-sm-10">
@@ -82,10 +70,9 @@
           
         </div>
         <br />
-        <div class="text-center align-content-center">
-
-            <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Guardar" OnClick="Button1_Click"></asp:Button><br />
+        <div class="align-content-center text-center">
+                <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Modificar" OnClick="Button1_Click"></asp:Button><br />
             <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
         </div>
-    </div>
+
 </asp:Content>
