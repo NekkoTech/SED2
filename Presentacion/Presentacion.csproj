@@ -93,6 +93,7 @@
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
+    <Content Include="GestionUsuarios\ModificarUsuario.aspx" />
     <Content Include="GestionUsuarios\NuevaContraseña.aspx" />
     <Content Include="GestionUsuarios\Verificacion.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
@@ -302,6 +303,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\ListaUsuarios.aspx.designer.cs">
       <DependentUpon>ListaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ModificarUsuario.aspx.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ModificarUsuario.aspx.designer.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\NuevaContraseña.aspx.cs">
       <DependentUpon>NuevaContraseña.aspx</DependentUpon>
