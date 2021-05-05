@@ -89,6 +89,7 @@
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
+    <Content Include="GestionUsuarios\InfoCuenta.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
@@ -273,6 +274,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\InfoCuenta.aspx.cs">
+      <DependentUpon>InfoCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\InfoCuenta.aspx.designer.cs">
+      <DependentUpon>InfoCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\InicioDocente.aspx.cs">
       <DependentUpon>InicioDocente.aspx</DependentUpon>

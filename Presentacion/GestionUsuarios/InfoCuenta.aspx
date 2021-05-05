@@ -1,16 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="InfoCuenta.aspx.cs" Inherits="Presentacion.GestionUsuarios.InfoCuenta" %>
 
-
-
-
+<%@ Register Src="../Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
-    
+        <br />
+    <div class="text-center">
+        <asp:Label ID="lblInfoCuenta" runat="server" CssClass="xxlarge" Text="Información de su cuenta"></asp:Label>
+    </div>
     <br />
-
        <div class="form-group row">
        <label class="col-sm-2 col-form-label">Nombre(s)</label>
     <div class="col-sm-10">
@@ -49,26 +48,13 @@
     <div class="form-group row">
        <label class="col-sm-2 col-form-label">Contraseña</label>
     <div class="col-sm-10">
-        <asp:TextBox ID="tbPassWord" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+        <uc1:wuc_CrearUsuarioPassWord runat="server" ID="tbPassWord" /><br />
+        <asp:Label ID="lblIngresaContraseña" runat="server" Text="Ingrese su nueva contraseña"></asp:Label>
     </div>
    </div>
   <br />
     <div class="form-row text-center">
-      
-           <asp:Button runat="server" ID="btnSubdirector" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="SUBDIRECTOR"></asp:Button>
-   
-    
-           <asp:Button runat="server" ID="btnCoordinador" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="COORDINADOR"></asp:Button>
-    
-  
-           <asp:Button runat="server" ID="btnDocente" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="DOCENTE"></asp:Button>
-   
-      
-  </div>
-  <br />
-    <asp:Panel runat="server" CssClass="form-row text-center" ID="PBusuario">
-           <asp:Button runat="server" ID="btnRegresar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
-           <asp:Button runat="server" ID="btnBorrar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Eliminar" OnClick="btnBorrar_Click"></asp:Button>
-    </asp:Panel>
-
+        <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
+        <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
+    </div>
 </asp:Content>

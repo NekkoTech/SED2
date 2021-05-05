@@ -16,10 +16,10 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-           /*if (Session["Usuario"]==null)
-           {
-               Response.Redirect("ValidaUsuario.aspx");
-           }*/
+            /*if (Session["Usuario"]==null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }*/
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
