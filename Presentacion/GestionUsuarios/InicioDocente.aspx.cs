@@ -16,7 +16,7 @@ namespace Presentacion.GestionUsuarios
             EU = (E_Usuarios)Session["Usuario"];
             if (EU != null)
             {
-                LblMensajeInicio.Text = "Usted Es Administrador";
+                LblMensajeInicio.Text = "Bienvenido Docente";
                 LblNombre.Text = EU.NombreUsuario + " " + EU.APaternoUsuario + " " + EU.AMaternoUsuario;
             }
         }
