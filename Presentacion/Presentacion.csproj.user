@@ -16,7 +16,11 @@
         <WebProjectProperties>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <StartPageUrl>GestionUsuarios/AgregaUsuario.aspx</StartPageUrl>
+=======
+          <StartPageUrl>GestionUsuarios/ListaUsuarios.aspx</StartPageUrl>
+>>>>>>> Stashed changes
 =======
           <StartPageUrl>GestionUsuarios/ListaUsuarios.aspx</StartPageUrl>
 >>>>>>> Stashed changes

@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <br />
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -31,6 +32,9 @@
 
 =======
 
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -71,6 +75,9 @@
         </Columns>
     </asp:GridView>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
