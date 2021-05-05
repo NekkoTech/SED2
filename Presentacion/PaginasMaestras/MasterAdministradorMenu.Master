@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>SED</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="../Scripts/jquery-3.0.0.js"></script>
@@ -45,24 +45,34 @@
                     <button class="navbar-toggler" runat="server" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse row text-center" id="navbarNav">
                         <ul class="navbar-nav align-middle">
                             <!--li class="nav-item"><a class="nav-link" href="ListaUsuarios.aspx">Administrar Usuarios</a></li-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="ListaUsuarios.aspx">Lista de Usuarios</a>
-                                    <a class="dropdown-item" href="AgregaUsuario.aspx">Agregar Usuarios</a>
-                                </div>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="PlanesEstudio.aspx">Planes De Estudio</a></li>
-                            <li class="nav-item"><a class="nav-link">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MyModal">
-                                    Cerrar Sesíon
-                                </button>
-                                
-                            </a></li>
+                            <div class="col-sm">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="ListaUsuarios.aspx">Lista de Usuarios</a>
+                                        <a class="dropdown-item" href="AgregaUsuario.aspx">Agregar Usuarios</a>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="col-sm">
+
+                                <li class="nav-item"><a class="nav-link" href="PlanesEstudio.aspx">Planes De Estudio</a></li>
+                            </div>
+                            <div class="col-sm">
+                                <li class="nav-item"><a class="nav-link">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MyModal">
+                                        Cerrar Sesíon
+                                    </button>
+
+                                </a></li>
+                            </div>
+
+
+
                         </ul>
                     </div>
                 </div>

@@ -55,6 +55,7 @@ namespace Presentacion.GestionUsuarios
             EU.AMaternoUsuario = tbAMat.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.EmailUsuario = tbEmail.Text;
+            EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.PassWordUsuario = tbPassWord.Text;
             EU.IdUsuario = 1;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
