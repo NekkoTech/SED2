@@ -94,6 +94,17 @@ namespace NegociosGestionUsuarios
         public DataTable DT_LstPrivilegios() { return SQLD.DT_ListadoGeneral("Privilegios", "IdTipoUsuario,IdModulo,IdPrivilegio"); }
         public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }
 
+        public void InsertarFirma(Byte[] Firma, int IdUsuario)
+        {
+            SqlCommand SqlComando;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("SET IDENTITY_INSERT Genre  ON INSERT INTO Firmas(IdFirma,IdUsuario,Firma) VALUES(@IdFirma,@IdUsuario,@Firma) SET IDENTITY_INSERT Genre  OFF", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdFirma", 1);
+            SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+            SqlComando.Parameters.AddWithValue("@Firma", Firma);
+
+            SqlComando.ExecuteNonQuery();
+        }
     }
 
 }

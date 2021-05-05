@@ -80,10 +80,10 @@
                 
                 <div class="card" style="width: 20rem; top: 0px; left: 0px;">
                     <a href='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}",Eval("IdUsuario")) %>'></a>
-                    <asp:Image ID="Image1" CssClass="card-img" ImageUrl='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}", Eval("IdUsuario")) %>' runat="server" />
+                    <asp:Image ID="ImgFirma" Width="300px" Height="250px" CssClass="card-img" ImageUrl='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}", Eval("IdUsuario")) %>' runat="server" />
                     <div class="card-body">
-                        <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="200px" />
-                        <asp:Button ID="BtnSubirArchivo" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" CausesValidation="false" />
+                        <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="250px" />
+                        <asp:Button ID="BtnSubirArchivo" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" CausesValidation="false" OnClick="BtnSubirArchivo_Click1" />
                         <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false"/>
                     </div>
                 </div>

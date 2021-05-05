@@ -96,7 +96,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-                        <asp:Button ID="BtnCerrarSesion" runat="server" CssClass="btn btn-danger" OnClick="BtnCerrarSesion_Click" Text="Salir" />
+                        <asp:Button ID="BtnCerrarSesion" runat="server" CssClass="btn btn-danger" OnClick="BtnCerrarSesion_Click" Text="Salir" CausesValidation="false"/>
                     </div>
                 </div>
             </div>

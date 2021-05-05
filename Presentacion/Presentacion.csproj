@@ -88,6 +88,7 @@
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
+    <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
@@ -117,6 +118,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="PaginasMaestras\MasterDocenteMenu.Master" />
+    <Content Include="Handler\RecuperaArchivo.ashx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -264,8 +266,15 @@
       <DependentUpon>EliminarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionUsuarios\EliminarUsuario.aspx.designer.cs">
-      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+	  <Compile Include="GestionUsuarios\EliminarUsuario.aspx.designer.cs">
+		  <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+	  </Compile>
+    <Compile Include="GestionUsuarios\CuentaDocente.aspx.cs">
+      <DependentUpon>CuentaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\CuentaDocente.aspx.designer.cs">
+      <DependentUpon>CuentaDocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
@@ -315,6 +324,9 @@
     </Compile>
     <Compile Include="GestionUsuarios\ValidaUsuario.aspx.designer.cs">
       <DependentUpon>ValidaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\RecuperaArchivo.ashx.cs">
+      <DependentUpon>RecuperaArchivo.ashx</DependentUpon>
     </Compile>
     <Compile Include="PaginasMaestras\MasterDocenteMenu.Master.cs">
       <DependentUpon>MasterDocenteMenu.Master</DependentUpon>
