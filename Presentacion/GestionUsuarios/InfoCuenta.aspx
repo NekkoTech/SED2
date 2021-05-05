@@ -54,7 +54,7 @@
    </div>
   <br />
     <div class="form-row text-center">
-        <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
+        <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Guardar" OnClick="Button1_Click"></asp:Button><br />
         <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
     </div>
 </asp:Content>
