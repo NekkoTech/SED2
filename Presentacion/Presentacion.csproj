@@ -87,6 +87,7 @@
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
+    <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\AgregaUsuario.aspx.designer.cs">
       <DependentUpon>AgregaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\EliminarUsuario.aspx.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\EliminarUsuario.aspx.designer.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>

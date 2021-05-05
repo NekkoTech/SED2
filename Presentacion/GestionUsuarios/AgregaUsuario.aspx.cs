@@ -16,7 +16,10 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           /*if (Session["Usuario"]==null)
+           {
+               Response.Redirect("ValidaUsuario.aspx");
+           }*/
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -50,13 +53,14 @@ namespace Presentacion.GestionUsuarios
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
             EU.AMaternoUsuario = tbAMat.Text;
+            EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.PassWordUsuario = tbPassWord.Text;
             EU.IdUsuario = 1;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
-            Session["TipoUsuario"] = null;
             if(NU.InsertarUsuario(EU).Contains("Exito"))
             {
+                Session["TipoUsuario"] = null;
                 Response.Redirect("www.google.com");
             }
             else

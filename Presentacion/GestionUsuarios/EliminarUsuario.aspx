@@ -1,0 +1,78 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
+
+<%@ Register Src="../Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
+<%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
+<%@ Register Src="../Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
+<%@ Register Src="../Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
+
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
+    
+    <br />
+
+       <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Nombre(s)</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbNombre" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+    <br />
+    <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Apellido Paterno</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbAPat" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+    <br />
+    <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Apellido Materno</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbAMat" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+    <br />
+    <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Numero Empleado</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbNumeroEmpleado" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+    <br />
+    <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Correo Institucional</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbEmail" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+    <br />
+    <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Contraseña</label>
+    <div class="col-sm-10">
+        <asp:TextBox ID="tbPassWord" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
+    </div>
+   </div>
+  <br />
+    <div class="form-row text-center">
+      
+           <asp:Button runat="server" ID="btnSubdirector" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="SUBDIRECTOR"></asp:Button>
+   
+    
+           <asp:Button runat="server" ID="btnCoordinador" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="COORDINADOR"></asp:Button>
+    
+  
+           <asp:Button runat="server" ID="btnDocente" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="DOCENTE"></asp:Button>
+   
+      
+  </div>
+  <br />
+    <asp:Panel runat="server" CssClass="form-row text-center" ID="PBusuario">
+           <asp:Button runat="server" ID="btnRegresar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
+           <asp:Button runat="server" ID="btnBorrar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Eliminar" OnClick="btnBorrar_Click"></asp:Button>
+    </asp:Panel>
+
+</asp:Content>
