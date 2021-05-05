@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
 
 
 
@@ -53,7 +53,7 @@
     </div>
    </div>
   <br />
-    <div class="form-row text-center">
+    <div class=" text-center">
       
            <asp:Button runat="server" ID="btnSubdirector" CssClass="btn btn-light btn-outline-dark mb-2 box margen" CausesValidation="false" Text="SUBDIRECTOR"></asp:Button>
    
@@ -66,9 +66,9 @@
       
   </div>
   <br />
-    <asp:Panel runat="server" CssClass="form-row text-center" ID="PBusuario">
+    <div class="align-content-center text-center">
            <asp:Button runat="server" ID="btnRegresar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
            <asp:Button runat="server" ID="btnBorrar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Eliminar" OnClick="btnBorrar_Click"></asp:Button>
-    </asp:Panel>
+    </div>
 
 </asp:Content>

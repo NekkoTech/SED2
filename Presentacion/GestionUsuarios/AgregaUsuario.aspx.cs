@@ -53,7 +53,6 @@ namespace Presentacion.GestionUsuarios
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
             EU.AMaternoUsuario = tbAMat.Text;
-            EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.PassWordUsuario = tbPassWord.Text;
@@ -61,8 +60,7 @@ namespace Presentacion.GestionUsuarios
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
             if(NU.InsertarUsuario(EU).Contains("Exito"))
             {
-                Session["TipoUsuario"] = null;
-                Response.Redirect("https://www.google.com");
+                lblRespuesta.Text = "El usuario fue agregado exitosamente";
             }
             else
             {

@@ -41,6 +41,10 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
+            if (Session["showModal"]!=null)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "<script>$('#MyModal').on('shown.bs.modal', function() {$('#myInput').trigger('focus')})</ script >", true);
+            }
         }
 
         protected void ChangeColorSubd(object sender, EventArgs e)
@@ -72,21 +76,19 @@ namespace Presentacion.GestionUsuarios
             EU.AMaternoUsuario = tbAMat.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.EmailUsuario = tbEmail.Text;
-            EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.PassWordUsuario = tbPassWord.Text;
             EU.IdUsuario = 1;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
             if (NU.ModificarUsuario(EU).Contains("Exito"))
             {
-                Session["TipoUsuario"] = null;
-                Response.Redirect("www.google.com");
+                lblRespuesta.Text = "Los datos fueron modificados con exito";
             }
             else
             {
                 lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
             }
-
-
+            
+            
         }
     }
 }

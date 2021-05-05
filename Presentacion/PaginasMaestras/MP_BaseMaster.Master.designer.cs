@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.PaginasMaestras
-{
-
-
-    public partial class MP_BaseMaster
-    {
-
+namespace Presentacion.PaginasMaestras {
+    
+    
+    public partial class MP_BaseMaster {
+        
         /// <summary>
         /// Control head.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Presentacion.PaginasMaestras
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
+        
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Presentacion.PaginasMaestras
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Control PnlMenuUsuario.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Presentacion.PaginasMaestras
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PnlMenuUsuario;
-
+        
         /// <summary>
         /// Control CphContenedorBase.
         /// </summary>
