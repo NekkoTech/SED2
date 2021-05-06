@@ -76,15 +76,19 @@
                 </div>
             </div>
             <div class="col-4">
-                
-                
+
+
                 <div class="card" style="width: 20rem; top: 0px; left: 0px;">
                     <a href='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}",Eval("IdUsuario")) %>'></a>
-                    <asp:Image ID="ImgFirma" Width="300px" Height="250px" CssClass="card-img" ImageUrl='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}", Eval("IdUsuario")) %>' runat="server" />
+                    
+                    <asp:Image ID="RepeatIMG" Width="300px" Height="250px" CssClass="card-img" ImageUrl='<%# string.Format("~/Handler/RecuperaArchivo.ashx?IdUsuario=4")%>' runat="server" />
                     <div class="card-body">
                         <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="250px" />
+                        <asp:RegularExpressionValidator ID="RevFirmaImagen" runat="server" ErrorMessage="Solo Imagenes Estan Permitidas"
+                            ControlToValidate="FuFirma" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.JPG|.gif|.GIF|.png|.PNG|.bmp|.BMP)$">
+                        </asp:RegularExpressionValidator>
                         <asp:Button ID="BtnSubirArchivo" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" CausesValidation="false" OnClick="BtnSubirArchivo_Click1" />
-                        <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false"/>
+                        <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false" />
                     </div>
                 </div>
             </div>

@@ -98,8 +98,7 @@ namespace NegociosGestionUsuarios
         {
             SqlCommand SqlComando;
             SQLD.Conexion.Open();
-            SqlComando = new SqlCommand("SET IDENTITY_INSERT Genre  ON INSERT INTO Firmas(IdFirma,IdUsuario,Firma) VALUES(@IdFirma,@IdUsuario,@Firma) SET IDENTITY_INSERT Genre  OFF", SQLD.Conexion);
-            SqlComando.Parameters.AddWithValue("@IdFirma", 1);
+            SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
             SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
             SqlComando.Parameters.AddWithValue("@Firma", Firma);
 
