@@ -49,7 +49,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-                <uc1:wuc_CrearUsuarioPassWord runat="server" ID="tbPassWord" />
+                <asp:TextBox  runat="server" ID="tbPassWord" CssClass="form-control box"></asp:TextBox>
             </div>
         </div>
         <br />

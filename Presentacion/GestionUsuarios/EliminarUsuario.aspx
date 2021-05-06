@@ -69,6 +69,8 @@
     <div class="align-content-center text-center">
            <asp:Button runat="server" ID="btnRegresar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
            <asp:Button runat="server" ID="btnBorrar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Eliminar" OnClick="btnBorrar_Click"></asp:Button>
+        <br />
+        <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
     </div>
 
 </asp:Content>

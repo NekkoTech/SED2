@@ -14,7 +14,7 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void GvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -24,11 +24,29 @@ namespace Presentacion.GestionUsuarios
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdUsuario = Convert.ToInt32(GvUsuarios.DataKeys[index].Value.ToString());
                 EU = new N_Usuarios().BuscaUsuario(IdUsuario);
-                Session["ModUs"] = EU;
+                Session["UsuarioSeleccionado"] = EU;
                 Session["Mensaje"] = "Modificar";
-                Response.Redirect("");
-
+                Response.Redirect("ModificarUsuario.aspx");
             }
+            if(e.CommandName=="Borrar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdUsuario = Convert.ToInt32(GvUsuarios.DataKeys[index].Value.ToString());
+                EU = new N_Usuarios().BuscaUsuario(IdUsuario);
+                Session["UsuarioSeleccionado"] = EU;
+                Session["Mensaje"] = "Borrar";
+                Response.Redirect("EliminarUsuario.aspx");
+            }
+        }
+
+        protected void GvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregaUsuario.aspx");
         }
     }
 }

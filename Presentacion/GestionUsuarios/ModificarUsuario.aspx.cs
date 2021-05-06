@@ -15,36 +15,45 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                this.tbPassWord.Attributes.Add("value", this.tbPassWord.Text);
+            }
+            else
+            {
+                if (Session["UsuarioSeleccionado"] != null)
+                {
+                    EU = (E_Usuarios)Session["UsuarioSeleccionado"];
+                    Session["TipoUsuario"] = EU.IdTipoUsuario;
+
+                    tbNombre.Text = EU.NombreUsuario;
+                    tbAPat.Text = EU.APaternoUsuario;
+                    tbAMat.Text = EU.AMaternoUsuario;
+                    tbEmail.Text = EU.EmailUsuario;
+                    tbNumeroEmpleado.Text = EU.NumeroEmpleado;
+                    tbPassWord.Text = EU.PassWordUsuario;
+                    switch (EU.IdTipoUsuario)
+                    {
+                        case 2:
+                            btnSubdirector.Style.Add("background-color", "#00723f");
+                            break;
+                        case 3:
+                            btnCoordinador.Style.Add("background-color", "#00723f");
+                            break;
+                        case 4:
+                            btnDocente.Style.Add("background-color", "#00723f");
+                            break;
+                    }
+                }
+
+            }
             /*if (Session["Usuario"]==null)
             {
                 Response.Redirect("ValidaUsuario.aspx");
             }*/
-            if (Session["UsuarioSeleccionado"] != null)
-            {
-                EU = (E_Usuarios)Session["UsuarioSeleccionado"];
-                tbNombre.Text = EU.NombreUsuario;
-                tbAPat.Text = EU.APaternoUsuario;
-                tbAMat.Text = EU.AMaternoUsuario;
-                tbEmail.Text = EU.EmailUsuario;
-                tbNumeroEmpleado.Text = EU.NumeroEmpleado;
-                tbPassWord.Text = EU.PassWordUsuario;
-                switch (EU.IdTipoUsuario)
-                {
-                    case 2:
-                        btnSubdirector.Style.Add("background-color", "#00723f");
-                        break;
-                    case 3:
-                        btnCoordinador.Style.Add("background-color", "#00723f");
-                        break;
-                    case 4:
-                        btnDocente.Style.Add("background-color", "#00723f");
-                        break;
-                }
-            }
-            if (Session["showModal"]!=null)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "<script>$('#MyModal').on('shown.bs.modal', function() {$('#myInput').trigger('focus')})</ script >", true);
-            }
+
+
+
         }
 
         protected void ChangeColorSubd(object sender, EventArgs e)
@@ -71,17 +80,18 @@ namespace Presentacion.GestionUsuarios
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            E_Usuarios aux = (E_Usuarios)Session["UsuarioSeleccionado"];
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
             EU.AMaternoUsuario = tbAMat.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.PassWordUsuario = tbPassWord.Text;
-            EU.IdUsuario = 1;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
+            EU.IdUsuario = aux.IdUsuario;
             if (NU.ModificarUsuario(EU).Contains("Exito"))
             {
-                lblRespuesta.Text = "Los datos fueron modificados con exito";
+                Response.Redirect("ListaUsuarios.aspx");
             }
             else
             {

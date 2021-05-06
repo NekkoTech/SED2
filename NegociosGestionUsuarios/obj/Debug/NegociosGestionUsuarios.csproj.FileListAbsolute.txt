@@ -47,3 +47,13 @@ C:\Users\telnor\Desktop\GitHub\SED3\NegociosGestionUsuarios\obj\Debug\NegociosGe
 C:\Users\telnor\Desktop\GitHub\SED3\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.csproj.CopyComplete
 C:\Users\telnor\Desktop\GitHub\SED3\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.dll
 C:\Users\telnor\Desktop\GitHub\SED3\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.pdb
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\bin\Debug\NegociosGestionUsuarios.dll
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\bin\Debug\NegociosGestionUsuarios.pdb
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\bin\Debug\StrDatosSQL.dll
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.csprojAssemblyReference.cache
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.csproj.CopyComplete
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.dll
+C:\Users\user\source\repos\SED4\NegociosGestionUsuarios\obj\Debug\NegociosGestionUsuarios.pdb

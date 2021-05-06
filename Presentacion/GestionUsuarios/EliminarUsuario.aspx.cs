@@ -53,7 +53,17 @@ namespace Presentacion.GestionUsuarios
             if (Session["UsuarioSeleccionado"] != null)
             {
                 EU = (E_Usuarios)Session["UsuarioSeleccionado"];
-                NU.BorraUsuario(EU.IdUsuario);
+                
+            
+                if (NU.BorraUsuario(EU.IdUsuario).Contains("Exito"))
+                {
+                     Response.Redirect("ListaUsuarios.aspx");
+                
+                }
+                else
+                {
+                    lblRespuesta.Text = "El usuario no pudo ser eliminado";
+                }
             }
         }
     }

@@ -21,3 +21,9 @@ C:\Users\telnor\Desktop\GitHub\SED3\EntidadesGestionUsuarios\obj\Debug\Entidades
 C:\Users\telnor\Desktop\GitHub\SED3\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csproj.CoreCompileInputs.cache
 C:\Users\telnor\Desktop\GitHub\SED3\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.dll
 C:\Users\telnor\Desktop\GitHub\SED3\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\bin\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csprojAssemblyReference.cache
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\source\repos\SED4\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.pdb
