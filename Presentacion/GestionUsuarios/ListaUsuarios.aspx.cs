@@ -30,5 +30,10 @@ namespace Presentacion.GestionUsuarios
 
             }
         }
+
+        protected void GvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

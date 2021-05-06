@@ -13,12 +13,16 @@ namespace Presentacion.GestionUsuarios
     {
         E_Usuarios EU = new E_Usuarios();
         N_Usuarios NU = new N_Usuarios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             EU = (E_Usuarios)Session["Usuario"];
             if (EU == null)
                 Response.Redirect("ValidaUsuario.aspx");
-            
+            //ImgFirma.ImageUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario="+ EU.IdUsuario;
+            //Response.Redirect("http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario="+ EU.IdUsuario);
+            //string strUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario=" + EU.IdUsuario;
+            //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + strUrl + "','_blank')", true);
             BtnSubirArchivo.Visible = false;
             FuFirma.Visible = false;
             tbNombre.Text = EU.NombreUsuario;
@@ -61,6 +65,7 @@ namespace Presentacion.GestionUsuarios
                 Byte[] ByteFirma = new Byte[TamFirma];
                 HpfFirma.InputStream.Read(ByteFirma, 0, TamFirma);
                 NU.InsertarFirma(ByteFirma, EU.IdUsuario);
+                //ImgFirma.ImageUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario=" + EU.IdUsuario;
                 BtnSubir.Visible = true;
                 BtnSubirArchivo.Visible = false;
                 FuFirma.Visible = false;    

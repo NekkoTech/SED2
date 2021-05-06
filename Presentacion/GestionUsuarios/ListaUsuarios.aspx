@@ -3,9 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <br />
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -14,72 +11,44 @@
                 <li class="breadcrumb-item active" aria-current="page">Administrar Usuarios</li>
             </ol>
         </nav>
-        <div>
-            <asp:TextBox class="form-control box" ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+    </div>
+    <asp:SqlDataSource ID="Usuarios" runat="server"
+        ConnectionString="<%$ ConnectionStrings:ConexionBD %>"
+        SelectCommand="SELECT [IdUsuario],[NombreUsuario], [EmailUsuario] FROM [Usuarios]"></asp:SqlDataSource>
+    <div class="container">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Tipo Usuario</label>
+            <label class="col-sm-2 col-form-label ">Buscar Usuario</label>
+            <div class="col-sm-10">
+                <asp:DropDownList runat="server" ID="ddlTest">
+                    <asp:ListItem Text="Docente" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Coordinador" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="Sub Director" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Director" Value="4"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:Button CssClass="btn btn-primary mb-2 boton2" Text="Crea Usuario" runat="server" />
+                <asp:TextBox class="form-control box2" ID="TextBox2" runat="server"></asp:TextBox>
+            </div>
 
         </div>
         <br />
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Carrera</th>
-                    <th scope="col">Accion</th>
-                </tr>
-            </thead>
-        </table>
+
+        <asp:GridView ID="GvUsuarios" runat="server" AutoGenerateColumns="False" DataSourceID="Usuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" OnRowCommand="GvUsuarios_RowCommand">
+            <Columns>
+                <asp:BoundField DataField="IdUsuario" HeaderText="ID" SortExpression="IdUsuario" Visible="false"/>
+                <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" SortExpression="NombreUsuario" />
+                <asp:BoundField DataField="EmailUsuario" HeaderText="Correo" SortExpression="EmailUsuario" />
+                <asp:ButtonField ButtonType="button" HeaderText="Acciones" Text="Editar" CommandName="Details" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnBorrar" CssClass="btn btn-outline-danger" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Text="Borrar" Width="100" />
+                        <asp:Button ID="btnModificar" CssClass="btn btn-outline-warning" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Text="Modificar" Width="100" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+            </Columns>
+        </asp:GridView>
     </div>
-
-=======
-
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
-    <asp:SqlDataSource ID="Usuarios" runat="server"
-        ConnectionString="<%$ ConnectionStrings:ConexionBD %>"
-        SelectCommand="SELECT [IdUsuario],[NombreUsuario], [EmailUsuario] FROM [Usuarios]">
-    </asp:SqlDataSource>
-<br />
-     <div class="form-group row">
-       <label class="col-sm-2 col-form-label">Tipo Usuario</label>
-       <label class="col-sm-2 col-form-label ">Buscar Usuario</label>
-    <div class="col-sm-10" >
-            <asp:dropdownlist runat="server" id="ddlTest">
-                <asp:listitem text="Docente" value="1"></asp:listitem>
-                <asp:listitem text="Coordinador" value="2"></asp:listitem>
-                <asp:listitem text="Sub Director" value="3"></asp:listitem>
-                <asp:listitem text="Director" value="4"></asp:listitem>
-            </asp:dropdownlist> 
-        <asp:Button CssClass="btn btn-primary mb-2 boton2" Text="Crea Usuario" runat="server" />
-            <asp:TextBox class="form-control box2" ID="TextBox2" runat="server"></asp:TextBox>
-    </div>
-        
-   </div>
-    <br />
-    <
-    <asp:GridView ID="GvUsuarios" runat="server" AutoGenerateColumns="False" DataSourceID="Usuarios" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged">
-        <Columns>
-            <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" SortExpression="NombreUsuario" />
-            <asp:BoundField DataField="EmailUsuario" HeaderText="Correo" SortExpression="EmailUsuario" />
-            <asp:buttonfield  buttontype="button" HeaderText="Acciones" Text="Editar" commandname="Details"  />
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <asp:Button ID="btnBorrar" CssClass="btn btn-outline-danger" CommandArgument="<%# Container.DataItemIndex%>"  CommandName="Borrar" runat="server" Text="Borrar" Width="100"/>
-                    <asp:Button ID="btnModificar" CssClass="btn btn-outline-warning"  CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Text="Modificar" Width="100"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-           
-        </Columns>
-    </asp:GridView>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 </asp:Content>
 

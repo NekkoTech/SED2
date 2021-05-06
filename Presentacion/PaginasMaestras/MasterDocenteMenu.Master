@@ -48,10 +48,10 @@
                     <div class="collapse navbar-collapse row text-center align-middle" id="navbarNav">
                         <ul class="navbar-nav align-middle">
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="InicioDocente.aspx">Inicio</a></li>
+                                <li class="nav-item text-white"><a class="nav-link text-white" href="InicioDocente.aspx">Inicio</a></li>
                             </div>
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="CuentaDocente.aspx">Cuenta</a></li>
+                                <li class="nav-item text-white"><a class="nav-link text-white" href="CuentaDocente.aspx">Cuenta</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link">

@@ -52,7 +52,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <div class="dropdown-menu col-sm text-center" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" href="ListaUsuarios.aspx">Lista de Usuarios</a>
                                         <a class="dropdown-item" href="AgregaUsuario.aspx">Agregar Usuarios</a>
                                     </div>

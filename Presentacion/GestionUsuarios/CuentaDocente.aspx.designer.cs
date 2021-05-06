@@ -78,13 +78,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label lblRespuesta;
 
         /// <summary>
-        /// Control ImgFirma.
+        /// Control RepeatIMG.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgFirma;
+        protected global::System.Web.UI.WebControls.Image RepeatIMG;
 
         /// <summary>
         /// Control FuFirma.
@@ -94,6 +94,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FuFirma;
+
+        /// <summary>
+        /// Control RevFirmaImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevFirmaImagen;
 
         /// <summary>
         /// Control BtnSubirArchivo.

@@ -15,9 +15,9 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <uc1:wuc_Email runat="server" id="tbEmailUsuario" />
+                    <uc1:wuc_Email runat="server" CssClas="form-control" id="tbEmailUsuario" />
                     <br />
-                    <uc1:wuc_PassWord runat="server" id="tbPassWord" />
+                    <uc1:wuc_PassWord runat="server" CssClas="form-control" id="tbPassWord" />
                     <br />
                     <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label> <br /><br />
                     <asp:Button ID="BtnLogin" runat="server" CssClass="btn-success rounded" OnClick="Button1_Click" Text="Iniciar Sesión" Width="150px" />
