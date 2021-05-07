@@ -69,6 +69,15 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_CrearUsuarioPassWord tbPassWord;
 
         /// <summary>
+        /// Control TbRepPassWord.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Presentacion.Controles.wuc_RepPassWord TbRepPassWord;
+
+        /// <summary>
         /// Control lblRespuesta.
         /// </summary>
         /// <remarks>
@@ -121,5 +130,19 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnSubir;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterDocenteMenu)(base.Master));
+            }
+        }
     }
 }

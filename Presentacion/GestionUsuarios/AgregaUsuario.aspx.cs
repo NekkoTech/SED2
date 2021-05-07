@@ -60,11 +60,13 @@ namespace Presentacion.GestionUsuarios
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
             if(NU.InsertarUsuario(EU).Contains("Exito"))
             {
-                lblRespuesta.Text = "El usuario fue agregado exitosamente";
+                Master.ModalMsg("Exito: El Usuario fue agregado exitosamente");
+                //lblRespuesta.Text = "El usuario fue agregado exitosamente";
             }
             else
             {
-                lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
+                Master.ModalMsg("Error: El usuario no pudo ser agregado");
+                //lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
             }
             
 

@@ -93,10 +93,12 @@ namespace Presentacion.GestionUsuarios
             {
                 //Response.Redirect("ListaUsuarios.aspx");
                 Master.ModalMsg("Exito: Los Datos Fueron Modificados exitosamente");
+                
             }
             else
             {
-                lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
+                Master.ModalMsg("Error: El Usuario No Pudo Ser Modificado, Revise Su Informacion");
+                //lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
             }
             
             

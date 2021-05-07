@@ -4,7 +4,7 @@
 <%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
-
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 
 
 
@@ -19,7 +19,7 @@
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="InicioMain.aspx">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="ListaUsuarios.aspx">Administrar Usuarios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Agregar Usuarios</li>
+                <li class="breadcrumb-item">Agregar Usuarios</li>
             </ol>
         </nav>
         <br />

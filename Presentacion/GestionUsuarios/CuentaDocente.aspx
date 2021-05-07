@@ -7,6 +7,7 @@
 <%@ Register Src="~/Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
 <%@ Register Src="~/Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
 <%@ Register Src="~/Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 
 
 
@@ -61,17 +62,23 @@
                     </div>
                 </div>
                 <br />
-                <div class="form-group row">
+                <!--div class="form-group row">
                     <label class="col-sm-2 col-form-label">Contraseña</label>
                     <div class="col-sm-10">
                         <uc1:wuc_CrearUsuarioPassWord runat="server" ID="tbPassWord" />
+                    </div>
+                </!--div-->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Contraseña</label>
+                    <div class="col-sm-10">
+                        <uc1:wuc_RepPassWord runat="server" ID="TbRepPassWord" />
                     </div>
                 </div>
                 <br />
                 <br />
                 <div class="form-row text-center">
 
-                    <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
+                    <asp:Button runat="server" CssClass="btn btn-success boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
                     <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
                 </div>
             </div>
@@ -85,8 +92,7 @@
                     <div class="card-body">
                         <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="250px" />
                         <asp:RegularExpressionValidator ID="RevFirmaImagen" runat="server" ErrorMessage="Solo Imagenes Estan Permitidas"
-                            ControlToValidate="FuFirma" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.JPG|.gif|.GIF|.png|.PNG|.bmp|.BMP)$">
-                        </asp:RegularExpressionValidator>
+                            ControlToValidate="FuFirma" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.JPG|.gif|.GIF|.png|.PNG|.bmp|.BMP)$"> </asp:RegularExpressionValidator>
                         <asp:Button ID="BtnSubirArchivo" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" CausesValidation="false" OnClick="BtnSubirArchivo_Click1" />
                         <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false" />
                     </div>

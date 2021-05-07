@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true"  Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ModificarUsuario" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ModificarUsuario" %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 <%@ Register Src="../Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
@@ -12,6 +12,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
     <br />
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white">
+                <li class="breadcrumb-item"><a href="InicioMain.aspx">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="ListaUsuarios.aspx">Administrar Usuarios</a></li>
+                <li class="breadcrumb-item active">Modificar Usuario</li>
+            </ol>
+        </nav>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre(s)</label>
             <div class="col-sm-10">
@@ -50,7 +58,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-                <asp:TextBox  runat="server" ID="tbPassWord" CssClass="form-control box"></asp:TextBox>
+                <asp:TextBox runat="server" ID="tbPassWord" CssClass="form-control box"></asp:TextBox>
             </div>
         </div>
         <br />
@@ -63,17 +71,17 @@
 
             </div>
             <div class="col">
-                 <asp:Button runat="server" ID="btnCoordinador" CssClass="btn btn-light btn-outline-dark mb-2 box margen" OnClick="ChangeColorCoord" CausesValidation="false" Text="COORDINADOR"></asp:Button>
+                <asp:Button runat="server" ID="btnCoordinador" CssClass="btn btn-light btn-outline-dark mb-2 box margen" OnClick="ChangeColorCoord" CausesValidation="false" Text="COORDINADOR"></asp:Button>
             </div>
             <div class="col">
-                 <asp:Button runat="server" ID="btnDocente" CssClass="btn btn-light btn-outline-dark mb-2 box margen" OnClick="ChangeColorDoc" CausesValidation="false" Text="DOCENTE"></asp:Button>
+                <asp:Button runat="server" ID="btnDocente" CssClass="btn btn-light btn-outline-dark mb-2 box margen" OnClick="ChangeColorDoc" CausesValidation="false" Text="DOCENTE"></asp:Button>
             </div>
-          
+
         </div>
         <br />
         <div class="align-content-center text-center">
-                <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Modificar" OnClick="Button1_Click"></asp:Button><br />
+            <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Modificar" OnClick="Button1_Click"></asp:Button><br />
             <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
         </div>
-
+    </div>
 </asp:Content>

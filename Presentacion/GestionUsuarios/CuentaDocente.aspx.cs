@@ -30,7 +30,7 @@ namespace Presentacion.GestionUsuarios
             tbAMat.Text = EU.AMaternoUsuario;
             tbEmail.Text = EU.EmailUsuario;
             tbNumeroEmpleado.Text = EU.NumeroEmpleado;
-            tbNombre.Enabled = false; 
+            tbNombre.Enabled = false;
             tbAPat.Enabled = false;
             tbAMat.Enabled = false;
             tbEmail.Enabled = false;
@@ -41,6 +41,18 @@ namespace Presentacion.GestionUsuarios
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            EU.PassWordUsuario = tbPassWord.Text.ToString();
+            //NU.ModificarUsuario(EU);
+            if (NU.ModificarUsuario(EU).Contains("Exito"))
+            {
+                Master.ModalMsg("Exito: La contraseña fue cambiada con exito");
+            }
+            else
+            {
+                Master.ModalMsg("Error: La contraseña no pudo ser cambiada");
+            }
+
+            //DataBind();
 
         }
 
@@ -68,7 +80,7 @@ namespace Presentacion.GestionUsuarios
                 //ImgFirma.ImageUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario=" + EU.IdUsuario;
                 BtnSubir.Visible = true;
                 BtnSubirArchivo.Visible = false;
-                FuFirma.Visible = false;    
+                FuFirma.Visible = false;
                 //ImgFirma.
             }
         }

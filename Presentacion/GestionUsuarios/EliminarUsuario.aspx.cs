@@ -57,12 +57,14 @@ namespace Presentacion.GestionUsuarios
             
                 if (NU.BorraUsuario(EU.IdUsuario).Contains("Exito"))
                 {
-                     Response.Redirect("ListaUsuarios.aspx");
+                    Master.ModalMsg("Exito: El usuario fue eliminado Exitosamente"); 
+                    //Response.Redirect("ListaUsuarios.aspx");
                 
                 }
                 else
                 {
-                    lblRespuesta.Text = "El usuario no pudo ser eliminado";
+                    Master.ModalMsg("Error: El usuario no pude ser eliminado");
+                    //lblRespuesta.Text = "El usuario no pudo ser eliminado";
                 }
             }
         }
