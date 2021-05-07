@@ -22,7 +22,8 @@
 <body>
 
     <form id="form1" runat="server">
-        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
         <div class="container-fluid" style="background-color: #00723f">
 
             <div class="row">
@@ -96,7 +97,7 @@
                         <span id="ModalBody" runat="server"></span>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="BtnEntendido" runat="server" Text="Button" />
+                        <asp:Button ID="BtnEntendido" runat="server" Text="Button" data-dismiss="modal"/>
                     </div>
                 </div>
             </div>
@@ -121,11 +122,16 @@
                 </div>
             </div>
         </div>
+        <!--Scripts de funcionamiento de modal-->
         <script>
             $('#MyModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
             })
+            function openMasterModalMensaje() {
+                $('#master-modal-mensaje').modal('show');
+            }
         </script>
+
     </form>
 </body>
 </html>

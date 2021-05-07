@@ -20,6 +20,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+                
+        </asp:ScriptManager>
         <div class="container-fluid" style="background-color: #00723f">
 
             <div class="row">
@@ -70,6 +73,23 @@
             <asp:ContentPlaceHolder ID="CphContenedorBase" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <!--Modal General de Avisos-->
+        <div id="master-modal-mensaje" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div id="ModalHeader" runat="server">
+                        <p class="heading lead text-center"><span id="ModalTitulo" runat="server"></span></p>
+                    </div>
+                    <div class="modal-body">
+                        <span id="ModalBody" runat="server"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="BtnEntendido" runat="server" Text="Entendido" data-dismiss="modal"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal Para cerrar sesion-->
         <div class="modal fade" id="MyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -89,10 +109,14 @@
                 </div>
             </div>
         </div>
+        <!--Scripts de funcionamiento de modal-->
         <script>
             $('#MyModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
             })
+            function openMasterModalMensaje() {
+                $('#master-modal-mensaje').modal('show');
+            }
         </script>
     </form>
 </body>

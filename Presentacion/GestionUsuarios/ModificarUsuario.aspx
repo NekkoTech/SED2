@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true"  Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Menu" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ModificarUsuario" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true"  Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.ModificarUsuario" %>
 
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 <%@ Register Src="../Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
 <%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>

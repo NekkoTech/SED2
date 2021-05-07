@@ -91,7 +91,8 @@ namespace Presentacion.GestionUsuarios
             EU.IdUsuario = aux.IdUsuario;
             if (NU.ModificarUsuario(EU).Contains("Exito"))
             {
-                Response.Redirect("ListaUsuarios.aspx");
+                //Response.Redirect("ListaUsuarios.aspx");
+                Master.ModalMsg("Exito: Los Datos Fueron Modificados exitosamente");
             }
             else
             {

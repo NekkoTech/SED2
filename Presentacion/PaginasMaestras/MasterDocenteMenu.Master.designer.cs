@@ -42,6 +42,42 @@ namespace Presentacion.PaginasMaestras
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CphContenedorBase;
 
         /// <summary>
+        /// Control ModalHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalHeader;
+
+        /// <summary>
+        /// Control ModalTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalTitulo;
+
+        /// <summary>
+        /// Control ModalBody.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalBody;
+
+        /// <summary>
+        /// Control BtnEntendido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnEntendido;
+
+        /// <summary>
         /// Control LblCerrarSesion.
         /// </summary>
         /// <remarks>
