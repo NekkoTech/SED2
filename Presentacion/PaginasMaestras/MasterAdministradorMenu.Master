@@ -64,12 +64,12 @@
                             </div>
                             <div class="col-sm">
 
-                                <li class="nav-item"><a class="nav-link" href="PlanesEstudio.aspx">Planes De Estudio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="ListaPlanEstudio.aspx">Planes De Estudio</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link">
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MyModal">
-                                        Cerrar Sesíon
+                                        Cerrar Sesión
                                     </button>
 
                                 </a></li>
@@ -107,13 +107,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesíon</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:Label ID="LblCerrarSesion" runat="server" Text="">¿Seguro que desea salir de la sesíon?</asp:Label>
+                        <asp:Label ID="LblCerrarSesion" runat="server" Text="">¿Seguro que desea salir de la sesión?</asp:Label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>

@@ -90,9 +90,11 @@
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
+    <Content Include="GestionUsuarios\IbmPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\InfoCuenta.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
     <Content Include="GestionUsuarios\ModificarUsuario.aspx" />
     <Content Include="GestionUsuarios\NuevaContraseña.aspx" />
@@ -284,6 +286,13 @@
     <Compile Include="GestionUsuarios\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\IbmPlanEstudio.aspx.cs">
+      <DependentUpon>IbmPlanEstudio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\IbmPlanEstudio.aspx.designer.cs">
+      <DependentUpon>IbmPlanEstudio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\InfoCuenta.aspx.cs">
       <DependentUpon>InfoCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +313,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaPlanEstudio.aspx.cs">
+      <DependentUpon>ListaPlanEstudio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaPlanEstudio.aspx.designer.cs">
+      <DependentUpon>ListaPlanEstudio.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaUsuarios.aspx.cs">
       <DependentUpon>ListaUsuarios.aspx</DependentUpon>
