@@ -13,8 +13,8 @@ namespace Presentacion.PaginasMaestras
     {
         E_Usuarios EU = new E_Usuarios();
         N_Usuarios NU = new N_Usuarios();
-        List<E_Menu> Menus = new List<E_Menu>();
-        List<E_Privilegios> Privilegios = new List<E_Privilegios>();
+        //List<E_Menu> Menus = new List<E_Menu>();
+        //List<E_Privilegios> Privilegios = new List<E_Privilegios>();
         protected void Page_Load(object sender, EventArgs e)
         {
             EU = (E_Usuarios)Session["Usuario"];

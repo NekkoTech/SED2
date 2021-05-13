@@ -86,62 +86,79 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
-    public class E_Menu
+    public class E_PlanEstudio
     {
         #region Atributos
-        private int _IdModulo;
-        private string _NombreModulo;
-        private string _UrlModulo;
-        private int _IdPadre;
+        private string _Accion;
+        private int _IdPlan;
+        private string _NombrePlan;
+        private string _IdCoordinador;
+
+        
         #endregion
         #region Encapsulamientos
-        public int IdModulo { get => _IdModulo; set => _IdModulo = value; }
-        public string NombreModulo { get => _NombreModulo; set => _NombreModulo = value; }
-        public string UrlModulo { get => _UrlModulo; set => _UrlModulo = value; }
-        public int IdPadre { get => _IdPadre; set => _IdPadre = value; }
+        public int IdPlan { get => _IdPlan; set => _IdPlan = value; }
+        public string NombrePlan { get => _NombrePlan; set => _NombrePlan = value; }
+        public string IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
+        public string Accion { get => _Accion; set => _Accion = value; }
         #endregion
         #region Constructores
-        public E_Menu()
+        public E_PlanEstudio(int idPlan, string nombrePlan, string idCoordinador, string accion)
         {
-            IdModulo = 0;
-            NombreModulo = string.Empty;
-            UrlModulo = string.Empty;
+            _IdPlan = idPlan;
+            _NombrePlan = nombrePlan;
+            _IdCoordinador = idCoordinador;
+            Accion = accion;
         }
-        public E_Menu(int IdModulo, string Nombre, string Url, int idPadre)
+
+        public E_PlanEstudio()
         {
-            this.IdModulo = IdModulo;
-            this.NombreModulo = Nombre;
-            this.UrlModulo = Url;
-            IdPadre = idPadre;
+            this.IdPlan = 0;
+            this.IdCoordinador = string.Empty;
+            this.NombrePlan = string.Empty;
         }
+
+
         #endregion
     }
-    public class E_Privilegios
+    public class E_Atributos
     {
         #region Atributos
-        private int _IdTipoUsuario;
-        private int _IdModulo;
-        private int _IdPrivilegio;
+        private string _Accion;
+        private int _IdAtributo;
+        private string _Atributo;
+        private int _IdPlan;
 
         #endregion
         #region Encapsulamientos
-        public int IdTipoUsuario { get => _IdTipoUsuario; set => _IdTipoUsuario = value; }
-        public int IdModulo { get => _IdModulo; set => _IdModulo = value; }
-        public int IdPrivilegio { get => _IdPrivilegio; set => _IdPrivilegio = value; }
+        
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdAtributo { get => _IdAtributo; set => _IdAtributo = value; }
+        public string Atributo { get => _Atributo; set => _Atributo = value; }
+        public int IdPlan { get => _IdPlan; set => _IdPlan = value; }
+
+
 
 
         #endregion
         #region Constructores
-        public E_Privilegios(int idTipoUsuario, int idModulo, int idPrivilegio)
+        public E_Atributos(string accion, int idAtributo, string atributo, int idPlan)
         {
-            IdTipoUsuario = idTipoUsuario;
-            IdModulo = idModulo;
-            IdPrivilegio = idPrivilegio;
+            Accion = accion;
+            IdAtributo = idAtributo;
+            Atributo = atributo;
+            IdPlan = idPlan;
+           
         }
 
-        public E_Privilegios()
+        public E_Atributos()
         {
+            Accion = string.Empty;
+            IdAtributo = 0;
+            Atributo = string.Empty;
+            IdPlan = 0;
         }
+
         #endregion
     }
 }

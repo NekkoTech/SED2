@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="IbmPlanEstudio.aspx.cs" Inherits="Presentacion.GestionUsuarios.IbmPlanEstudio" %>
 
 <%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -36,7 +37,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Asignar Coordinador"></asp:Label>
             </div>
             <div class="col">
-                <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DdlCoordinadores" CssClass="form-control" runat="server"></asp:DropDownList>
             </div>
         </div>
         <br />
@@ -45,7 +46,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Atributos de Egreso"></asp:Label>
             </div>
             <div class="col">
-                <asp:Table ID="Table1" runat="server" CssClass="table">
+                <asp:Table ID="tbAtributos" runat="server" CssClass="table">
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                         <asp:TableCell>
@@ -92,10 +93,10 @@
             </div>
             <div class="row align-middle text-center">
                 <div class="col-6">
-                    <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" />
+                    <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" />
                 </div>
                 <div class="col-6">
-                    <asp:Button ID="BtnGuardar" CssClass="btn btn-success box w-25" runat="server" Text="Guardar" />
+                    <asp:Button ID="BtnGuardar" CssClass="btn btn-success box w-25" runat="server" Text="Guardar" OnClick="BtnGuardar_Click" />
                 </div>
             </div>
         </div>

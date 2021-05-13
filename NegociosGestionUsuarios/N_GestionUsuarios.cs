@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StrDatosSQL;
 using EntidadesGestionUsuarios;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.IO;
+using System.Web.UI.WebControls;
 
 namespace NegociosGestionUsuarios
 {
@@ -89,10 +86,24 @@ namespace NegociosGestionUsuarios
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
         public E_Codigo BuscaCodigo(string Email)
         { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
-        public DataTable DT_LstModulos() { return SQLD.DT_ListadoGeneral("Modulos", "IdModulo,NombreModulo,UrlModulo,IdPadre"); }
+        /*public DataTable DT_LstModulos() { return SQLD.DT_ListadoGeneral("Modulos", "IdModulo,NombreModulo,UrlModulo,IdPadre"); }
         public List<E_Menu> LstModulos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Menu>(DT_LstModulos()); }
         public DataTable DT_LstPrivilegios() { return SQLD.DT_ListadoGeneral("Privilegios", "IdTipoUsuario,IdModulo,IdPrivilegio"); }
-        public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }
+        public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }*/
+        public string InsertarPlan(E_PlanEstudio EntidadPlan)
+        {
+            EntidadPlan.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Plan", EntidadPlan).Contains("Exito"))
+                return "Exito: Codigo Generado y enviado.";
+            return "Error: No se pudo almacenar el codigo en la Base De Datos.";
+        }
+        public string InsertarAtributo(E_Atributos EntidadAtributo)
+        {
+            EntidadAtributo.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_Atributos>("IBM_Atributos", EntidadAtributo).Contains("Exito"))
+                return "Exito: Codigo Generado y enviado.";
+            return "Error: No se pudo almacenar el codigo en la Base De Datos.";
+        }
 
         public void InsertarFirma(Byte[] Firma, int IdUsuario)
         {
@@ -101,8 +112,44 @@ namespace NegociosGestionUsuarios
             SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
             SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
             SqlComando.Parameters.AddWithValue("@Firma", Firma);
-
             SqlComando.ExecuteNonQuery();
+        }
+        //Llena un dropdownlist remoto mediante una peticion sql personalizada
+        public void LlenaDropDown(DropDownList dropDownList, string sql)
+        {
+            SQLD.Conexion.Open();//Se abre la conexion
+
+            string query = sql;
+
+            SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
+            SqlDataReader dr;
+            dr = cmd.ExecuteReader();//Se ejecuta la peticion sql y se extraen los datos
+
+            if (dr.HasRows)
+            {
+                ListItem item;
+                int i = 0;
+                while (dr.Read())//Se comprueba que tenga informacion y de ahi se llena uno por uno los datos extraidos en el dropdownlist
+                {
+                    item = new ListItem("Coordinador "+dr[2].ToString()+" " + dr[3].ToString() +" " + dr[4].ToString(),dr[0].ToString());
+                    dropDownList.Items.Insert(i,item);
+                    i++;
+                }
+            }
+            SQLD.Conexion.Close();
+            
+        }
+
+        public int UltimoRegistro(string Tabla,string Id)
+        {
+            
+            SQLD.Conexion.Open();//Se abre la conexion
+
+            string query = "SELECT Max("+Id+") FROM "+Tabla;
+
+            SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
+            int MaxId = Convert.ToInt32(cmd.ExecuteScalar());
+            return MaxId;
         }
     }
 

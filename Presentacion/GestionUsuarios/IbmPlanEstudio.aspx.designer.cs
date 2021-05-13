@@ -51,13 +51,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control DropDownList1.
+        /// Control DdlCoordinadores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList DdlCoordinadores;
 
         /// <summary>
         /// Control Label1.
@@ -69,13 +69,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control Table1.
+        /// Control tbAtributos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.Table tbAtributos;
 
         /// <summary>
         /// Control TcNumero1.
@@ -220,5 +220,19 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnGuardar;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
+            }
+        }
     }
 }
