@@ -97,6 +97,7 @@
                 </div>
                 <div class="col-6">
                     <asp:Button ID="BtnGuardar" CssClass="btn btn-success box w-25" runat="server" Text="Guardar" OnClick="BtnGuardar_Click" />
+                    <asp:Button ID="BtnModificar" CssClass="btn btn-success box w-25" runat="server" Text="Modificar" OnClick="BtnModificar_Click" />
                 </div>
             </div>
         </div>

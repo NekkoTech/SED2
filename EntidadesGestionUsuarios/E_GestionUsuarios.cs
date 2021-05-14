@@ -92,18 +92,18 @@ namespace EntidadesGestionUsuarios
         private string _Accion;
         private int _IdPlan;
         private string _NombrePlan;
-        private string _IdCoordinador;
+        private int _IdCoordinador;
 
         
         #endregion
         #region Encapsulamientos
         public int IdPlan { get => _IdPlan; set => _IdPlan = value; }
         public string NombrePlan { get => _NombrePlan; set => _NombrePlan = value; }
-        public string IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
+        public int IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
         public string Accion { get => _Accion; set => _Accion = value; }
         #endregion
         #region Constructores
-        public E_PlanEstudio(int idPlan, string nombrePlan, string idCoordinador, string accion)
+        public E_PlanEstudio(int idPlan, string nombrePlan, int idCoordinador, string accion)
         {
             _IdPlan = idPlan;
             _NombrePlan = nombrePlan;
@@ -114,7 +114,7 @@ namespace EntidadesGestionUsuarios
         public E_PlanEstudio()
         {
             this.IdPlan = 0;
-            this.IdCoordinador = string.Empty;
+            this.IdCoordinador = 0;
             this.NombrePlan = string.Empty;
         }
 

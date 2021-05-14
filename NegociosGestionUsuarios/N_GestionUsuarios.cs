@@ -90,6 +90,10 @@ namespace NegociosGestionUsuarios
         public List<E_Menu> LstModulos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Menu>(DT_LstModulos()); }
         public DataTable DT_LstPrivilegios() { return SQLD.DT_ListadoGeneral("Privilegios", "IdTipoUsuario,IdModulo,IdPrivilegio"); }
         public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }*/
+        public DataTable DT_LstPlanes() { return SQLD.DT_ListadoGeneral("PlanEstudio", "IdPlan, NombrePlan, IdCoordinador"); }
+        public List<E_PlanEstudio> LstPlanes() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_PlanEstudio>(DT_LstPlanes()); }
+        public E_PlanEstudio BuscaPlanes(int IdPlan)
+        { return (from Plan in LstPlanes() where Plan.IdPlan == IdPlan select Plan).FirstOrDefault(); }
         public string InsertarPlan(E_PlanEstudio EntidadPlan)
         {
             EntidadPlan.Accion = "INSERTAR";
@@ -97,6 +101,37 @@ namespace NegociosGestionUsuarios
                 return "Exito: Codigo Generado y enviado.";
             return "Error: No se pudo almacenar el codigo en la Base De Datos.";
         }
+        public List<E_Atributos> BuscaAtributos(int IdPlan)
+        {
+            SQLD.Conexion.Open();//Se abre la conexion
+            List<E_Atributos> ListAtrib = new List<E_Atributos>();
+            
+            string query = "SELECT * FROM Atributos WHERE IdPlan="+IdPlan;
+
+            SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
+            SqlDataReader dr;
+            dr = cmd.ExecuteReader();//Se ejecuta la peticion sql y se extraen los datos
+
+            if (dr.HasRows)
+            {
+                int i = 0;
+                while (dr.Read())//Se comprueba que tenga informacion y de ahi se llena uno por uno los datos 
+                {
+                    E_Atributos EA = new E_Atributos();
+                    EA.IdPlan = IdPlan;
+                    EA.IdAtributo = dr.GetInt32(0);
+                    EA.Atributo = dr.GetString(1);
+                    //i++;
+                    ListAtrib.Add(EA);
+                    
+                }
+                return ListAtrib;
+            }
+            return ListAtrib;
+            SQLD.Conexion.Close();
+
+        }
+
         public string InsertarAtributo(E_Atributos EntidadAtributo)
         {
             EntidadAtributo.Accion = "INSERTAR";

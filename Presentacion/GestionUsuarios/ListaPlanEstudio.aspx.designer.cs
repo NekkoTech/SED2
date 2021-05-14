@@ -51,12 +51,21 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.TextBox TbSearch;
 
         /// <summary>
-        /// Control GrvPlanes.
+        /// Control GvPlanes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrvPlanes;
+        protected global::System.Web.UI.WebControls.GridView GvPlanes;
+
+        /// <summary>
+        /// Control SDSPlanEstudio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSPlanEstudio;
     }
 }
