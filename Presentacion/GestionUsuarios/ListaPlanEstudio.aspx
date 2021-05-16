@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="ListaPlanEstudio.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaPlanEstudio" %>
 
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
@@ -29,7 +31,7 @@
         <div class="row">
             <div class="text-center">
 
-                <asp:GridView ID="GvPlanes" CssClass="table table-hover table-bordered" runat="server" AutoGenerateColumns="False" DataSourceID="SDSPlanEstudio" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged" >
+                <asp:GridView ID="GvPlanes" CssClass="table table-hover table-bordered" runat="server" AutoGenerateColumns="False" DataSourceID="SDSPlanEstudio" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="NombrePlan" HeaderText="Nombre" SortExpression="NombrePlan" />
                         <asp:TemplateField>
@@ -45,5 +47,50 @@
             </div>
 
         </div>
+
     </div>
+    <!--Modal De Funcionamiento de peticiones-->
+        <div id="master-modal-agregar" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div id="AModalHeader" runat="server">
+                        <p class="heading lead text-center"><span id="AModalTitulo" runat="server"></span></p>
+                    </div>
+                    <div class="modal-body">
+                        <span id="AModalBody" runat="server"></span>
+                    </div>
+                    <div class="modal-footer">
+                            
+                            <asp:Button ID="BtnModalAgregar" type="button" CssClass="btn btn-success" runat="server" OnClick="Agregar_Click" Text="Agregar"/>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--Modal De Funcionamiento de peticiones-->
+        <div id="master-modal-peticiones" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div id="EModalHeader" runat="server">
+                        <p class="heading lead text-center"><span id="EModalTitulo" runat="server"></span></p>
+                    </div>
+                    <div class="modal-body">
+                        <span id="EModalBody" runat="server"></span>
+                    </div>
+                    <div class="modal-footer">
+                            <asp:Button ID="BtnRegresar" type="button" CssClass="btn btn-success" runat="server" data-dismiss="modal" Text="Regresar"/>
+                            <asp:Button ID="BtnEliminar" type="button" CssClass="btn btn-danger" runat="server" OnClick="Eliminar_Click" Text="Eliminar"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        
+        function openMasterModalPeticion() {
+            $('#master-modal-peticiones').modal('show');
+        }
+        function openMasterModalAgregar() {
+            $('#master-modal-agregar').modal('show');
+        }
+    </script>
 </asp:Content>

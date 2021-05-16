@@ -122,6 +122,7 @@
                 </div>
             </div>
         </div>
+        
         <!--Scripts de funcionamiento de modal-->
         <script>
             $('#MyModal').on('shown.bs.modal', function () {
@@ -130,6 +131,9 @@
             function openMasterModalMensaje() {
                 $('#master-modal-mensaje').modal('show');
             }
+            //function openMasterModalPeticion() {
+             //   $('#master-modal-peticiones').modal('show');
+            //}
         </script>
 
     </form>

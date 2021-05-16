@@ -19,30 +19,38 @@ namespace Presentacion.GestionUsuarios
         protected void Page_Load(object sender, EventArgs e)
         {
             NU.LlenaDropDown(DdlCoordinadores, "SELECT * FROM Usuarios where IdTipoUsuario=3");
-            string MsgOpcion = (string)Session["Opcion"];
-            if (MsgOpcion == "Agregar")
+            string MsgOpcion = Session["Mensaje"].ToString();
+            if (MsgOpcion == "Modificar")
             {
-                BtnModificar.Visible = false;
-                BtnGuardar.Visible = true;
-            }
-            else
-            {
-                EP =(E_PlanEstudio) Session["Plan"];
-                BtnModificar.Visible = true;
-                BtnGuardar.Visible = false;
-                DdlCoordinadores.SelectedValue=EP.IdCoordinador.ToString();
-                wuc_Text.Text = EP.NombrePlan;
+                EP = (E_PlanEstudio)Session["Plan"];
                 ListAtrib = NU.BuscaAtributos(EP.IdPlan);
-                wuc_Text1.Text = ListAtrib[0].Atributo;
-                wuc_Text2.Text = ListAtrib[1].Atributo;
-                wuc_Text3.Text = ListAtrib[2].Atributo;
-                wuc_Text4.Text = ListAtrib[3].Atributo;
-                wuc_Text5.Text = ListAtrib[4].Atributo;
-                wuc_Text6.Text = ListAtrib[5].Atributo;
-                wuc_Text7.Text = ListAtrib[6].Atributo;
-
             }
-            
+            if (!IsPostBack)
+            {
+                if (MsgOpcion == "Agregar")
+                {
+                    BtnModificar.Visible = false;
+                    BtnGuardar.Visible = true;
+                }
+                else
+                {
+                    
+                    BtnModificar.Visible = true;
+                    BtnGuardar.Visible = false;
+                    DdlCoordinadores.SelectedValue = EP.IdCoordinador.ToString();
+                    wuc_Text.Text = EP.NombrePlan;
+                    wuc_Text1.Text = ListAtrib[0].Atributo;
+                    wuc_Text2.Text = ListAtrib[1].Atributo;
+                    wuc_Text3.Text = ListAtrib[2].Atributo;
+                    wuc_Text4.Text = ListAtrib[3].Atributo;
+                    wuc_Text5.Text = ListAtrib[4].Atributo;
+                    wuc_Text6.Text = ListAtrib[5].Atributo;
+                    wuc_Text7.Text = ListAtrib[6].Atributo;
+
+                }
+            }
+
+
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
@@ -52,12 +60,12 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            
+
             EP.NombrePlan = wuc_Text.Text.ToString();
             EP.IdPlan = 0;
             EP.IdCoordinador = Convert.ToInt32(DdlCoordinadores.SelectedValue);
             NU.InsertarPlan(EP);
-            EA.IdPlan=NU.UltimoRegistro("PlanEstudio","IdPlan");
+            EA.IdPlan = NU.UltimoRegistro("PlanEstudio", "IdPlan");
             if (EA.IdPlan != -1)
             {
                 int i = 0;
@@ -67,11 +75,12 @@ namespace Presentacion.GestionUsuarios
                     EA.IdAtributo = i;
                     i++;
                     EA.Atributo = c.ToString();
-                    string Msg=NU.InsertarAtributo(EA);
+                    string Msg = NU.InsertarAtributo(EA);
 
                 }
                 Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
-            }else
+            }
+            else
             {
                 Master.ModalMsg("Error: Hubo un error al agregar el Plan de Estudio");
             }
@@ -79,6 +88,7 @@ namespace Presentacion.GestionUsuarios
         }
         protected void GeneraLista()
         {
+            ListText.Clear();
             ListText.Add(wuc_Text1.Text.ToString());
             ListText.Add(wuc_Text2.Text.ToString());
             ListText.Add(wuc_Text3.Text.ToString());
@@ -90,7 +100,36 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnModificar_Click(object sender, EventArgs e)
         {
+            EP.NombrePlan = wuc_Text.Text.ToString();
+            EP.IdCoordinador = Convert.ToInt32(DdlCoordinadores.SelectedValue);
+            string msg = NU.ModificarPlan(EP);
+            if (msg == "Exito: El Plan Fue Modificado.")
+            {
+                //int i = 0;
+                GeneraLista();
+                /*foreach (string c in ListText)
+                {
+                    foreach(E_Atributos a in ListAtrib)
+                    {
 
+                        EA.Atributo = c.ToString();
+                        EA.IdPlan = EP.IdPlan;
+                        string Msg = NU.ModificarAtributo(EA);
+                    }
+                    
+
+                }*/
+                for(int i = 0; i < ListAtrib.Count; i++)
+                {
+                    ListAtrib[i].Atributo = ListText[i].ToString();
+                    string Msg= NU.ModificarAtributo(ListAtrib[i]);
+                }
+                Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
+            }
+            else
+            {
+                Master.ModalMsg("Error: Hubo un error al modificar el Plan de Estudio");
+            }
         }
     }
 }

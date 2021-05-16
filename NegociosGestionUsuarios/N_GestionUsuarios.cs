@@ -12,7 +12,11 @@ namespace NegociosGestionUsuarios
     public class N_Usuarios
     {
         readonly D_SQL_Datos SQLD = new D_SQL_Datos();
-
+        /// <summary>
+        /// Manejo de Usuarios
+        /// </summary>
+        /// <param name="EntidadUsuarios"></param>
+        /// <returns></returns>
         public string BorraUsuario(int pIdUsuario)
         {
             E_Usuarios EntidadUsuario = new E_Usuarios()
@@ -74,7 +78,11 @@ namespace NegociosGestionUsuarios
         }
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
-
+        /// <summary>
+        /// Segmento de codigo de Negocios Para el manejo de los codigos de comprobacion
+        /// </summary>
+        /// <param name="EntidadCodigo"></param>
+        /// <returns></returns>
         public string InsertarCodigo(E_Codigo EntidadCodigo)
         {
             EntidadCodigo.Accion = "INSERTAR";
@@ -86,10 +94,10 @@ namespace NegociosGestionUsuarios
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
         public E_Codigo BuscaCodigo(string Email)
         { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
-        /*public DataTable DT_LstModulos() { return SQLD.DT_ListadoGeneral("Modulos", "IdModulo,NombreModulo,UrlModulo,IdPadre"); }
-        public List<E_Menu> LstModulos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Menu>(DT_LstModulos()); }
-        public DataTable DT_LstPrivilegios() { return SQLD.DT_ListadoGeneral("Privilegios", "IdTipoUsuario,IdModulo,IdPrivilegio"); }
-        public List<E_Privilegios> LstPrivilegios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Privilegios>(DT_LstPrivilegios()); }*/
+        /// <summary>
+        /// Segmento de Negocios Para Planes de Estudio Y atributos
+        /// </summary>
+        /// <returns></returns>
         public DataTable DT_LstPlanes() { return SQLD.DT_ListadoGeneral("PlanEstudio", "IdPlan, NombrePlan, IdCoordinador"); }
         public List<E_PlanEstudio> LstPlanes() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_PlanEstudio>(DT_LstPlanes()); }
         public E_PlanEstudio BuscaPlanes(int IdPlan)
@@ -98,8 +106,22 @@ namespace NegociosGestionUsuarios
         {
             EntidadPlan.Accion = "INSERTAR";
             if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Plan", EntidadPlan).Contains("Exito"))
-                return "Exito: Codigo Generado y enviado.";
-            return "Error: No se pudo almacenar el codigo en la Base De Datos.";
+                return "Exito: Plan Insertado.";
+            return "Error: No se pudo agregar el plan de estudio.";
+        }
+        public string ModificarPlan(E_PlanEstudio EntidadPlan)
+        {
+            EntidadPlan.Accion = "MODIFICAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Plan", EntidadPlan).Contains("Exito"))
+                return "Exito: El Plan Fue Modificado.";
+            return "Error: No se pudo modicar el plan de estudio.";
+        }
+        public string EliminarPlan(E_PlanEstudio EntidadPlan)
+        {
+            EntidadPlan.Accion = "BORRAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Plan", EntidadPlan).Contains("Exito"))
+                return "Exito: El Plan Fue Eliminadoo.";
+            return "Error: No se pudo eliminar el plan de estudio.";
         }
         public List<E_Atributos> BuscaAtributos(int IdPlan)
         {
@@ -139,7 +161,20 @@ namespace NegociosGestionUsuarios
                 return "Exito: Codigo Generado y enviado.";
             return "Error: No se pudo almacenar el codigo en la Base De Datos.";
         }
-
+        public string ModificarAtributo(E_Atributos EntidadAtributo)
+        {
+            EntidadAtributo.Accion = "MODIFICAR";
+            if (SQLD.IBM_Entidad<E_Atributos>("IBM_Atributos", EntidadAtributo).Contains("Exito"))
+                return "Exito: Atributo modificado correctamente.";
+            return "Error: No se pudo modicar el atributo.";
+        }
+        public string EliminarAtributo(E_Atributos EntidadAtributo)
+        {
+            EntidadAtributo.Accion = "BORRAR";
+            if (SQLD.IBM_Entidad<E_Atributos>("IBM_Atributos", EntidadAtributo).Contains("Exito"))
+                return "Exito: Atributo eliminado correctamente.";
+            return "Error: No se pudo eliminado el atributo.";
+        }
         public void InsertarFirma(Byte[] Firma, int IdUsuario)
         {
             SqlCommand SqlComando;
