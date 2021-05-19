@@ -19,24 +19,27 @@
         SelectCommand="SELECT [IdUsuario],[NombreUsuario], [EmailUsuario] FROM [Usuarios]"></asp:SqlDataSource>
     <br />
     <div class="container">
+        <asp:Panel runat="server" ID="pnlSearch" DefaultButton="btnBuscar">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Tipo Usuario</label>
             <label class="col-sm-2 col-form-label ">Buscar Usuario</label>
             <div class="col-sm-10">
-                <asp:DropDownList runat="server" ID="ddlTest">
-                    <asp:ListItem Text="Docente" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="Coordinador" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="Sub Director" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="Director" Value="4"></asp:ListItem>
+                <asp:DropDownList runat="server" ID="ddlTest" AutoPostBack="true" OnSelectedIndexChanged="ddlTest_SelectedIndexChanged">
+                    <asp:ListItem Text="Todos" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Docente" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="Coordinador" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Sub Director" Value="2"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:Button CssClass="btn btn-primary mb-2 boton2" Text="Crea Usuario" runat="server" OnClick="Unnamed1_Click" />
                 <asp:TextBox class="form-control box2" ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary mb-2 boton2" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
 
         </div>
+        </asp:Panel>
         <br />
 
-        <asp:GridView ID="GvUsuarios" runat="server" CssClass="GridViewStyle"  HeaderStyle-CssClass="HeaderStyle"  AutoGenerateColumns="False" DataSourceID="Usuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" OnRowCommand="GvUsuarios_RowCommand" Width="1245px" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GvUsuarios" runat="server" CssClass="GridViewStyle"  HeaderStyle-CssClass="HeaderStyle"  AutoGenerateColumns="False" DataKeyNames="IdUsuario" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" OnRowCommand="GvUsuarios_RowCommand" Width="1245px" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" SortExpression="NombreUsuario" ItemStyle-Width="400px"  >

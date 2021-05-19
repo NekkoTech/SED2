@@ -66,6 +66,9 @@ namespace NegociosGestionUsuarios
         public E_Usuarios BuscaUsuario(string Email)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == Email select Usuario).FirstOrDefault(); }
 
+        public List<E_Usuarios> BuscaUsuarioTipo(int Tipo)
+        { return (from Usuario in LstUsuarios() where Usuario.IdTipoUsuario == Tipo select Usuario).ToList(); }
+
         public List<E_Usuarios> LstBuscaUsuarios(string Criterio)
         {
             return (from Usuario in LstUsuarios()
