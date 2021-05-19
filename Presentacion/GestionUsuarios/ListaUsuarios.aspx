@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
+    <link href="../CSS/CrearUsuarios.css" rel="stylesheet">
     <br />
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -35,19 +36,36 @@
         </div>
         <br />
 
-        <asp:GridView ID="GvUsuarios" runat="server" AutoGenerateColumns="False" DataSourceID="Usuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" OnRowCommand="GvUsuarios_RowCommand">
+        <asp:GridView ID="GvUsuarios" runat="server" CssClass="GridViewStyle"  HeaderStyle-CssClass="HeaderStyle"  AutoGenerateColumns="False" DataSourceID="Usuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" OnRowCommand="GvUsuarios_RowCommand" Width="1245px" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" SortExpression="NombreUsuario" />
-                <asp:BoundField DataField="EmailUsuario" HeaderText="Correo" SortExpression="EmailUsuario" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnBorrar" CssClass="btn btn-outline-danger" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Text="Borrar" Width="100" />
-                        <asp:Button ID="btnModificar" CssClass="btn btn-outline-warning" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Text="Modificar" Width="100" />
+                <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" SortExpression="NombreUsuario" ItemStyle-Width="400px"  >
+<ItemStyle Width="400px"></ItemStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="EmailUsuario" HeaderText="Correo" SortExpression="EmailUsuario" ItemStyle-Width="300px" >
+<ItemStyle Width="300px"></ItemStyle>
+                </asp:BoundField>
+                <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px" >
+                    <ItemTemplate >
+                        <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-warning"  CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50"  Height="45"></asp:LinkButton>
+                        <asp:LinkButton ID="btnBorrar"  CssClass="btn LinkButton btn-outline-danger"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Width="50" Height="45"></asp:LinkButton>
                     </ItemTemplate>
-                </asp:TemplateField>
 
+<ItemStyle Width="200px"></ItemStyle>
+                </asp:TemplateField>
+                
             </Columns>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+
+<HeaderStyle CssClass="HeaderStyle"></HeaderStyle>
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </div>
 </asp:Content>
-
