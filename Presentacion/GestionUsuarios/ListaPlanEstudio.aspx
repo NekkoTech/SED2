@@ -31,13 +31,13 @@
         <div class="row">
             <div class="text-center">
 
-                <asp:GridView ID="GvPlanes" CssClass="table table-hover table-bordered" runat="server" AutoGenerateColumns="False" DataSourceID="SDSPlanEstudio" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged">
+                <asp:GridView ID="GvPlanes" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataSourceID="SDSPlanEstudio" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged" Width="920px">
                     <Columns>
-                        <asp:BoundField DataField="NombrePlan" HeaderText="Nombre" SortExpression="NombrePlan" />
-                        <asp:TemplateField>
+                        <asp:BoundField DataField="NombrePlan" HeaderText="Nombre del plan de estudio" SortExpression="NombrePlan" />
+                        <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
-                                <asp:Button ID="btnBorrar" CssClass="btn btn-outline-danger h-50" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Text="Borrar" Width="100" />
-                                <asp:Button ID="btnModificar" CssClass="btn btn-outline-warning h-50" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Text="Modificar" Width="100" />
+                                <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-warning"  CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50"  Height="45"></asp:LinkButton>
+                                <asp:LinkButton ID="btnBorrar"  CssClass="btn LinkButton btn-outline-danger"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Width="50" Height="45"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
