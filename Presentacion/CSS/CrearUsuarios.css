@@ -34,3 +34,32 @@
 .xxlarge{
     font-size:xx-large;
 }
+
+.GridViewStyle {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    table
+    font-size: 14px;
+    text-align: center;   
+}
+
+.HeaderStyle {
+    border: 1px, solid, #ddd;
+    background-color: #649cff;
+    text-align: center;
+    table-layout: auto;
+}
+
+.LinkButton {
+    background: url("../img/ic_delete.png") top center no-repeat;
+    display: block; 
+    width:26px;  
+    height: 30px; 
+    }
+.LinkButton2 {
+    background: url("../img/ic_edit.png") top center no-repeat;
+    display: block;
+    width: 26px;
+    height: 30px;
+}

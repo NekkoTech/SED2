@@ -99,6 +99,9 @@
     <Content Include="GestionUsuarios\Verificacion.aspx" />
     <Content Include="GestionUsuarios\ValidaUsuario.aspx" />
     <Content Include="img\fiadlogo.png" />
+    <Content Include="img\ic_bloquear.png" />
+    <Content Include="img\ic_delete.png" />
+    <Content Include="img\ic_edit.png" />
     <Content Include="img\uabclogo.png" />
     <Content Include="PaginasMaestras\MP_BaseMaster.Master" />
     <Content Include="PaginasMaestras\UsuariosSinLogeo.master" />
