@@ -4,7 +4,7 @@
 <%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 
 
