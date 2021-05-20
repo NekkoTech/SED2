@@ -12,6 +12,7 @@ namespace Presentacion.GestionUsuarios
     public partial class ListaUsuarios : System.Web.UI.Page
     {
         E_Usuarios EU = new E_Usuarios();
+        N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -34,7 +35,8 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
-
+            GvUsuarios.DataSource = NU.LstUsuarios();
+            GvUsuarios.DataBind();
         }
 
         protected void GvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -67,6 +69,34 @@ namespace Presentacion.GestionUsuarios
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
             Response.Redirect("AgregaUsuario.aspx");
+        }
+
+        protected void ddlTest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTest.Text.ToString() == "1")
+            {
+                GvUsuarios.DataSource = NU.LstUsuarios();
+                GvUsuarios.DataBind();
+            }
+            else
+            {
+                GvUsuarios.DataSource = NU.BuscaUsuarioTipo(Convert.ToInt32(ddlTest.Text.ToString()));
+                GvUsuarios.DataBind();
+            }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (ddlTest.Text.ToString() == "1")
+            {
+                GvUsuarios.DataSource = NU.LstBuscaUsuarios(TextBox1.Text.ToString());
+                GvUsuarios.DataBind();
+            }
+            else
+            {
+                GvUsuarios.DataSource = NU.LstBuscaUsuariosTipo(TextBox1.Text.ToString(), Convert.ToInt32(ddlTest.Text.ToString()));
+                GvUsuarios.DataBind();
+            }
         }
     }
 }

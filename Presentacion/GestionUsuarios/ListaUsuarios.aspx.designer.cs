@@ -7,13 +7,20 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios
-{
-
-
-    public partial class ListaUsuarios
-    {
-
+namespace Presentacion.GestionUsuarios {
+    
+    
+    public partial class ListaUsuarios {
+        
+        /// <summary>
+        /// Control pnlSearch.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSearch;
+        
         /// <summary>
         /// Control ddlTest.
         /// </summary>
@@ -22,16 +29,25 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTest;
-
+        
         /// <summary>
-        /// Control TextBox2.
+        /// Control TextBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// Control btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
         /// <summary>
         /// Control GvUsuarios.
         /// </summary>
@@ -40,7 +56,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvUsuarios;
-
+        
         /// <summary>
         /// Control Usuarios.
         /// </summary>
