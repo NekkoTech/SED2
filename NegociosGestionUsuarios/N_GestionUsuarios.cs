@@ -68,6 +68,7 @@ namespace NegociosGestionUsuarios
 
         public List<E_Usuarios> BuscaUsuarioTipo(int Tipo)
         { return (from Usuario in LstUsuarios() where Usuario.IdTipoUsuario == Tipo select Usuario).ToList(); }
+        
 
         public List<E_Usuarios> LstBuscaUsuarios(string Criterio)
         {
@@ -78,6 +79,17 @@ namespace NegociosGestionUsuarios
                     Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper())
                     select Usuario).ToList();
         }
+
+        public List<E_Usuarios> LstBuscaUsuariosTipo(string Criterio, int TipoUsuario)
+        {
+            return (from Usuario in LstUsuarios()
+                    where ((Usuario.NombreUsuario.ToUpper().Contains(Criterio.ToUpper())) ||
+                    Usuario.APaternoUsuario.ToUpper().Contains(Criterio.ToUpper()) ||
+                    Usuario.AMaternoUsuario.ToUpper().Contains(Criterio.ToUpper()) ||
+                    Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper())) && Usuario.IdTipoUsuario == TipoUsuario
+                    select Usuario).ToList();
+        }
+
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
 

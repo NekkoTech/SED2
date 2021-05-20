@@ -67,8 +67,16 @@ namespace Presentacion.GestionUsuarios
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            GvUsuarios.DataSource = NU.LstBuscaUsuarios(TextBox2.Text.ToString());
-            GvUsuarios.DataBind();
+            if (ddlTest.Text.ToString()=="1")
+            {
+                GvUsuarios.DataSource = NU.LstBuscaUsuarios(TextBox2.Text.ToString());
+                GvUsuarios.DataBind();
+            }
+            else
+            {
+                GvUsuarios.DataSource = NU.LstBuscaUsuariosTipo(TextBox2.Text.ToString(), Convert.ToInt32(ddlTest.Text.ToString()));
+                GvUsuarios.DataBind();
+            }
         }
     }
 }
