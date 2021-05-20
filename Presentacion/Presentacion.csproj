@@ -86,6 +86,7 @@
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\AgregaMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
@@ -257,6 +258,13 @@
     </Compile>
     <Compile Include="Controles\wuc_Text.ascx.designer.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\AgregaMateria.aspx.cs">
+      <DependentUpon>AgregaMateria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\AgregaMateria.aspx.designer.cs">
+      <DependentUpon>AgregaMateria.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\AgregaUsuario.aspx.cs">
       <DependentUpon>AgregaUsuario.aspx</DependentUpon>
