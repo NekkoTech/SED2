@@ -15,6 +15,26 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
+                }
+            }
             if (IsPostBack)
             {
                 this.tbPassWord.Attributes.Add("value", this.tbPassWord.Text);

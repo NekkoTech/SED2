@@ -33,14 +33,16 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Apellido Paterno</label>
             <div class="col-sm-10">
-                <uc1:wuc_Text runat="server" ID="tbAPat" />
+                <asp:TextBox ID="tbAPat" runat="server"></asp:TextBox>
+                <!--uc1:wuc_Text runat="server" ID="tbAPat" /-->
             </div>
         </div>
         <br />
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Apellido Materno</label>
             <div class="col-sm-10">
-                <uc1:wuc_Text runat="server" ID="tbAMat" />
+                <asp:TextBox ID="TbAMat" runat="server"></asp:TextBox>
+                <!--uc1:wuc_Text runat="server" ID="tbAMat" /-->
             </div>
         </div>
         <br />

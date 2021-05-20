@@ -14,7 +14,27 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
+                }
+            }
+
         }
 
         protected void GvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)

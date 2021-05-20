@@ -16,10 +16,26 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["Usuario"]==null)
+            if (Session["Usuario"] == null)
             {
                 Response.Redirect("ValidaUsuario.aspx");
-            }*/
+            }
+            else
+            {
+                EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
+                }
+            }
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -52,7 +68,7 @@ namespace Presentacion.GestionUsuarios
         {
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
-            EU.AMaternoUsuario = tbAMat.Text;
+            EU.AMaternoUsuario = TbAMat.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.PassWordUsuario = tbPassWord.Text;

@@ -30,16 +30,16 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Text tbAPat;
+        protected global::System.Web.UI.WebControls.TextBox tbAPat;
 
         /// <summary>
-        /// Control tbAMat.
+        /// Control TbAMat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Text tbAMat;
+        protected global::System.Web.UI.WebControls.TextBox TbAMat;
 
         /// <summary>
         /// Control tbNumeroEmpleado.
