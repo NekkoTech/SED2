@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/PaginasMaestras/MP_BaseMaster.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Presentacion.GestionUsuarios.EliminarUsuario" %>
 
 
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
