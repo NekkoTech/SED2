@@ -18,7 +18,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            NU.LlenaDropDown(DdlCoordinadores, "SELECT * FROM Usuarios where IdTipoUsuario=3");
+            NU.LlenaDropDown(DdlCoordinadores, "SELECT * FROM Usuarios where IdTipoUsuario=3", "Coordinador");
             string MsgOpcion = Session["Mensaje"].ToString();
             if (MsgOpcion == "Modificar")
             {

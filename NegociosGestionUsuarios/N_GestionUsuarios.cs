@@ -94,6 +94,15 @@ namespace NegociosGestionUsuarios
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
         public E_Codigo BuscaCodigo(string Email)
         { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
+        public void InsertarFirma(Byte[] Firma, int IdUsuario)
+        {
+            SqlCommand SqlComando;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+            SqlComando.Parameters.AddWithValue("@Firma", Firma);
+            SqlComando.ExecuteNonQuery();
+        }
         /// <summary>
         /// Segmento de Negocios Para Planes de Estudio Y atributos
         /// </summary>
@@ -175,17 +184,39 @@ namespace NegociosGestionUsuarios
                 return "Exito: Atributo eliminado correctamente.";
             return "Error: No se pudo eliminado el atributo.";
         }
-        public void InsertarFirma(Byte[] Firma, int IdUsuario)
+        /// <summary>
+        /// Manejo de la Clase Materia
+        /// </summary>
+        /// <param name="Materias"></param>
+        /// <param name="IdMateria"></param>
+        public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre, IdTipoMateria"); }
+        public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
+        public E_Materias BuscaMateria(int IdMateria)
+        { return (from Materia in LstMaterias() where Materia.IdMateria == IdMateria select Materia).FirstOrDefault(); }
+        public string InsertarMateria(E_Materias EntidadMateria)
         {
-            SqlCommand SqlComando;
-            SQLD.Conexion.Open();
-            SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
-            SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-            SqlComando.Parameters.AddWithValue("@Firma", Firma);
-            SqlComando.ExecuteNonQuery();
+            EntidadMateria.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+                return "Exito: Materia Ingresada Exitosamente.";
+            return "Error: No se pudo agregar la Materia.";
         }
+        public string ModificarMateria(E_Materias EntidadMateria)
+        {
+            EntidadMateria.Accion = "MODIFICAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+                return "Exito: La Materia Fue Modificada.";
+            return "Error: No se pudo modicar la materia.";
+        }
+        public string EliminarMateria(E_Materias EntidadMateria)
+        {
+            EntidadMateria.Accion = "BORRAR";
+            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+                return "Exito: La Materia Fue Eliminada.";
+            return "Error: No se pudo eliminar la materia.";
+        }
+        
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
-        public void LlenaDropDown(DropDownList dropDownList, string sql)
+        public void LlenaDropDown(DropDownList dropDownList, string sql, string usuario)
         {
             SQLD.Conexion.Open();//Se abre la conexion
 
@@ -201,7 +232,8 @@ namespace NegociosGestionUsuarios
                 int i = 0;
                 while (dr.Read())//Se comprueba que tenga informacion y de ahi se llena uno por uno los datos extraidos en el dropdownlist
                 {
-                    item = new ListItem("Coordinador "+dr[2].ToString()+" " + dr[3].ToString() +" " + dr[4].ToString(),dr[0].ToString());
+                    
+                    item = new ListItem(usuario+" "+dr[2].ToString()+" " + dr[3].ToString() +" " + dr[4].ToString(),dr[0].ToString());
                     dropDownList.Items.Insert(i,item);
                     i++;
                 }

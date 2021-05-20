@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="AgregaMateria.aspx.cs" Inherits="Presentacion.GestionUsuarios.AgregaMateria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="IbmMateria.aspx.cs" Inherits="Presentacion.GestionUsuarios.AgregaMateria" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">

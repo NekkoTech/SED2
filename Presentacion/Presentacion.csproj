@@ -86,15 +86,17 @@
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
-    <Content Include="GestionUsuarios\AgregaMateria.aspx" />
+    <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\IbmPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\InfoCuenta.aspx" />
+    <Content Include="GestionUsuarios\InicioCoordinador.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaMaterias.aspx" />
     <Content Include="GestionUsuarios\ListaPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
     <Content Include="GestionUsuarios\ModificarUsuario.aspx" />
@@ -124,6 +126,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="PaginasMaestras\MasterDocenteMenu.Master" />
     <Content Include="Handler\RecuperaArchivo.ashx" />
+    <Content Include="PaginasMaestras\MasterCoordinadorMenu.Master" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -259,12 +262,12 @@
     <Compile Include="Controles\wuc_Text.ascx.designer.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
     </Compile>
-    <Compile Include="GestionUsuarios\AgregaMateria.aspx.cs">
-      <DependentUpon>AgregaMateria.aspx</DependentUpon>
+    <Compile Include="GestionUsuarios\IbmMateria.aspx.cs">
+      <DependentUpon>IbmMateria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionUsuarios\AgregaMateria.aspx.designer.cs">
-      <DependentUpon>AgregaMateria.aspx</DependentUpon>
+    <Compile Include="GestionUsuarios\IbmMateria.aspx.designer.cs">
+      <DependentUpon>IbmMateria.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\AgregaUsuario.aspx.cs">
       <DependentUpon>AgregaUsuario.aspx</DependentUpon>
@@ -308,6 +311,13 @@
     <Compile Include="GestionUsuarios\InfoCuenta.aspx.designer.cs">
       <DependentUpon>InfoCuenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\InicioCoordinador.aspx.cs">
+      <DependentUpon>InicioCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\InicioCoordinador.aspx.designer.cs">
+      <DependentUpon>InicioCoordinador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\InicioDocente.aspx.cs">
       <DependentUpon>InicioDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,6 +331,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaMaterias.aspx.cs">
+      <DependentUpon>ListaMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaMaterias.aspx.designer.cs">
+      <DependentUpon>ListaMaterias.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaPlanEstudio.aspx.cs">
       <DependentUpon>ListaPlanEstudio.aspx</DependentUpon>
@@ -366,6 +383,13 @@
     </Compile>
     <Compile Include="Handler\RecuperaArchivo.ashx.cs">
       <DependentUpon>RecuperaArchivo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginasMaestras\MasterCoordinadorMenu.Master.cs">
+      <DependentUpon>MasterCoordinadorMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginasMaestras\MasterCoordinadorMenu.Master.designer.cs">
+      <DependentUpon>MasterCoordinadorMenu.Master</DependentUpon>
     </Compile>
     <Compile Include="PaginasMaestras\MasterDocenteMenu.Master.cs">
       <DependentUpon>MasterDocenteMenu.Master</DependentUpon>

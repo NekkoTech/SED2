@@ -32,8 +32,10 @@ namespace Presentacion.GestionUsuarios
                         Response.Redirect("InicioMain.aspx");
                         break;
                     case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
                         break;
                     case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
                         break;
                     case 4:
                         Response.Redirect("InicioDocente.aspx");

@@ -161,4 +161,54 @@ namespace EntidadesGestionUsuarios
 
         #endregion
     }
+    public class E_Materias
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdMateria;
+        private string _Materia;
+        private string _Clave;
+        private int _IdDocente;
+        private int _Semestre;
+        private int _IdTipoMateria;
+
+        #endregion
+        #region Encapsulamientos
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdMateria { get => _IdMateria; set => _IdMateria = value; }
+        public string Materia { get => _Materia; set => _Materia = value; }
+        public string Clave { get => _Clave; set => _Clave = value; }
+        public int IdDocente { get => _IdDocente; set => _IdDocente = value; }
+        public int Semestre { get => _Semestre; set => _Semestre = value; }
+        public int IdTipoMateria { get => _IdTipoMateria; set => _IdTipoMateria = value; }
+
+        public E_Materias(string accion, int idMateria, string materia, string clave, int idDocente, int semestre, int idTipoMateria)
+        {
+            Accion = accion;
+            IdMateria = idMateria;
+            Materia = materia;
+            Clave = clave;
+            IdDocente = idDocente;
+            Semestre = semestre;
+            IdTipoMateria = idTipoMateria;
+        }
+
+        public E_Materias()
+        {
+            Accion = string.Empty;
+            IdMateria = 0;
+            Materia = string.Empty;
+            Clave = string.Empty;
+            IdDocente = 0;
+            Semestre = 0;
+            IdTipoMateria = 0;
+        }
+
+        #endregion
+        #region Constructores
+
+
+
+        #endregion
+    }
 }

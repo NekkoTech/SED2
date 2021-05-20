@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterAdministradorMenu.master.cs" Inherits="Presentacion.PaginasMaestras.MasterAdministradorMenu" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterCoordinadorMenu.master.cs" Inherits="Presentacion.PaginasMaestras.MasterCoordinadorMenu" %>
+
 
 <!DOCTYPE html>
 
@@ -53,21 +54,23 @@
                         <ul class="navbar-nav align-middle">
                             <!--li class="nav-item"><a class="nav-link" href="ListaUsuarios.aspx">Administrar Usuarios</a></li-->
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="InicioMain.aspx">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="InicioCoordinador.aspx">Inicio</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
+                                    <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Materias
                                     </a>
                                     <div class="dropdown-menu col-sm text-center" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="ListaUsuarios.aspx">Lista de Usuarios</a>
-                                        <a class="dropdown-item" href="AgregaUsuario.aspx">Agregar Usuarios</a>
+                                        <a class="dropdown-item" href="ListaMaterias.aspx">Lista de Materias</a>
+                                        <a class="dropdown-item" href="IbmMaterias.aspx">Agregar Materia</a>
                                     </div>
                                 </li>
                             </div>
                             <div class="col-sm">
-
-                                <li class="nav-item"><a class="nav-link" href="ListaPlanEstudio.aspx">Planes De Estudio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Encuadres</a></li>
+                            </div>
+                            <div class="col-sm">
+                                <li class="nav-item"><a class="nav-link" href="CuentaDocente.aspx">Cuenta</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link">

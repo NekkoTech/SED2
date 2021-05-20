@@ -13,7 +13,7 @@
                 <ol class="breadcrumb bg-white">
                     <li class="breadcrumb-item"><a href="InicioMain.aspx">Inicio</a></li>
                     <li class="breadcrumb-item"><a href="ListaPlanEstudio.aspx">Planes de Estudio</a></li>
-                    <li class="breadcrumb-item active">Agregar Plan</li>
+                    <li class="breadcrumb-item active">Formulario Plan de Estudio</li>
                 </ol>
             </nav>
         </div>
