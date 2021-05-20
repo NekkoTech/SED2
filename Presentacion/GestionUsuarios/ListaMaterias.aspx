@@ -16,13 +16,13 @@
         </div>
         <div class="row text-center align-middle">
             <div class="col-2">
-                <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Plan de Estudio"></asp:Label>
+                <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Materia"></asp:Label>
             </div>
             <div class="col-2">
                 <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success m-2 form-control box2" Text="Agregar" OnClick="BtnAgregar_Click" />
             </div>
             <div class="col-2">
-                <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Plan"></asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Materia"></asp:Label>
             </div>
             <div class="col-4">
                 <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control"></asp:TextBox>

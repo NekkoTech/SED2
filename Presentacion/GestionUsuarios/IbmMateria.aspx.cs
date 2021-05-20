@@ -10,7 +10,7 @@ using EntidadesGestionUsuarios;
 namespace Presentacion.GestionUsuarios
 {
     
-    public partial class AgregaMateria : System.Web.UI.Page
+    public partial class IbmMateria : System.Web.UI.Page
     {
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
