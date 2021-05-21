@@ -101,8 +101,37 @@
         </div>
         <br />
         <div class="align-content-center text-center">
+            <asp:Button runat="server" ID="btnRegresar" CssClass="btn mb-2 boton margen whitefont" CausesValidation="false" Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
             <asp:Button runat="server" CssClass="btn btn-primary mb-2 boton" Text="Modificar" OnClick="Button1_Click"></asp:Button><br />
             <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
         </div>
     </div>
+
+     <div id="confirmation-modal-mensaje" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div id="ModalHeader" runat="server">
+                        <p class="heading lead text-center"><span id="ModalTitulo" runat="server"></span></p>
+                    </div>
+                    <div class="modal-body">
+                        <span id="ModalBody" runat="server"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" OnClick="btnConfirmar_Click" data-dismiss="modal"/>
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" data-dismiss="modal"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <script>
+         $('#MyModal').on('shown.bs.modal', function () {
+             $('#myInput').trigger('focus')
+         })
+         function openconfirmationModalMensaje() {
+             $('#confirmation-modal-mensaje').modal('show');
+         }
+            //function openMasterModalPeticion() {
+             //   $('#master-modal-peticiones').modal('show');
+            //}
+     </script>
 </asp:Content>
