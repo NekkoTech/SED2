@@ -32,7 +32,8 @@ namespace NegociosGestionUsuarios
         public string InsertarUsuario(E_Usuarios EntidadUsuario)
         {
             E_Usuarios EU = BuscaUsuario(EntidadUsuario.EmailUsuario);
-            if (EU == null)
+            E_Usuarios EUaux = BuscaUsuarioNE(EntidadUsuario.NumeroEmpleado);
+            if (EU == null && EUaux == null)
             {
                 EntidadUsuario.Accion = "INSERTAR";
                 if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
@@ -66,6 +67,9 @@ namespace NegociosGestionUsuarios
 
         public E_Usuarios BuscaUsuario(string Email)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == Email select Usuario).FirstOrDefault(); }
+
+        public E_Usuarios BuscaUsuarioNE(string Clave)
+        { return (from Usuario in LstUsuarios() where Usuario.NumeroEmpleado == Clave select Usuario).FirstOrDefault(); }
 
         public List<E_Usuarios> BuscaUsuarioTipo(int Tipo)
         { return (from Usuario in LstUsuarios() where Usuario.IdTipoUsuario == Tipo select Usuario).ToList(); }

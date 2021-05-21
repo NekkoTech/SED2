@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
-    
-    
-    public partial class ModificarUsuario {
-        
+namespace Presentacion.GestionUsuarios
+{
+
+
+    public partial class ModificarUsuario
+    {
+
         /// <summary>
         /// Control tbNombre.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_Text tbNombre;
-        
+
         /// <summary>
         /// Control tbAPat.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbAPat;
-        
+
         /// <summary>
         /// Control revtbAPat.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbAPat;
-        
+
         /// <summary>
         /// Control tbAMat.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbAMat;
-        
+
         /// <summary>
         /// Control revtbAMat.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbAMat;
-        
+
         /// <summary>
         /// Control cvApellidos.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator cvApellidos;
-        
+
         /// <summary>
         /// Control tbNumeroEmpleado.
         /// </summary>
@@ -73,8 +75,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_NumeroEmpleado tbNumeroEmpleado;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbNumeroEmpleado;
+
         /// <summary>
         /// Control tbEmail.
         /// </summary>
@@ -82,8 +84,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CrearUsuarioCorreo tbEmail;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbEmail;
+
         /// <summary>
         /// Control tbPassWord.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPassWord;
-        
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control btnSubdirector.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubdirector;
-        
+
         /// <summary>
         /// Control btnCoordinador.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCoordinador;
-        
+
         /// <summary>
         /// Control btnDocente.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDocente;
-        
+
         /// <summary>
         /// Control lblRespuesta.
         /// </summary>
@@ -137,15 +139,17 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRespuesta;
-        
+
         /// <summary>
         /// Propiedad Master.
         /// </summary>
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master {
-            get {
+        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master
+        {
+            get
+            {
                 return ((Presentacion.PaginasMaestras.MasterDocenteMenu)(base.Master));
             }
         }

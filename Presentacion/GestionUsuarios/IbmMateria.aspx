@@ -94,43 +94,49 @@
                         <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text1" />
-                            <asp:CheckBox ID="CbAtributo" runat="server" />
+                            <asp:CheckBox ID="CbAtributo1" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text2" />
+                            <asp:CheckBox ID="CheckBox2" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero3">3</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text3" />
+                            <asp:CheckBox ID="CheckBox3" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero4">4</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text4" />
+                            <asp:CheckBox ID="CheckBox4" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero5">5</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text5" />
+                            <asp:CheckBox ID="CheckBox5" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero6">6</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text6" />
+                            <asp:CheckBox ID="CheckBox6" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero7">7</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text7" />
+                            <asp:CheckBox ID="CheckBox7" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

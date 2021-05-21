@@ -141,13 +141,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text1;
 
         /// <summary>
-        /// Control CbAtributo.
+        /// Control CbAtributo1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CbAtributo;
+        protected global::System.Web.UI.WebControls.CheckBox CbAtributo1;
 
         /// <summary>
         /// Control TcNumero2.
@@ -168,6 +168,15 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text2;
 
         /// <summary>
+        /// Control CheckBox2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+
+        /// <summary>
         /// Control TcNumero3.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_Text wuc_Text3;
+
+        /// <summary>
+        /// Control CheckBox3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
 
         /// <summary>
         /// Control TcNumero4.
@@ -204,6 +222,15 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text4;
 
         /// <summary>
+        /// Control CheckBox4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+
+        /// <summary>
         /// Control TcNumero5.
         /// </summary>
         /// <remarks>
@@ -220,6 +247,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_Text wuc_Text5;
+
+        /// <summary>
+        /// Control CheckBox5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
 
         /// <summary>
         /// Control TcNumero6.
@@ -240,6 +276,15 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text6;
 
         /// <summary>
+        /// Control CheckBox6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+
+        /// <summary>
         /// Control TcNumero7.
         /// </summary>
         /// <remarks>
@@ -256,6 +301,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_Text wuc_Text7;
+
+        /// <summary>
+        /// Control CheckBox7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox7;
 
         /// <summary>
         /// Control BtnRegresar.

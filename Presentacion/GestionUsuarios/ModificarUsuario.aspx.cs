@@ -102,10 +102,11 @@ namespace Presentacion.GestionUsuarios
             EU.PassWordUsuario = tbPassWord.Text;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
             EU.IdUsuario = aux.IdUsuario;
+
             if (NU.ModificarUsuario(EU).Contains("Exito"))
             {
                 //Response.Redirect("ListaUsuarios.aspx");
-                Master.ModalMsg("Exito: Los Datos Fueron Modificados exitosamente");
+                Master.ModalMsg("Precaucion: Los Datos Fueron Modificados exitosamente");
                 
             }
             else
