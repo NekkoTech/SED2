@@ -14,12 +14,24 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-            EU = (E_Usuarios)Session["Usuario"];
-            if (EU != null)
+            if (Session["Usuario"] == null)
             {
-                LblMensajeInicio.Text = "Usted Es Administrador";
-               
+                Response.Redirect("ValidaUsuario.aspx");
             }
+            EU = (E_Usuarios)Session["Usuario"];
+            switch (EU.IdTipoUsuario)
+            {
+                case 2:
+                    Response.Redirect("InicioSubdirector.aspx");
+                    break;
+                case 3:
+                    Response.Redirect("InicioCoordinador.aspx");
+                    break;
+                case 4:
+                    Response.Redirect("InicioDocente.aspx");
+                    break;
+            }
+            LblMensajeInicio.Text = "Usted Es Administrador";
         }
     }
 }

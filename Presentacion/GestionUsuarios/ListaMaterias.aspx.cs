@@ -16,9 +16,26 @@ namespace Presentacion.GestionUsuarios
         E_Materias EM = new E_Materias();
         private string BackGroundHeader;
         private string BtnColor;
-
+        E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
+                }
+            }
             if (Session["Eliminar"] != null)
             {
                 string msg = Session["Eliminar"].ToString();

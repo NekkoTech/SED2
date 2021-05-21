@@ -65,15 +65,7 @@ namespace Presentacion.GestionUsuarios
                             break;
                     }
                 }
-
             }
-            /*if (Session["Usuario"]==null)
-            {
-                Response.Redirect("ValidaUsuario.aspx");
-            }*/
-
-
-
         }
 
         protected void ChangeColorSubd(object sender, EventArgs e)
@@ -100,6 +92,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            EU = new E_Usuarios();
             E_Usuarios aux = (E_Usuarios)Session["UsuarioSeleccionado"];
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;

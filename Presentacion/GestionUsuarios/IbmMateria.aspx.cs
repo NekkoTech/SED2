@@ -15,7 +15,26 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
             NU.LlenaDropDown(dlDocentes, "SELECT * FROM Usuarios where IdTipoUsuario=4", "Docente");
+
+        }
+
+        protected void BtnRegresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnModificar_Click(object sender, EventArgs e)
+        {
 
         }
     }

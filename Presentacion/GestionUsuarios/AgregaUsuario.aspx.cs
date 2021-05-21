@@ -66,9 +66,10 @@ namespace Presentacion.GestionUsuarios
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            EU = new E_Usuarios();
             EU.NombreUsuario = tbNombre.Text;
             EU.APaternoUsuario = tbAPat.Text;
-            EU.AMaternoUsuario = TbAMat.Text;
+            EU.AMaternoUsuario = tbAMat.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
             EU.PassWordUsuario = tbPassWord.Text;
@@ -84,8 +85,8 @@ namespace Presentacion.GestionUsuarios
                 Master.ModalMsg("Error: El usuario no pudo ser agregado");
                 //lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
             }
-            
 
         }
+        
     }
 }

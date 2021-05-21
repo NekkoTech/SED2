@@ -16,9 +16,23 @@ namespace Presentacion.GestionUsuarios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            EU = (E_Usuarios)Session["Usuario"];
-            if (EU == null)
+            if (Session["Usuario"] == null)
+            {
                 Response.Redirect("ValidaUsuario.aspx");
+            }
+            EU = (E_Usuarios)Session["Usuario"];
+            switch (EU.IdTipoUsuario)
+            {
+                case 1:
+                    Response.Redirect("InicioMain.aspx");
+                    break;
+                case 2:
+                    Response.Redirect("InicioSubdirector.aspx");
+                    break;
+                case 3:
+                    Response.Redirect("InicioCoordinador.aspx");
+                    break;
+            }
             //ImgFirma.ImageUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario="+ EU.IdUsuario;
             //Response.Redirect("http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario="+ EU.IdUsuario);
             //string strUrl = "http://localhost:44380/Handler/RecuperaArchivo.ashx?IdUsuario=" + EU.IdUsuario;

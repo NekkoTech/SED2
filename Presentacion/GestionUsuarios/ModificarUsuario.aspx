@@ -30,14 +30,37 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Apellido Paterno</label>
             <div class="col-sm-10">
-                <uc1:wuc_Text runat="server" ID="tbAPat" />
+                <asp:TextBox ID="tbAPat" runat="server" CssClass="form-control box w-100"></asp:TextBox><br />
+                <asp:RegularExpressionValidator ID="revtbAPat" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbAPat" Display="Dynamic" CssClass="text-danger" ValidationExpression="^[A-Za-zñÑ ]+$">Caracter invalido</asp:RegularExpressionValidator>
             </div>
         </div>
         <br />
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Apellido Materno</label>
             <div class="col-sm-10">
-                <uc1:wuc_Text runat="server" ID="tbAMat" />
+                <asp:TextBox ID="tbAMat" runat="server" CssClass="form-control box w-100"></asp:TextBox><br />
+                <script>
+                    function doCustomValidate(source, args) {
+                        args.IsValid = false;
+                        if (document.getElementById('<% =tbAPat.ClientID %>').value.length > 0) {
+                            args.IsValid = true;
+                        }
+                        if (document.getElementById('<% =tbAMat.ClientID %>').value.length > 0) {
+                            args.IsValid = true;
+                        }
+                    }
+                </script>
+                <asp:RegularExpressionValidator ID="revtbAMat" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbAmat" Display="Dynamic" CssClass="text-danger" ValidationExpression="^[A-Za-zñÑ ]+$">Caracter invalido</asp:RegularExpressionValidator>
+                <br/><asp:CustomValidator 
+                    ID="cvApellidos" 
+                    runat="server" 
+                    ClientValidationFunction="doCustomValidate"
+                    ValidateEmptyText="true" 
+                    Display="Dynamic" 
+                    CssClass="text-danger" 
+                    ErrorMessage="cvApellidos">
+                    Ingresar al menos un apellido
+                </asp:CustomValidator>
             </div>
         </div>
         <br />

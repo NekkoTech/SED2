@@ -12,14 +12,32 @@ namespace Presentacion.GestionUsuarios
 {
     public partial class ListaPlanEstudio : System.Web.UI.Page
     {
-        N_Usuarios NU = new N_Usuarios();
+        
+    N_Usuarios NU = new N_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
         private string BackGroundHeader;
         private string BtnColor;
         private List<E_Atributos> ListAtrib= new List<E_Atributos>();
-
+        E_Usuarios EU = new E_Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 4:
+                        Response.Redirect("InicioDocente.aspx");
+                        break;
+                }
+            }
             if (Session["Eliminar"] != null)
             {
                 string msg = Session["Eliminar"].ToString();
