@@ -84,7 +84,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-                <uc1:wuc_CrearUsuarioPassWord runat="server" ID="tbPassWord" />
+                <asp:TextBox ID="tbPassWord" placeholder="Contraseña" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
             </div>
         </div>
         <br />
@@ -101,9 +101,10 @@
             </div>
             <div class="col">
                  <asp:Button runat="server" ID="btnDocente" CssClass="btn btn-light btn-outline-dark mb-2 box margen" OnClick="ChangeColorDoc" CausesValidation="false" Text="DOCENTE"></asp:Button>
-            </div>
-          
+            </div><br />
+          <br /><asp:Label ID="lblErrorTipoUsuario" runat="server" Text="" CssClass="text-danger"></asp:Label>
         </div>
+        
         <br />
         <div class="text-center align-content-center">
 

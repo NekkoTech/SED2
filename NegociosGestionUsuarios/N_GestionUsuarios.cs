@@ -32,14 +32,15 @@ namespace NegociosGestionUsuarios
         public string InsertarUsuario(E_Usuarios EntidadUsuario)
         {
             E_Usuarios EU = BuscaUsuario(EntidadUsuario.EmailUsuario);
-            if (EU == null)
+            E_Usuarios EU2 = BuscaUsuarioNE(EntidadUsuario.NumeroEmpleado);
+            if (EU == null && EU2 == null)
             {
                 EntidadUsuario.Accion = "INSERTAR";
                 if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                     return "Exito: Los datos del usuario fueron registrados correctamente.";
                 return "Error: Los datos del usuario no pudieron ser registrados correctamente.";
             }
-            else { return "Error: Los datos del usuario no pudieron ser registrados. <br /El correo electronico ya fue asignado a otro usuario>"; }
+            else { return "Error: Los datos del usuario no pudieron ser registrados. <br /El correo electronico o el número de empleado ya fue asignado a otro usuario>"; }
 
         }
 
@@ -66,6 +67,9 @@ namespace NegociosGestionUsuarios
 
         public E_Usuarios BuscaUsuario(string Email)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == Email select Usuario).FirstOrDefault(); }
+
+        public E_Usuarios BuscaUsuarioNE(string NumeroEmpleado)
+        { return (from Usuario in LstUsuarios() where Usuario.NumeroEmpleado == NumeroEmpleado select Usuario).FirstOrDefault(); }
 
         public List<E_Usuarios> BuscaUsuarioTipo(int Tipo)
         { return (from Usuario in LstUsuarios() where Usuario.IdTipoUsuario == Tipo select Usuario).ToList(); }

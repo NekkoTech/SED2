@@ -36,6 +36,28 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
+            if (Session["TipoUsuario"]!=null)
+            {
+                int idtipo = (int)Session["TipoUsuario"];
+                switch (idtipo)
+                {
+                    case 2:
+                        btnSubdirector.Style.Add("background-color", "#00723f");
+                        break;
+                    case 3:
+                        btnCoordinador.Style.Add("background-color", "#00723f");
+                        break;
+                    case 4:
+                        btnDocente.Style.Add("background-color", "#00723f");
+                        break;
+                }
+            }
+            if (IsPostBack)
+            {
+                this.tbPassWord.Attributes.Add("value", this.tbPassWord.Text);
+            }
+
+
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -72,20 +94,63 @@ namespace Presentacion.GestionUsuarios
             EU.AMaternoUsuario = tbAMat.Text;
             EU.EmailUsuario = tbEmail.Text;
             EU.NumeroEmpleado = tbNumeroEmpleado.Text;
-            EU.PassWordUsuario = tbPassWord.Text;
+            CreatePassword();
             EU.IdUsuario = 1;
+            if (Session["TipoUsuario"]==null)
+            {
+                lblErrorTipoUsuario.Text = "Selecciona el tipo de usuario";
+                return;
+            }
+            lblErrorTipoUsuario.Text = string.Empty;
             EU.IdTipoUsuario = (int)Session["TipoUsuario"];
             if(NU.InsertarUsuario(EU).Contains("Exito"))
             {
                 Master.ModalMsg("Exito: El Usuario fue agregado exitosamente");
-                //lblRespuesta.Text = "El usuario fue agregado exitosamente";
             }
             else
             {
-                Master.ModalMsg("Error: El usuario no pudo ser agregado");
-                //lblRespuesta.Text = "Error, los datos no pudieron ser ingresados";
+                Master.ModalMsg("Error: El usuario no pudo ser agregado. El correo elenctronico o el número de empleado ya esta en el sistema");
             }
+        }
 
+        protected void CreatePassword()
+        {
+            if (tbPassWord.Text.ToString().Length>=8)
+            {
+                EU.PassWordUsuario = tbPassWord.Text.ToString();
+                return;
+            }
+            if (tbPassWord.Text.ToString().Length>0)
+            {
+                EU.PassWordUsuario = tbPassWord.Text.ToString();
+                int a = 8 - tbPassWord.Text.ToString().Length;
+                while (a>0)
+                {
+                    EU.PassWordUsuario = "0" + EU.PassWordUsuario;
+                    a--;
+                };
+                return;
+            }
+            if (tbPassWord.Text.ToString().Length==0)
+            {
+                string aux = tbEmail.Text.ToString();
+                int i = 0;
+                while (aux[i]!='@' && i<8)
+                {
+                    EU.PassWordUsuario = EU.PassWordUsuario + aux[i];
+                    i++;
+                };
+                if (EU.PassWordUsuario.Length<8)
+                {
+                    i = 8 - EU.PassWordUsuario.Length;
+                    while (i > 0)
+                    {
+                        EU.PassWordUsuario = "0" + EU.PassWordUsuario;
+                        i--;
+                    };
+                }
+                return;
+            }
         }
         
     }

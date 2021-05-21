@@ -91,7 +91,7 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CrearUsuarioPassWord tbPassWord;
+        protected global::System.Web.UI.WebControls.TextBox tbPassWord;
         
         /// <summary>
         /// Control Label1.
@@ -128,6 +128,15 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDocente;
+        
+        /// <summary>
+        /// Control lblErrorTipoUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorTipoUsuario;
         
         /// <summary>
         /// Control lblRespuesta.

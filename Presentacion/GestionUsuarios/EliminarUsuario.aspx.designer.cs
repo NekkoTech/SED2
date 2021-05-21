@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios
-{
-
-
-    public partial class EliminarUsuario
-    {
-
+namespace Presentacion.GestionUsuarios {
+    
+    
+    public partial class EliminarUsuario {
+        
         /// <summary>
         /// Control tbNombre.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbNombre;
-
+        
         /// <summary>
         /// Control tbAPat.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbAPat;
-
+        
         /// <summary>
         /// Control tbAMat.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbAMat;
-
+        
         /// <summary>
         /// Control tbNumeroEmpleado.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbNumeroEmpleado;
-
+        
         /// <summary>
         /// Control tbEmail.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbEmail;
-
+        
         /// <summary>
         /// Control tbPassWord.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPassWord;
-
+        
         /// <summary>
         /// Control btnSubdirector.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubdirector;
-
+        
         /// <summary>
         /// Control btnCoordinador.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCoordinador;
-
+        
         /// <summary>
         /// Control btnDocente.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDocente;
-
+        
         /// <summary>
         /// Control btnRegresar.
         /// </summary>
@@ -103,7 +101,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
-
+        
         /// <summary>
         /// Control btnBorrar.
         /// </summary>
@@ -112,7 +110,7 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBorrar;
-
+        
         /// <summary>
         /// Control lblRespuesta.
         /// </summary>
@@ -121,17 +119,60 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRespuesta;
-
+        
+        /// <summary>
+        /// Control ModalHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalHeader;
+        
+        /// <summary>
+        /// Control ModalTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalTitulo;
+        
+        /// <summary>
+        /// Control ModalBody.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalBody;
+        
+        /// <summary>
+        /// Control btnConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmar;
+        
+        /// <summary>
+        /// Control btnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
         /// <summary>
         /// Propiedad Master.
         /// </summary>
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
-        {
-            get
-            {
+        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master {
+            get {
                 return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
             }
         }
