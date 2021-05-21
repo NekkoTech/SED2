@@ -2,8 +2,6 @@
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 <%@ Register Src="../Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
-<%@ Register Src="../Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
-<%@ Register Src="../Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
 <%@ Register Src="../Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
 
 
@@ -67,14 +65,14 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Numero Empleado</label>
             <div class="col-sm-10">
-                <uc1:wuc_NumeroEmpleado runat="server" ID="tbNumeroEmpleado" />
+                <asp:TextBox ID="tbNumeroEmpleado" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
             </div>
         </div>
         <br />
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Correo Institucional</label>
             <div class="col-sm-10">
-                <uc1:wuc_CrearUsuarioCorreo runat="server" ID="tbEmail" />
+                <asp:TextBox ID="tbEmail" CssClass="form-control box" runat="server" Enabled="False"></asp:TextBox>
             </div>
         </div>
         <br />

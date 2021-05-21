@@ -62,7 +62,7 @@
                                     </a>
                                     <div class="dropdown-menu col-sm text-center" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" href="ListaMaterias.aspx">Lista de Materias</a>
-                                        <a class="dropdown-item" href="IbmMaterias.aspx">Agregar Materia</a>
+                                        <a class="dropdown-item" href="IbmMateria.aspx">Agregar Materia</a>
                                     </div>
                                 </li>
                             </div>

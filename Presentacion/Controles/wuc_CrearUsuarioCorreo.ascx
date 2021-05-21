@@ -3,4 +3,4 @@
 <link href="../CSS/CrearUsuarios.css" rel="stylesheet">
     <asp:TextBox ID="tbEmail" CssClass="form-control box" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfvtbEmail" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="tbEmail" CssClass="text-danger" Display="Dynamic">Campo requerido</asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="revtbEmail" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbEmail" Display="Dynamic" CssClass="text-danger" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Formato de correo electronico erroneo</asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="revtbEmail" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="tbEmail" Display="Dynamic" CssClass="text-danger" ValidationExpression="\w+([-+.']\w+)*@uabc.edu.mx*">Formato de correo electronico erroneo</asp:RegularExpressionValidator>
