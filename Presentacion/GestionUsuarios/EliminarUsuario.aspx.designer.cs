@@ -166,6 +166,42 @@ namespace Presentacion.GestionUsuarios {
         protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
+        /// Control Encabezado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Encabezado;
+        
+        /// <summary>
+        /// Control TituloModalRedireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TituloModalRedireccion;
+        
+        /// <summary>
+        /// Control CuerpoModalRedireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CuerpoModalRedireccion;
+        
+        /// <summary>
+        /// Control btnAceptarRedireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceptarRedireccion;
+        
+        /// <summary>
         /// Propiedad Master.
         /// </summary>
         /// <remarks>
