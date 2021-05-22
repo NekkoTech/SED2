@@ -62,23 +62,18 @@
                     </div>
                 </div>
                 <br />
-                <!--div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Contraseña</label>
-                    <div class="col-sm-10">
-                        <uc1:wuc_CrearUsuarioPassWord runat="server" ID="tbPassWord" />
-                    </div>
-                </!--div-->
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Contraseña</label>
                     <div class="col-sm-10">
-                        <uc1:wuc_RepPassWord runat="server" ID="TbRepPassWord" />
+                        <asp:Button ID="BtnCambio" CssClass="btn btn-success" runat="server" Text="Cambiar Contraseña" OnClick="BtnCambio_Click" />
+                        <uc1:wuc_RepPassWord runat="server" ID="TbRepPassWord" visible="false"/>
                     </div>
                 </div>
                 <br />
                 <br />
                 <div class="form-row text-center">
 
-                    <asp:Button runat="server" CssClass="btn btn-success boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
+                    <asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-success boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
                     <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
                 </div>
             </div>
@@ -86,14 +81,12 @@
 
 
                 <div class="card" style="width: 20rem; top: 0px; left: 0px;">
-                    <a href='<%# string.Format("http://localhost:64369/Handler/RecuperaArchivo.ashx?IdUsuario={0}",Eval("IdUsuario")) %>'></a>
                     
-                    <asp:Image ID="RepeatIMG" Width="300px" Height="250px" CssClass="card-img" ImageUrl='<%# string.Format("~/Handler/RecuperaArchivo.ashx?IdUsuario=4")%>' runat="server" />
+                    
+                    <asp:Image ID="ImgFirma" runat="server" Width="300px" Height="250px" CssClass="card-img" />
                     <div class="card-body">
                         <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="250px" />
-                        <asp:RegularExpressionValidator ID="RevFirmaImagen" runat="server" ErrorMessage="Solo Imagenes Estan Permitidas"
-                            ControlToValidate="FuFirma" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.JPG|.gif|.GIF|.png|.PNG|.bmp|.BMP)$"> </asp:RegularExpressionValidator>
-                        <asp:Button ID="BtnSubirArchivo" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" CausesValidation="false" OnClick="BtnSubirArchivo_Click1" />
+                        <asp:Label ID="LblMensaje" runat="server"></asp:Label>
                         <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false" />
                     </div>
                 </div>
@@ -101,6 +94,30 @@
 
         </div>
     </div>
+    
+    <!--Modal De Funcionamiento de peticiones-->
+    <div id="master-modal-peticiones" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <div id="EModalHeader" runat="server">
+                    <p class="heading lead text-center"><span id="EModalTitulo" runat="server"></span></p>
+                </div>
+                <div class="modal-body">
+                    <span id="EModalBody" runat="server"></span>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="BtnCancelar" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Cancelar" />
+                    <asp:Button ID="BtnConfirmar" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnConfirmar_Click" Text="Guardar" CausesValidation="false" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
 
+        function openMasterModalPeticion() {
+            $('#master-modal-peticiones').modal('show');
+        }
+        
+    </script>
 
 </asp:Content>

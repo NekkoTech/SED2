@@ -112,15 +112,41 @@ namespace NegociosGestionUsuarios
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
         public E_Codigo BuscaCodigo(string Email)
         { return (from Codigo in LstCodigos() where Codigo.EmailUsuario == Email select Codigo).FirstOrDefault(); }
-        public void InsertarFirma(Byte[] Firma, int IdUsuario)
+        public DataTable DT_LstFirmas() { return SQLD.DT_ListadoGeneral("Firmas", "IdFirma"); }
+        public List<E_Firma> LstFirmas() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Firma>(DT_LstFirmas()); }
+        public E_Firma BuscaFirma(int IdUsuario)
+        { return (from Firma in LstFirmas() where Firma.IdUsuario == IdUsuario select Firma).FirstOrDefault(); }
+        public string InsertarFirma(Byte[] Firma, int IdUsuario)
         {
             SqlCommand SqlComando;
+            E_Firma EF = BuscaFirma(IdUsuario);
             SQLD.Conexion.Open();
-            SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
-            SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-            SqlComando.Parameters.AddWithValue("@Firma", Firma);
-            SqlComando.ExecuteNonQuery();
+            
+            int code;
+            
+            if (EF != null)
+            {
+                SqlComando = new SqlCommand("UPDATE Firmas SET Firma=@Firma WHERE IdFirma=@IdFirma", SQLD.Conexion);
+                SqlComando.Parameters.AddWithValue("@IdFirma", EF.IdFirma);
+                SqlComando.Parameters.AddWithValue("@Firma", Firma);
+                code = SqlComando.ExecuteNonQuery();
+            }
+            else
+            {
+                SqlComando = new SqlCommand("INSERT INTO Firmas(IdUsuario,Firma) VALUES(@IdUsuario,@Firma)", SQLD.Conexion);
+                SqlComando.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                SqlComando.Parameters.AddWithValue("@Firma", Firma);
+                code = SqlComando.ExecuteNonQuery();
+            }
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Firma insertado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Firma no pudo ser ingresada";
         }
+        
         /// <summary>
         /// Segmento de Negocios Para Planes de Estudio Y atributos
         /// </summary>

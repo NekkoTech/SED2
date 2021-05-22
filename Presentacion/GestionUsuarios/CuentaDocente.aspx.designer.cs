@@ -60,13 +60,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_CrearUsuarioCorreo tbEmail;
 
         /// <summary>
-        /// Control tbPassWord.
+        /// Control BtnCambio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CrearUsuarioPassWord tbPassWord;
+        protected global::System.Web.UI.WebControls.Button BtnCambio;
 
         /// <summary>
         /// Control TbRepPassWord.
@@ -78,6 +78,15 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_RepPassWord TbRepPassWord;
 
         /// <summary>
+        /// Control BtnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
+
+        /// <summary>
         /// Control lblRespuesta.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label lblRespuesta;
 
         /// <summary>
-        /// Control RepeatIMG.
+        /// Control ImgFirma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image RepeatIMG;
+        protected global::System.Web.UI.WebControls.Image ImgFirma;
 
         /// <summary>
         /// Control FuFirma.
@@ -105,22 +114,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.FileUpload FuFirma;
 
         /// <summary>
-        /// Control RevFirmaImagen.
+        /// Control LblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevFirmaImagen;
-
-        /// <summary>
-        /// Control BtnSubirArchivo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSubirArchivo;
+        protected global::System.Web.UI.WebControls.Label LblMensaje;
 
         /// <summary>
         /// Control BtnSubir.
@@ -130,6 +130,51 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnSubir;
+
+        /// <summary>
+        /// Control EModalHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalHeader;
+
+        /// <summary>
+        /// Control EModalTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalTitulo;
+
+        /// <summary>
+        /// Control EModalBody.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalBody;
+
+        /// <summary>
+        /// Control BtnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCancelar;
+
+        /// <summary>
+        /// Control BtnConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnConfirmar;
 
         /// <summary>
         /// Propiedad Master.

@@ -22,4 +22,5 @@ namespace EntidadesGestionUsuarios
         public static string BtnPrecaucion = "btn btn-md btn-warning";
         public static string BtnGeneral = "btn btn-md btn-dark";
     }
+    
 }

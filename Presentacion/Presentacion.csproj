@@ -86,10 +86,10 @@
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
-    <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\Forgot.aspx" />
     <Content Include="GestionUsuarios\IbmPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\InfoCuenta.aspx" />
@@ -262,6 +262,13 @@
     <Compile Include="Controles\wuc_Text.ascx.designer.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\CuentaDocente.aspx.cs">
+      <DependentUpon>CuentaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\CuentaDocente.aspx.designer.cs">
+      <DependentUpon>CuentaDocente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\IbmMateria.aspx.cs">
       <DependentUpon>IbmMateria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,13 +289,6 @@
     </Compile>
     <Compile Include="GestionUsuarios\EliminarUsuario.aspx.designer.cs">
       <DependentUpon>EliminarUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GestionUsuarios\CuentaDocente.aspx.cs">
-      <DependentUpon>CuentaDocente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GestionUsuarios\CuentaDocente.aspx.designer.cs">
-      <DependentUpon>CuentaDocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>

@@ -88,12 +88,6 @@ namespace Presentacion.GestionUsuarios
         }
 
 
-
-
-
-
-
-
         public void ModalConfirmationMsg(string pMsg)
         {
             String[] TipoMsg = pMsg.Split(':');
@@ -113,7 +107,7 @@ namespace Presentacion.GestionUsuarios
                 case "Exito": BackGroundHeader = Clr.ClrExito; BtnColor = Clr.BtnExito; break;
                 case "Error": BackGroundHeader = Clr.ClrPeligro; BtnColor = Clr.BtnPeligro; break;
                 case "Informacion": BackGroundHeader = Clr.ClrInformacion; BtnColor = Clr.BtnInformacion; break;
-                case "Precaucion": BackGroundHeader = Clr.ClrPrecaucion; BtnColor = Clr.BtnPrecaucion; break;
+                case "Precaución": BackGroundHeader = Clr.ClrPrecaucion; BtnColor = Clr.BtnPrecaucion; break;
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
         }

@@ -86,6 +86,27 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
+    public class E_Firma
+    {
+        #region Atributos
+        private int _IdUsuario;
+        private Byte[] _Firma;
+        private int _IdFirma;
+        #endregion
+        #region Encapsulamientos
+        public int IdUsuario { get => _IdUsuario; set => _IdUsuario = value; }
+        public byte[] Firma { get => _Firma; set => _Firma = value; }
+        public int IdFirma { get => _IdFirma; set => _IdFirma = value; }
+        #endregion
+        #region Constructor
+        public E_Firma()
+        {
+            IdUsuario = 0;
+            Firma = null;
+            IdFirma = 0;
+        }
+        #endregion
+    }
     public class E_PlanEstudio
     {
         #region Atributos
