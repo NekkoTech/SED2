@@ -68,7 +68,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void btnBorrar_Click(object sender, EventArgs e)
         {
-            ModalConfirmationMsg("Precaución : ¿Seguro que desea eliminar al usuario?");
+            ModalConfirmationMsg("Precaucion: ¿Seguro que desea eliminar al usuario?");
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace Presentacion.GestionUsuarios
                 EU = (E_Usuarios)Session["UsuarioSeleccionado"];
                 if (NU.BorraUsuario(EU.IdUsuario).Contains("Exito"))
                 {
-                    Master.ModalMsg("Exito: El usuario fue eliminado Exitosamente");
+                    ModalRedireccionMsg("Exito: El usuario fue eliminado Exitosamente");
                 }
                 else
                 {
@@ -87,6 +87,10 @@ namespace Presentacion.GestionUsuarios
             }
         }
 
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListaUsuarios.aspx");
+        }
 
         public void ModalConfirmationMsg(string pMsg)
         {
@@ -100,6 +104,18 @@ namespace Presentacion.GestionUsuarios
             btnConfirmar.Attributes.Add("class", BtnColor);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openconfirmationModalMensaje()", true);
         }
+        public void ModalRedireccionMsg(string pMsg)
+        {
+            String[] TipoMsg = pMsg.Split(':');
+            AtributosModal(TipoMsg[0]);
+            Encabezado.Attributes.Clear();
+            Encabezado.Attributes.Add("class", BackGroundHeader);
+            TituloModalRedireccion.InnerHtml = string.Format("{0}", TipoMsg[0]);
+            CuerpoModalRedireccion.InnerHtml = string.Format("{0}", TipoMsg[1]);
+            btnAceptarRedireccion.Attributes.Clear();
+            btnAceptarRedireccion.Attributes.Add("class", BtnColor);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openRedireccionModalMensaje()", true);
+        }
         protected void AtributosModal(string Tipo)
         {
             switch (Tipo)
@@ -107,7 +123,7 @@ namespace Presentacion.GestionUsuarios
                 case "Exito": BackGroundHeader = Clr.ClrExito; BtnColor = Clr.BtnExito; break;
                 case "Error": BackGroundHeader = Clr.ClrPeligro; BtnColor = Clr.BtnPeligro; break;
                 case "Informacion": BackGroundHeader = Clr.ClrInformacion; BtnColor = Clr.BtnInformacion; break;
-                case "Precaución": BackGroundHeader = Clr.ClrPrecaucion; BtnColor = Clr.BtnPrecaucion; break;
+                case "Precaucion": BackGroundHeader = Clr.ClrPrecaucion; BtnColor = Clr.BtnPrecaucion; break;
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
         }
