@@ -12,6 +12,7 @@ namespace Presentacion.GestionUsuarios
     {
         N_Usuarios NU = new N_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
+        E_Usuarios EU = new E_Usuarios();
         E_Atributos EA = new E_Atributos();
         List<string> ListText = new List<string>();
         List<E_Atributos> ListAtrib = new List<E_Atributos>();
@@ -22,6 +23,7 @@ namespace Presentacion.GestionUsuarios
             {
                 Response.Redirect("ValidaUsuario.aspx");
             }
+            EU = (E_Usuarios)Session["Usuario"];
             NU.LlenaDropDown(DdlCoordinadores, "SELECT * FROM Usuarios where IdTipoUsuario=3", "Coordinador");
             string MsgOpcion = Session["Mensaje"].ToString();
             if (MsgOpcion == "Modificar")
@@ -35,6 +37,7 @@ namespace Presentacion.GestionUsuarios
                 {
                     BtnModificar.Visible = false;
                     BtnGuardar.Visible = true;
+                    LblHeader.Visible = false;
                 }
                 else
                 {
@@ -64,30 +67,39 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-
-            EP.NombrePlan = wuc_Text.Text.ToString();
-            EP.IdPlan = 0;
-            EP.IdCoordinador = Convert.ToInt32(DdlCoordinadores.SelectedValue);
-            NU.InsertarPlan(EP);
-            EA.IdPlan = NU.UltimoRegistro("PlanEstudio", "IdPlan");
-            if (EA.IdPlan != -1)
+            if (DdlCoordinadores.Enabled == true)
             {
-                int i = 0;
-                GeneraLista();
-                foreach (string c in ListText)
+                EP.NombrePlan = wuc_Text.Text.ToString();
+                EP.IdPlan = 0;
+                EP.IdCoordinador = Convert.ToInt32(DdlCoordinadores.SelectedValue);
+                NU.InsertarPlan(EP);
+                EA.IdPlan = NU.UltimoRegistro("PlanEstudio", "IdPlan");
+                if (EA.IdPlan != -1)
                 {
-                    EA.IdAtributo = i;
-                    i++;
-                    EA.Atributo = c.ToString();
-                    string Msg = NU.InsertarAtributo(EA);
-
+                    int i = 0;
+                    GeneraLista();
+                    foreach (string c in ListText)
+                    {
+                        if (c.Length > 0)
+                        {
+                            EA.IdAtributo = i;
+                            i++;
+                            EA.Atributo = c.ToString();
+                            string Msg = NU.InsertarAtributo(EA);
+                        }
+                    }
+                    Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
                 }
-                Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
+                else
+                {
+                    Master.ModalMsg("Error: Hubo un error al agregar el Plan de Estudio");
+                }
             }
             else
             {
-                Master.ModalMsg("Error: Hubo un error al agregar el Plan de Estudio");
+                Master.ModalMsg("Error: No hay Coordinadores Disponibles");
             }
+            
 
         }
         protected void GeneraLista()

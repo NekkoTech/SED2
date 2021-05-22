@@ -155,6 +155,8 @@ namespace NegociosGestionUsuarios
         public List<E_PlanEstudio> LstPlanes() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_PlanEstudio>(DT_LstPlanes()); }
         public E_PlanEstudio BuscaPlanes(int IdPlan)
         { return (from Plan in LstPlanes() where Plan.IdPlan == IdPlan select Plan).FirstOrDefault(); }
+        public E_PlanEstudio BuscaPlanCoordinador(int IdCoordinador)
+        { return (from Plan in LstPlanes() where Plan.IdCoordinador == IdCoordinador select Plan).FirstOrDefault(); }
         public string InsertarPlan(E_PlanEstudio EntidadPlan)
         {
             EntidadPlan.Accion = "INSERTAR";
@@ -262,28 +264,74 @@ namespace NegociosGestionUsuarios
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
         public void LlenaDropDown(DropDownList dropDownList, string sql, string usuario)
         {
-            SQLD.Conexion.Open();//Se abre la conexion
+            List<E_Usuarios> Usuarios=LstUsuarios();
+            
+            switch (usuario)
+            {
+                case "Docente":
+                    foreach (E_Usuarios u in Usuarios)
+                    {
+                        if (u.IdTipoUsuario == 4)
+                        {
+                            dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
+                        }
+                    }
+                    break;
+                case "Coordinador":
+                    foreach (E_Usuarios u in Usuarios)
+                    {
+                        if (u.IdTipoUsuario == 3)
+                        {
+                            E_PlanEstudio EP = BuscaPlanCoordinador(u.IdUsuario);
+                            if (EP==null)
+                            {
+                                dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
+                            }
+                            
+                        }
+                    }
+                    break;
+            }
+            if (dropDownList.Items.Count == 0)
+            {
+                dropDownList.Enabled = false;
+            }
+            /*SQLD.Conexion.Open();//Se abre la conexion
 
             string query = sql;
-
+            E_PlanEstudio EP;
             SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
             SqlDataReader dr;
             dr = cmd.ExecuteReader();//Se ejecuta la peticion sql y se extraen los datos
-
+            
             if (dr.HasRows)
             {
                 ListItem item;
                 int i = 0;
                 while (dr.Read())//Se comprueba que tenga informacion y de ahi se llena uno por uno los datos extraidos en el dropdownlist
                 {
-                    
-                    item = new ListItem(usuario+" "+dr[2].ToString()+" " + dr[3].ToString() +" " + dr[4].ToString(),dr[0].ToString());
-                    dropDownList.Items.Insert(i,item);
-                    i++;
+                    if (usuario == "Coordinador")
+                    {
+                        SQLD.Conexion.Close();
+                        EP=BuscaPlanCoordinador(Convert.ToInt32(dr[0].ToString()));
+                        if (EP == null)
+                        {
+                            item = new ListItem(usuario + " " + dr[2].ToString() + " " + dr[3].ToString() + " " + dr[4].ToString(), dr[0].ToString());
+                            dropDownList.Items.Insert(i, item);
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        item = new ListItem(usuario + " " + dr[2].ToString() + " " + dr[3].ToString() + " " + dr[4].ToString(), dr[0].ToString());
+                        dropDownList.Items.Insert(i, item);
+                        i++;
+                    }
+                   
                 }
             }
-            SQLD.Conexion.Close();
-            
+            SQLD.Conexion.Close();*/
+
         }
 
         public int UltimoRegistro(string Tabla,string Id)

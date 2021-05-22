@@ -56,44 +56,25 @@
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text2" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell ID="TcNumero3">3</asp:TableCell>
-                        <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text3" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell ID="TcNumero4">4</asp:TableCell>
-                        <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text4" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell ID="TcNumero5">5</asp:TableCell>
-                        <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text5" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell ID="TcNumero6">6</asp:TableCell>
-                        <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text6" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell ID="TcNumero7">7</asp:TableCell>
-                        <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text7" />
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-            </div>
-            <div class="row align-middle text-center">
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text2" />
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell ID="TcNumero3">3</asp:TableCell><asp:TableCell>
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text3" />
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell ID="TcNumero4">4</asp:TableCell><asp:TableCell>
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text4" />
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell ID="TcNumero5">5</asp:TableCell><asp:TableCell>
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text5" />
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell ID="TcNumero6">6</asp:TableCell><asp:TableCell>
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text6" />
+                        </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell ID="TcNumero7">7</asp:TableCell><asp:TableCell>
+                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text7" />
+                        </asp:TableCell></asp:TableRow></asp:Table></div><div class="row align-middle text-center">
                 <div class="col-6">
-                    <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" />
+                    <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" CausesValidation="false" />
                 </div>
                 <div class="col-6">
                     <asp:Button ID="BtnGuardar" CssClass="btn btn-success box w-25" runat="server" Text="Guardar" OnClick="BtnGuardar_Click" />
