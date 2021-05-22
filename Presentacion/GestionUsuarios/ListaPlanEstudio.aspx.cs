@@ -47,6 +47,8 @@ namespace Presentacion.GestionUsuarios
                     Session["Eliminar"] = null;
                 }
             }
+            GvPlanes.DataSource = NU.LstPlanes();
+            GvPlanes.DataBind();
             if (GvPlanes.Rows.Count == 0)
             {
                 ModalPeticiones("Agregar:No hay Planes de Estudio Registrados",Agregar_Click);
@@ -154,6 +156,11 @@ namespace Presentacion.GestionUsuarios
                 case "Precaucion": BackGroundHeader = Clr.ClrPrecaucion; BtnColor = Clr.BtnPrecaucion; break;
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
+        }
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+             GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
+             GvPlanes.DataBind();
         }
 
     }

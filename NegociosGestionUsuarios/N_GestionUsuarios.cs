@@ -58,7 +58,7 @@ namespace NegociosGestionUsuarios
             return "Error: Los datos del usuario no pudieron ser modificados correctamente.";*/
         }
 
-        public DataTable DT_LstUsuarios() { return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
+        public DataTable DT_LstUsuarios() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
 
         public List<E_Usuarios> LstUsuarios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuarios()); }
 
@@ -157,6 +157,10 @@ namespace NegociosGestionUsuarios
         { return (from Plan in LstPlanes() where Plan.IdPlan == IdPlan select Plan).FirstOrDefault(); }
         public E_PlanEstudio BuscaPlanCoordinador(int IdCoordinador)
         { return (from Plan in LstPlanes() where Plan.IdCoordinador == IdCoordinador select Plan).FirstOrDefault(); }
+        public List<E_PlanEstudio> LstBuscaPlan(string Criterio)
+        {
+            return (from Plan in LstPlanes() where Plan.NombrePlan.ToUpper().Contains(Criterio.ToUpper()) select Plan).ToList();
+        }
         public string InsertarPlan(E_PlanEstudio EntidadPlan)
         {
             EntidadPlan.Accion = "INSERTAR";
@@ -235,7 +239,7 @@ namespace NegociosGestionUsuarios
         /// </summary>
         /// <param name="Materias"></param>
         /// <param name="IdMateria"></param>
-        public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre, IdTipoMateria"); }
+        public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre"); }
         public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
         public E_Materias BuscaMateria(int IdMateria)
         { return (from Materia in LstMaterias() where Materia.IdMateria == IdMateria select Materia).FirstOrDefault(); }
@@ -262,7 +266,7 @@ namespace NegociosGestionUsuarios
         }
         
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
-        public void LlenaDropDown(DropDownList dropDownList, string sql, string usuario)
+        public void LlenaDropDown(DropDownList dropDownList, string usuario)
         {
             List<E_Usuarios> Usuarios=LstUsuarios();
             
@@ -273,7 +277,7 @@ namespace NegociosGestionUsuarios
                     {
                         if (u.IdTipoUsuario == 4)
                         {
-                            dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
+                            dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + " " + u.AMaternoUsuario, u.IdUsuario.ToString()));
                         }
                     }
                     break;
@@ -296,42 +300,8 @@ namespace NegociosGestionUsuarios
             {
                 dropDownList.Enabled = false;
             }
-            /*SQLD.Conexion.Open();//Se abre la conexion
 
-            string query = sql;
-            E_PlanEstudio EP;
-            SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
-            SqlDataReader dr;
-            dr = cmd.ExecuteReader();//Se ejecuta la peticion sql y se extraen los datos
-            
-            if (dr.HasRows)
-            {
-                ListItem item;
-                int i = 0;
-                while (dr.Read())//Se comprueba que tenga informacion y de ahi se llena uno por uno los datos extraidos en el dropdownlist
-                {
-                    if (usuario == "Coordinador")
-                    {
-                        SQLD.Conexion.Close();
-                        EP=BuscaPlanCoordinador(Convert.ToInt32(dr[0].ToString()));
-                        if (EP == null)
-                        {
-                            item = new ListItem(usuario + " " + dr[2].ToString() + " " + dr[3].ToString() + " " + dr[4].ToString(), dr[0].ToString());
-                            dropDownList.Items.Insert(i, item);
-                            i++;
-                        }
-                    }
-                    else
-                    {
-                        item = new ListItem(usuario + " " + dr[2].ToString() + " " + dr[3].ToString() + " " + dr[4].ToString(), dr[0].ToString());
-                        dropDownList.Items.Insert(i, item);
-                        i++;
-                    }
-                   
-                }
-            }
-            SQLD.Conexion.Close();*/
-
+            SQLD.Conexion.Close();
         }
 
         public int UltimoRegistro(string Tabla,string Id)
@@ -343,6 +313,7 @@ namespace NegociosGestionUsuarios
 
             SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
             int MaxId = Convert.ToInt32(cmd.ExecuteScalar());
+            SQLD.Conexion.Close();
             return MaxId;
         }
     }

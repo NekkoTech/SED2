@@ -18,20 +18,24 @@
             <div class="col-2">
                 <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Plan de Estudio"></asp:Label>
             </div>
-            <div class="col-2">
-                <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success m-2 form-control" Text="Agregar" OnClick="BtnAgregar_Click" />
+            <div class="col-2 align-content-start">
+                <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success form-control" Text="Agregar" OnClick="BtnAgregar_Click" />
             </div>
             <div class="col-2">
                 <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Plan"></asp:Label>
             </div>
-            <div class="col-4">
-                <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control"></asp:TextBox>
+            <div class="col-2 align-middle">
+                <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control w-auto"></asp:TextBox>
+                
+            </div>
+            <div class="col-1">
+                <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-success form-control w-auto" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
         </div>
         <div class="row">
             <div class="text-center">
 
-                <asp:GridView ID="GvPlanes" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataSourceID="SDSPlanEstudio" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged" Width="920px">
+                <asp:GridView ID="GvPlanes" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged" Width="920px">
                     <Columns>
                         <asp:BoundField DataField="NombrePlan" HeaderText="Nombre del plan de estudio" SortExpression="NombrePlan" />
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">

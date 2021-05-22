@@ -13,8 +13,9 @@ namespace Presentacion.GestionUsuarios
         N_Usuarios NU = new N_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
         E_Usuarios EU = new E_Usuarios();
+        E_Usuarios PEU = new E_Usuarios();
         E_Atributos EA = new E_Atributos();
-        List<string> ListText = new List<string>();
+        static List<string> ListText = new List<string>();
         List<E_Atributos> ListAtrib = new List<E_Atributos>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,12 +25,14 @@ namespace Presentacion.GestionUsuarios
                 Response.Redirect("ValidaUsuario.aspx");
             }
             EU = (E_Usuarios)Session["Usuario"];
-            NU.LlenaDropDown(DdlCoordinadores, "SELECT * FROM Usuarios where IdTipoUsuario=3", "Coordinador");
+            NU.LlenaDropDown(DdlCoordinadores, "Coordinador");
             string MsgOpcion = Session["Mensaje"].ToString();
             if (MsgOpcion == "Modificar")
             {
                 EP = (E_PlanEstudio)Session["Plan"];
                 ListAtrib = NU.BuscaAtributos(EP.IdPlan);
+                PEU = NU.BuscaUsuario(EP.IdCoordinador);
+                DdlCoordinadores.Items.Add(new ListItem("Coordinador " + PEU.NombreUsuario + " " + PEU.APaternoUsuario + " " + PEU.AMaternoUsuario, PEU.IdUsuario.ToString()));
             }
             if (!IsPostBack)
             {
@@ -44,15 +47,57 @@ namespace Presentacion.GestionUsuarios
                     
                     BtnModificar.Visible = true;
                     BtnGuardar.Visible = false;
-                    DdlCoordinadores.SelectedValue = EP.IdCoordinador.ToString();
+                    
                     wuc_Text.Text = EP.NombrePlan;
-                    wuc_Text1.Text = ListAtrib[0].Atributo;
-                    wuc_Text2.Text = ListAtrib[1].Atributo;
-                    wuc_Text3.Text = ListAtrib[2].Atributo;
-                    wuc_Text4.Text = ListAtrib[3].Atributo;
-                    wuc_Text5.Text = ListAtrib[4].Atributo;
-                    wuc_Text6.Text = ListAtrib[5].Atributo;
-                    wuc_Text7.Text = ListAtrib[6].Atributo;
+                    switch (ListAtrib.Count)
+                    {
+                        case 1:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            
+                            break;
+                        case 2:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            break;
+                        case 3:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            wuc_Text3.Text = ListAtrib[2].Atributo;
+                            
+                            break;
+                        case 4:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            wuc_Text3.Text = ListAtrib[2].Atributo;
+                            wuc_Text4.Text = ListAtrib[3].Atributo;
+                            break;
+                        case 5:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            wuc_Text3.Text = ListAtrib[2].Atributo;
+                            wuc_Text4.Text = ListAtrib[3].Atributo;
+                            wuc_Text5.Text = ListAtrib[4].Atributo;
+                          
+                            break;
+                        case 6:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            wuc_Text3.Text = ListAtrib[2].Atributo;
+                            wuc_Text4.Text = ListAtrib[3].Atributo;
+                            wuc_Text5.Text = ListAtrib[4].Atributo;
+                            wuc_Text6.Text = ListAtrib[5].Atributo;
+                            break;
+                        case 7:
+                            wuc_Text1.Text = ListAtrib[0].Atributo;
+                            wuc_Text2.Text = ListAtrib[1].Atributo;
+                            wuc_Text3.Text = ListAtrib[2].Atributo;
+                            wuc_Text4.Text = ListAtrib[3].Atributo;
+                            wuc_Text5.Text = ListAtrib[4].Atributo;
+                            wuc_Text6.Text = ListAtrib[5].Atributo;
+                            wuc_Text7.Text = ListAtrib[6].Atributo;
+                            break;
+                    }
+                    
 
                 }
             }
@@ -105,13 +150,34 @@ namespace Presentacion.GestionUsuarios
         protected void GeneraLista()
         {
             ListText.Clear();
-            ListText.Add(wuc_Text1.Text.ToString());
-            ListText.Add(wuc_Text2.Text.ToString());
-            ListText.Add(wuc_Text3.Text.ToString());
-            ListText.Add(wuc_Text4.Text.ToString());
-            ListText.Add(wuc_Text5.Text.ToString());
-            ListText.Add(wuc_Text6.Text.ToString());
-            ListText.Add(wuc_Text7.Text.ToString());
+            if (wuc_Text1.Text.Length>0)
+            {
+                ListText.Add(wuc_Text1.Text.ToString());
+            }
+            if (wuc_Text2.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text2.Text.ToString());
+            }
+            if (wuc_Text3.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text3.Text.ToString());
+            }
+            if (wuc_Text4.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text4.Text.ToString());
+            }
+            if (wuc_Text5.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text5.Text.ToString());
+            }
+            if (wuc_Text6.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text6.Text.ToString());
+            }
+            if (wuc_Text7.Text.Length > 0)
+            {
+                ListText.Add(wuc_Text7.Text.ToString());
+            }
         }
 
         protected void BtnModificar_Click(object sender, EventArgs e)
@@ -121,25 +187,28 @@ namespace Presentacion.GestionUsuarios
             string msg = NU.ModificarPlan(EP);
             if (msg == "Exito: El Plan Fue Modificado.")
             {
-                //int i = 0;
                 GeneraLista();
-                /*foreach (string c in ListText)
+                if (ListText.Count > ListAtrib.Count)
                 {
-                    foreach(E_Atributos a in ListAtrib)
-                    {
-
-                        EA.Atributo = c.ToString();
-                        EA.IdPlan = EP.IdPlan;
-                        string Msg = NU.ModificarAtributo(EA);
+                    for (int i = 0; i < ListAtrib.Count; i++)
+                    { 
+                        ListAtrib[i].Atributo = ListText[i].ToString();
+                        string Msg = NU.ModificarAtributo(ListAtrib[i]);
                     }
-                    
-
-                }*/
-                for(int i = 0; i < ListAtrib.Count; i++)
-                {
-                    ListAtrib[i].Atributo = ListText[i].ToString();
-                    string Msg= NU.ModificarAtributo(ListAtrib[i]);
+                    for (int i = 0; i < ListText.Count-ListAtrib.Count; i++)
+                    {
+                        E_Atributos a=new E_Atributos();
+                        a.IdAtributo = i;
+                        a.Atributo = ListText[ListAtrib.Count+i].ToString();
+                        a.IdPlan = EP.IdPlan;
+                        string Msg = NU.InsertarAtributo(a);
+                    }
                 }
+                else
+                {
+
+                }
+                
                 Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
             }
             else

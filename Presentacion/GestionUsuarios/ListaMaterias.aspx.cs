@@ -28,11 +28,11 @@ namespace Presentacion.GestionUsuarios
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
-                    case 3:
-                        Response.Redirect("InicioCoordinador.aspx");
-                        break;
                     case 4:
                         Response.Redirect("InicioDocente.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
                         break;
                 }
             }
@@ -45,6 +45,8 @@ namespace Presentacion.GestionUsuarios
                     Session["Eliminar"] = null;
                 }
             }
+            GvMaterias.DataSource = NU.LstMaterias();
+            GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
             {
                 ModalPeticiones("Agregar:No hay Materias Registradas",Agregar_Click);

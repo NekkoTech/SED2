@@ -15,51 +15,6 @@ namespace Presentacion.GestionUsuarios
     {
 
         /// <summary>
-        /// Control tbNombreM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNombreM;
-
-        /// <summary>
-        /// Control tbClave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbClave;
-
-        /// <summary>
-        /// Control dlDocentes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlDocentes;
-
-        /// <summary>
-        /// Control SED.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SED;
-
-        /// <summary>
-        /// Control dlSemestre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlSemestre;
-
-        /// <summary>
         /// Control LblHeader.
         /// </summary>
         /// <remarks>
@@ -78,13 +33,31 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label LblNombre;
 
         /// <summary>
-        /// Control wuc_Text.
+        /// Control tbNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Text wuc_Text;
+        protected global::Presentacion.Controles.wuc_Text tbNombre;
+
+        /// <summary>
+        /// Control Label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// Control tbClave.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Presentacion.Controles.wuc_Text tbClave;
 
         /// <summary>
         /// Control Label2.
@@ -96,13 +69,31 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control DdlCoordinadores.
+        /// Control DdlDocentes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCoordinadores;
+        protected global::System.Web.UI.WebControls.DropDownList DdlDocentes;
+
+        /// <summary>
+        /// Control Label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// Control DdlSemestre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlSemestre;
 
         /// <summary>
         /// Control Label1.
@@ -141,13 +132,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text1;
 
         /// <summary>
-        /// Control CbAtributo1.
+        /// Control DdlAtrib1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CbAtributo1;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib1;
 
         /// <summary>
         /// Control TcNumero2.
@@ -168,13 +159,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text2;
 
         /// <summary>
-        /// Control CheckBox2.
+        /// Control DdlAtrib2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib2;
 
         /// <summary>
         /// Control TcNumero3.
@@ -195,13 +186,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text3;
 
         /// <summary>
-        /// Control CheckBox3.
+        /// Control DdlAtrib3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib3;
 
         /// <summary>
         /// Control TcNumero4.
@@ -222,13 +213,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text4;
 
         /// <summary>
-        /// Control CheckBox4.
+        /// Control DdlAtrib4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib4;
 
         /// <summary>
         /// Control TcNumero5.
@@ -249,13 +240,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text5;
 
         /// <summary>
-        /// Control CheckBox5.
+        /// Control DdlAtrib5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib5;
 
         /// <summary>
         /// Control TcNumero6.
@@ -276,13 +267,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text6;
 
         /// <summary>
-        /// Control CheckBox6.
+        /// Control DdlAtrib6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib6;
 
         /// <summary>
         /// Control TcNumero7.
@@ -303,13 +294,13 @@ namespace Presentacion.GestionUsuarios
         protected global::Presentacion.Controles.wuc_Text wuc_Text7;
 
         /// <summary>
-        /// Control CheckBox7.
+        /// Control DdlAtrib7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox7;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAtrib7;
 
         /// <summary>
         /// Control BtnRegresar.

@@ -8,47 +8,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
     <br />
-    <!--div class="container">
-         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre de la Materia</label>
-            <div class="col-sm-10">
-                <asp:Textbox runat="server" ID="tbNombreM" />
-            </div>
-        </div>
-        <br />
-        <div>
-            <label class="col-sm-2 col-form-label">Clave</label>
-            <div class="col-sm-10">
-                <asp:Textbox runat="server" ID="tbClave" />
-            </div>
-        </div>
-        <br />
-        <div>
-            <label class="col-sm-2 col-form-label">Docente(s)</label>
-            <div class="col-sm-10">
-                <asp:DropDownList runat="server" ID="dlDocentes" DataSourceID="SED" DataTextField="NombreUsuario" DataValueField="NombreUsuario">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SED" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionBD %>" SelectCommand="SELECT [NombreUsuario], [IdUsuario] FROM [Usuarios]"></asp:SqlDataSource>
-            </div>
-        </div>
-        <br />
-        <div>
-            <label class="col-sm-2 col-form-label">Docente(s)</label>
-            <div class="col-sm-10">
-                <asp:DropDownList runat="server" ID="dlSemestre">
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                </asp:DropDownList>
-            </div>
-        </div>
-    </!--div-->
     <div class="container">
         <br />
         <div class="row">
@@ -68,19 +27,47 @@
         <br />
         <div class="row">
             <div class="col-2">
-                <asp:Label ID="LblNombre" CssClass="col-form-label" runat="server" Text="Nombre"></asp:Label>
+                <asp:Label ID="LblNombre" CssClass="col-form-label" runat="server" Text="Nombre Materia"></asp:Label>
             </div>
             <div class="col">
-                <uc1:wuc_Text runat="server" ID="wuc_Text" />
+                <uc1:wuc_Text runat="server" ID="tbNombre" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-2">
-                <asp:Label ID="Label2" runat="server" Text="Asignar Coordinador"></asp:Label>
+                <asp:Label ID="Label3" CssClass="col-form-label" runat="server" Text="Clave"></asp:Label>
             </div>
             <div class="col">
-                <asp:DropDownList ID="DdlCoordinadores" CssClass="form-control" runat="server"></asp:DropDownList>
+                <uc1:wuc_Text runat="server" ID="tbClave" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-2">
+                <asp:Label ID="Label2" runat="server" Text="Docente"></asp:Label>
+            </div>
+            <div class="col">
+                <asp:DropDownList ID="DdlDocentes" CssClass="form-control" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-2">
+                <asp:Label ID="Label4" CssClass="col-form-label" runat="server" Text="Semestre"></asp:Label>
+            </div>
+            <div class="col">
+                <asp:DropDownList CssClass="form-control" ID="DdlSemestre" runat="server">
+                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
         <br />
@@ -93,50 +80,85 @@
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                         <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text1" />
-                            <asp:CheckBox ID="CbAtributo1" runat="server" />
+                            <uc1:wuc_Text runat="server" ID="wuc_Text1" class="w-75" />
+                            <asp:DropDownList CssClass="form-control w-25" ID="DdlAtrib1" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text2" />
-                            <asp:CheckBox ID="CheckBox2" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib2" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero3">3</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text3" />
-                            <asp:CheckBox ID="CheckBox3" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib3" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero4">4</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text4" />
-                            <asp:CheckBox ID="CheckBox4" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib4" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero5">5</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text5" />
-                            <asp:CheckBox ID="CheckBox5" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib5" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero6">6</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text6" />
-                            <asp:CheckBox ID="CheckBox6" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib6" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero7">7</asp:TableCell>
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text7" />
-                            <asp:CheckBox ID="CheckBox7" runat="server" />
+                            <asp:DropDownList CssClass="form-control" ID="DdlAtrib7" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
+                                <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
+                                <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
+                            </asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
