@@ -191,7 +191,6 @@ namespace EntidadesGestionUsuarios
         private string _Clave;
         private int _IdDocente;
         private int _Semestre;
-        private int _IdTipoMateria;
 
         #endregion
         #region Encapsulamientos
@@ -201,9 +200,13 @@ namespace EntidadesGestionUsuarios
         public string Clave { get => _Clave; set => _Clave = value; }
         public int IdDocente { get => _IdDocente; set => _IdDocente = value; }
         public int Semestre { get => _Semestre; set => _Semestre = value; }
-        public int IdTipoMateria { get => _IdTipoMateria; set => _IdTipoMateria = value; }
 
-        public E_Materias(string accion, int idMateria, string materia, string clave, int idDocente, int semestre, int idTipoMateria)
+
+
+        #endregion
+        #region Constructores
+
+        public E_Materias(string accion, int idMateria, string materia, string clave, int idDocente, int semestre)
         {
             Accion = accion;
             IdMateria = idMateria;
@@ -211,7 +214,6 @@ namespace EntidadesGestionUsuarios
             Clave = clave;
             IdDocente = idDocente;
             Semestre = semestre;
-            IdTipoMateria = idTipoMateria;
         }
 
         public E_Materias()
@@ -222,13 +224,7 @@ namespace EntidadesGestionUsuarios
             Clave = string.Empty;
             IdDocente = 0;
             Semestre = 0;
-            IdTipoMateria = 0;
         }
-
-        #endregion
-        #region Constructores
-
-
 
         #endregion
     }

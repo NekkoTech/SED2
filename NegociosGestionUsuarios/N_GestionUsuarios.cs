@@ -234,6 +234,29 @@ namespace NegociosGestionUsuarios
                 return "Exito: Atributo eliminado correctamente.";
             return "Error: No se pudo eliminado el atributo.";
         }
+        public string InsertarAtributoMateria(int IdMateria, int IdAtributo, string Aportacion)
+        {
+            SqlCommand SqlComando;
+            E_Materias EM = BuscaMateria(IdMateria);
+            SQLD.Conexion.Open();
+            int code;
+
+            if (EM != null)
+            {
+                SqlComando = new SqlCommand("INSERT INTO Atributo_Materia(IdMateria,IdAtributo,Aportacion) VALUES(@IdMateria,@IdAtributo,@Aportacion)", SQLD.Conexion);
+                SqlComando.Parameters.AddWithValue("@IdMateria", IdMateria);
+                SqlComando.Parameters.AddWithValue("@IdAtributo", IdAtributo);
+                SqlComando.Parameters.AddWithValue("@Aportacion", Aportacion);
+                code = SqlComando.ExecuteNonQuery();
+                if (code == 1)
+                {
+                    SQLD.Conexion.Close();
+                    return "Exito: Firma insertado";
+                }
+            }
+            SQLD.Conexion.Close();
+            return "Error: Firma no pudo ser ingresada";
+        }
         /// <summary>
         /// Manejo de la Clase Materia
         /// </summary>
@@ -243,12 +266,16 @@ namespace NegociosGestionUsuarios
         public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
         public E_Materias BuscaMateria(int IdMateria)
         { return (from Materia in LstMaterias() where Materia.IdMateria == IdMateria select Materia).FirstOrDefault(); }
+        public E_Materias BuscaMateriaClave(string Clave)
+        { return (from Materia in LstMaterias() where Materia.Clave == Clave select Materia).FirstOrDefault(); }
         public string InsertarMateria(E_Materias EntidadMateria)
         {
             EntidadMateria.Accion = "INSERTAR";
-            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+            string msg = SQLD.IBM_Entidad<E_Materias>("IBM_Materias", EntidadMateria);
+            return msg;
+            /*if ()
                 return "Exito: Materia Ingresada Exitosamente.";
-            return "Error: No se pudo agregar la Materia.";
+            return "Error: No se pudo agregar la Materia.";*/
         }
         public string ModificarMateria(E_Materias EntidadMateria)
         {

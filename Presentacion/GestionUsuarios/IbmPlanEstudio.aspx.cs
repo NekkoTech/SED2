@@ -209,7 +209,7 @@ namespace Presentacion.GestionUsuarios
 
                 }
                 
-                Master.ModalMsg("Exito: El plan y los atributos fueron registrados exitosamente");
+                Master.ModalMsg("Exito: El plan y los atributos fueron modificados exitosamente");
             }
             else
             {

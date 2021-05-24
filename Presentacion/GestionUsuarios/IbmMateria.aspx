@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="IbmMateria.aspx.cs" Inherits="Presentacion.GestionUsuarios.IbmMateria" %>
 
 <%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
+<%@ Register Src="~/Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
+
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
 
 
@@ -39,7 +41,8 @@
                 <asp:Label ID="Label3" CssClass="col-form-label" runat="server" Text="Clave"></asp:Label>
             </div>
             <div class="col">
-                <uc1:wuc_Text runat="server" ID="tbClave" />
+                
+                <uc1:wuc_NumeroEmpleado runat="server" ID="tbClave" />
             </div>
         </div>
         <br />
@@ -58,7 +61,7 @@
             </div>
             <div class="col">
                 <asp:DropDownList CssClass="form-control" ID="DdlSemestre" runat="server">
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="1" Value="1" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
@@ -80,21 +83,31 @@
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                         <asp:TableCell>
-                            <uc1:wuc_Text runat="server" ID="wuc_Text1" class="w-75" />
-                            <asp:DropDownList CssClass="form-control w-25" ID="DdlAtrib1" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                            <div class="col-sm">
+                                <uc1:wuc_Text runat="server" ID="wuc_Text1" class="w-75" />
+                            </div>
+                            <div class="col-sm">
+                                <asp:DropDownList CssClass="form-control w-25" ID="DdlAtrib1" runat="server">
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
                             </asp:DropDownList>
+                            </div>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
+                            <div class="col-sm">
+
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
                             <uc1:wuc_Text runat="server" ID="wuc_Text2" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib2" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
@@ -106,7 +119,7 @@
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text3" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib3" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
@@ -118,7 +131,7 @@
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text4" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib4" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
@@ -130,7 +143,7 @@
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text5" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib5" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
@@ -142,7 +155,7 @@
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text6" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib6" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>
@@ -154,7 +167,7 @@
                         <asp:TableCell>
                             <uc1:wuc_Text runat="server" ID="wuc_Text7" />
                             <asp:DropDownList CssClass="form-control" ID="DdlAtrib7" runat="server">
-                                <asp:ListItem Text="Introductorio" Value="I"></asp:ListItem>
+                                <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
                                 <asp:ListItem Text="No Aplica" Value="NA"></asp:ListItem>

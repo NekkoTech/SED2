@@ -27,3 +27,4 @@ C:\Users\user\Documents\GitHub\SED2\EntidadesGestionUsuarios\bin\Debug\Entidades
 C:\Users\user\Documents\GitHub\SED2\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\SED2\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.dll
 C:\Users\user\Documents\GitHub\SED2\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\Documents\GitHub\SED2\EntidadesGestionUsuarios\obj\Debug\EntidadesGestionUsuarios.csprojAssemblyReference.cache

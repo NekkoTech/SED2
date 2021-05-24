@@ -111,7 +111,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text2;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text2;
 
         /// <summary>
         /// Control TcNumero3.
@@ -129,7 +129,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text3;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text3;
 
         /// <summary>
         /// Control TcNumero4.
@@ -147,7 +147,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text4;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text4;
 
         /// <summary>
         /// Control TcNumero5.
@@ -165,7 +165,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text5;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text5;
 
         /// <summary>
         /// Control TcNumero6.
@@ -183,7 +183,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text6;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text6;
 
         /// <summary>
         /// Control TcNumero7.
@@ -201,7 +201,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wuc_Text7;
+        protected global::Presentacion.Controles.wuc_Text_SR wuc_Text7;
 
         /// <summary>
         /// Control BtnRegresar.

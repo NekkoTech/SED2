@@ -57,7 +57,7 @@ namespace Presentacion.GestionUsuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Text tbClave;
+        protected global::Presentacion.Controles.wuc_NumeroEmpleado tbClave;
 
         /// <summary>
         /// Control Label2.

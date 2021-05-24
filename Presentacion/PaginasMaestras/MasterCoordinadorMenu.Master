@@ -137,13 +137,7 @@
             function openMasterModalMensaje() {
                 $('#master-modal-mensaje').modal('show');
             }
-            //function openMasterModalPeticion() {
-             //   $('#master-modal-peticiones').modal('show');
-            //}
-
-            public void button_onclick(){
-                Session["Mensaje"] = "Agregar";
-            }
+   
         </script>
 
     </form>

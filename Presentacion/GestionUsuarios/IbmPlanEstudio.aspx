@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="IbmPlanEstudio.aspx.cs" Inherits="Presentacion.GestionUsuarios.IbmPlanEstudio" %>
 
 <%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
+<%@ Register Src="~/Controles/wuc_Text_SR.ascx" TagPrefix="uc1" TagName="wuc_Text_SR" %>
+
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -56,22 +58,22 @@
                     <asp:TableRow>
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text2" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text2" />
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell ID="TcNumero3">3</asp:TableCell><asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text3" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text3" />
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell ID="TcNumero4">4</asp:TableCell><asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text4" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text4" />
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell ID="TcNumero5">5</asp:TableCell><asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text5" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text5" />
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell ID="TcNumero6">6</asp:TableCell><asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text6" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text6" />
                         </asp:TableCell></asp:TableRow><asp:TableRow>
                         <asp:TableCell ID="TcNumero7">7</asp:TableCell><asp:TableCell>
-                            <asp:TextBox CssClass="form-control box w-100" runat="server" ID="wuc_Text7" />
+                            <uc1:wuc_Text_SR runat="server" id="wuc_Text7" />
                         </asp:TableCell></asp:TableRow></asp:Table></div><div class="row align-middle text-center">
                 <div class="col-6">
                     <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" CausesValidation="false" />

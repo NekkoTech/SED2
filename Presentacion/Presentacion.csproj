@@ -82,6 +82,7 @@
     <Content Include="Controles\wuc_NumeroEmpleado.ascx" />
     <Content Include="Controles\wuc_PassWord.ascx" />
     <Content Include="Controles\wuc_RepPassWord.ascx" />
+    <Content Include="Controles\wuc_Text_SR.ascx" />
     <Content Include="Controles\wuc_Text.ascx" />
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="Controles\wuc_RepPassWord.ascx.designer.cs">
       <DependentUpon>wuc_RepPassWord.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\wuc_Text_SR.ascx.cs">
+      <DependentUpon>wuc_Text_SR.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\wuc_Text_SR.ascx.designer.cs">
+      <DependentUpon>wuc_Text_SR.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controles\wuc_Text.ascx.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
