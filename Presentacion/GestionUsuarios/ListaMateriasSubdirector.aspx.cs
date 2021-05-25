@@ -10,15 +10,15 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class ListaPlanEstudio : System.Web.UI.Page
+    public partial class ListaMateriasSubdirector : System.Web.UI.Page
     {
-        
-    N_Usuarios NU = new N_Usuarios();
-        E_PlanEstudio EP = new E_PlanEstudio();
+        N_Usuarios NU = new N_Usuarios();
+        E_Materias EM = new E_Materias();
         private string BackGroundHeader;
         private string BtnColor;
-        private List<E_Atributos> ListAtrib= new List<E_Atributos>();
         E_Usuarios EU = new E_Usuarios();
+        E_Usuarios SEU = new E_Usuarios();
+        E_PlanEstudio EP = new E_PlanEstudio();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -27,38 +27,41 @@ namespace Presentacion.GestionUsuarios
             }
             else
             {
+                SEU = (E_Usuarios)Session["Usuario"];
+                if (SEU.IdTipoUsuario == 3)
+                {
+                    EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
+                }
+                if (SEU.IdTipoUsuario == 2)
+                {
+                    EP = (E_PlanEstudio)Session["PlanSubdirector"];
+                }
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
-                    case 1:GvPlanes.Visible = true;
-                        GvPlanesSubdirector.Visible = false;
-                        break;
-                    case 2:
-                        GvPlanes.Visible = false;
-                        GvPlanesSubdirector.Visible = true;
-                        break;
-                    case 3:
-                        Response.Redirect("InicioCoordinador.aspx");
-                        break;
                     case 4:
                         Response.Redirect("InicioDocente.aspx");
                         break;
+                    case 1:
+                        Response.Redirect("InicioMain.aspx");
+                        break;
                 }
             }
+
             if (Session["Eliminar"] != null)
             {
                 string msg = Session["Eliminar"].ToString();
                 if (msg == "Exito: Los Atributos y los Planes fueron exitosamente Eliminados")
                 {
-                    Master.ModalMsg("Exito: Los Atributos y los Planes fueron exitosamente Eliminados");
+                    Master.ModalMsg("Exito: La Materia fue eliminada");
                     Session["Eliminar"] = null;
                 }
             }
-            GvPlanes.DataSource = NU.LstPlanes();
-            GvPlanes.DataBind();
-            if (GvPlanes.Rows.Count == 0)
+            GvMaterias.DataSource = NU.LstBuscaMaterias(EP.IdPlan);
+            GvMaterias.DataBind();
+            if (GvMaterias.Rows.Count == 0)
             {
-                ModalPeticiones("Agregar:No hay Planes de Estudio Registrados",Agregar_Click);
+                ModalPeticiones("Agregar:No hay Materias Registradas",Agregar_Click);
             }
             
         }
@@ -66,64 +69,76 @@ namespace Presentacion.GestionUsuarios
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             Session["Mensaje"] = "Agregar";
-            Response.Redirect("IbmPlanEstudio.aspx");
+            Response.Redirect("IbmMateriaSubdirector.aspx");
         }
         protected void Agregar_Click(object sender, EventArgs e)
         {
             Response.Write(((Button)sender).Parent.ID);
             Session["Mensaje"] = "Agregar";
-            Response.Redirect("IbmPlanEstudio.aspx");
+            Response.Redirect("IbmMateriaSubdirector.aspx");
         }
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            EP =(E_PlanEstudio) Session["Plan"];
-            ListAtrib = NU.BuscaAtributos(EP.IdPlan);
+            EM =(E_Materias) Session["Materia"];
+            List<E_Atributos> LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
             int i = 0;
-            foreach(E_Atributos a in ListAtrib)
+            foreach (E_Atributos a in LEA)
             {
-                string msg= NU.EliminarAtributo(a);
-                i++;
-                if(msg== "Error: No se pudo eliminado el atributo.")
+                if (NU.EliminarAtributoMateria(EM.IdMateria, a.IdAtributo).Contains("Exito"))
                 {
-                    Master.ModalMsg("Error: No se pudo eliminar el atributo");
-                    break;
+                    i++;
+                    //Master.ModalMsg("Exito: La materia fue insertada con Exito");
                 }
                 else
                 {
-                    if (i >= ListAtrib.Count)
-                    {
-                        msg=NU.EliminarPlan(EP);
-                        Session["Eliminar"] = "Exito: Los Atributos y los Planes fueron exitosamente Eliminados";
-                        Response.Redirect("ListaPlanEstudio.aspx");
-                    }
+                    Master.ModalMsg("Error: Las Aportaciones no pudieron ser eliminadas");
                 }
             }
+            if (i == LEA.Count)
+            {
+                if (NU.EliminarMateria(EM).Contains("Exito"))
+                {
+                    Master.ModalMsg("Exito: La Materia fue eliminada");
+                }
+                else
+                {
+                    Master.ModalMsg("Error: La Materia no pudo ser eliminada");
+                }
+            }
+            else
+            {
+                Master.ModalMsg("Error: La materia no pudo ser eliminada");
+            }
+            
+
+
         }
 
-        protected void GvPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GvMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void GvPlanes_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Modificar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                int IdPlan = Convert.ToInt32(GvPlanes.DataKeys[index].Value.ToString());
-                EP = new N_Usuarios().BuscaPlanes(IdPlan);
-                EP.IdPlan = IdPlan;
-                Session["Plan"] = EP;
+                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
+                EM = new N_Usuarios().BuscaMateria(IdMateria);
+                EM.IdMateria = IdMateria;
+                Session["Materia"] = EM;
                 Session["Mensaje"] = "Modificar";
-                Response.Redirect("IbmPlanEstudio.aspx");
+                Response.Redirect("IbmMateriaSubdirector.aspx");
             }
             if (e.CommandName == "Borrar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                int IdPlan = Convert.ToInt32(GvPlanes.DataKeys[index].Value.ToString());
-                EP = new N_Usuarios().BuscaPlanes(IdPlan);
-                Session["Plan"] = EP;
-                ModalPeticiones("Eliminar:Seguro que Desea Eliminar el Plan " + EP.NombrePlan,Agregar_Click);
+                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
+                EM = new N_Usuarios().BuscaMateria(IdMateria);
+                EM.IdMateria = IdMateria;
+                Session["Materia"] = EM;
+                ModalPeticiones("Eliminar:Seguro que Desea Eliminar la Materia " + EM.Materia,Agregar_Click);
             }
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)
@@ -164,28 +179,11 @@ namespace Presentacion.GestionUsuarios
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
         }
-        protected void btnBuscar_Click(object sender, EventArgs e)
+        /*protected void btnBuscar_Click(object sender, EventArgs e)
         {
-             GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
-             GvPlanes.DataBind();
-        }
+            GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
+            GvPlanes.DataBind();
+        }*/
 
-        protected void GvPlanesSubdirector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void GvPlanesSubdirector_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Consultar")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                int IdPlan = Convert.ToInt32(GvPlanes.DataKeys[index].Value.ToString());
-                EP = new N_Usuarios().BuscaPlanes(IdPlan);
-                Session["PlanSubdirector"] = EP;
-                Response.Redirect("ListaMaterias.aspx");
-                
-            }
-        }
     }
 }

@@ -11,7 +11,7 @@ using Presentacion.Controles;
 namespace Presentacion.GestionUsuarios
 {
 
-    public partial class IbmMateria : System.Web.UI.Page
+    public partial class IbmMateriaSubdirector : System.Web.UI.Page
     {
         N_Usuarios NU = new N_Usuarios();
         E_Usuarios SEU = new E_Usuarios();

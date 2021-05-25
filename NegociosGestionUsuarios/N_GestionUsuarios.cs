@@ -47,7 +47,7 @@ namespace NegociosGestionUsuarios
         public string ModificarUsuario(E_Usuarios EntidadUsuario)
         {
             EntidadUsuario.Accion = "MODIFICAR";
-            
+
             if (SQLD.IBM_Entidad<E_Usuarios>("IBM_Usuario", EntidadUsuario).Contains("Exito"))
                 return "Exito: Los datos del usuario fueron modificados.";
             return "Error: Los datos del usuario no pudieron modificados.";
@@ -121,9 +121,9 @@ namespace NegociosGestionUsuarios
             SqlCommand SqlComando;
             E_Firma EF = BuscaFirma(IdUsuario);
             SQLD.Conexion.Open();
-            
+
             int code;
-            
+
             if (EF != null)
             {
                 SqlComando = new SqlCommand("UPDATE Firmas SET Firma=@Firma WHERE IdFirma=@IdFirma", SQLD.Conexion);
@@ -146,7 +146,7 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Firma no pudo ser ingresada";
         }
-        
+
         /// <summary>
         /// Segmento de Negocios Para Planes de Estudio Y atributos
         /// </summary>
@@ -186,8 +186,8 @@ namespace NegociosGestionUsuarios
         {
             SQLD.Conexion.Open();//Se abre la conexion
             List<E_Atributos> ListAtrib = new List<E_Atributos>();
-            
-            string query = "SELECT * FROM Atributos WHERE IdPlan="+IdPlan;
+
+            string query = "SELECT * FROM Atributos WHERE IdPlan=" + IdPlan;
 
             SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
             SqlDataReader dr;
@@ -204,15 +204,18 @@ namespace NegociosGestionUsuarios
                     EA.Atributo = dr.GetString(1);
                     //i++;
                     ListAtrib.Add(EA);
-                    
+
                 }
+                SQLD.Conexion.Close();
                 return ListAtrib;
             }
-            return ListAtrib;
             SQLD.Conexion.Close();
+            return ListAtrib;
+
 
         }
-
+        public DataTable DT_LstAtributos() { return SQLD.DT_ListadoGeneral("Atributos", "IdAtributo"); }
+        public List<E_Atributos> LstAtributos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Atributos>(DT_LstAtributos()); }
         public string InsertarAtributo(E_Atributos EntidadAtributo)
         {
             EntidadAtributo.Accion = "INSERTAR";
@@ -234,6 +237,36 @@ namespace NegociosGestionUsuarios
                 return "Exito: Atributo eliminado correctamente.";
             return "Error: No se pudo eliminado el atributo.";
         }
+        /// <summary>
+        /// Atributos-Materias
+        /// </summary>
+        /// <param name="IdMateria"></param>
+        /// <param name="IdAtributo"></param>
+        /// <param name="Aportacion"></param>
+        /// <returns></returns>
+        public string ModificarAtributoMateria(int IdMateria, int IdAtributo, string Aportacion)
+        {
+            SqlCommand SqlComando;
+            E_Materias EM = BuscaMateria(IdMateria);
+            SQLD.Conexion.Open();
+            int code;
+
+            if (EM != null)
+            {
+                SqlComando = new SqlCommand("UPDATE Atributo_Materia SET Aportacion = @Aportacion WHERE IdMateria = @IdMateria AND IdAtributo=@IdAtributo", SQLD.Conexion);
+                SqlComando.Parameters.AddWithValue("@IdMateria", IdMateria);
+                SqlComando.Parameters.AddWithValue("@IdAtributo", IdAtributo);
+                SqlComando.Parameters.AddWithValue("@Aportacion", Aportacion);
+                code = SqlComando.ExecuteNonQuery();
+                if (code == 1)
+                {
+                    SQLD.Conexion.Close();
+                    return "Exito: Aportacion Modificada";
+                }
+            }
+            SQLD.Conexion.Close();
+            return "Error: Aportacion no Modificada";
+        }
         public string InsertarAtributoMateria(int IdMateria, int IdAtributo, string Aportacion)
         {
             SqlCommand SqlComando;
@@ -251,12 +284,35 @@ namespace NegociosGestionUsuarios
                 if (code == 1)
                 {
                     SQLD.Conexion.Close();
-                    return "Exito: Firma insertado";
+                    return "Exito: Aportacion insertada";
                 }
             }
             SQLD.Conexion.Close();
-            return "Error: Firma no pudo ser ingresada";
+            return "Error: Aportacion no pudo ser ingresada";
         }
+        public string EliminarAtributoMateria(int IdMateria, int IdAtributo)
+        {
+            SqlCommand SqlComando;
+            SQLD.Conexion.Open();
+            int code;
+
+            SqlComando = new SqlCommand("DELETE FROM Atributo_Materia WHERE IdMateria=@IdMateria AND IdAtributo=@IdAtributo", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdMateria", IdMateria);
+            SqlComando.Parameters.AddWithValue("@IdAtributo", IdAtributo);
+            code = SqlComando.ExecuteNonQuery();
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Aportacion insertada";
+            }
+
+            SQLD.Conexion.Close();
+            return "Error: Aportacion no pudo ser ingresada";
+        }
+        public DataTable DT_LstAtribMaterias() { return SQLD.DT_ListadoGeneral("Atributo_Materia", "IdAtributoMateria"); }
+        public List<E_AtribMateria> LstAtribMateria() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_AtribMateria>(DT_LstAtribMaterias()); }
+        public E_AtribMateria BuscaAtribMateria(int IdAM)
+        { return (from AM in LstAtribMateria() where AM.IdAtributoMateria == IdAM select AM).FirstOrDefault(); }
         /// <summary>
         /// Manejo de la Clase Materia
         /// </summary>
@@ -264,6 +320,32 @@ namespace NegociosGestionUsuarios
         /// <param name="IdMateria"></param>
         public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre"); }
         public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
+        public List<E_Materias> LstBuscaMaterias(int IdPlan)
+        {
+            List<E_Atributos> LEA = LstAtributos();
+            List<E_Materias> LEM = LstMaterias();
+            List<E_AtribMateria> LEAM = LstAtribMateria();
+            List<E_Materias> RLEM = new List<E_Materias>();
+
+            foreach (E_Atributos a in LEA)
+            {
+                foreach (E_AtribMateria am in LEAM)
+                {
+                    foreach (E_Materias m in LEM)
+                    {
+                        if (a.IdPlan == IdPlan && am.IdMateria == m.IdMateria && a.IdAtributo == am.IdAtributo)
+                        {
+                            if (!RLEM.Contains(m))
+                                RLEM.Add(m);
+                        }
+                    }
+
+                }
+            }
+
+
+            return RLEM;
+        }
         public E_Materias BuscaMateria(int IdMateria)
         { return (from Materia in LstMaterias() where Materia.IdMateria == IdMateria select Materia).FirstOrDefault(); }
         public E_Materias BuscaMateriaClave(string Clave)
@@ -271,32 +353,31 @@ namespace NegociosGestionUsuarios
         public string InsertarMateria(E_Materias EntidadMateria)
         {
             EntidadMateria.Accion = "INSERTAR";
-            string msg = SQLD.IBM_Entidad<E_Materias>("IBM_Materias", EntidadMateria);
-            return msg;
-            /*if ()
+
+            if (SQLD.IBM_Entidad<E_Materias>("IBM_Materias", EntidadMateria).Contains("Exito"))
                 return "Exito: Materia Ingresada Exitosamente.";
-            return "Error: No se pudo agregar la Materia.";*/
+            return "Error: No se pudo agregar la Materia.";
         }
         public string ModificarMateria(E_Materias EntidadMateria)
         {
             EntidadMateria.Accion = "MODIFICAR";
-            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+            if (SQLD.IBM_Entidad<E_Materias>("IBM_Materias", EntidadMateria).Contains("Exito"))
                 return "Exito: La Materia Fue Modificada.";
             return "Error: No se pudo modicar la materia.";
         }
         public string EliminarMateria(E_Materias EntidadMateria)
         {
             EntidadMateria.Accion = "BORRAR";
-            if (SQLD.IBM_Entidad<E_PlanEstudio>("IBM_Materia", EntidadMateria).Contains("Exito"))
+            if (SQLD.IBM_Entidad<E_Materias>("IBM_Materias", EntidadMateria).Contains("Exito"))
                 return "Exito: La Materia Fue Eliminada.";
             return "Error: No se pudo eliminar la materia.";
         }
-        
+
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
         public void LlenaDropDown(DropDownList dropDownList, string usuario)
         {
-            List<E_Usuarios> Usuarios=LstUsuarios();
-            
+            List<E_Usuarios> Usuarios = LstUsuarios();
+
             switch (usuario)
             {
                 case "Docente":
@@ -314,11 +395,11 @@ namespace NegociosGestionUsuarios
                         if (u.IdTipoUsuario == 3)
                         {
                             E_PlanEstudio EP = BuscaPlanCoordinador(u.IdUsuario);
-                            if (EP==null)
+                            if (EP == null)
                             {
                                 dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
                             }
-                            
+
                         }
                     }
                     break;
@@ -331,12 +412,12 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
         }
 
-        public int UltimoRegistro(string Tabla,string Id)
+        public int UltimoRegistro(string Tabla, string Id)
         {
-            
+
             SQLD.Conexion.Open();//Se abre la conexion
 
-            string query = "SELECT Max("+Id+") FROM "+Tabla;
+            string query = "SELECT Max(" + Id + ") FROM " + Tabla;
 
             SqlCommand cmd = new SqlCommand(query, SQLD.Conexion);
             int MaxId = Convert.ToInt32(cmd.ExecuteScalar());

@@ -17,6 +17,8 @@ namespace Presentacion.GestionUsuarios
         private string BackGroundHeader;
         private string BtnColor;
         E_Usuarios EU = new E_Usuarios();
+        E_Usuarios SEU = new E_Usuarios();
+        E_PlanEstudio EP = new E_PlanEstudio();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -25,6 +27,14 @@ namespace Presentacion.GestionUsuarios
             }
             else
             {
+                if (SEU.IdTipoUsuario == 3)
+                {
+                    EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
+                }
+                if (SEU.IdTipoUsuario == 2)
+                {
+                    EP = (E_PlanEstudio)Session["PlanSubdirector"];
+                }
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
@@ -36,6 +46,7 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
+
             if (Session["Eliminar"] != null)
             {
                 string msg = Session["Eliminar"].ToString();
@@ -45,7 +56,7 @@ namespace Presentacion.GestionUsuarios
                     Session["Eliminar"] = null;
                 }
             }
-            GvMaterias.DataSource = NU.LstMaterias();
+            GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
             GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
             {
@@ -68,26 +79,38 @@ namespace Presentacion.GestionUsuarios
         protected void Eliminar_Click(object sender, EventArgs e)
         {
             EM =(E_Materias) Session["Materia"];
+            List<E_Atributos> LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
             int i = 0;
-            /*foreach(E_Atributos a in ListAtrib)
+            foreach (E_Atributos a in LEA)
             {
-                string msg= NU.EliminarAtributo(a);
-                i++;
-                if(msg== "Error: No se pudo eliminado el atributo.")
+                if (NU.EliminarAtributoMateria(EM.IdMateria, a.IdAtributo).Contains("Exito"))
                 {
-                    Master.ModalMsg("Error: No se pudo eliminar el atributo");
-                    break;
+                    i++;
+                    //Master.ModalMsg("Exito: La materia fue insertada con Exito");
                 }
                 else
                 {
-                    if (i >= ListAtrib.Count)
-                    {
-                        //msg=NU.EliminarPlan(EP);
-                        Session["Eliminar"] = "Exito: Los Atributos y los Planes fueron exitosamente Eliminados";
-                        Response.Redirect("ListaPlanEstudio.aspx");
-                    }
+                    Master.ModalMsg("Error: Las Aportaciones no pudieron ser eliminadas");
                 }
-            }*/
+            }
+            if (i == LEA.Count)
+            {
+                if (NU.EliminarMateria(EM).Contains("Exito"))
+                {
+                    Master.ModalMsg("Exito: La Materia fue eliminada");
+                }
+                else
+                {
+                    Master.ModalMsg("Error: La Materia no pudo ser eliminada");
+                }
+            }
+            else
+            {
+                Master.ModalMsg("Error: La materia no pudo ser eliminada");
+            }
+            
+
+
         }
 
         protected void GvMaterias_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,6 +178,11 @@ namespace Presentacion.GestionUsuarios
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
         }
+        /*protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
+            GvPlanes.DataBind();
+        }*/
 
     }
 }

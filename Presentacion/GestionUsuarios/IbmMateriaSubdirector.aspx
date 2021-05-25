@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="IbmMateria.aspx.cs" Inherits="Presentacion.GestionUsuarios.IbmMateria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterSubdirectorMenu.Master" AutoEventWireup="true" CodeBehind="IbmMateriaSubdirector.aspx.cs" Inherits="Presentacion.GestionUsuarios.IbmMateriaSubdirector" %>
 
 <%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
 <%@ Register Src="~/Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
@@ -17,8 +17,8 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
-                    <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="ListaMaterias.aspx">Materias</a></li>
+                    <li class="breadcrumb-item"><a href="InicioSubdirector.aspx">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="ListaMateriasSubdirector.aspx">Materias</a></li>
                     <li class="breadcrumb-item active">Formulario Materias</li>
                 </ol>
             </nav>

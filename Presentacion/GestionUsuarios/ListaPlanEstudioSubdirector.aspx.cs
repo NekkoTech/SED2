@@ -10,7 +10,7 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class ListaPlanEstudio : System.Web.UI.Page
+    public partial class ListaPlanEstudioSubdirector : System.Web.UI.Page
     {
         
     N_Usuarios NU = new N_Usuarios();
@@ -183,7 +183,7 @@ namespace Presentacion.GestionUsuarios
                 int IdPlan = Convert.ToInt32(GvPlanes.DataKeys[index].Value.ToString());
                 EP = new N_Usuarios().BuscaPlanes(IdPlan);
                 Session["PlanSubdirector"] = EP;
-                Response.Redirect("ListaMaterias.aspx");
+                Response.Redirect("ListaMateriasSubdirector.aspx");
                 
             }
         }

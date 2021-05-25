@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaMaterias.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaMaterias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterSubdirectorMenu.Master" AutoEventWireup="true" CodeBehind="ListaPlanEstudioSubdirector.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaPlanEstudioSubdirector" %>
 
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -9,32 +9,35 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
-                    <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item">Materias</li>
+                    <li class="breadcrumb-item"><a href="InicioSubdirector.aspx">Inicio</a></li>
+                    <li class="breadcrumb-item">Planes de Estudio</li>
                 </ol>
             </nav>
         </div>
         <div class="row text-center align-middle">
             <div class="col-2">
-                <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Materia"></asp:Label>
+                <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Plan de Estudio"></asp:Label>
+            </div>
+            <div class="col-2 align-content-start">
+                <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success form-control" Text="Agregar" OnClick="BtnAgregar_Click" />
             </div>
             <div class="col-2">
-                <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success m-2 form-control box2" Text="Agregar" OnClick="BtnAgregar_Click" />
+                <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Plan"></asp:Label>
             </div>
-            <div class="col-2">
-                <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Materia"></asp:Label>
+            <div class="col-2 align-middle">
+                <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control w-auto"></asp:TextBox>
+                
             </div>
-            <div class="col-4">
-                <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control"></asp:TextBox>
+            <div class="col-1">
+                <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-success form-control w-auto" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
         </div>
         <div class="row">
             <div class="text-center">
 
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle w-auto" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="920px">
+                <asp:GridView ID="GvPlanes" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdPlan" OnRowCommand="GvPlanes_RowCommand" OnSelectedIndexChanged="GvPlanes_SelectedIndexChanged" Width="920px">
                     <Columns>
-                        <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
-                        <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
+                        <asp:BoundField DataField="NombrePlan" HeaderText="Nombre del plan de estudio" SortExpression="NombrePlan" />
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-warning"  CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50"  Height="45"></asp:LinkButton>
@@ -44,7 +47,20 @@
 
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SDSPlanEstudio" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionBD %>" SelectCommand="SELECT [Materia], [IdMateria], [Clave] FROM [Materias]"></asp:SqlDataSource>
+                <br />
+
+                <asp:GridView ID="GvPlanesSubdirector" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdPlan" Width="920px" DataSourceID="SDSPlanEstudio" OnSelectedIndexChanged="GvPlanesSubdirector_SelectedIndexChanged" OnRowCommand="GvPlanesSubdirector_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="NombrePlan" HeaderText="Nombre del plan de estudio" SortExpression="NombrePlan" />
+                        <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
+                            <ItemTemplate>
+                                <asp:Button ID="BtnConsultar" runat="server" Text="Consultar" CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  CssClass="btn btn-success"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SDSPlanEstudio" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionBD %>" SelectCommand="SELECT [IdPlan], [NombrePlan] FROM [PlanEstudio]"></asp:SqlDataSource>
             </div>
 
         </div>

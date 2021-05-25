@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class ListaPlanEstudio
+    public partial class ListaMateriasSubdirector
     {
 
         /// <summary>
@@ -51,31 +51,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.TextBox TbSearch;
 
         /// <summary>
-        /// Control BtnBuscar.
+        /// Control GvMaterias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBuscar;
-
-        /// <summary>
-        /// Control GvPlanes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvPlanes;
-
-        /// <summary>
-        /// Control GvPlanesSubdirector.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvPlanesSubdirector;
+        protected global::System.Web.UI.WebControls.GridView GvMaterias;
 
         /// <summary>
         /// Control SDSPlanEstudio.
@@ -173,11 +155,11 @@ namespace Presentacion.GestionUsuarios
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
+        public new Presentacion.PaginasMaestras.MasterCoordinadorMenu Master
         {
             get
             {
-                return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
+                return ((Presentacion.PaginasMaestras.MasterCoordinadorMenu)(base.Master));
             }
         }
     }

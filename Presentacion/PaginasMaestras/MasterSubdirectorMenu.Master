@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterCoordinadorMenu.master.cs" Inherits="Presentacion.PaginasMaestras.MasterCoordinadorMenu" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterSubdirectorMenu.Master.cs" Inherits="Presentacion.PaginasMaestras.MasterSubdirectorMenu" %>
 
 <!DOCTYPE html>
 
@@ -54,24 +53,21 @@
                         <ul class="navbar-nav align-middle">
                             <!--li class="nav-item"><a class="nav-link" href="ListaUsuarios.aspx">Administrar Usuarios</a></li-->
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="InicioCoordinador.aspx">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="InicioSubdirector.aspx">Inicio</a></li>
                             </div>
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="ListaMaterias.aspx">Administrar Materias</a></li>
-                                <!--li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Materias
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" runat="server" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar Usuarios
                                     </a>
                                     <div class="dropdown-menu col-sm text-center" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="ListaMaterias.aspx">Lista de Materias</a>
-                                        <a class="dropdown-item" href="IbmMateria.aspx" onclick="button_onclick">Agregar Materia</a>
+                                        <a class="dropdown-item" href="ListaUsuarios.aspx">Lista de Usuarios</a>
+                                        <a class="dropdown-item" href="AgregaUsuario.aspx">Agregar Usuarios</a>
                                     </div>
-                                </!--li-->
+                                </li>
                             </div>
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="#">Encuadres</a></li>
-                            </div>
-                            <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="CuentaDocente.aspx">Cuenta</a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="ListaPlanEstudioSubdirector.aspx">Planes De Estudio</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link">
@@ -138,7 +134,9 @@
             function openMasterModalMensaje() {
                 $('#master-modal-mensaje').modal('show');
             }
-   
+            //function openMasterModalPeticion() {
+             //   $('#master-modal-peticiones').modal('show');
+            //}
         </script>
 
     </form>

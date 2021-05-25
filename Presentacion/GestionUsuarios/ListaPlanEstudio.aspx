@@ -47,6 +47,19 @@
 
                     </Columns>
                 </asp:GridView>
+                <br />
+
+                <asp:GridView ID="GvPlanesSubdirector" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdPlan" Width="920px" DataSourceID="SDSPlanEstudio" OnSelectedIndexChanged="GvPlanesSubdirector_SelectedIndexChanged" OnRowCommand="GvPlanesSubdirector_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="NombrePlan" HeaderText="Nombre del plan de estudio" SortExpression="NombrePlan" />
+                        <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
+                            <ItemTemplate>
+                                <asp:Button ID="BtnConsultar" runat="server" Text="Consultar" CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  CssClass="btn btn-success"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
+                </asp:GridView>
                 <asp:SqlDataSource ID="SDSPlanEstudio" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionBD %>" SelectCommand="SELECT [IdPlan], [NombrePlan] FROM [PlanEstudio]"></asp:SqlDataSource>
             </div>
 

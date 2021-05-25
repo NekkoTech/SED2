@@ -228,4 +228,29 @@ namespace EntidadesGestionUsuarios
 
         #endregion
     }
+    public class E_AtribMateria
+    {
+        #region Atributos
+        private int _IdAtributoMateria;
+        private int _IdAtributo;
+        private int _IdMateria;
+        private string _Aportacion;
+        #endregion
+        #region Encapsulamientos
+        public int IdAtributoMateria { get => _IdAtributoMateria; set => _IdAtributoMateria = value; }
+        public int IdAtributo { get => _IdAtributo; set => _IdAtributo = value; }
+        public int IdMateria { get => _IdMateria; set => _IdMateria = value; }
+        public string Aportacion { get => _Aportacion; set => _Aportacion = value; }
+        #endregion
+        #region Constructores
+
+        public E_AtribMateria()
+        {
+            IdAtributoMateria = 0;
+            IdMateria = 0;
+            IdAtributo = 0;
+            Aportacion = string.Empty;
+        }
+        #endregion
+    }
 }

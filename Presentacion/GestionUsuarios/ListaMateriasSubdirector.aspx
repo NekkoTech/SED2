@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaMaterias.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaMaterias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterSubdirectorMenu.Master" AutoEventWireup="true" CodeBehind="ListaMateriasSubdirector.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaMateriasSubdirector" %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
 
@@ -9,7 +9,7 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
-                    <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="InicioSubdirector.aspx">Inicio</a></li>
                     <li class="breadcrumb-item">Materias</li>
                 </ol>
             </nav>

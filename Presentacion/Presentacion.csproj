@@ -88,6 +88,7 @@
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
+    <Content Include="GestionUsuarios\IbmMateriaSubdirector.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
     <Content Include="GestionUsuarios\EliminarUsuario.aspx" />
@@ -95,9 +96,12 @@
     <Content Include="GestionUsuarios\IbmPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\InfoCuenta.aspx" />
     <Content Include="GestionUsuarios\InicioCoordinador.aspx" />
+    <Content Include="GestionUsuarios\InicioSubdirector.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaMateriasSubdirector.aspx" />
     <Content Include="GestionUsuarios\ListaMaterias.aspx" />
+    <Content Include="GestionUsuarios\ListaPlanEstudioSubdirector.aspx" />
     <Content Include="GestionUsuarios\ListaPlanEstudio.aspx" />
     <Content Include="GestionUsuarios\ListaUsuarios.aspx" />
     <Content Include="GestionUsuarios\ModificarUsuario.aspx" />
@@ -128,6 +132,7 @@
     <Content Include="PaginasMaestras\MasterDocenteMenu.Master" />
     <Content Include="Handler\RecuperaArchivo.ashx" />
     <Content Include="PaginasMaestras\MasterCoordinadorMenu.Master" />
+    <Content Include="PaginasMaestras\MasterSubdirectorMenu.Master" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -277,6 +282,13 @@
     <Compile Include="GestionUsuarios\CuentaDocente.aspx.designer.cs">
       <DependentUpon>CuentaDocente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\IbmMateriaSubdirector.aspx.cs">
+      <DependentUpon>IbmMateriaSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\IbmMateriaSubdirector.aspx.designer.cs">
+      <DependentUpon>IbmMateriaSubdirector.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\IbmMateria.aspx.cs">
       <DependentUpon>IbmMateria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +338,13 @@
     <Compile Include="GestionUsuarios\InicioCoordinador.aspx.designer.cs">
       <DependentUpon>InicioCoordinador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\InicioSubdirector.aspx.cs">
+      <DependentUpon>InicioSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\InicioSubdirector.aspx.designer.cs">
+      <DependentUpon>InicioSubdirector.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\InicioDocente.aspx.cs">
       <DependentUpon>InicioDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,12 +359,26 @@
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\ListaMateriasSubdirector.aspx.cs">
+      <DependentUpon>ListaMateriasSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaMateriasSubdirector.aspx.designer.cs">
+      <DependentUpon>ListaMateriasSubdirector.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\ListaMaterias.aspx.cs">
       <DependentUpon>ListaMaterias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionUsuarios\ListaMaterias.aspx.designer.cs">
       <DependentUpon>ListaMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaPlanEstudioSubdirector.aspx.cs">
+      <DependentUpon>ListaPlanEstudioSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaPlanEstudioSubdirector.aspx.designer.cs">
+      <DependentUpon>ListaPlanEstudioSubdirector.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaPlanEstudio.aspx.cs">
       <DependentUpon>ListaPlanEstudio.aspx</DependentUpon>
@@ -391,6 +424,13 @@
     </Compile>
     <Compile Include="Handler\RecuperaArchivo.ashx.cs">
       <DependentUpon>RecuperaArchivo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginasMaestras\MasterSubdirectorMenu.Master.cs">
+      <DependentUpon>MasterSubdirectorMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginasMaestras\MasterSubdirectorMenu.Master.designer.cs">
+      <DependentUpon>MasterSubdirectorMenu.Master</DependentUpon>
     </Compile>
     <Compile Include="PaginasMaestras\MasterCoordinadorMenu.Master.cs">
       <DependentUpon>MasterCoordinadorMenu.Master</DependentUpon>

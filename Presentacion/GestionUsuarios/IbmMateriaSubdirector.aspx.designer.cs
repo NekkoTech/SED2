@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class IbmMateria
+    public partial class IbmMateriaSubdirector
     {
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class ListaPlanEstudio
+    public partial class ListaPlanEstudioSubdirector
     {
 
         /// <summary>
