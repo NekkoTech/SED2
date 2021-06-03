@@ -87,7 +87,9 @@
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\EncuadreDocente.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
+    <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
     <Content Include="GestionUsuarios\IbmMateriaSubdirector.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
@@ -99,6 +101,7 @@
     <Content Include="GestionUsuarios\InicioSubdirector.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaEncuadres.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasSubdirector.aspx" />
     <Content Include="GestionUsuarios\ListaMaterias.aspx" />
     <Content Include="GestionUsuarios\ListaPlanEstudioSubdirector.aspx" />
@@ -275,12 +278,26 @@
     <Compile Include="Controles\wuc_Text.ascx.designer.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\EncuadreDocente.aspx.cs">
+      <DependentUpon>EncuadreDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\EncuadreDocente.aspx.designer.cs">
+      <DependentUpon>EncuadreDocente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\CuentaDocente.aspx.cs">
       <DependentUpon>CuentaDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionUsuarios\CuentaDocente.aspx.designer.cs">
       <DependentUpon>CuentaDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\EncuadreCoordinador.aspx.cs">
+      <DependentUpon>EncuadreCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\EncuadreCoordinador.aspx.designer.cs">
+      <DependentUpon>EncuadreCoordinador.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\IbmMateriaSubdirector.aspx.cs">
       <DependentUpon>IbmMateriaSubdirector.aspx</DependentUpon>
@@ -358,6 +375,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaEncuadres.aspx.cs">
+      <DependentUpon>ListaEncuadres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaEncuadres.aspx.designer.cs">
+      <DependentUpon>ListaEncuadres.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaMateriasSubdirector.aspx.cs">
       <DependentUpon>ListaMateriasSubdirector.aspx</DependentUpon>

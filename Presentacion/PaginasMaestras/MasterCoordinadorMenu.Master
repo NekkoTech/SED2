@@ -68,10 +68,10 @@
                                 </!--li-->
                             </div>
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="#">Encuadres</a></li>
+                                <li class="nav-item"><a class="nav-link" href="ListaEncuadres.aspx">Encuadres</a></li>
                             </div>
                             <div class="col-sm">
-                                <li class="nav-item"><a class="nav-link" href="CuentaDocente.aspx">Cuenta</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Cuenta</a></li>
                             </div>
                             <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link">
