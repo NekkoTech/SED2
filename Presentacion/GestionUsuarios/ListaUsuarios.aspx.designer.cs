@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
-    
-    
-    public partial class ListaUsuarios {
-        
+namespace Presentacion.GestionUsuarios
+{
+
+
+    public partial class ListaUsuarios
+    {
+
         /// <summary>
         /// Control pnlSearch.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSearch;
-        
+
         /// <summary>
         /// Control ddlTest.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTest;
-        
+
         /// <summary>
         /// Control TextBox1.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
+
         /// <summary>
         /// Control GvUsuarios.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvUsuarios;
-        
+
         /// <summary>
         /// Control Usuarios.
         /// </summary>
@@ -65,5 +67,19 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource Usuarios;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
+            }
+        }
     }
 }

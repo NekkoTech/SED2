@@ -59,8 +59,9 @@ namespace NegociosGestionUsuarios
         }
 
         public DataTable DT_LstUsuarios() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
-
+        public DataTable DT_LstUsuariosBloqueados() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Bloqueos", "IdUsuario"); }
         public List<E_Usuarios> LstUsuarios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuarios()); }
+        public List<E_Usuarios> LstUsuariosBloqueados() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuariosBloqueados()); }
 
         public E_Usuarios BuscaUsuario(int pIDUsuario)
         { return (from Usuario in LstUsuarios() where Usuario.IdUsuario == pIDUsuario select Usuario).FirstOrDefault(); }
@@ -93,7 +94,7 @@ namespace NegociosGestionUsuarios
                     Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper())) && Usuario.IdTipoUsuario == TipoUsuario
                     select Usuario).ToList();
         }
-
+        
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
         /// <summary>
@@ -101,6 +102,46 @@ namespace NegociosGestionUsuarios
         /// </summary>
         /// <param name="EntidadCodigo"></param>
         /// <returns></returns>
+        public E_Usuarios UsuarioBloqueado(int id)
+        { return (from Bloqueos in LstUsuariosBloqueados() where Bloqueos.IdUsuario == id select Bloqueos).FirstOrDefault(); }
+        public string InsertarBloqueo(int id)
+        {
+            SqlCommand SqlComando;
+            E_Firma EF = BuscaFirma(id);
+            SQLD.Conexion.Open();
+
+            int code;
+            SqlComando = new SqlCommand("INSERT INTO Bloqueos(IdUsuario) VALUES(@IdUsuario)", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdUsuario", id);
+            code = SqlComando.ExecuteNonQuery();
+        
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Usuario bloqueado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: El usuario no pudo ser bloqueado";
+        }
+        public string EliminarBloqueo(int id)
+        {
+            SqlCommand SqlComando;
+            E_Firma EF = BuscaFirma(id);
+            SQLD.Conexion.Open();
+
+            int code;
+            SqlComando = new SqlCommand("DELETE FROM Bloqueos WHERE IdUsuario=@IdUsuario", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdUsuario", id);
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Usuario desbloqueado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: El usuario no pudo ser desbloqueado";
+        }
         public string InsertarCodigo(E_Codigo EntidadCodigo)
         {
             EntidadCodigo.Accion = "INSERTAR";

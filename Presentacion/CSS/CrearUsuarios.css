@@ -68,3 +68,15 @@
     width: 26px;
     height: 30px;
 }
+.LinkButton3 {
+    background: url("../img/ic_bloquear.png") top center no-repeat;
+    display: block;
+    width: 26px;
+    height: 30px;
+}
+.LinkButton4 {
+    background: url("../img/ic_desbloquear.png") top center no-repeat;
+    display: block;
+    width: 26px;
+    height: 30px;
+}

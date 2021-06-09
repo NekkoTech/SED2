@@ -35,8 +35,32 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
+            List<E_Usuarios> temp = new List<E_Usuarios>();
+           
+            
             GvUsuarios.DataSource = NU.LstUsuarios();
             GvUsuarios.DataBind();
+            int IdUsuario;
+            //foreach (GridViewRow E in GvUsuarios.Rows)
+            //{
+
+                for(int i=0;i<GvUsuarios.Rows.Count;i++)
+                {
+                    E_Usuarios AK= NU.UsuarioBloqueado(Convert.ToInt32(GvUsuarios.DataKeys[i].Value.ToString()));
+                     if (AK != null)
+                     {
+                         LinkButton btnbloquear = (LinkButton)GvUsuarios.Rows[i].Cells[2].FindControl("btnBloquear");
+                         btnbloquear.CssClass = "btn LinkButton4 btn-outline - Warning";
+                         btnbloquear.CommandName = "desbloquear";
+                         GvUsuarios.Rows[i].Cells[2].Controls.AddAt(2, btnbloquear);
+                     }
+
+                    IdUsuario = Convert.ToInt32(GvUsuarios.DataKeys[i].Value.ToString());
+                }
+                
+                //LinkButton btnbloquear = (LinkButton)E.Cells[2].FindControl("btnBloquear");
+            //}
+
         }
 
         protected void GvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -58,6 +82,22 @@ namespace Presentacion.GestionUsuarios
                 Session["UsuarioSeleccionado"] = EU;
                 Session["Mensaje"] = "Borrar";
                 Response.Redirect("EliminarUsuario.aspx");
+            }
+            if(e.CommandName=="Bloquear")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdUsuario = Convert.ToInt32(GvUsuarios.DataKeys[index].Value.ToString());
+                Master.ModalMsg(NU.InsertarBloqueo(IdUsuario));
+                GvUsuarios.DataBind();
+                Response.Redirect("ListaUsuarios.aspx");
+            }
+            if (e.CommandName == "desbloquear")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdUsuario = Convert.ToInt32(GvUsuarios.DataKeys[index].Value.ToString());
+                Master.ModalMsg(NU.EliminarBloqueo(IdUsuario));
+                GvUsuarios.DataBind();
+                Response.Redirect("ListaUsuarios.aspx");
             }
         }
 

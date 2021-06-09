@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterAdministradorMenu.Master" AutoEventWireup="true" CodeBehind="ListaUsuarios.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaUsuarios" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterAdministradorMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -49,8 +50,9 @@
                     <ItemStyle Width="300px"></ItemStyle>
                 </asp:BoundField>
                 <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-warning" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50" Height="45"></asp:LinkButton>
+                    <ItemTemplate >
+                        <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-success" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50" Height="45"></asp:LinkButton>
+                         <asp:LinkButton ID="btnBloquear" CssClass="btn LinkButton3 btn-outline-Warning" CommandName="Bloquear" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50" Height="45"></asp:LinkButton>
                         <asp:LinkButton ID="btnBorrar" CssClass="btn LinkButton btn-outline-danger" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Width="50" Height="45"></asp:LinkButton>
                     </ItemTemplate>
 
