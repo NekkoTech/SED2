@@ -27,9 +27,9 @@ namespace Presentacion.GestionUsuarios
             {
                 Session["Usuario"] = EU;
 
-                Eaux = NU.UsuarioBloqueado(EU.IdUsuario);
-                if(Eaux == null)
-                {
+                //Eaux = NU.UsuarioBloqueado(EU.IdUsuario);
+                //if(Eaux == null)
+               // {
                     switch (EU.IdTipoUsuario)
                     {
                         case 1:
@@ -46,11 +46,11 @@ namespace Presentacion.GestionUsuarios
                             Response.Redirect("InicioDocente.aspx");
                             break;
                     }
-                }
+               /* }
                 else
                 {
                     lblMensaje.Text = "Usuario bloqueado";
-                }
+                }*/
                
             }
             else

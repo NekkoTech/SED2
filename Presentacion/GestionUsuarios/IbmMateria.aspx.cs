@@ -32,17 +32,21 @@ namespace Presentacion.GestionUsuarios
             SEU = (E_Usuarios)Session["Usuario"];
             NU.LlenaDropDown(DdlDocentes, "Docente");
             string MsgOpcion = Session["Mensaje"].ToString();
-            Session["IdPlan"] = EP.IdPlan;
+            
             if (!IsPostBack)
             {
                 if (SEU.IdTipoUsuario == 3)
                 {
                     EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
+                    if (EP == null)
+                    {
+                        Response.Redirect("InicioCoordinador.aspx");
+                        Session["NoPlan"] = "No existe plan";
+                    }
+                    if (EP!=null)
+                        Session["IdPlan"] = EP.IdPlan;
                 }
-                if (SEU.IdTipoUsuario == 2)
-                {
-                    EP = (E_PlanEstudio)Session["PlanSubdirector"];
-                }
+                
                 if (EP != null)
                 {
                     LEA = NU.BuscaAtributos(EP.IdPlan);

@@ -28,13 +28,16 @@ namespace Presentacion.GestionUsuarios
             else
             {
                 SEU = (E_Usuarios)Session["Usuario"];
-                if (SEU.IdTipoUsuario == 3)
-                {
-                    EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
-                }
                 if (SEU.IdTipoUsuario == 2)
                 {
                     EP = (E_PlanEstudio)Session["PlanSubdirector"];
+                    if (EP == null)
+                    {
+                        Response.Redirect("InicioSubdirector.aspx");
+                        Session["NoPlan"] = "No existe plan";
+                    }
+                    else
+                        Session["IdPlan"] = EP.IdPlan;
                 }
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
