@@ -104,7 +104,7 @@ namespace Presentacion.GestionUsuarios
             }
             catch (SmtpException ex)
             {
-                Master.ModalMsg("Error: No se pudo enviar el correo")
+                Master.ModalMsg("Error: No se pudo enviar el correo");
             }
 
         }
