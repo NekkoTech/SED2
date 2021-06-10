@@ -91,7 +91,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib1" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib1" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -109,7 +109,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib2" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib2" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -127,7 +127,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib3" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib3" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -145,7 +145,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib4" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib4" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -163,7 +163,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib5" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib5" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -181,7 +181,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib6" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib6" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -199,7 +199,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-50">
-                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib7" runat="server">
+                                <asp:DropDownList CssClass="form-control" ID="DdlAtrib7" runat="server" Enabled="false">
                                 <asp:ListItem Text="Introductorio" Value="I" Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Medio" Value="M"></asp:ListItem>
                                 <asp:ListItem Text="Avanzado" Value="A"></asp:ListItem>
@@ -215,7 +215,7 @@
                     <asp:Button ID="BtnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" />
                 </div>
                 <div class="col-6">
-                    <asp:Button ID="BtnSubirEncuadre" CssClass="btn btn-success box w-25" runat="server" Text="Modificar" OnClick="BtnSubirEncuadre_Click" />
+                    <asp:Button ID="BtnSubirEncuadre" CssClass="btn btn-success box w-25" runat="server" Text="Subir Encuadre" OnClick="BtnSubirEncuadre_Click" />
                 </div>
             </div>
         </div>
@@ -239,10 +239,34 @@
                 </div>
             </div>
         </div>
+    <!--Modal De FilePicker-->
+        <div id="master-modalFU" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div id="ModalHeaderFU" runat="server">
+                        <p class="heading lead text-center"><span id="MHeaderFU" runat="server">Seleccionar Archivo</span></p>
+                    </div>
+                    <div class="modal-body">
+                        <asp:FileUpload ID="FUModal" accept="application/pdf"  CssClass="form-control-file" runat="server" />
+                        <asp:RegularExpressionValidator ID="rexp" runat="server" ControlToValidate="FUModal"
+                             ErrorMessage="Solo archivos PDF"
+                             ValidationExpression="^.*\.(doc|DOC|docx|DOCX|pdf|PDF)$"></asp:RegularExpressionValidator>
+                        
+                    </div>
+                    <div class="modal-footer">
+                            <asp:Button ID="btnCancelar" type="button" CssClass="btn btn-success" runat="server" data-dismiss="modal" CausesValidation="false" Text="Cancelar"/>
+                            <asp:Button ID="btnSubirModal" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnGuardarModal_Click" CausesValidation="false" Text="Subir Encuadre"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script>
         
         function openMasterModalPeticion() {
             $('#master-modal-peticiones').modal('show');
+        }
+        function openMasterModalFU() {
+            $('#master-modalFU').modal('show');
         }
         
     </script>

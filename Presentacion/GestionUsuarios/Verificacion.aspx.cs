@@ -29,6 +29,7 @@ namespace Presentacion.GestionUsuarios
             EC=NU.BuscaCodigo(Email.To.ToString());
             if (tbCodigo.Text.ToString() == EC.Codigo)
             {
+                Session["Codigo"] = EC;
                 Session["Correo"] = EC.EmailUsuario.ToString();
                 Response.Redirect("NuevaContraseña.aspx");
             }

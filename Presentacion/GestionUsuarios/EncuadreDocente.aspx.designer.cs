@@ -321,13 +321,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Button BtnSubirEncuadre;
 
         /// <summary>
-        /// Control ImgEncuadre.
+        /// Control ifPdf.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgEncuadre;
+        protected global::System.Web.UI.HtmlControls.HtmlIframe ifPdf;
 
         /// <summary>
         /// Control BtnVer.

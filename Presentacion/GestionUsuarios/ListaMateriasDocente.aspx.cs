@@ -10,7 +10,7 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class ListaEncuadres : System.Web.UI.Page
+    public partial class ListaMateriasDocente : System.Web.UI.Page
     {
         N_Usuarios NU = new N_Usuarios();
         E_Materias EM = new E_Materias();
@@ -30,15 +30,15 @@ namespace Presentacion.GestionUsuarios
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
-                    case 4:
-                        Response.Redirect("InicioDocente.aspx");
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
                         break;
                     case 2:
                         Response.Redirect("InicioSubdirector.aspx");
                         break;
                 }
             }
-            GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
+            GvMaterias.DataSource = NU.BuscaMateriasDocente(EU.IdUsuario);
             GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
                 Master.ModalMsg("Error:No hay Materias Registradas");
@@ -71,21 +71,22 @@ namespace Presentacion.GestionUsuarios
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                EM.IdMateria = IdMateria;
-                Session["Materia"] = EM;
-                Session["Mensaje"] = "Consultar";
-                Response.Redirect("EncuadreCoordinador.aspx");
+                E_Encuadres EE = NU.BuscaEncuadre(EM.IdMateria);
+                if (EE != null)
+                {
+                    Session["Materia"] = EM;
+                    Session["Encuadre"] = EE;
+                    Session["Mensaje"] = "Consultar";
+                    Response.Redirect("EncuadreDocente.aspx");
+                     
+                }
+                else
+                {
+                    Master.ModalMsg("Error: La materia no tiene encuadre registrado");
+                }
+                
             }
-            if (e.CommandName == "Evaluar")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
-                EM = new N_Usuarios().BuscaMateria(IdMateria);
-                EM.IdMateria = IdMateria;
-                Session["Materia"] = EM;
-                Session["Mensaje"] = "Evaluar";
-                //Response.Redirect("EncuadreCoordinador.aspx");
-            }
+          
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)
         {

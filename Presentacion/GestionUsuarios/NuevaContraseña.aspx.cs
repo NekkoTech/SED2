@@ -16,6 +16,7 @@ namespace Presentacion.GestionUsuarios
     {
         N_Usuarios NU = new N_Usuarios();
         E_Usuarios EU = new E_Usuarios();
+        E_Codigo EC = new E_Codigo();
         string Email;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,9 +25,11 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnCambiarContra_Click(object sender, EventArgs e)
         {
-                EU=NU.BuscaUsuario(Email);
-                EU.PassWordUsuario = tbNuevaContraseña.Text.ToString();
-                string msg=NU.ModificarUsuario(EU);
+            EU=NU.BuscaUsuario(Email);
+            EU.PassWordUsuario = tbNuevaContraseña.Text.ToString();
+            string msg=NU.ModificarUsuario(EU);
+            EC = (E_Codigo)Session["Codigo"];
+            NU.BorrarCodigo(EC);
             Response.Redirect("ValidaUsuario.aspx");
         }
     }

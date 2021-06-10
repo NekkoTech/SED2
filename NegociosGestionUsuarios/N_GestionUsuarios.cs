@@ -94,7 +94,7 @@ namespace NegociosGestionUsuarios
                     Usuario.EmailUsuario.ToUpper().Contains(Criterio.ToUpper())) && Usuario.IdTipoUsuario == TipoUsuario
                     select Usuario).ToList();
         }
-        
+
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
         /// <summary>
@@ -114,7 +114,7 @@ namespace NegociosGestionUsuarios
             SqlComando = new SqlCommand("INSERT INTO Bloqueos(IdUsuario) VALUES(@IdUsuario)", SQLD.Conexion);
             SqlComando.Parameters.AddWithValue("@IdUsuario", id);
             code = SqlComando.ExecuteNonQuery();
-        
+
             if (code == 1)
             {
                 SQLD.Conexion.Close();
@@ -148,6 +148,25 @@ namespace NegociosGestionUsuarios
             if (SQLD.IBM_Entidad<E_Codigo>("InsertCodigo", EntidadCodigo).Contains("Exito"))
                 return "Exito: Codigo Generado y enviado.";
             return "Error: No se pudo almacenar el codigo en la Base De Datos.";
+        }
+        public string BorrarCodigo(E_Codigo EntidadCodigo)
+        {
+
+            SqlCommand SqlComando;
+            SQLD.Conexion.Open();
+
+            int code;
+
+            SqlComando = new SqlCommand("DELETE FROM CodRecuperacion WHERE EmailUsuario = @EmailUsuario", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@EmailUsuario", EntidadCodigo.EmailUsuario);
+            code = SqlComando.ExecuteNonQuery();
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Firma insertado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Firma no pudo ser ingresada";
         }
         public DataTable DT_LstCodigos() { return SQLD.DT_ListadoGeneral("CodRecuperacion", "Codigo, EmailUsuario"); }
         public List<E_Codigo> LstCodigos() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Codigo>(DT_LstCodigos()); }
@@ -387,6 +406,8 @@ namespace NegociosGestionUsuarios
 
             return RLEM;
         }
+        public List<E_Materias> BuscaMateriasDocente(int IdDocente)
+        { return (from Materia in LstMaterias() where Materia.IdDocente == IdDocente select Materia).ToList(); }
         public E_Materias BuscaMateria(int IdMateria)
         { return (from Materia in LstMaterias() where Materia.IdMateria == IdMateria select Materia).FirstOrDefault(); }
         public E_Materias BuscaMateriaClave(string Clave)
@@ -413,6 +434,41 @@ namespace NegociosGestionUsuarios
                 return "Exito: La Materia Fue Eliminada.";
             return "Error: No se pudo eliminar la materia.";
         }
+
+        /// <summary>
+        /// Segmento de Encuadres y RSA
+        /// </summary>
+        /// 
+        public DataTable DT_LstEncuadres() { return SQLD.DT_ListadoGeneral("Encuadres", "IdEncuadre, NombreEncuadre, UrlEncuadre"); }
+        public List<E_Encuadres> LstEncuadres() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Encuadres>(DT_LstEncuadres()); }
+        public List<E_Encuadres> BuscaEncuadreMateria(int IdMateria)
+        { return (from Encuadre in LstEncuadres() where Encuadre.IdMateria == IdMateria select Encuadre).ToList(); }
+        public E_Encuadres BuscaEncuadre(int IdMateria)
+        { return (from Encuadre in LstEncuadres() where Encuadre.IdMateria == IdMateria select Encuadre).FirstOrDefault(); }
+        public string InsertaEncuadre(string NombreEncuadre, string UrlEncuadre, int IdMateria, int IdCoordinador)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("INSERT INTO Encuadres(NombreEncuadre,UrlEncuadre,IdMateria,IdCoordinador,Calificacion,EstadoEncuadre,Observaciones) VALUES(@NombreEncuadre,@UrlEncuadre,@IdMateria,@IdCoordinador,@Calificacion,@EstadoEncuadre,@Observaciones)", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@NombreEncuadre", NombreEncuadre);
+            SqlComando.Parameters.AddWithValue("@UrlEncuadre", UrlEncuadre);
+            SqlComando.Parameters.AddWithValue("@IdCoordinador", IdCoordinador);
+            SqlComando.Parameters.AddWithValue("@IdMateria", IdMateria);
+            SqlComando.Parameters.AddWithValue("@EstadoEncuadre", 1);
+            SqlComando.Parameters.AddWithValue("@Calificacion", "");
+            SqlComando.Parameters.AddWithValue("@Observaciones", "");
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Encuadre Insertado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Encuadre No pudo ser registrado";
+        }
+
 
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
         public void LlenaDropDown(DropDownList dropDownList, string usuario)

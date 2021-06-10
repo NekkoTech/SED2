@@ -1,15 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="EncuadreDocente.aspx.cs" Inherits="Presentacion.GestionUsuarios.EncuadreDocente" %>
 
-<%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
-<%@ Register Src="~/Controles/wuc_RepPassWord.ascx" TagPrefix="uc1" TagName="wuc_RepPassWord" %>
-<%@ Register Src="~/Controles/wuc_PassWord.ascx" TagPrefix="uc1" TagName="wuc_PassWord" %>
-<%@ Register Src="~/Controles/wuc_Email.ascx" TagPrefix="uc1" TagName="wuc_Email" %>
-<%@ Register Src="~/Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
-<%@ Register Src="~/Controles/wuc_CrearUsuarioPassWord.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioPassWord" %>
-<%@ Register Src="~/Controles/wuc_CrearUsuarioCorreo.ascx" TagPrefix="uc1" TagName="wuc_CrearUsuarioCorreo" %>
-<%@ Register Src="~/Controles/wuc_Text_SR.ascx" TagPrefix="uc1" TagName="wuc_Text_SR" %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
+<%@ Register Src="~/Controles/wuc_Text_SR.ascx" TagPrefix="uc1" TagName="wuc_Text_SR" %>
+<%@ Register Src="~/Controles/wuc_Text.ascx" TagPrefix="uc1" TagName="wuc_Text" %>
+<%@ Register Src="~/Controles/wuc_NumeroEmpleado.ascx" TagPrefix="uc1" TagName="wuc_NumeroEmpleado" %>
 
 
 
@@ -90,7 +85,7 @@
                                     <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -108,7 +103,7 @@
                                     <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -126,7 +121,7 @@
                                     <asp:TableCell ID="TcNumero3">3</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -144,7 +139,7 @@
                                     <asp:TableCell ID="TcNumero4">4</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -162,7 +157,7 @@
                                     <asp:TableCell ID="TcNumero5">5</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -180,7 +175,7 @@
                                     <asp:TableCell ID="TcNumero6">6</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" Enabled="false"/>
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -198,7 +193,8 @@
                                     <asp:TableCell ID="TcNumero7">7</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" />
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" Enabled="false"/>
+                                            
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -231,7 +227,7 @@
                 <br />
                 <br />
                 <div class="card" style="width: 20rem; top: 0px; left: 0px;">
-                    <asp:Image ID="ImgEncuadre" runat="server" Width="300px" Height="250px" CssClass="card-img" />
+                    <iframe id="ifPdf" frameborder="0" runat="server" width="600" height="800"></iframe>
                     <div class="card-body">
                         <div class="col-2 w-50">
                             <asp:Button ID="BtnVer" CssClass="btn btn-success" Width="60px" runat="server" Text="Ver" OnClick="BtnVer_Click" CausesValidation="false" />
@@ -270,5 +266,5 @@
         }
 
     </script>
-
+    
 </asp:Content>

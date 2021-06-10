@@ -44,7 +44,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Apellido Materno</label>
                     <div class="col-sm-10">
-                        <uc1:wuc_Text runat="server" ID="tbAMat" />
+                        <uc1:wuc_Text runat="server" ID="tbAMat" ValidateRequestMode="Disabled"/>
                     </div>
                 </div>
                 <br />
@@ -73,7 +73,7 @@
                 <br />
                 <div class="form-row text-center">
 
-                    <asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-success boton" Text="Guardar" OnClick="Button1_Click"></asp:Button>
+                    <asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-success boton" Text="Guardar" CausesValidation="false" OnClick="Button1_Click"></asp:Button>
                     <asp:Label ID="lblRespuesta" runat="server" CssClass="text-danger"></asp:Label>
                 </div>
             </div>

@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class ListaEncuadres
+    public partial class ListaMateriasDocente
     {
 
         /// <summary>
@@ -119,11 +119,11 @@ namespace Presentacion.GestionUsuarios
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterCoordinadorMenu Master
+        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master
         {
             get
             {
-                return ((Presentacion.PaginasMaestras.MasterCoordinadorMenu)(base.Master));
+                return ((Presentacion.PaginasMaestras.MasterDocenteMenu)(base.Master));
             }
         }
     }

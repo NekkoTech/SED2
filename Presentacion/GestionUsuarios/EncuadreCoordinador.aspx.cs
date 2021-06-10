@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using NegociosGestionUsuarios;
 using EntidadesGestionUsuarios;
 using Presentacion.Controles;
+using System.IO;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -28,12 +29,62 @@ namespace Presentacion.GestionUsuarios
         {
             if (Session["Usuario"] == null)
                 Response.Redirect("ValidaUsuario.aspx");
-
+            SEU = (E_Usuarios)Session["Usuario"];
+            switch (SEU.IdTipoUsuario)
+            {
+                case 4:
+                    Response.Redirect("InicioDocente.aspx");
+                    break;
+                case 2:
+                    Response.Redirect("InicioSubdirector.aspx");
+                    break;
+            }
+            EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
+            LEA = NU.BuscaAtributos(EP.IdPlan);
+            EM = (E_Materias)Session["Materia"];
             if (!IsPostBack)
             {
+                if (Session["Materia"] != null)
+                {
+                    NU.LlenaDropDown(DdlDocentes, "Docente");
+                    if (Session["Mensaje"].ToString() == "Consultar")
+                    {
+                        LlenaAtributos(LEA);
+                        tbNombre.Text = EM.Materia;
+                        tbNombre.Enabled = false;
+                        tbClave.Text = EM.Clave;
+                        tbClave.Enabled = false;
+                        DdlSemestre.SelectedValue = EM.Semestre.ToString();
+                        DdlSemestre.Enabled = false;
+                        DdlDocentes.SelectedValue = EM.IdDocente.ToString();
+                        DdlDocentes.Enabled = false;
+                        ListEM = NU.LstAtribMateria();
+                        LlenaDdlList();
+                        if (ListEM != null)
+                        {
+                            int i = 0;
+                            foreach (E_AtribMateria AM in ListEM)
+                            {
+                                if (AM.IdMateria == EM.IdMateria)
+                                {
+                                    ListDdl[i].SelectedValue = AM.Aportacion;
+                                    ListDdl[i].Enabled = false;
+                                    i++;
+                                }
+                            }
+                        }
+                    }
+                    if (Session["Mensaje"].ToString() == "Evaluar")
+                    {
+
+                    }
+                }
+                else
+                {
+                    Response.Redirect("ListaEncuadres.aspx");
+                }
                
 
-            
 
 
             }
@@ -41,17 +92,50 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListaMaterias.aspx");
+            Response.Redirect("ListaEncuadres.aspx");
         }
         protected void BtnGuardarModal_Click(object sender, EventArgs e)
         {
-            
+            HttpPostedFile HpfFirma = FUModal.PostedFile;
+            if (FUModal.HasFile)
+            {
+                string savePath = "..\\Encuadres\\";
+                var folder = Server.MapPath(savePath+"\\"+EP.NombrePlan);
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                    
+                }
+                savePath = folder;
+                string fileName = EM.Clave+"-"+EM.Materia.Trim()+".pdf";
+                string pathToCheck = folder+ "\\" +fileName;
+                string tempfileName = "";        
+                if (System.IO.File.Exists(pathToCheck))
+                {
+                    int counter = 2;
+                    while (System.IO.File.Exists(pathToCheck))
+                    {
+                        tempfileName = counter.ToString() + fileName;
+                        pathToCheck = savePath + tempfileName;
+                        counter++;
+                    }
+
+                    fileName = tempfileName;
+                    Master.ModalMsg("Error: Existe un Archivo con el Mismo Nombre");
+                }
+                else
+                {
+                    Master.ModalMsg("Exito: El Archivo fue agregado con exito");
+                }
+                savePath += "\\"+fileName;
+                FUModal.SaveAs(savePath);
+                Master.ModalMsg(NU.InsertaEncuadre(fileName, savePath, EM.IdMateria, SEU.IdUsuario));
+            }
 
         }
         protected void BtnSubirEncuadre_Click(object sender, EventArgs e)
         {
-            
-         
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
         }
 
         protected void BtnModificar_Click(object sender, EventArgs e)
@@ -65,6 +149,7 @@ namespace Presentacion.GestionUsuarios
             LlenaTbList();
             for (int i = 0; i < ListAtrib.Count; i++)
             {
+                ListTb[i].Enabled = false;
                 ListTb[i].Text = ListAtrib[i].Atributo;
             }
         }

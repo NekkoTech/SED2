@@ -253,4 +253,37 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
+    
+    public class E_Encuadres
+    {
+        #region Atributos
+        private int _IdEncuadre;
+        private string _NombreEncuadre;
+        private string _UrlEncuadre;
+        private int _IdMateria;
+        private int _IdCoordinador;
+        private string _Calificacion;
+        private int _EstadoEncuadre;
+        private string _Observacion;
+
+        #endregion
+        #region Encapsulamientos
+        public int IdEncuadre { get => _IdEncuadre; set => _IdEncuadre = value; }
+        public string NombreEncuadre { get => _NombreEncuadre; set => _NombreEncuadre = value; }
+        public string UrlEncuadre { get => _UrlEncuadre; set => _UrlEncuadre = value; }
+        public int IdMateria { get => _IdMateria; set => _IdMateria = value; }
+        public int IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
+        public string Calificacion { get => _Calificacion; set => _Calificacion = value; }
+        public int EstadoEncuadre { get => _EstadoEncuadre; set => _EstadoEncuadre = value; }
+        public string Observacion { get => _Observacion; set => _Observacion = value; }
+
+
+        #endregion
+        #region Constructores
+        public E_Encuadres()
+        {
+        }
+
+        #endregion
+    }
 }

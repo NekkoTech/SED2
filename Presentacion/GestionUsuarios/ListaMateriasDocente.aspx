@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaEncuadres.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaEncuadres
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ListaMateriasDocente.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaMateriasDocente
     " %>
 
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -26,7 +26,6 @@
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Consultar</asp:LinkButton>
-                                <asp:LinkButton ID="btnEvaluar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Evaluar" runat="server">Evaluar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 

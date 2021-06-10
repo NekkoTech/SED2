@@ -101,6 +101,7 @@
     <Content Include="GestionUsuarios\InicioSubdirector.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaMateriasDocente.aspx" />
     <Content Include="GestionUsuarios\ListaEncuadres.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasSubdirector.aspx" />
     <Content Include="GestionUsuarios\ListaMaterias.aspx" />
@@ -376,6 +377,13 @@
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\ListaMateriasDocente.aspx.cs">
+      <DependentUpon>ListaMateriasDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaMateriasDocente.aspx.designer.cs">
+      <DependentUpon>ListaMateriasDocente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\ListaEncuadres.aspx.cs">
       <DependentUpon>ListaEncuadres.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +543,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Encuadres\" />
     <Folder Include="JavaScript\" />
   </ItemGroup>
   <ItemGroup>
