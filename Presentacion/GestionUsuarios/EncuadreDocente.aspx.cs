@@ -76,7 +76,8 @@ namespace Presentacion.GestionUsuarios
                                 break;
                         }
                         LblCalificacion.Text = "Calificacion:" + EE.Calificacion;
-                        tbObservaciones.Text = EE.Observacion;
+                        tbObservaciones.Text = EE.Observaciones;
+                        tbObservaciones.Enabled = false;
                         NU.LlenaDropDown(DdlDocentes, "Docente");
                         if (Session["Mensaje"].ToString() == "Consultar")
                         {
@@ -192,7 +193,15 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnSubirEncuadre_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+            if (EE.EstadoEncuadre == 1 || EE.EstadoEncuadre == 3)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+            }
+            else
+            {
+                Master.ModalMsg("Informacion: Ya a enviado un encuadre espere la respuesta del coordinador");
+            }
+            
         }
 
         protected void BtnGuardarModal_Click(object sender, EventArgs e)
@@ -213,28 +222,14 @@ namespace Presentacion.GestionUsuarios
                     string fileName = EE.NombreEncuadre;
                     string pathToCheck = folder + "\\" + fileName;
                     string tempfileName = "";
-                    /*if (System.IO.File.Exists(pathToCheck))
-                    {
-                        int counter = 2;
-                        while (System.IO.File.Exists(pathToCheck))
-                        {
-                            tempfileName = counter.ToString() + fileName;
-                            pathToCheck = savePath + tempfileName;
-                            counter++;
-                        }
-
-                        fileName = tempfileName;
-                        Master.ModalMsg("Error: Existe un Archivo con el Mismo Nombre");
-                    }
-                    else
-                    {
-                        Master.ModalMsg("Exito: El Archivo fue agregado con exito");
-                    }*/
+                    
                     savePath += "\\" + fileName;
                     FUModal.SaveAs(savePath);
                     EE.EstadoEncuadre = 2;
                     EE.Calificacion = "";
-                    EE.Observacion = "";
+                    EE.Observaciones = "";
+                    LblIntento.Text = "Encuadre Enviado";
+                    LblIntento.CssClass = "form-control bg-info hover";
                     Master.ModalMsg(NU.ModificarEncuadre(EE));
                 }
             }

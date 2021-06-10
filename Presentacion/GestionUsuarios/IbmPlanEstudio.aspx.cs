@@ -33,6 +33,7 @@ namespace Presentacion.GestionUsuarios
                 ListAtrib = NU.BuscaAtributos(EP.IdPlan);
                 PEU = NU.BuscaUsuario(EP.IdCoordinador);
                 DdlCoordinadores.Items.Add(new ListItem("Coordinador " + PEU.NombreUsuario + " " + PEU.APaternoUsuario + " " + PEU.AMaternoUsuario, PEU.IdUsuario.ToString()));
+                DdlCoordinadores.SelectedValue = EP.IdCoordinador.ToString();
             }
             if (!IsPostBack)
             {

@@ -480,17 +480,17 @@ namespace NegociosGestionUsuarios
             SqlComando.Parameters.AddWithValue("@IdMateria", EE.IdMateria);
             SqlComando.Parameters.AddWithValue("@EstadoEncuadre", EE.EstadoEncuadre);
             SqlComando.Parameters.AddWithValue("@Calificacion", EE.Calificacion);
-            SqlComando.Parameters.AddWithValue("@Observaciones", EE.Observacion);
+            SqlComando.Parameters.AddWithValue("@Observaciones", EE.Observaciones);
             SqlComando.Parameters.AddWithValue("@IdEncuadre", EE.IdEncuadre);
             code = SqlComando.ExecuteNonQuery();
 
             if (code == 1)
             {
                 SQLD.Conexion.Close();
-                return "Exito: Encuadre Insertado";
+                return "Exito: Encuadre Evaluado";
             }
             SQLD.Conexion.Close();
-            return "Error: Encuadre No pudo ser registrado";
+            return "Error: Encuadre No pudo ser Evaluado";
         }
 
 

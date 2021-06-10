@@ -264,7 +264,7 @@ namespace EntidadesGestionUsuarios
         private int _IdCoordinador;
         private string _Calificacion;
         private int _EstadoEncuadre;
-        private string _Observacion;
+        private string _Observaciones;
 
         #endregion
         #region Encapsulamientos
@@ -275,7 +275,7 @@ namespace EntidadesGestionUsuarios
         public int IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
         public string Calificacion { get => _Calificacion; set => _Calificacion = value; }
         public int EstadoEncuadre { get => _EstadoEncuadre; set => _EstadoEncuadre = value; }
-        public string Observacion { get => _Observacion; set => _Observacion = value; }
+        public string Observaciones { get => _Observaciones; set => _Observaciones = value; }
 
 
         #endregion

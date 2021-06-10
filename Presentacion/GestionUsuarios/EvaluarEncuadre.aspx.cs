@@ -65,11 +65,12 @@ namespace Presentacion.GestionUsuarios
         }
         protected void BtnAceptado_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
+            
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalAccept()", true);
         }
         protected void BtnRechazar_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalAccept()", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
         }
 
         protected void BtnAceptar_Click(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace Presentacion.GestionUsuarios
         {
             EE.EstadoEncuadre = 3;
             EE.Calificacion = "0";
-            EE.Observacion = tbObservaciones.Text;
+            EE.Observaciones = tbObservaciones.Text;
             E_Materias Mat = NU.BuscaMateria(EE.IdMateria);
             E_Usuarios aux = NU.BuscaUsuario(EM.IdDocente);
             try
@@ -91,8 +92,8 @@ namespace Presentacion.GestionUsuarios
                 Email.SubjectEncoding = Encoding.UTF8;
                 Email.BodyEncoding = Encoding.UTF8;
                 Email.From = new MailAddress("SedFiad@gmail.com", "Administrador del sistema");
-                Email.Subject = "Codigo de Recuperacion de contraseña";
-                Email.Body = "Hola, te notificamos que tu encuadre de la materia "+Mat.Materia+" ha sigo rechazado, le recomendamos que revise las observaciones y que vuelva a subirlo";
+                Email.Subject = "Notificaciones SED: Estado de Encuadre";
+                Email.Body = "Hola, te notificamos que tu encuadre de la materia "+Mat.Materia.ToLowerInvariant()+" ha sigo rechazado, le recomendamos que revise las observaciones y que vuelva a subirlo";
 
 
                 Email.To.Add(aux.EmailUsuario);
@@ -101,6 +102,7 @@ namespace Presentacion.GestionUsuarios
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(Email);
                 Master.ModalMsg(NU.ModificarEncuadre(EE));
+                
             }
             catch (SmtpException ex)
             {
@@ -112,7 +114,7 @@ namespace Presentacion.GestionUsuarios
         {
             EE.EstadoEncuadre = 4;
             EE.Calificacion = TbCalificacion.Text;
-            EE.Observacion = "";
+            EE.Observaciones = "";
             Master.ModalMsg(NU.ModificarEncuadre(EE));
         }
     }
