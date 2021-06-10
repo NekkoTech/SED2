@@ -9,6 +9,46 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script type="text/javascript"> var url = '//cdn.mozilla.net/pdfjs/helloworld.pdf';
+        PDFJS.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+        // Asynchronous download of PDF
+        var loadingTask = PDFJS.getDocument(url);
+        loadingTask.promise.then(function (pdf) {
+            console.log('PDF loaded');
+
+            // Fetch the first page
+            var pageNumber = 1;
+            pdf.getPage(pageNumber).then(function (page) {
+                console.log('Page loaded');
+
+                var scale = 1.5;
+                var viewport = page.getViewport(scale);
+
+                // Prepare canvas using PDF page dimensions
+                var canvas = document.getElementById('the-canvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+                renderTask.then(function () {
+                    console.log('Page rendered');
+                });
+            });
+        }, function (reason) {
+            // PDF loading error
+            console.error(reason);
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
     <div class="container">
@@ -85,7 +125,7 @@
                                     <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -103,7 +143,7 @@
                                     <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -121,7 +161,7 @@
                                     <asp:TableCell ID="TcNumero3">3</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -139,7 +179,7 @@
                                     <asp:TableCell ID="TcNumero4">4</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -157,7 +197,7 @@
                                     <asp:TableCell ID="TcNumero5">5</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -175,7 +215,7 @@
                                     <asp:TableCell ID="TcNumero6">6</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" Enabled="false"/>
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" Enabled="false" />
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -193,8 +233,8 @@
                                     <asp:TableCell ID="TcNumero7">7</asp:TableCell>
                                     <asp:TableCell>
                                         <div class="col-sm w-100">
-                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" Enabled="false"/>
-                                            
+                                            <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" Enabled="false" />
+
                                         </div>
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -224,18 +264,29 @@
                 </div>
             </div>
             <div class="col-4">
+                <div class="col text-center">
+                    <asp:Label ID="LblIntento" CssClass="form-control" runat="server"></asp:Label>
+                </div>
                 <br />
                 <br />
-                <div class="card" style="width: 20rem; top: 0px; left: 0px;">
-                    <iframe id="ifPdf" frameborder="0" runat="server" width="600" height="800"></iframe>
-                    <div class="card-body">
-                        <div class="col-2 w-50">
+                <div class="card">
+                    <iframe id="Encuadre" style="width: 355px" runat="server" />
+                    <div class="card-body row">
+                        <div class="col-6">
                             <asp:Button ID="BtnVer" CssClass="btn btn-success" Width="60px" runat="server" Text="Ver" OnClick="BtnVer_Click" CausesValidation="false" />
                         </div>
-                        <div class="col-2 w-50">
-                            <asp:Button ID="BtnDescargar" CssClass="btn btn-success" Width="100px" runat="server" Text="Descargar" OnClick="BtnDescargar_Click" CausesValidation="false" />
+                        <div class="col6">
+                            <asp:Button ID="Button2" CssClass="btn btn-success" Width="90px" runat="server" Text="Descargar" OnClick="BtnDescargar_Click" CausesValidation="false" />
                         </div>
                     </div>
+                </div>
+                <br />
+                <div class="col">
+                    <asp:Label ID="LblCalificacion" CssClass="form-control" runat="server" Text="Label"></asp:Label>
+                </div>
+                <div class="col">
+                    <asp:Label ID="LblObservaciones" runat="server" Text="Observaciones:"></asp:Label>
+                    <asp:TextBox ID="tbObservaciones" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -259,12 +310,35 @@
             </div>
         </div>
     </div>
+    <!--Modal De FilePicker-->
+    <div id="master-modalFU" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <div id="ModalHeaderFU" runat="server">
+                    <p class="heading lead text-center"><span id="MHeaderFU" runat="server">Seleccionar Archivo</span></p>
+                </div>
+                <div class="modal-body">
+                    <asp:FileUpload ID="FUModal" accept="application/pdf" CssClass="form-control-file" runat="server" />
+                    <asp:RegularExpressionValidator ID="rexp" runat="server" ControlToValidate="FUModal"
+                        ErrorMessage="Solo archivos PDF"
+                        ValidationExpression="^.*\.(doc|DOC|docx|DOCX|pdf|PDF)$"></asp:RegularExpressionValidator>
+
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="Button1" type="button" CssClass="btn btn-success" runat="server" data-dismiss="modal" CausesValidation="false" Text="Cancelar" />
+                    <asp:Button ID="btnSubirModal" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnGuardarModal_Click" CausesValidation="false" Text="Subir Encuadre" />
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
 
         function openMasterModalPeticion() {
             $('#master-modal-peticiones').modal('show');
         }
+        function openMasterModalFU() {
+            $('#master-modalFU').modal('show');
+        }
 
     </script>
-    
 </asp:Content>

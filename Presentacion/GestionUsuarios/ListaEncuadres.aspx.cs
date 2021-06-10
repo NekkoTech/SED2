@@ -19,6 +19,7 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         E_Usuarios SEU = new E_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
+        E_Encuadres EE = new E_Encuadres();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -81,10 +82,20 @@ namespace Presentacion.GestionUsuarios
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                EM.IdMateria = IdMateria;
+                //EM.IdMateria = IdMateria;
                 Session["Materia"] = EM;
                 Session["Mensaje"] = "Evaluar";
-                //Response.Redirect("EncuadreCoordinador.aspx");
+                EE = NU.BuscaEncuadre(EM.IdMateria);
+                if (EE != null)
+                {
+                    if (EE.EstadoEncuadre == 2)
+                    {
+                        Session["Encuadre"] = EE;
+                        Response.Redirect("EvaluarEncuadre.aspx");
+                    }
+                    
+                }
+                
             }
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)

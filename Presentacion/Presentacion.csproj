@@ -90,6 +90,7 @@
     <Content Include="GestionUsuarios\EncuadreDocente.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
+    <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
     <Content Include="GestionUsuarios\IbmMateriaSubdirector.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
@@ -299,6 +300,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\EncuadreCoordinador.aspx.designer.cs">
       <DependentUpon>EncuadreCoordinador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.cs">
+      <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.designer.cs">
+      <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\IbmMateriaSubdirector.aspx.cs">
       <DependentUpon>IbmMateriaSubdirector.aspx</DependentUpon>

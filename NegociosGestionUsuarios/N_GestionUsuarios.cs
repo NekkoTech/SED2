@@ -468,6 +468,30 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Encuadre No pudo ser registrado";
         }
+        public string ModificarEncuadre(E_Encuadres EE)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("UPDATE Encuadres SET NombreEncuadre=@NombreEncuadre,UrlEncuadre=@UrlEncuadre,IdMateria=@IdMateria,IdCoordinador=@IdCoordinador,Calificacion=@Calificacion,EstadoEncuadre=@EstadoEncuadre,Observaciones=@Observaciones WHERE IdEncuadre=@IdEncuadre", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@NombreEncuadre", EE.NombreEncuadre);
+            SqlComando.Parameters.AddWithValue("@UrlEncuadre", EE.UrlEncuadre);
+            SqlComando.Parameters.AddWithValue("@IdCoordinador", EE.IdCoordinador);
+            SqlComando.Parameters.AddWithValue("@IdMateria", EE.IdMateria);
+            SqlComando.Parameters.AddWithValue("@EstadoEncuadre", EE.EstadoEncuadre);
+            SqlComando.Parameters.AddWithValue("@Calificacion", EE.Calificacion);
+            SqlComando.Parameters.AddWithValue("@Observaciones", EE.Observacion);
+            SqlComando.Parameters.AddWithValue("@IdEncuadre", EE.IdEncuadre);
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Encuadre Insertado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Encuadre No pudo ser registrado";
+        }
 
 
         //Llena un dropdownlist remoto mediante una peticion sql personalizada

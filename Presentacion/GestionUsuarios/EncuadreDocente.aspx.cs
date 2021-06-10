@@ -53,8 +53,30 @@ namespace Presentacion.GestionUsuarios
                     EP = NU.BuscaPlanCoordinador(EE.IdCoordinador);
                     ListEM = NU.LstAtribMateria();
                     LEA = NU.BuscaAtributos(EP.IdPlan);
+                    Encuadre.Attributes["src"] = "..\\Encuadres\\" + EP.NombrePlan + "\\" + EE.NombreEncuadre;
+                    Encuadre.DataBind();
                     if (!IsPostBack)
                     {
+                        switch (EE.EstadoEncuadre)
+                        {
+                            case 1:LblIntento.Text = "Aun no a sido enviado";
+                                LblIntento.CssClass = "form-control bg-warning hover";
+                                break;
+                            case 2:
+                                LblIntento.Text = "Encuadre Enviado";
+                                LblIntento.CssClass = "form-control bg-info hover";
+                                break;
+                            case 3:
+                                LblIntento.Text = "Encuadre Rechazado";
+                                LblIntento.CssClass = "form-control  bg-danger hover";
+                                break;
+                            case 4:
+                                LblIntento.Text = "Encuadre Aceptado";
+                                LblIntento.CssClass = "form-control bg-success hover";
+                                break;
+                        }
+                        LblCalificacion.Text = "Calificacion:" + EE.Calificacion;
+                        tbObservaciones.Text = EE.Observacion;
                         NU.LlenaDropDown(DdlDocentes, "Docente");
                         if (Session["Mensaje"].ToString() == "Consultar")
                         {
@@ -83,8 +105,9 @@ namespace Presentacion.GestionUsuarios
                             }
                             
                         }
-                        ifPdf.Src = "http://docs.google.com/viewer?url=" + EE.UrlEncuadre+"&embedded=true";
+                        
                     }
+                    
                 }
                 
             }
@@ -148,21 +171,80 @@ namespace Presentacion.GestionUsuarios
                 Response.BinaryWrite(FileBuffer);
             }
         }
-
-        protected void BtnRegresar_Click(object sender, EventArgs e)
+        protected void BtnDescargar_Click(object sender, EventArgs e)
         {
 
+            string FilePath = Server.MapPath("..\\Encuadres\\" + EP.NombrePlan + "\\" + EE.NombreEncuadre);
+            WebClient User = new WebClient();
+            Byte[] FileBuffer = User.DownloadData(FilePath);
+            if (FileBuffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Encuadre.pdf");
+                Response.TransmitFile(FilePath);
+                Response.End();
+            }
+        }
+        protected void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListaMateriasDocente.aspx");
         }
 
         protected void BtnSubirEncuadre_Click(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
         }
 
-        protected void BtnDescargar_Click(object sender, EventArgs e)
+        protected void BtnGuardarModal_Click(object sender, EventArgs e)
         {
+            if (EE.EstadoEncuadre == 1)
+            {
+                HttpPostedFile HpfFirma = FUModal.PostedFile;
+                if (FUModal.HasFile)
+                {
+                    string savePath = "..\\Encuadres\\";
+                    var folder = Server.MapPath(savePath + "\\" + EP.NombrePlan);
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
 
+                    }
+                    savePath = folder;
+                    string fileName = EE.NombreEncuadre;
+                    string pathToCheck = folder + "\\" + fileName;
+                    string tempfileName = "";
+                    /*if (System.IO.File.Exists(pathToCheck))
+                    {
+                        int counter = 2;
+                        while (System.IO.File.Exists(pathToCheck))
+                        {
+                            tempfileName = counter.ToString() + fileName;
+                            pathToCheck = savePath + tempfileName;
+                            counter++;
+                        }
+
+                        fileName = tempfileName;
+                        Master.ModalMsg("Error: Existe un Archivo con el Mismo Nombre");
+                    }
+                    else
+                    {
+                        Master.ModalMsg("Exito: El Archivo fue agregado con exito");
+                    }*/
+                    savePath += "\\" + fileName;
+                    FUModal.SaveAs(savePath);
+                    EE.EstadoEncuadre = 2;
+                    EE.Calificacion = "";
+                    EE.Observacion = "";
+                    Master.ModalMsg(NU.ModificarEncuadre(EE));
+                }
+            }
+            else
+            {
+                Master.ModalMsg("Error: Ya a enviado un encuadre espere hasta que el coordinador le permita subir uno nuevo");
+            }
+            
         }
+      
         protected void LlenaAtributos(List<E_Atributos> ListAtrib)
         {
             LlenaTbList();
