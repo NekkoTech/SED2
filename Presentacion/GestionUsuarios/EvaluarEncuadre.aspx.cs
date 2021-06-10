@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -78,7 +81,32 @@ namespace Presentacion.GestionUsuarios
             EE.EstadoEncuadre = 3;
             EE.Calificacion = "0";
             EE.Observacion = tbObservaciones.Text;
-            Master.ModalMsg(NU.ModificarEncuadre(EE));
+            E_Materias Mat = NU.BuscaMateria(EE.IdMateria);
+            E_Usuarios aux = NU.BuscaUsuario(EM.IdDocente);
+            try
+            {
+
+                MailMessage Email = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                Email.SubjectEncoding = Encoding.UTF8;
+                Email.BodyEncoding = Encoding.UTF8;
+                Email.From = new MailAddress("SedFiad@gmail.com", "Administrador del sistema");
+                Email.Subject = "Codigo de Recuperacion de contraseña";
+                Email.Body = "Hola, te notificamos que tu encuadre de la materia "+Mat.Materia+" ha sigo rechazado, le recomendamos que revise las observaciones y que vuelva a subirlo";
+
+
+                Email.To.Add(aux.EmailUsuario);
+                SmtpServer.Port = 587; //SMTP de GMAIL
+                SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(Email);
+                Master.ModalMsg(NU.ModificarEncuadre(EE));
+            }
+            catch (SmtpException ex)
+            {
+                Master.ModalMsg("Error: No se pudo enviar el correo")
+            }
+
         }
         protected void BtnEnviarAceptado_Click(object sender, EventArgs e)
         {

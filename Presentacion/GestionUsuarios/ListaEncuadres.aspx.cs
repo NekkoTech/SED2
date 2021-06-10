@@ -93,6 +93,10 @@ namespace Presentacion.GestionUsuarios
                         Session["Encuadre"] = EE;
                         Response.Redirect("EvaluarEncuadre.aspx");
                     }
+                    else
+                    {
+                        Master.ModalMsg("Informacion: El encuadre ya fue evaluado");
+                    }
                     
                 }
                 

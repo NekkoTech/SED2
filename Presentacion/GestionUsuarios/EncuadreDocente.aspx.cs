@@ -197,7 +197,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnGuardarModal_Click(object sender, EventArgs e)
         {
-            if (EE.EstadoEncuadre == 1)
+            if (EE.EstadoEncuadre == 1 || EE.EstadoEncuadre == 3)
             {
                 HttpPostedFile HpfFirma = FUModal.PostedFile;
                 if (FUModal.HasFile)
@@ -240,7 +240,7 @@ namespace Presentacion.GestionUsuarios
             }
             else
             {
-                Master.ModalMsg("Error: Ya a enviado un encuadre espere hasta que el coordinador le permita subir uno nuevo");
+                Master.ModalMsg("Informacion: Ya a enviado un encuadre espere la respuesta del coordinador");
             }
             
         }
