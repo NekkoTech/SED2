@@ -11,156 +11,124 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class AgregaUsuario
+    public partial class FormularioRSA
     {
 
         /// <summary>
-        /// Control tbNombre.
+        /// Control TbCarrera.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_Text tbNombre;
+        protected global::System.Web.UI.WebControls.TextBox TbCarrera;
 
         /// <summary>
-        /// Control tbAPat.
+        /// Control TbSemestre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAPat;
+        protected global::System.Web.UI.WebControls.TextBox TbSemestre;
 
         /// <summary>
-        /// Control revtbAPat.
+        /// Control TbNumEmpleado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbAPat;
+        protected global::System.Web.UI.WebControls.TextBox TbNumEmpleado;
 
         /// <summary>
-        /// Control tbAMat.
+        /// Control TbNombreDocente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAMat;
+        protected global::System.Web.UI.WebControls.TextBox TbNombreDocente;
 
         /// <summary>
-        /// Control revtbAMat.
+        /// Control TbAsignatura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revtbAMat;
+        protected global::System.Web.UI.WebControls.TextBox TbAsignatura;
 
         /// <summary>
-        /// Control cvApellidos.
+        /// Control TbClaveAsig.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvApellidos;
+        protected global::System.Web.UI.WebControls.TextBox TbClaveAsig;
 
         /// <summary>
-        /// Control tbNumeroEmpleado.
+        /// Control TbFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_NumeroEmpleado tbNumeroEmpleado;
+        protected global::System.Web.UI.WebControls.TextBox TbFecha;
 
         /// <summary>
-        /// Control tbEmail.
+        /// Control DdlAD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CrearUsuarioCorreo tbEmail;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAD;
 
         /// <summary>
-        /// Control tbPassWord.
+        /// Control TbFecha2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPassWord;
+        protected global::System.Web.UI.WebControls.TextBox TbFecha2;
 
         /// <summary>
-        /// Control Label1.
+        /// Control DdlMP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.DropDownList DdlMP;
 
         /// <summary>
-        /// Control btnSubdirector.
+        /// Control tbSemestresImp.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubdirector;
+        protected global::System.Web.UI.WebControls.TextBox tbSemestresImp;
 
         /// <summary>
-        /// Control btnCoordinador.
+        /// Control btnRegresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCoordinador;
+        protected global::System.Web.UI.WebControls.Button btnRegresar;
 
         /// <summary>
-        /// Control btnDocente.
+        /// Control btnSiguiente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDocente;
-
-        /// <summary>
-        /// Control lblErrorTipoUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorTipoUsuario;
-
-        /// <summary>
-        /// Control lblRespuesta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRespuesta;
-
-        /// <summary>
-        /// Propiedad Master.
-        /// </summary>
-        /// <remarks>
-        /// Propiedad generada automáticamente.
-        /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
-        {
-            get
-            {
-                return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Button btnSiguiente;
     }
 }

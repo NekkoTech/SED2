@@ -1,6 +1,8 @@
 ﻿body {
 }
-
+derecha {
+    text-align: right;
+}
 .boton {
     font-size: x-large;
     background-color: #00723f;
@@ -79,4 +81,14 @@
     display: block;
     width: 26px;
     height: 30px;
+}
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    text-align: center;
+}
+th {
+    text-align: left;
 }
