@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+derecha {
+    text-align: right;
+}
+
 .boton {
     font-size: x-large;
     background-color: #00723f;
@@ -24,42 +28,9 @@
     padding: 10px;
 }
 
-.box2 {
-    display: inline-block;
-    width: auto;
-    border-radius: 30px;
-    outline: none;
-    padding: 10px;
-}
-
-.margen {
-    margin-right: 60px;
-}
-
-.xxlarge {
-    font-size: xx-large;
-}
-
-.GridViewStyle {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    table font-size: 14px;
-    text-align: center;
-}
-
-.HeaderStyle {
-    border: 1px, solid, #ddd;
-    background-color: #649cff;
-    text-align: center;
-    table-layout: auto;
-}
-
-.LinkButton {
-    background: url("../img/ic_delete.png") top center no-repeat;
-    display: block;
-    width: 26px;
-    height: 30px;
+@ -60,23 +62,33 @@ display: block;
+width: 26px;
+height: 30px;
 }
 
 .LinkButton2 {
@@ -68,15 +39,30 @@
     width: 26px;
     height: 30px;
 }
+
 .LinkButton3 {
     background: url("../img/ic_bloquear.png") top center no-repeat;
     display: block;
     width: 26px;
     height: 30px;
 }
+
 .LinkButton4 {
     background: url("../img/ic_desbloquear.png") top center no-repeat;
     display: block;
     width: 26px;
     height: 30px;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-align: left;
 }
