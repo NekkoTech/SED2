@@ -7,92 +7,124 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.PaginasMaestras
+namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class MasterCoordinadorMenu
+    public partial class ListaRSADocente
     {
 
         /// <summary>
-        /// Control head.
+        /// Control GvMaterias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.GridView GvMaterias;
 
         /// <summary>
-        /// Control form1.
+        /// Control SDSPlanEstudio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSPlanEstudio;
 
         /// <summary>
-        /// Control CphContenedorBase.
+        /// Control AModalHeader.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CphContenedorBase;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AModalHeader;
 
         /// <summary>
-        /// Control ModalHeader.
+        /// Control AModalTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AModalTitulo;
 
         /// <summary>
-        /// Control ModalTitulo.
+        /// Control AModalBody.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalTitulo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AModalBody;
 
         /// <summary>
-        /// Control ModalBody.
+        /// Control BtnModalAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalBody;
+        protected global::System.Web.UI.WebControls.Button BtnModalAgregar;
 
         /// <summary>
-        /// Control BtnEntendido.
+        /// Control EModalHeader.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnEntendido;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalHeader;
 
         /// <summary>
-        /// Control LblCerrarSesion.
+        /// Control EModalTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCerrarSesion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalTitulo;
 
         /// <summary>
-        /// Control BtnCerrarSesion.
+        /// Control EModalBody.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCerrarSesion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalBody;
+
+        /// <summary>
+        /// Control BtnRegresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRegresar;
+
+        /// <summary>
+        /// Control BtnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnEliminar;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterDocenteMenu)(base.Master));
+            }
+        }
     }
 }
