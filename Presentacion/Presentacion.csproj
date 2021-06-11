@@ -93,6 +93,7 @@
     <Content Include="GestionUsuarios\EvaluarRSA.aspx" />
     <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA.aspx" />
+    <Content Include="GestionUsuarios\FormularioRSA2.aspx" />
     <Content Include="GestionUsuarios\IbmMateriaSubdirector.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
     <Content Include="GestionUsuarios\AgregaUsuario.aspx" />
@@ -325,6 +326,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\FormularioRSA.aspx.designer.cs">
       <DependentUpon>FormularioRSA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\FormularioRSA2.aspx.cs">
+      <DependentUpon>FormularioRSA2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FormularioRSA2.aspx.designer.cs">
+      <DependentUpon>FormularioRSA2.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\IbmMateriaSubdirector.aspx.cs">
       <DependentUpon>IbmMateriaSubdirector.aspx</DependentUpon>
