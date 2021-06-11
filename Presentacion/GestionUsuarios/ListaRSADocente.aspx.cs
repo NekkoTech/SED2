@@ -77,7 +77,7 @@ namespace Presentacion.GestionUsuarios
                     Session["Materia"] = EM;
                     Session["Encuadre"] = EE;
                     Session["Mensaje"] = "Consultar";
-                    Response.Redirect("EncuadreDocente.aspx");
+                    Response.Redirect("RSADocente.aspx");
                      
                 }
                 else

@@ -90,6 +90,7 @@
     <Content Include="GestionUsuarios\EncuadreDocente.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
+    <Content Include="GestionUsuarios\EvaluarRSA.aspx" />
     <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
     <Content Include="GestionUsuarios\IbmMateriaSubdirector.aspx" />
     <Content Include="GestionUsuarios\IbmMateria.aspx" />
@@ -102,6 +103,8 @@
     <Content Include="GestionUsuarios\InicioSubdirector.aspx" />
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
+    <Content Include="GestionUsuarios\ListaRSA.aspx" />
+    <Content Include="GestionUsuarios\ListaRSADocente.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasDocente.aspx" />
     <Content Include="GestionUsuarios\ListaEncuadres.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasSubdirector.aspx" />
@@ -301,6 +304,13 @@
     <Compile Include="GestionUsuarios\EncuadreCoordinador.aspx.designer.cs">
       <DependentUpon>EncuadreCoordinador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\EvaluarRSA.aspx.cs">
+      <DependentUpon>EvaluarRSA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\EvaluarRSA.aspx.designer.cs">
+      <DependentUpon>EvaluarRSA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.cs">
       <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +394,20 @@
     </Compile>
     <Compile Include="GestionUsuarios\InicioMain.aspx.designer.cs">
       <DependentUpon>InicioMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSA.aspx.cs">
+      <DependentUpon>ListaRSA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSA.aspx.designer.cs">
+      <DependentUpon>ListaRSA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSADocente.aspx.cs">
+      <DependentUpon>ListaRSADocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSADocente.aspx.designer.cs">
+      <DependentUpon>ListaRSADocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaMateriasDocente.aspx.cs">
       <DependentUpon>ListaMateriasDocente.aspx</DependentUpon>
@@ -553,6 +577,7 @@
   <ItemGroup>
     <Folder Include="Encuadres\" />
     <Folder Include="JavaScript\" />
+    <Folder Include="RSA\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

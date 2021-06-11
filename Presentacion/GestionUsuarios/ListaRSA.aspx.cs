@@ -10,7 +10,7 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class ListaRSA : System.Web.UI.Page
+    public partial class ListaEncuadres : System.Web.UI.Page
     {
         N_Usuarios NU = new N_Usuarios();
         E_Materias EM = new E_Materias();
@@ -19,6 +19,7 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         E_Usuarios SEU = new E_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
+        E_Encuadres EE = new E_Encuadres();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -27,19 +28,6 @@ namespace Presentacion.GestionUsuarios
             }
             else
             {
-                if (SEU.IdTipoUsuario == 3)
-                {
-                    EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
-                    if (EP == null)
-                    {
-                        Response.Redirect("InicioCoordinador.aspx");
-                        Session["NoPlan"] = "No existe plan";
-                    }
-                    if (EP != null)
-                        Session["IdPlan"] = EP.IdPlan;
-
-                }
-                
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
@@ -51,70 +39,24 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
-
-            if (Session["Eliminar"] != null)
-            {
-                string msg = Session["Eliminar"].ToString();
-                if (msg == "Exito: Los Atributos y los Planes fueron exitosamente Eliminados")
-                {
-                    Master.ModalMsg("Exito: La Materia fue eliminada");
-                    Session["Eliminar"] = null;
-                }
-            }
             GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
             GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
-            {
-                ModalPeticiones("Agregar:No hay Materias Registradas",Agregar_Click);
-            }
-            
+                Master.ModalMsg("Error:No hay Materias Registradas");
+
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Session["Mensaje"] = "Agregar";
-            Response.Redirect("IbmMateria.aspx");
+           
         }
         protected void Agregar_Click(object sender, EventArgs e)
         {
-            Response.Write(((Button)sender).Parent.ID);
-            Session["Mensaje"] = "Agregar";
-            Response.Redirect("IbmMateria.aspx");
+            
         }
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            EM =(E_Materias) Session["Materia"];
-            List<E_Atributos> LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
-            int i = 0;
-            foreach (E_Atributos a in LEA)
-            {
-                if (NU.EliminarAtributoMateria(EM.IdMateria, a.IdAtributo).Contains("Exito"))
-                {
-                    i++;
-                    //Master.ModalMsg("Exito: La materia fue insertada con Exito");
-                }
-                else
-                {
-                    Master.ModalMsg("Error: Las Aportaciones no pudieron ser eliminadas");
-                }
-            }
-            if (i == LEA.Count)
-            {
-                if (NU.EliminarMateria(EM).Contains("Exito"))
-                {
-                    Master.ModalMsg("Exito: La Materia fue eliminada");
-                }
-                else
-                {
-                    Master.ModalMsg("Error: La Materia no pudo ser eliminada");
-                }
-            }
-            else
-            {
-                Master.ModalMsg("Error: La materia no pudo ser eliminada");
-            }
-            
-
+           
 
         }
 
@@ -125,24 +67,39 @@ namespace Presentacion.GestionUsuarios
 
         protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Modificar")
+            if (e.CommandName == "Consultar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
                 EM.IdMateria = IdMateria;
                 Session["Materia"] = EM;
-                Session["Mensaje"] = "Modificar";
-                Response.Redirect("IbmMateria.aspx");
+                Session["Mensaje"] = "Consultar";
+                Response.Redirect("EncuadreCoordinador.aspx");
             }
-            if (e.CommandName == "Borrar")
+            if (e.CommandName == "Evaluar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                EM.IdMateria = IdMateria;
+                //EM.IdMateria = IdMateria;
                 Session["Materia"] = EM;
-                ModalPeticiones("Eliminar:Seguro que Desea Eliminar la Materia " + EM.Materia,Agregar_Click);
+                Session["Mensaje"] = "Evaluar";
+                EE = NU.BuscaEncuadre(EM.IdMateria);
+                if (EE != null)
+                {
+                    if (EE.EstadoEncuadre == 2)
+                    {
+                        Session["Encuadre"] = EE;
+                        Response.Redirect("EvaluarEncuadre.aspx");
+                    }
+                    else
+                    {
+                        Master.ModalMsg("Informacion: El encuadre ya fue evaluado");
+                    }
+                    
+                }
+                
             }
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)

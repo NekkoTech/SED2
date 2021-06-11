@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSA.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaRSA" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSA.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaEncuadres
+    " %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
 
@@ -10,41 +11,29 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
                     <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item">Materias</li>
+                    <li class="breadcrumb-item">Encuadres</li>
                 </ol>
             </nav>
         </div>
-        <div class="row text-center align-middle">
-            <div class="col-2">
-                <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="Agregar Materia"></asp:Label>
-            </div>
-            <div class="col-2">
-                <asp:Button ID="BtnAgregar" runat="server" CssClass="btn btn-success m-2 form-control box2" Text="Agregar" OnClick="BtnAgregar_Click" />
-            </div>
-            <div class="col-2">
-                <asp:Label ID="Label2" runat="server" CssClass="col-form-label" Text="Buscar Materia"></asp:Label>
-            </div>
-            <div class="col-4">
-                <asp:TextBox ID="TbSearch" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-        </div>
         <div class="row">
             <div class="text-center">
-
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle w-auto" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="920px">
+                <!--asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />Extraer estado de la base de datos-->
+                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle w-auto" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="900px">
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
+                        
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnModificar" CssClass="btn LinkButton2 btn-outline-warning"  CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex%>" runat="server" Width="50"  Height="45"></asp:LinkButton>
-                                <asp:LinkButton ID="btnBorrar"  CssClass="btn LinkButton btn-outline-danger"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Borrar" runat="server" Width="50" Height="45"></asp:LinkButton>
+                                <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Consultar</asp:LinkButton>
+                                <asp:LinkButton ID="btnEvaluar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Evaluar" runat="server">Evaluar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                     </Columns>
                 </asp:GridView>
                 <asp:SqlDataSource ID="SDSPlanEstudio" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionBD %>" SelectCommand="SELECT [Materia], [IdMateria], [Clave] FROM [Materias]"></asp:SqlDataSource>
+                
             </div>
 
         </div>
@@ -93,5 +82,6 @@
         function openMasterModalAgregar() {
             $('#master-modal-agregar').modal('show');
         }
+
     </script>
 </asp:Content>
