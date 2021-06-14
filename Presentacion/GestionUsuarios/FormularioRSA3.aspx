@@ -10,30 +10,40 @@
                  <tr>
                      <td>Hrs semestrales Teoría</td>
                      <td><asp:TextBox ID="tbHorasTeoria" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvHorasTeoria" ControlToValidate="TbHorasTeoria" runat="server" ErrorMessage="Ingrese Elas Horas de Teoria"></asp:RequiredFieldValidator>
                      <td>Hrs semestrales Lab</td>
                      <td><asp:TextBox ID="tbHorasLab" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvHorasLab" ControlToValidate="TbHorasLab" runat="server" ErrorMessage="Ingrese Las Horas de Laboratorio"></asp:RequiredFieldValidator>
                      <td>Hrs semestrales Taller o Práctica</td>
                      <td><asp:TextBox ID="tbHorasTaller" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvHorasTaller" ControlToValidate="TbHorasTaller" runat="server" ErrorMessage="Ingrese Las Horas del Taller"></asp:RequiredFieldValidator>
                  </tr>
                  <tr>
                      <td>Hrs semestrales Asesoría</td>
                      <td><asp:TextBox ID="tbHorasAsesoria" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvHorasAsesoria" ControlToValidate="TbHorasAsesoria" runat="server" ErrorMessage="Ingrese Las Horas de Asesoria"></asp:RequiredFieldValidator>
                      <td>Numero de Alumnos</td>
                      <td><asp:TextBox ID="tbAlumnos" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvAlumnos" ControlToValidate="TbAlumnos" runat="server" ErrorMessage="Ingrese El Numero de Alumnos"></asp:RequiredFieldValidator>
                      <td>Porcentaje Alumnos aprobados</td>
                      <td><asp:TextBox ID="tbAprobados" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvAprovad" ControlToValidate="TbAprobados" runat="server" ErrorMessage="Ingrese El Porcentaje de Alumnos"></asp:RequiredFieldValidator>
                  </tr>
                  <tr>
                      <td>Porcentaje Inasistencias alumnos</td>
                      <td><asp:TextBox ID="tbInasistenciasA" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvInA" ControlToValidate="TbInasistenciasA" runat="server" ErrorMessage="Ingrese La cantidad de Inasistencias"></asp:RequiredFieldValidator>
                      <td>Porcentaje Inasistencias profesor</td>
                      <td><asp:TextBox ID="tbInasistenciasP" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvInP" ControlToValidate="TbInasistenciasP" runat="server" ErrorMessage="Ingrese La cantidad de Inasistencias"></asp:RequiredFieldValidator>
                      <td>Porcentaje cubierto del curso</td>
                      <td><asp:TextBox ID="tbCurso" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RfvCurso" ControlToValidate="TbCurso" runat="server" ErrorMessage="Ingrese Porcentaje Cubierto del Curso"></asp:RequiredFieldValidator>
                  </tr>
                  <tr>
                      <td>Numero de Exámenes Parciales</td>
                      <td><asp:TextBox ID="tbExamenes" runat="server"  CssClass="form-control box w-100" Width="200px"></asp:TextBox></td>
+                     <asp:RequiredFieldValidator ID="RvfExamenes" ControlToValidate="TbExamenes" runat="server" ErrorMessage="Ingrese La Cantidad de Examenes Parciales"></asp:RequiredFieldValidator>
                  </tr>
              </table>
           </div>
@@ -62,6 +72,7 @@
          <div >
             <label class="col-sm-8 col-form-label">Celular</label> 
             <asp:TextBox ID="TbCelular" runat="server" CssClass="form-control box w-100" Width="300px"></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RvfCelular" ControlToValidate="TbCelular" runat="server" ErrorMessage="Ingrese Su Numero de Telefono"></asp:RequiredFieldValidator>
         </div>
         <br />
         <div class="form-row align-content-center text-center">
@@ -70,8 +81,20 @@
 
             </div>
             <div class="col">
-                 <asp:Button runat="server" ID="btnEnviar" CssClass="btn btn-light boton mb-2 box margen"   Text="Enviar RSA"></asp:Button>
+                 <asp:Button runat="server" ID="Button1" CssClass="btn btn-warning boton mb-2 box margen"   Text="Guardar Informacion" OnClick="btnGuardar_Click"></asp:Button>
+            </div>
+            <div class="col">
+                 <asp:Button runat="server" ID="btnEnviar" CssClass="btn btn-light boton mb-2 box margen"   Text="Enviar RSA" OnClick="btnEnviar_Click"></asp:Button>
             </div>
          </div>
     </div>
+    <script>
+        
+        function openMasterModalPeticion() {
+            $('#master-modal-peticiones').modal('show');
+        }
+        function openMasterModalAgregar() {
+            $('#master-modal-agregar').modal('show');
+        }
+    </script>
 </asp:Content>

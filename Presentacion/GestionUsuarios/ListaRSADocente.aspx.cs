@@ -66,27 +66,60 @@ namespace Presentacion.GestionUsuarios
 
         protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Consultar")
+            if (e.CommandName == "Llenar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                E_Encuadres EE = NU.BuscaEncuadre(EM.IdMateria);
-                if (EE != null)
+                E_RSA ER = NU.BuscaRSA(EM.IdMateria);
+                if (ER != null)
                 {
-                    Session["Materia"] = EM;
-                    Session["Encuadre"] = EE;
-                    Session["Mensaje"] = "Consultar";
-                    Response.Redirect("RSADocente.aspx");
-                     
+                    switch (ER.Status)
+                    {
+                        case 1:
+                            Session["Materia"] = EM;
+                            Session["RSA"] = ER;
+                            Session["Mensaje"] = "Llenar";
+                            Response.Redirect("FormularioRSA.aspx");
+                            break;
+                        case 2:
+                            Master.ModalMsg("Error: El RSA ya fue enviado, espere a la respuesta de su Coordinador");
+                            break;
+                        case 3:
+                            if (ER != null)
+                            {
+                                Session["Materia"] = EM;
+                                Session["RSA"] = ER;
+                                Session["Mensaje"] = "Llenar";
+                                Response.Redirect("FormularioRSA.aspx");
+                            }
+                            else
+                            {
+                                Master.ModalMsg("Error: La materia no tiene RSA registrado");
+                            }
+
+                            break;
+                    }
                 }
                 else
                 {
-                    Master.ModalMsg("Error: La materia no tiene encuadre registrado");
+                    Session["Materia"] = EM;
+                    Session["RSA"] = ER;
+                    Session["Mensaje"] = "Llenar";
+                    Response.Redirect("FormularioRSA.aspx");
                 }
                 
+                
+                
             }
-          
+            if (e.CommandName == "Firmar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
+                EM = new N_Usuarios().BuscaMateria(IdMateria);
+                
+            }
+
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)
         {

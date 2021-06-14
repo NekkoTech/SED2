@@ -10,7 +10,7 @@ using EntidadesGestionUsuarios;
 
 namespace Presentacion.GestionUsuarios
 {
-    public partial class ListaEncuadres : System.Web.UI.Page
+    public partial class ListaRSA: System.Web.UI.Page
     {
         N_Usuarios NU = new N_Usuarios();
         E_Materias EM = new E_Materias();
@@ -20,6 +20,7 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios SEU = new E_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
         E_Encuadres EE = new E_Encuadres();
+        E_RSA ER = new E_RSA();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -39,10 +40,11 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
-            GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
+            //GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
+            GvMaterias.DataSource = NU.LstMateriasInnerJoinRSA(EU.IdUsuario);
             GvMaterias.DataBind();
-            if (GvMaterias.Rows.Count == 0)
-                Master.ModalMsg("Error:No hay Materias Registradas");
+           //if (GvMaterias.Rows.Count == 0)
+               // Master.ModalMsg("Error:No hay Materias Registradas");
 
         }
 
@@ -75,7 +77,7 @@ namespace Presentacion.GestionUsuarios
                 EM.IdMateria = IdMateria;
                 Session["Materia"] = EM;
                 Session["Mensaje"] = "Consultar";
-                Response.Redirect("EncuadreCoordinador.aspx");
+                //Response.Redirect("EvaluarRSA.aspx");
             }
             if (e.CommandName == "Evaluar")
             {
@@ -85,17 +87,21 @@ namespace Presentacion.GestionUsuarios
                 //EM.IdMateria = IdMateria;
                 Session["Materia"] = EM;
                 Session["Mensaje"] = "Evaluar";
-                EE = NU.BuscaEncuadre(EM.IdMateria);
-                if (EE != null)
+                ER = NU.BuscaRSA(EM.IdMateria);
+                if (ER != null)
                 {
-                    if (EE.EstadoEncuadre == 2)
+                    if (ER.Status == 2)
                     {
-                        Session["Encuadre"] = EE;
-                        Response.Redirect("EvaluarEncuadre.aspx");
+                        Session["RSA"] = EE;
+                        Response.Redirect("EvaluarRSA.aspx");
                     }
                     else
                     {
                         Master.ModalMsg("Informacion: El encuadre ya fue evaluado");
+                    }
+                    if(ER.Status==1 || ER.Status == 0)
+                    {
+                        Master.ModalMsg("Error: El docente aun no a enviado el Documento RSA");
                     }
                     
                 }

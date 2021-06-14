@@ -78,6 +78,15 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.TextBox TbFecha;
 
         /// <summary>
+        /// Control RfvFechaAD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvFechaAD;
+
+        /// <summary>
         /// Control DdlAD.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,15 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.TextBox tbSemestresImp;
 
         /// <summary>
+        /// Control RvfSemestres.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RvfSemestres;
+
+        /// <summary>
         /// Control btnRegresar.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace Presentacion.GestionUsuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
+
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// Control btnSiguiente.

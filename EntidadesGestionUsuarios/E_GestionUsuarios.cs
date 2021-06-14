@@ -72,7 +72,7 @@ namespace EntidadesGestionUsuarios
         public string EmailUsuario { get => _EmailUsuario; set => _EmailUsuario = value; }
         #endregion
         #region Constructores
-        public E_Codigo(string Accion,string codigo, string EmailUsuario)
+        public E_Codigo(string Accion, string codigo, string EmailUsuario)
         {
             this.Accion = Accion;
             this.Codigo = codigo;
@@ -115,7 +115,7 @@ namespace EntidadesGestionUsuarios
         private string _NombrePlan;
         private int _IdCoordinador;
 
-        
+
         #endregion
         #region Encapsulamientos
         public int IdPlan { get => _IdPlan; set => _IdPlan = value; }
@@ -152,7 +152,7 @@ namespace EntidadesGestionUsuarios
 
         #endregion
         #region Encapsulamientos
-        
+
         public string Accion { get => _Accion; set => _Accion = value; }
         public int IdAtributo { get => _IdAtributo; set => _IdAtributo = value; }
         public string Atributo { get => _Atributo; set => _Atributo = value; }
@@ -169,7 +169,7 @@ namespace EntidadesGestionUsuarios
             IdAtributo = idAtributo;
             Atributo = atributo;
             IdPlan = idPlan;
-           
+
         }
 
         public E_Atributos()
@@ -253,7 +253,7 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
-    
+
     public class E_Encuadres
     {
         #region Atributos
@@ -282,6 +282,170 @@ namespace EntidadesGestionUsuarios
         #region Constructores
         public E_Encuadres()
         {
+        }
+
+        #endregion
+    }
+    
+    public class E_RSA
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdRSA;
+        private int _Grupo;
+        private string _FechaAD;
+        private int _CopiaAD;
+        private string _FechaMP;
+        private int _CopiaMP;
+        private int _Semestres;
+        private int _HorasTeoria;
+        private int _HorasLab;
+        private int _HorasTaller;
+        private int _HorasAsesoria;
+        private int _NumAlumnos;
+        private string _PorAprobados;
+        private string _PorAsistencia;
+        private string _PorMasistencia;
+        private int _NumExamenes;
+        private string _PorCurso;
+        private string _ReqPC;
+        private int _HorasPC;
+        private string _Programa;
+        private string _Comentarios;
+        private string _Celular;
+        private int _Status;//0. Sin llenar | 1. Docente Guardo | 2. Enviado | 3. Rechazado | 4. Aceptado | 5. Fuera de Fecha
+        private int _IdMateria;
+        private int _IdCoordinador;
+
+        #endregion
+        #region Encapsulamientos
+        public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
+        public int Grupo { get => _Grupo; set => _Grupo = value; }
+        public string FechaAD { get => _FechaAD; set => _FechaAD = value; }
+        public int CopiaAD { get => _CopiaAD; set => _CopiaAD = value; }
+        public string FechaMP { get => _FechaMP; set => _FechaMP = value; }
+        public int CopiaMP { get => _CopiaMP; set => _CopiaMP = value; }
+        public int Semestres { get => _Semestres; set => _Semestres = value; }
+        public int HorasTeoria { get => _HorasTeoria; set => _HorasTeoria = value; }
+        public int HorasLab { get => _HorasLab; set => _HorasLab = value; }
+        public int HorasAsesoria { get => _HorasAsesoria; set => _HorasAsesoria = value; }
+        public int NumAlumnos { get => _NumAlumnos; set => _NumAlumnos = value; }
+        public string PorAprobados { get => _PorAprobados; set => _PorAprobados = value; }
+        public string PorAsistencia { get => _PorAsistencia; set => _PorAsistencia = value; }
+        public string PorMasistencia { get => _PorMasistencia; set => _PorMasistencia = value; }
+        public int NumExamenes { get => _NumExamenes; set => _NumExamenes = value; }
+        public string PorCurso { get => _PorCurso; set => _PorCurso = value; }
+        public string ReqPC { get => _ReqPC; set => _ReqPC = value; }
+        public int HorasPC { get => _HorasPC; set => _HorasPC = value; }
+        public string Programa { get => _Programa; set => _Programa = value; }
+        public string Comentarios { get => _Comentarios; set => _Comentarios = value; }
+        public string Celular { get => _Celular; set => _Celular = value; }
+        public int Status { get => _Status; set => _Status = value; }
+        public int IdMateria { get => _IdMateria; set => _IdMateria = value; }
+        public int IdCoordinador { get => _IdCoordinador; set => _IdCoordinador = value; }
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int HorasTaller { get => _HorasTaller; set => _HorasTaller = value; }
+
+
+        #endregion
+        #region Constructores
+        public E_RSA()
+        {
+            IdRSA = 0;
+            Grupo = 0;
+            FechaAD = " ";
+            CopiaAD = 0;
+            FechaMP = " ";
+            CopiaMP = 0;
+            Semestres = 0;
+            HorasAsesoria = 0;
+            HorasLab = 0;
+            HorasTeoria = 0;
+            HorasTaller = 0;
+            NumAlumnos = 0;
+            PorAprobados = " ";
+            PorAsistencia = " ";
+            PorMasistencia = " ";
+            NumExamenes = 0;
+            NumAlumnos = 0;
+            PorCurso = " ";
+            ReqPC = " ";
+            HorasPC = 0;
+            Programa = " ";
+            Comentarios = " ";
+            Celular = " ";
+            Status = 0;
+            IdMateria = 0;
+            IdCoordinador = 0;
+
+        }
+        #endregion
+    }
+
+    public class E_Porcentajes
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdAtributo;
+        private string _Tecnica;
+        private string _Porcentaje;
+        private int _IdRSA;
+
+        #endregion
+        #region Encapsulamientos
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdAtributo { get => _IdAtributo; set => _IdAtributo = value; }
+        public string Porcentaje { get => _Porcentaje; set => _Porcentaje = value; }
+        public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
+        public string Tecnica { get => _Tecnica; set => _Tecnica = value; }
+
+
+        #endregion
+        #region Constructores
+        public E_Porcentajes()
+        {
+            Accion = string.Empty;
+            IdAtributo = 0;
+            Porcentaje = string.Empty;
+            Tecnica = string.Empty;
+            IdRSA = 0;
+        }
+
+        #endregion
+    }
+    public class E_RSADocumento
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdRSADocumento;
+        private string _RSAUrl;
+        private string _NombreRSA;
+        private string _Calificacion;
+        private string _Observaciones;
+        private int _IdRSA;
+
+        #endregion
+        #region Encapsulamientos
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdRSADocumento { get => _IdRSADocumento; set => _IdRSADocumento = value; }
+        public string RSAUrl { get => _RSAUrl; set => _RSAUrl = value; }
+        public string NombreRSA { get => _NombreRSA; set => _NombreRSA = value; }
+        public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
+        public string Calificacion { get => _Calificacion; set => _Calificacion = value; }
+        public string Observaciones { get => _Observaciones; set => _Observaciones = value; }
+
+
+        #endregion
+        #region Constructores
+        public E_RSADocumento()
+        {
+            Accion = string.Empty;
+            IdRSADocumento = 0;
+            RSAUrl = string.Empty;
+            NombreRSA = string.Empty;
+            Calificacion = string.Empty;
+            Observaciones = string.Empty;
+            IdRSA = 0;
         }
 
         #endregion

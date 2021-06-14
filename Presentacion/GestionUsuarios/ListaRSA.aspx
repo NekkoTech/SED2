@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSA.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaEncuadres
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSA.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaRSA
     " %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
@@ -22,6 +22,7 @@
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
+                        <asp:BoundField DataField="Status" HeaderText="Estado" SortExpression="Estado" />
                         
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>

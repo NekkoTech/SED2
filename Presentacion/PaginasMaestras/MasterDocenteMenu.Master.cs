@@ -14,7 +14,23 @@ namespace Presentacion.PaginasMaestras
         private string BtnColor;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                E_Usuarios EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                }
+            }
         }
 
         protected void BtnCerrarSesion_Click(object sender, EventArgs e)

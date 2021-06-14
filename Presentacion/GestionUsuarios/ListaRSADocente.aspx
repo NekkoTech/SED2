@@ -25,7 +25,8 @@
                         
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Consultar</asp:LinkButton>
+                                <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Llenar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Llenar</asp:LinkButton>
+                                <asp:LinkButton ID="btnFirmar" CssClass="btn btn-success box"  CommandName="Firmar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Firmar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 

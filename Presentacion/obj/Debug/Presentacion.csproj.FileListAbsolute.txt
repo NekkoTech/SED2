@@ -370,12 +370,15 @@ C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\roslyn\vbc.exe.config
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\roslyn\vbc.rsp
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\roslyn\VBCSCompiler.exe
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\BouncyCastle.Crypto.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\EntidadesGestionUsuarios.dll
+C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\itextsharp.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\NegociosGestionUsuarios.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\StrDatosSQL.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\EntidadesGestionUsuarios.pdb
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\NegociosGestionUsuarios.pdb
+C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\itextsharp.xml
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
 C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache

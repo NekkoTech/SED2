@@ -44,6 +44,7 @@ namespace NegociosGestionUsuarios
 
         }
 
+
         public string ModificarUsuario(E_Usuarios EntidadUsuario)
         {
             EntidadUsuario.Accion = "MODIFICAR";
@@ -217,6 +218,31 @@ namespace NegociosGestionUsuarios
         { return (from Plan in LstPlanes() where Plan.IdPlan == IdPlan select Plan).FirstOrDefault(); }
         public E_PlanEstudio BuscaPlanCoordinador(int IdCoordinador)
         { return (from Plan in LstPlanes() where Plan.IdCoordinador == IdCoordinador select Plan).FirstOrDefault(); }
+        public E_PlanEstudio BuscaPlanMateria(int IdMateria)
+        {
+            List<E_Atributos> LEA = LstAtributos();
+            List<E_PlanEstudio> LEM = LstPlanes();
+            List<E_AtribMateria> LEAM = LstAtribMateria();
+            E_PlanEstudio RLEM = new E_PlanEstudio();
+
+            foreach (E_PlanEstudio m in LEM)
+            {
+                foreach (E_Atributos a in LEA)
+                {
+                    foreach (E_AtribMateria am in LEAM)
+                    {
+                        if (a.IdPlan==m.IdPlan && am.IdMateria == IdMateria && a.IdAtributo == am.IdAtributo)
+                        {
+                            return m;
+                        }
+                    }
+
+                }
+            }
+
+
+            return RLEM;
+        }
         public List<E_PlanEstudio> LstBuscaPlan(string Criterio)
         {
             return (from Plan in LstPlanes() where Plan.NombrePlan.ToUpper().Contains(Criterio.ToUpper()) select Plan).ToList();
@@ -380,6 +406,42 @@ namespace NegociosGestionUsuarios
         /// <param name="IdMateria"></param>
         public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre"); }
         public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
+        public DataTable LstMateriasInnerJoinEncuadre(int IdCoordinador) {
+            List<E_Materias> ListM = LstMaterias();
+            List<E_Encuadres> ListE = LstEncuadres();
+            DataTable table = new DataTable();
+            table.Columns.Add("IdMateria", typeof(int));
+            table.Columns.Add("Materia", typeof(string));
+            table.Columns.Add("Clave", typeof(string));
+            table.Columns.Add("Estado", typeof(string));
+            foreach (E_Encuadres E in ListE)
+            {
+                foreach (E_Materias M in ListM)
+                {
+                    if (E.IdMateria == M.IdMateria && E.IdCoordinador==IdCoordinador)
+                    {
+                        switch (E.EstadoEncuadre)
+                        {
+                            case 1:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Listo");
+                                break;
+                            case 2:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                break;
+                            case 3:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                break;
+                            case 4:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                break;
+                        }
+                        
+                    }
+                }
+            }
+            return table;
+        }
+
         public List<E_Materias> LstBuscaMaterias(int IdPlan)
         {
             List<E_Atributos> LEA = LstAtributos();
@@ -492,8 +554,158 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Encuadre No pudo ser Evaluado";
         }
+        public DataTable DT_LstRSA() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("RSA", "IdRSA"); }
+        public DataTable DT_LstRSAPDF() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("DocumentoRSA", "IdRSA"); }
+        public List<E_RSA> LstRSA() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_RSA>(DT_LstRSA()); }
+        public E_RSA BuscaRSA(int IdMateria)
+        { return (from RSA in LstRSA() where RSA.IdMateria == IdMateria select RSA).FirstOrDefault(); }
+        public string InsertarRSA(E_RSA EntidadRSA)
+        {
+            EntidadRSA.Accion = "INSERTAR";
+            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
+            return msg;
+            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+                return "Exito: RSA Ingresado Exitosamente.";
+            return "Error: No se pudo agregar el RSA.";*/
+        }
+        public string ModificarRSA(E_RSA EntidadRSA)
+        {
+            EntidadRSA.Accion = "MODIFICAR";
+            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
+            return msg;
+            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+                return "Exito: El RSA fue modificado con exito.";
+            return "Error: El RSA no pudo ser modificado.";*/
+        }
+        public string EliminarRSA(E_RSA EntidadRSA)
+        {
+            EntidadRSA.Accion = "BORRAR";
+
+            if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+                return "Exito: Fue Borrado con exito.";
+            return "Error: No pudo ser borrado el RSA.";
+        }
+        public DataTable LstMateriasInnerJoinRSA(int IdCoordinador)
+        {
+            List<E_Materias> ListM = LstMaterias();
+            List<E_RSA> ListR = LstRSA();
+            DataTable table = new DataTable();
+            table.Columns.Add("IdMateria", typeof(int));
+            table.Columns.Add("Materia", typeof(string));
+            table.Columns.Add("Clave", typeof(string));
+            table.Columns.Add("Estado", typeof(string));
+            foreach (E_RSA E in ListR)
+            {
+                foreach (E_Materias M in ListM)
+                {
+                    if (E.IdMateria == M.IdMateria && E.IdCoordinador == IdCoordinador)
+                    {
+                        switch (E.Status)
+                        {
+                            case 0:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                                break;
+                            case 1:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
+                                break;
+                            case 2:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                break;
+                            case 3:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                break;
+                            case 4:
+                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                break;
+                        }
+
+                    }
+                }
+            }
+            return table;
+        }
+        public string InsertaRSAPDF(string NombreEncuadre, string UrlEncuadre, int IdMateria, int IdCoordinador)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("INSERT INTO DocumentoRSA(RSAUrl,NombreRSA, IdRSA, Calificacion, Observaciones) VALUES (@RSAUrl,@NombreRSA,@IdRSA,@Calificacion, @Observaciones)", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@NombreRSA", NombreEncuadre);
+            SqlComando.Parameters.AddWithValue("@RSAUrl", UrlEncuadre);
+            SqlComando.Parameters.AddWithValue("@IdRSA", IdCoordinador);
+            SqlComando.Parameters.AddWithValue("@Calificacion", "");
+            SqlComando.Parameters.AddWithValue("@Observaciones", "");
 
 
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: RSA Insertado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: RSA No pudo ser registrado";
+        }
+        public string ModificarRSAPDF(E_RSADocumento ERSA)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("UPDATE DocumentoRSA SET RSAUrl=@RSAUrl,NombreRSA=@NombreRSA, IdRSA=@IdRSA, Calificacion=@Calificacion, Observaciones=@Observaciones", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@NombreRSA", ERSA.NombreRSA);
+            SqlComando.Parameters.AddWithValue("@RSAUrl", ERSA.RSAUrl);
+            SqlComando.Parameters.AddWithValue("@IdRSA", ERSA.IdRSA);
+            SqlComando.Parameters.AddWithValue("@Calificacion", ERSA.Calificacion);
+            SqlComando.Parameters.AddWithValue("@Observaciones", ERSA.Observaciones);
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: RSA Modificado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: RSA no pudo ser ingresado";
+        }
+        public DataTable DT_LstDocumentoRSA() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("DocumentoRSA", "IdRSA"); }
+        public List<E_RSADocumento> LstRSADocumento() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_RSADocumento>(DT_LstDocumentoRSA()); }
+        public E_RSADocumento BuscaDocumentoRSA(int IdRSA)
+        { return (from Documento in LstRSADocumento() where Documento.IdRSA == IdRSA select Documento).FirstOrDefault(); }
+        public DataTable DT_LstPorcentajes() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Porcentajes", "IdPorcentaje"); }
+        public List<E_Porcentajes> LstPorcentajes() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Porcentajes>(DT_LstPorcentajes()); }
+        public List<E_Porcentajes> BuscaPorcentajes(int IdRSA)
+        { return (from Porcentaje in LstPorcentajes() where Porcentaje.IdRSA == IdRSA select Porcentaje).ToList(); }
+
+        public string InsertarPorcentajes(E_Porcentajes EntidadPorcentaje)
+        {
+            EntidadPorcentaje.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje).Contains("Exito"))
+                return "Exito: Procentaje Ingresado.";
+            return "Error: No pudo ser ingresado el porcentaje.";
+        }
+        public string ModificarPorcentajes(E_Porcentajes EntidadPorcentaje)
+        {
+            EntidadPorcentaje.Accion = "MODIFICAR";
+
+            if (SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje).Contains("Exito"))
+                return "Exito: Procentaje Modificado.";
+            return "Error: No pudo ser Modificado el porcentaje.";
+        }
+        public string EliminarPorcentajes(E_Porcentajes EntidadPorcentaje)
+        {
+            EntidadPorcentaje.Accion = "BORRAR";
+
+            if (SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje).Contains("Exito"))
+                return "Exito: Procentaje Eliminado.";
+            return "Error: No pudo ser eliminar el porcentaje.";
+        }
+
+        /// <summary>
+        /// Funciones De Funcionamiento
+        /// </summary>
+        /// <param name="dropDownList"></param>
+        /// <param name="usuario"></param>
         //Llena un dropdownlist remoto mediante una peticion sql personalizada
         public void LlenaDropDown(DropDownList dropDownList, string usuario)
         {

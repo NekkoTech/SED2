@@ -20,7 +20,7 @@
                         <asp:TableCell ID="TcNumero1">1</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text1" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -28,7 +28,7 @@
                         <asp:TableCell ID="TcNumero2">2</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text2" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -36,7 +36,7 @@
                         <asp:TableCell ID="TcNumero3">3</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text3" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -44,7 +44,7 @@
                        <asp:TableCell ID="TcNumero4">4</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text4" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -52,7 +52,7 @@
                         <asp:TableCell ID="TcNumero5">5</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text5" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -60,7 +60,7 @@
                         <asp:TableCell ID="TcNumero6">6</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text6" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -68,7 +68,7 @@
                         <asp:TableCell ID="TcNumero7">7</asp:TableCell>
                         <asp:TableCell>
                             <div class="col-sm w-75">
-                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" />
+                                <uc1:wuc_Text_SR runat="server" ID="wuc_Text7" Enabled="false"/>
                             </div>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -101,59 +101,59 @@
               </tr>
               <tr>
                 <td>1</td>
-                <td><asp:TextBox ID="tbtecnica" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="Tb4" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="Tb3" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="Tb2" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="Tb1" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica1" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb14" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb13" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb12" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb11" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>2</td>
-                <td><asp:TextBox ID="TextBox1" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox2" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox3" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox4" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox5" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica2" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb24" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb23" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb22" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb21" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>3</td>
-                <td><asp:TextBox ID="TextBox6" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox7" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox8" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox9" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox10" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica3" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb34" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb33" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb32" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb31" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>4</td>
-                <td><asp:TextBox ID="TextBox11" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox12" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox13" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox14" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox15" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica4" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb44" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb43" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb42" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb41" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>5</td>
-                <td><asp:TextBox ID="TextBox16" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox17" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox18" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox19" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox20" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica5" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb54" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb53" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb52" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb51" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>6</td>
-                <td><asp:TextBox ID="TextBox21" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox22" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox23" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox24" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox25" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica6" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb64" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb63" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb62" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb61" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
                   <tr>
                 <td>7</td>
-                <td><asp:TextBox ID="TextBox26" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
-                <td><asp:TextBox ID="TextBox27" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox28" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox29" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
-                  <td><asp:TextBox ID="TextBox30" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                <td><asp:TextBox ID="TbTecnica7" runat="server"  CssClass="form-control box w-100" Width="700px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb74" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb73" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb72" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
+                  <td><asp:TextBox ID="Tb71" runat="server"  CssClass="form-control box w-100" Width="50px"></asp:TextBox></td>
               </tr>
             </table>
          </div>
@@ -166,7 +166,10 @@
 
             </div>
             <div class="col">
-                 <asp:Button runat="server" ID="btnEnviar" CssClass="btn btn-light boton mb-2 box margen"   Text="Siguiente Pagina"></asp:Button>
+                 <asp:Button runat="server" ID="Button1" CssClass="btn btn-warning boton mb-2 box margen"   Text="Guardar Informacion" OnClick="btnGuardar_Click"></asp:Button>
+            </div>
+            <div class="col">
+                 <asp:Button runat="server" ID="btnEnviar" CssClass="btn btn-light boton mb-2 box margen"   Text="Siguiente Pagina" OnClick="btnEnviar_Click"></asp:Button>
             </div>
          </div>
 </asp:Content>

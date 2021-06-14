@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class ListaEncuadres
+    public partial class ListaRSA
     {
 
         /// <summary>

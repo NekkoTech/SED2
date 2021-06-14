@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Data;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -21,7 +22,8 @@ namespace Presentacion.GestionUsuarios
         E_Usuarios EU = new E_Usuarios();
         E_Usuarios SEU = new E_Usuarios();
         E_PlanEstudio EP = new E_PlanEstudio();
-        E_Encuadres EE = new E_Encuadres();
+        E_RSA ER = new E_RSA();
+        E_RSADocumento rsa = new E_RSADocumento();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -45,23 +47,24 @@ namespace Presentacion.GestionUsuarios
             EM =(E_Materias) Session["Materia"];
             if (EM != null)
             {
-                EE = (E_Encuadres)Session["Encuadre"];
-                if (EE != null)
+                ER = (E_RSA)Session["RSA"];
+                if (ER != null)
                 {
-                    EP = NU.BuscaPlanCoordinador(EE.IdCoordinador);
-                    Encuadre.Attributes["src"] = "..\\RSA\\" + EP.NombrePlan + "\\" + EE.NombreEncuadre;
-                    Encuadre.DataBind();
+                    EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
+                    rsa = NU.BuscaDocumentoRSA(ER.IdRSA);
+                    RSA.Attributes["src"] = "..\\RSA\\" + EP.NombrePlan + "\\" + rsa.NombreRSA;
+                    RSA.DataBind();
                 }
                 else
                 {
-                    Response.Redirect("ListaEncuadres.aspx");
+                    Response.Redirect("ListaRSA.aspx");
                 }
             }
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListaEncuadres.aspx");
+            Response.Redirect("ListaRSA.aspx");
         }
         protected void BtnAceptado_Click(object sender, EventArgs e)
         {
@@ -79,10 +82,10 @@ namespace Presentacion.GestionUsuarios
         }
         protected void BtnEnviarRechazado_Click(object sender, EventArgs e)
         {
-            EE.EstadoEncuadre = 3;
-            EE.Calificacion = "0";
-            EE.Observaciones = tbObservaciones.Text;
-            E_Materias Mat = NU.BuscaMateria(EE.IdMateria);
+            ER.Status = 3;
+            rsa.Calificacion = "0";
+            rsa.Observaciones = tbObservaciones.Text;
+            E_Materias Mat = NU.BuscaMateria(ER.IdMateria);
             E_Usuarios aux = NU.BuscaUsuario(EM.IdDocente);
             try
             {
@@ -101,7 +104,12 @@ namespace Presentacion.GestionUsuarios
                 SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(Email);
-                Master.ModalMsg(NU.ModificarEncuadre(EE));
+                if(NU.ModificarRSA(ER).Contains("Exito") && NU.ModificarRSAPDF(rsa).Contains("Exito"))
+                {
+                    Master.ModalMsg("Info: El correo fue enviado con la notificacion del rechazo");
+                }
+                
+
                 
             }
             catch (SmtpException ex)
@@ -112,10 +120,13 @@ namespace Presentacion.GestionUsuarios
         }
         protected void BtnEnviarAceptado_Click(object sender, EventArgs e)
         {
-            EE.EstadoEncuadre = 4;
-            EE.Calificacion = TbCalificacion.Text;
-            EE.Observaciones = "";
-            Master.ModalMsg(NU.ModificarEncuadre(EE));
+            ER.Status = 4;
+            rsa.Calificacion = TbCalificacion.Text;
+            rsa.Observaciones = "";
+            if (NU.ModificarRSA(ER).Contains("Exito") && NU.ModificarRSAPDF(rsa).Contains("Exito"))
+            {
+                Master.ModalMsg("Exito: RSA evaluado con exito");
+            }
         }
     }
 }

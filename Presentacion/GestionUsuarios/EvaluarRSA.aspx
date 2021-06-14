@@ -18,7 +18,7 @@
                 <asp:Button ID="btnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" />
             </div>
             <div class="col-sm text-center">
-                <iframe id="Encuadre" style="width: 800px" height="500" runat="server" />
+                <iframe id="RSA" style="width: 800px" height="500" runat="server" />
             </div>
         </div>
         <div class="row text-center">
