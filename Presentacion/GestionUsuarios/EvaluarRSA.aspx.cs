@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Data;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -26,25 +25,7 @@ namespace Presentacion.GestionUsuarios
         E_RSADocumento rsa = new E_RSADocumento();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null)
-            {
-                Response.Redirect("ValidaUsuario.aspx");
-            }
-            else
-            {
-                EU = (E_Usuarios)Session["Usuario"];
-                switch (EU.IdTipoUsuario)
-                {
-                    case 4:
-                        Response.Redirect("InicioDocente.aspx");
-                        break;
-                    case 2:
-                        Response.Redirect("InicioSubdirector.aspx");
-                        break;
-                }
-            }
-            string Msg = (string)Session["Mensaje"];
-            EM =(E_Materias) Session["Materia"];
+            EM = (E_Materias)Session["Materia"];
             if (EM != null)
             {
                 ER = (E_RSA)Session["RSA"];
@@ -52,8 +33,12 @@ namespace Presentacion.GestionUsuarios
                 {
                     EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
                     rsa = NU.BuscaDocumentoRSA(ER.IdRSA);
-                    RSA.Attributes["src"] = "..\\RSA\\" + EP.NombrePlan + "\\" + rsa.NombreRSA;
-                    RSA.DataBind();
+                    if (rsa != null)
+                    {
+                        Documento.Attributes["src"] = "..\\RSA\\" + EP.NombrePlan + "\\" + rsa.NombreRSA;
+                        Documento.DataBind();
+                    }
+                    
                 }
                 else
                 {
@@ -64,7 +49,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListaRSA.aspx");
+            Response.Redirect("ListaEncuadres.aspx");
         }
         protected void BtnAceptado_Click(object sender, EventArgs e)
         {
@@ -104,12 +89,7 @@ namespace Presentacion.GestionUsuarios
                 SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(Email);
-                if(NU.ModificarRSA(ER).Contains("Exito") && NU.ModificarRSAPDF(rsa).Contains("Exito"))
-                {
-                    Master.ModalMsg("Info: El correo fue enviado con la notificacion del rechazo");
-                }
-                
-
+                Master.ModalMsg(NU.ModificarRSA(ER));
                 
             }
             catch (SmtpException ex)

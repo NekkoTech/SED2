@@ -69,7 +69,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Consultar")
+            /*if (e.CommandName == "Consultar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
@@ -78,7 +78,7 @@ namespace Presentacion.GestionUsuarios
                 Session["Materia"] = EM;
                 Session["Mensaje"] = "Consultar";
                 //Response.Redirect("EvaluarRSA.aspx");
-            }
+            }*/
             if (e.CommandName == "Evaluar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
@@ -92,7 +92,7 @@ namespace Presentacion.GestionUsuarios
                 {
                     if (ER.Status == 2)
                     {
-                        Session["RSA"] = EE;
+                        Session["RSA"] = ER;
                         Response.Redirect("EvaluarRSA.aspx");
                     }
                     else

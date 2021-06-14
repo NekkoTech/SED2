@@ -16,7 +16,7 @@ namespace Presentacion.GestionUsuarios
 {
     public partial class FormularioRSA3 : System.Web.UI.Page
     {
-        
+
         N_Usuarios NU = new N_Usuarios();
         E_Materias EM = new E_Materias();
         private string BackGroundHeader;
@@ -57,31 +57,32 @@ namespace Presentacion.GestionUsuarios
                         TbProgramas.Text = ER.Programa;
                         TbComentarios.Text = ER.Comentarios;
                         TbCelular.Text = ER.Celular;
-                    }    
+                    }
                 }
-                
+
             }
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            ER.HorasTeoria= Convert.ToInt32(tbHorasTeoria.Text);
-            ER.HorasLab=Convert.ToInt32(tbHorasLab.Text);
+            ER.HorasTeoria = Convert.ToInt32(tbHorasTeoria.Text);
+            ER.HorasLab = Convert.ToInt32(tbHorasLab.Text);
             ER.HorasTaller = Convert.ToInt32(tbHorasTaller.Text);
             ER.HorasAsesoria = Convert.ToInt32(tbHorasAsesoria.Text);
             ER.NumAlumnos = Convert.ToInt32(tbAlumnos.Text);
-            ER.PorAprobados=tbAprobados.Text;
-            ER.PorAsistencia=tbInasistenciasA.Text;
-            ER.PorMasistencia=tbInasistenciasP.Text;
-            ER.PorCurso=tbCurso.Text;
-            ER.NumExamenes=Convert.ToInt32(tbExamenes.Text);
-            ER.ReqPC=DdPC.SelectedValue;
-            ER.HorasPC=Convert.ToInt32(TbHorasPC.Text);
-            ER.Programa=TbProgramas.Text;
-            ER.Comentarios=TbComentarios.Text;
-            ER.Celular=TbCelular.Text;
-            if (ER.Status == 1)
+            ER.PorAprobados = tbAprobados.Text;
+            ER.PorAsistencia = tbInasistenciasA.Text;
+            ER.PorMasistencia = tbInasistenciasP.Text;
+            ER.PorCurso = tbCurso.Text;
+            ER.NumExamenes = Convert.ToInt32(tbExamenes.Text);
+            ER.ReqPC = DdPC.SelectedValue;
+            ER.HorasPC = Convert.ToInt32(TbHorasPC.Text);
+            ER.Programa = TbProgramas.Text;
+            ER.Comentarios = TbComentarios.Text;
+            ER.Celular = TbCelular.Text;
+            if (ER.Status == 1 || ER.Status==3)
             {
+                ER.Status = 2;
                 if (NU.ModificarRSA(ER).Contains("Exito"))
                 {
                     foreach (E_Porcentajes P in ListEPO)
@@ -90,6 +91,65 @@ namespace Presentacion.GestionUsuarios
                         if (tect[0] != "")
                         {
                             NU.ModificarPorcentajes(P);
+                        }
+                    }
+                }
+            }
+            if (ER.Status == 0)
+            {
+                ER.Status = 2;
+                if (NU.InsertarRSA(ER).Contains("Exito"))
+                {
+                    foreach (E_Porcentajes P in ListEPO)
+                    {
+                        string[] tect = P.Tecnica.Split('-');
+                        if (tect[0] != "")
+                        {
+                            NU.InsertarPorcentajes(P);
+                        }
+                    }
+                }
+            }
+            GeneraRSA();
+            Response.Redirect("ListaRSA.aspx");
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ER.HorasTeoria = Convert.ToInt32(tbHorasTeoria.Text);
+            ER.HorasLab = Convert.ToInt32(tbHorasLab.Text);
+            ER.HorasTaller = Convert.ToInt32(tbHorasTaller.Text);
+            ER.HorasAsesoria = Convert.ToInt32(tbHorasAsesoria.Text);
+            ER.NumAlumnos = Convert.ToInt32(tbAlumnos.Text);
+            ER.PorAprobados = tbAprobados.Text;
+            ER.PorAsistencia = tbInasistenciasA.Text;
+            ER.PorMasistencia = tbInasistenciasP.Text;
+            ER.PorCurso = tbCurso.Text;
+            ER.NumExamenes = Convert.ToInt32(tbExamenes.Text);
+            ER.ReqPC = DdPC.SelectedValue;
+            ER.HorasPC = Convert.ToInt32(TbHorasPC.Text);
+            ER.Programa = TbProgramas.Text;
+            ER.Comentarios = TbComentarios.Text;
+            ER.Celular = TbCelular.Text;
+            if (ER.Status == 1)
+            {
+                if (NU.ModificarRSA(ER).Contains("Exito"))
+                {
+                    List<E_Porcentajes> LEP = NU.BuscaPorcentajes(ER.IdRSA);
+                    foreach (E_Porcentajes P in ListEPO)
+                    {
+                        string[] tect = P.Tecnica.Split('-');
+                        if (tect[0] != "")
+                        {
+                            if (LEP.Count != 0)
+                            {
+                                string msg = NU.ModificarPorcentajes(P);
+                            }
+                            else
+                            {
+                                string msg = NU.InsertarPorcentajes(P);
+                            }
+
                         }
                     }
                 }
@@ -109,9 +169,7 @@ namespace Presentacion.GestionUsuarios
                     }
                 }
             }
-            GeneraRSA();
         }
-
         protected void GeneraRSA()
         {
             string savePath = "..\\RSA\\";
@@ -121,11 +179,29 @@ namespace Presentacion.GestionUsuarios
                 Directory.CreateDirectory(folder);
 
             }
-            FileStream fs = new FileStream(folder+"\\"+EM.Clave+"-"+EM.Materia+".pdf", FileMode.Create);
-            if(NU.InsertaRSAPDF(EM.Clave + "-" + EM.Materia + ".pdf", folder + "\\" + EM.Clave + " - " + EM.Materia + ".pdf", EM.IdMateria, ER.IdCoordinador).Contains("Exito"))
+            FileStream fs = new FileStream(folder + "\\" + EM.Clave + "-" + EM.Materia + ".pdf", FileMode.Create);
+            E_RSADocumento ED = NU.BuscaDocumentoRSA(ER.IdRSA);
+            if (ED == null)
             {
-                Console.WriteLine("PDF RSA Ingresado");
+                if (NU.InsertarRSAPDF(EM.Clave + "-" + EM.Materia + ".pdf", folder + "\\" + EM.Clave + " - " + EM.Materia + ".pdf", EM.IdMateria, ER.IdRSA).Contains("Exito"))
+                {
+                    Console.WriteLine("PDF RSA Ingresado");
+                }
             }
+            else
+            {
+                ED = new E_RSADocumento();
+                ED.NombreRSA = EM.Clave + "-" + EM.Materia + ".pdf";
+                ED.IdRSA = ER.IdRSA;
+                ED.RSAUrl = folder + "\\" + EM.Clave + " - " + EM.Materia + ".pdf";
+                ED.Observaciones = " ";
+                ED.Calificacion = "0";
+                if (NU.ModificarRSAPDF(ED).Contains("Exito"))
+                {
+                    Console.WriteLine("PDF RSA Ingresado");
+                }
+            }
+
             Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
             PdfWriter pw = PdfWriter.GetInstance(doc, fs);
 
@@ -304,7 +380,7 @@ namespace Presentacion.GestionUsuarios
                 clNo = new PdfPCell(new Phrase("NO", negritas));
                 clNo.HorizontalAlignment = Element.ALIGN_CENTER;
             }
-           
+
             float[] widths5 = new float[] { 1.4f, 0.8f, 1.4f, 0.4f, 0.4f };
             tbEjemplo5.SetWidths(widths5);
             tbEjemplo5.AddCell(clpregunta1);
@@ -346,7 +422,7 @@ namespace Presentacion.GestionUsuarios
             //Tabla 7
             PdfPCell clSemestres = new PdfPCell(new Phrase("¿Cuántos semestres ha impartido esta materia?", texto));
             clSemestres.HorizontalAlignment = Element.ALIGN_CENTER;
-            PdfPCell clNumero = new PdfPCell(new Phrase(" "+ER.Semestres, texto));
+            PdfPCell clNumero = new PdfPCell(new Phrase(" " + ER.Semestres, texto));
             float[] widths7 = new float[] { 2.2f, 1f };
             tbEjemplo7.SetWidths(widths7);
             tbEjemplo7.AddCell(clSemestres);
@@ -354,11 +430,11 @@ namespace Presentacion.GestionUsuarios
 
             //Tabla 8
             PdfPCell clHoraTeoria = new PdfPCell(new Phrase("Hrs semestrales Teoría", texto));
-            PdfPCell clHoras1 = new PdfPCell(new Phrase(""+ER.HorasTeoria, texto));
+            PdfPCell clHoras1 = new PdfPCell(new Phrase("" + ER.HorasTeoria, texto));
             PdfPCell clNoAlumnos = new PdfPCell(new Phrase("No. de alumnos", texto));
-            PdfPCell clAlumnos = new PdfPCell(new Phrase(""+ER.NumAlumnos,texto));
+            PdfPCell clAlumnos = new PdfPCell(new Phrase("" + ER.NumAlumnos, texto));
             PdfPCell clNoExamenes = new PdfPCell(new Phrase("No. de Exámenes parciales", texto));
-            PdfPCell clExamenes = new PdfPCell(new Phrase(""+ER.NumExamenes, texto));
+            PdfPCell clExamenes = new PdfPCell(new Phrase("" + ER.NumExamenes, texto));
             float[] widths8 = new float[] { 0.9f, 0.2f, 0.9f, 0.2f, 0.9f, 0.2f };
             tbEjemplo8.SetWidths(widths8);
             tbEjemplo8.AddCell(clHoraTeoria);
@@ -370,11 +446,11 @@ namespace Presentacion.GestionUsuarios
 
             //Tabla 9
             PdfPCell clHoraLab = new PdfPCell(new Phrase("Hrs semestrales Lab", texto));
-            PdfPCell clHoras2 = new PdfPCell(new Phrase(""+ER.HorasLab, texto));
+            PdfPCell clHoras2 = new PdfPCell(new Phrase("" + ER.HorasLab, texto));
             PdfPCell clAlumnosAprob = new PdfPCell(new Phrase("% Alumnos aprobados", texto));
-            PdfPCell clAlumnos2 = new PdfPCell(new Phrase(""+ER.PorAprobados, texto));
+            PdfPCell clAlumnos2 = new PdfPCell(new Phrase("" + ER.PorAprobados, texto));
             PdfPCell clCursoCubierto = new PdfPCell(new Phrase("% cubierto del curso", texto));
-            PdfPCell clCurso = new PdfPCell(new Phrase(""+ER.PorCurso, texto));
+            PdfPCell clCurso = new PdfPCell(new Phrase("" + ER.PorCurso, texto));
             float[] widths9 = new float[] { 0.9f, 0.2f, 0.9f, 0.2f, 0.9f, 0.2f };
             tbEjemplo9.SetWidths(widths9);
             tbEjemplo9.AddCell(clHoraLab);
@@ -386,9 +462,9 @@ namespace Presentacion.GestionUsuarios
 
             //Tabla 10
             PdfPCell clHoraTaller = new PdfPCell(new Phrase("Hrs semestrales de Taller o Práctica", texto));
-            PdfPCell clHoras3 = new PdfPCell(new Phrase(""+ER.HorasTaller, texto));
+            PdfPCell clHoras3 = new PdfPCell(new Phrase("" + ER.HorasTaller, texto));
             PdfPCell clInasistenciaA = new PdfPCell(new Phrase("% Inasistencias alumnos", texto));
-            PdfPCell clAlumnos3 = new PdfPCell(new Phrase(""+ER.PorAsistencia, texto));
+            PdfPCell clAlumnos3 = new PdfPCell(new Phrase("" + ER.PorAsistencia, texto));
             PdfPCell clblanco = new PdfPCell(new Phrase("", texto));
             PdfPCell clblanco2 = new PdfPCell(new Phrase("", texto));
             float[] widths10 = new float[] { 0.9f, 0.2f, 0.9f, 0.2f, 0.9f, 0.2f };
@@ -402,9 +478,9 @@ namespace Presentacion.GestionUsuarios
 
             //Tabla 11
             PdfPCell clHoraAsesoria = new PdfPCell(new Phrase("Hrs semestrales de Asesoría", texto));
-            PdfPCell clHoras4 = new PdfPCell(new Phrase(""+ER.HorasAsesoria, texto));
+            PdfPCell clHoras4 = new PdfPCell(new Phrase("" + ER.HorasAsesoria, texto));
             PdfPCell clInasistenciaP = new PdfPCell(new Phrase("% Inasistencias Profesor", texto));
-            PdfPCell clProfesor = new PdfPCell(new Phrase(""+ER.PorMasistencia, texto));
+            PdfPCell clProfesor = new PdfPCell(new Phrase("" + ER.PorMasistencia, texto));
             PdfPCell clblanco3 = new PdfPCell(new Phrase("", texto));
             PdfPCell clblanco4 = new PdfPCell(new Phrase("", texto));
             float[] widths11 = new float[] { 0.9f, 0.2f, 0.9f, 0.2f, 0.9f, 0.2f };
@@ -458,25 +534,26 @@ namespace Presentacion.GestionUsuarios
             for (int i = 0; i < 7; i++)
             {
                 int e = i + 1;
-                        string[] port = ListEPO[i].Porcentaje.Split('-');
-                        clAtributo1 = new PdfPCell(new Phrase("" + e, texto));
-                        clAtributo1.HorizontalAlignment = Element.ALIGN_CENTER;
-                        clTecnica1 = new PdfPCell(new Phrase(ListEPO[i].Tecnica, texto));
-                        clnivel4 = new PdfPCell(new Phrase(port[3], texto));
-                        clnivel3 = new PdfPCell(new Phrase(port[2], texto));
-                        clnivel2 = new PdfPCell(new Phrase(port[1], texto));
-                        clnivel1 = new PdfPCell(new Phrase(port[0], texto));
-                        tbEjemplo13.SetWidths(widths13);
-                        tbEjemplo13.AddCell(clAtributo1);
-                        tbEjemplo13.AddCell(clTecnica1);
-                        tbEjemplo13.AddCell(clnivel4);
-                        tbEjemplo13.AddCell(clnivel3);
-                        tbEjemplo13.AddCell(clnivel2);
-                        tbEjemplo13.AddCell(clnivel1);   
-               
-                
+                string[] port = ListEPO[i].Porcentaje.Split('-');
+                string[] text = ListEPO[i].Tecnica.Split('-');
+                clAtributo1 = new PdfPCell(new Phrase("" + e, texto));
+                clAtributo1.HorizontalAlignment = Element.ALIGN_CENTER;
+                clTecnica1 = new PdfPCell(new Phrase(text[0], texto));
+                clnivel4 = new PdfPCell(new Phrase(port[3], texto));
+                clnivel3 = new PdfPCell(new Phrase(port[2], texto));
+                clnivel2 = new PdfPCell(new Phrase(port[1], texto));
+                clnivel1 = new PdfPCell(new Phrase(port[0], texto));
+                tbEjemplo13.SetWidths(widths13);
+                tbEjemplo13.AddCell(clAtributo1);
+                tbEjemplo13.AddCell(clTecnica1);
+                tbEjemplo13.AddCell(clnivel4);
+                tbEjemplo13.AddCell(clnivel3);
+                tbEjemplo13.AddCell(clnivel2);
+                tbEjemplo13.AddCell(clnivel1);
+
+
             }
-            
+
 
             //Tabla 20
             PdfPCell clReqPc = new PdfPCell(new Phrase("¿Requiere utilizar la computadora en su curso para lograr el aprendizaje significativo de sus estudiantes?", texto));
@@ -497,7 +574,7 @@ namespace Presentacion.GestionUsuarios
                 clNo3 = new PdfPCell(new Phrase("NO", negritas));
                 clNo3.HorizontalAlignment = Element.ALIGN_CENTER;
             }
-                float[] widths20 = new float[] { 3.5f, 0.3f, 0.3f };
+            float[] widths20 = new float[] { 3.5f, 0.3f, 0.3f };
             tbEjemplo20.SetWidths(widths20);
             tbEjemplo20.AddCell(clReqPc);
             tbEjemplo20.AddCell(clSi3);
@@ -506,24 +583,24 @@ namespace Presentacion.GestionUsuarios
             //Tabla 21
             PdfPCell clHorasPc = new PdfPCell(new Phrase("Número de horas a la semana que utiliza la computadora en su curso", texto));
             clHorasPc.HorizontalAlignment = Element.ALIGN_CENTER;
-            PdfPCell clHoras = new PdfPCell(new Phrase(" "+ER.HorasPC, texto));
+            PdfPCell clHoras = new PdfPCell(new Phrase(" " + ER.HorasPC, texto));
             float[] widths21 = new float[] { 3.2f, 0.6f };
             tbEjemplo21.SetWidths(widths21);
             tbEjemplo21.AddCell(clHorasPc);
             tbEjemplo21.AddCell(clHoras);
 
             //Tabla 22
-            PdfPCell clProgramas = new PdfPCell(new Phrase("Indique que programas utiliza:" +ER.Programa, texto));
+            PdfPCell clProgramas = new PdfPCell(new Phrase("Indique que programas utiliza:" + ER.Programa, texto));
             tbEjemplo22.AddCell(clProgramas);
 
             //Tabla 23
-            PdfPCell clComentarios = new PdfPCell(new Phrase("Comentarios y áreas de mejora:"+ER.Comentarios, texto));
+            PdfPCell clComentarios = new PdfPCell(new Phrase("Comentarios y áreas de mejora:" + ER.Comentarios, texto));
 
             tbEjemplo23.AddCell(clComentarios);
 
             //Tabla 24
-            PdfPCell clCelular = new PdfPCell(new Phrase("Celular:"+ ER.Celular, texto));
-            PdfPCell clCorreo = new PdfPCell(new Phrase("Correo:"+EU.EmailUsuario, texto));
+            PdfPCell clCelular = new PdfPCell(new Phrase("Celular:" + ER.Celular, texto));
+            PdfPCell clCorreo = new PdfPCell(new Phrase("Correo:" + EU.EmailUsuario, texto));
             float[] widths24 = new float[] { 2f, 2f };
             tbEjemplo24.SetWidths(widths24);
             tbEjemplo24.AddCell(clCelular);
@@ -533,7 +610,7 @@ namespace Presentacion.GestionUsuarios
             E_Firma EF = NU.BuscaFirma(EU.IdUsuario);
             Image img = Image.GetInstance(EF.Firma);
             img.WidthPercentage = 25f;
-            PdfPCell clFirmaProfesor = new PdfPCell(new Phrase("Firma del Docente", texto));
+            /*PdfPCell clFirmaProfesor = new PdfPCell(new Phrase("Firma del Docente", texto));
             //clFirmaProfesor.AddElement(img);
             PdfPCell clFirmaAlumno = new PdfPCell(new Phrase("Nombre y firma del representante de grupo", texto));
 
@@ -541,7 +618,7 @@ namespace Presentacion.GestionUsuarios
             tbEjemplo24.SetWidths(widths24);
             tbEjemplo24.AddCell(clFirmaProfesor);
             tbEjemplo24.AddCell(clFirmaAlumno);
-
+            */
             doc.Add(tbEjemplo1);
             doc.Add(tbEjemplo2);
             doc.Add(tbEjemplo3);
@@ -571,5 +648,7 @@ namespace Presentacion.GestionUsuarios
             pw.Close();
 
         }
+
+
     }
 }

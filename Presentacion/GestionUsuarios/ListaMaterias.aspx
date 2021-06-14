@@ -31,7 +31,7 @@
         <div class="row">
             <div class="text-center">
 
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle w-auto" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="920px">
+                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle Text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="920px">
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />

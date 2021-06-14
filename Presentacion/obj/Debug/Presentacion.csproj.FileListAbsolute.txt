@@ -318,6 +318,8 @@ C:\Users\user\source\repos\SED4\Presentacion\obj\Debug\Presentacion.csproj.CoreC
 C:\Users\user\source\repos\SED4\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\user\source\repos\SED4\Presentacion\obj\Debug\Presentacion.dll
 C:\Users\user\source\repos\SED4\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Presentacion.dll.config
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Presentacion.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Presentacion.pdb
@@ -380,8 +382,6 @@ C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\EntidadesGestionUsuarios.pd
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\NegociosGestionUsuarios.pdb
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\itextsharp.xml
 C:\Users\user\Documents\GitHub\SED2\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
-C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.dll
 C:\Users\user\Documents\GitHub\SED2\Presentacion\obj\Debug\Presentacion.pdb

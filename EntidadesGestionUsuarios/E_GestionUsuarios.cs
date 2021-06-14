@@ -253,7 +253,6 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
-
     public class E_Encuadres
     {
         #region Atributos
@@ -286,7 +285,6 @@ namespace EntidadesGestionUsuarios
 
         #endregion
     }
-    
     public class E_RSA
     {
         #region Atributos
@@ -381,11 +379,11 @@ namespace EntidadesGestionUsuarios
         }
         #endregion
     }
-
     public class E_Porcentajes
     {
         #region Atributos
         private string _Accion;
+        private int _IdPorcentaje;
         private int _IdAtributo;
         private string _Tecnica;
         private string _Porcentaje;
@@ -398,6 +396,7 @@ namespace EntidadesGestionUsuarios
         public string Porcentaje { get => _Porcentaje; set => _Porcentaje = value; }
         public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
         public string Tecnica { get => _Tecnica; set => _Tecnica = value; }
+        public int IdPorcentaje { get => _IdPorcentaje; set => _IdPorcentaje = value; }
 
 
         #endregion
@@ -406,6 +405,7 @@ namespace EntidadesGestionUsuarios
         {
             Accion = string.Empty;
             IdAtributo = 0;
+            IdPorcentaje = 0;
             Porcentaje = string.Empty;
             Tecnica = string.Empty;
             IdRSA = 0;
@@ -446,6 +446,34 @@ namespace EntidadesGestionUsuarios
             Calificacion = string.Empty;
             Observaciones = string.Empty;
             IdRSA = 0;
+        }
+
+        #endregion
+        
+
+    }
+    public class E_CodAlumno
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdCodAlumno;
+        private int _IdRSA;
+        private string _Codigo;
+        #endregion
+        #region Encapsulamientos
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdCodAlumno { get => _IdCodAlumno; set => _IdCodAlumno = value; }
+        public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
+        public string Codigo { get => _Codigo; set => _Codigo = value; }
+        #endregion
+        #region Constructores
+
+        public E_CodAlumno()
+        {
+            _Accion = string.Empty;
+            IdCodAlumno = 0;
+            IdRSA = 0;
+            Codigo = string.Empty;
         }
 
         #endregion

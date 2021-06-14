@@ -37,8 +37,13 @@ namespace Presentacion.GestionUsuarios
                 LlenaAtributos(LEA);
                 if (ER.Status == 1)
                 {
-                    if(!IsPostBack)
-                        LlenaCampos();
+                    ListEPO = NU.BuscaPorcentajes(ER.IdRSA);
+                    if (ListEPO.Count > 0)
+                    {
+                        if (!IsPostBack)
+                            LlenaCampos();
+                    }
+                    
                 }
                 
             }
@@ -117,7 +122,7 @@ namespace Presentacion.GestionUsuarios
 
         private void LlenaPorcentajes()
         {
-
+            ListEPO.Clear();
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[0].IdAtributo;
             EPO.Tecnica = TbTecnica1.Text+"-1";
@@ -180,58 +185,58 @@ namespace Presentacion.GestionUsuarios
                     case "1":
                         port= p.Porcentaje.Split('-');
                         TbTecnica1.Text = tect[0];
-                        Tb11.Text = port[3];
-                        Tb12.Text = port[2];
-                        Tb13.Text = port[1];
-                        Tb14.Text = port[0];
+                        Tb11.Text = port[0];
+                        Tb12.Text = port[1];
+                        Tb13.Text = port[2];
+                        Tb14.Text = port[3];
                         break;
                     case "2":
                         port = p.Porcentaje.Split('-');
                         TbTecnica2.Text = tect[0];
-                        Tb21.Text = port[3];
-                        Tb22.Text = port[2];
-                        Tb23.Text = port[1];
-                        Tb24.Text = port[0];
+                        Tb21.Text = port[0];
+                        Tb22.Text = port[1];
+                        Tb23.Text = port[2];
+                        Tb24.Text = port[3];
                         break;
                     case "3":
                         port = p.Porcentaje.Split('-');
                         TbTecnica3.Text = tect[0];
-                        Tb31.Text = port[3];
-                        Tb32.Text = port[2];
-                        Tb33.Text = port[1];
-                        Tb34.Text = port[0];
+                        Tb31.Text = port[0];
+                        Tb32.Text = port[1];
+                        Tb33.Text = port[2];
+                        Tb34.Text = port[3];
                         break;
                     case "4":
                         port = p.Porcentaje.Split('-');
                         TbTecnica4.Text = tect[0];
-                        Tb41.Text = port[3];
-                        Tb42.Text = port[2];
-                        Tb43.Text = port[1];
-                        Tb44.Text = port[0];
+                        Tb41.Text = port[0];
+                        Tb42.Text = port[1];
+                        Tb43.Text = port[2];
+                        Tb44.Text = port[3];
                         break;
                     case "5":
                         port = p.Porcentaje.Split('-');
                         TbTecnica5.Text = tect[0];
-                        Tb51.Text = port[3];
-                        Tb52.Text = port[2];
-                        Tb53.Text = port[1];
-                        Tb54.Text = port[0];
+                        Tb51.Text = port[0];
+                        Tb52.Text = port[1];
+                        Tb53.Text = port[2];
+                        Tb54.Text = port[3];
                         break;
                     case "6":
                         port = p.Porcentaje.Split('-');
                         TbTecnica6.Text = tect[0];
-                        Tb61.Text = port[3];
-                        Tb62.Text = port[2];
-                        Tb63.Text = port[1];
-                        Tb64.Text = port[0];
+                        Tb61.Text = port[0];
+                        Tb62.Text = port[1];
+                        Tb63.Text = port[2];
+                        Tb64.Text = port[3];
                         break;
                     case "7":
                         port = p.Porcentaje.Split('-');
                         TbTecnica7.Text = tect[0];
-                        Tb71.Text = port[3];
-                        Tb72.Text = port[2];
-                        Tb73.Text = port[1];
-                        Tb74.Text = port[0];
+                        Tb71.Text = port[0];
+                        Tb72.Text = port[1];
+                        Tb73.Text = port[2];
+                        Tb74.Text = port[3];
                         break;
                 }
             }

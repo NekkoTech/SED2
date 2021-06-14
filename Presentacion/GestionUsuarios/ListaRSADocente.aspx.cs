@@ -7,6 +7,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NegociosGestionUsuarios;
 using EntidadesGestionUsuarios;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -21,23 +24,8 @@ namespace Presentacion.GestionUsuarios
         E_PlanEstudio EP = new E_PlanEstudio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null)
-            {
-                Response.Redirect("ValidaUsuario.aspx");
-            }
-            else
-            {
-                EU = (E_Usuarios)Session["Usuario"];
-                switch (EU.IdTipoUsuario)
-                {
-                    case 3:
-                        Response.Redirect("InicioCoordinador.aspx");
-                        break;
-                    case 2:
-                        Response.Redirect("InicioSubdirector.aspx");
-                        break;
-                }
-            }
+            
+            EU = (E_Usuarios)Session["Usuario"];
             GvMaterias.DataSource = NU.BuscaMateriasDocente(EU.IdUsuario);
             GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
@@ -63,7 +51,87 @@ namespace Presentacion.GestionUsuarios
         {
 
         }
+        protected void ComprobarContra_Click(object sender, EventArgs e)
+        {
+            if (wuc_RepPassWord.Text==EU.PassWordUsuario)
+            {
+                E_Materias mat = (E_Materias)Session["MatFirmar"];
+                E_RSA RSA = (E_RSA)Session["RSAFirmar"];
+                E_Firma EF = NU.BuscaFirma(EU.IdUsuario);
+                if (RSA.Status == 4)
+                {
+                    if (EF != null)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalCorreo()", true);
+                    }
+                    else
+                    {
+                        Master.ModalMsg("Error: Usted no a subido una firma al sistema, favor de subir una en su perfil");
+                    }
+                }
+                if (RSA.Status == 2)
+                {
+                    Master.ModalMsg("Error: Su coordinador aun no aprueba su RSA, no tiene permitido firmarlo");
+                }
+                
+            }
+            else
+            {
+                Master.ModalMsg("Error: Contraseña Incorrecta");
+            }
 
+
+        }
+        protected void CorreoAlumno_Click(object sender, EventArgs e)
+        {
+            E_CodAlumno ECD = new E_CodAlumno();
+            string Codigo = GenerarCodigo();
+            try
+            {
+
+                MailMessage Email = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                Email.SubjectEncoding = Encoding.UTF8;
+                Email.BodyEncoding = Encoding.UTF8;
+                Email.From = new MailAddress("SedFiad@gmail.com", "Administrador del sistema");
+                Email.Subject = "Codigo de Recuperacion de contraseña";
+                Email.Body = "Hola nos solicitaste recuperar tu contraseña. EL codigo de verificacion es : " + Codigo;
+
+
+                Email.To.Add(wuc_Email.Text);
+                SmtpServer.Port = 587; //SMTP de GMAIL
+                SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(Email);
+                Session["Correo"] = Email;
+                //lblMensaje.Text = "Mensaje Enviado";
+            }
+            catch (SmtpException ex)
+            {
+                //throw new Exception(lblMensaje.Text + ex);
+            }
+            E_RSA rsa = (E_RSA)Session["RSAFirma"];
+            ECD.Codigo = Codigo.ToString();
+            ECD.IdRSA = rsa.IdRSA;
+            if (NU.InsertarCodAlumno(ECD).Contains("Exito"))
+            {
+
+            }
+            Response.Redirect("Verificacion.aspx");
+
+        }
+
+        public string GenerarCodigo()
+        {
+            string Codigo = string.Empty;
+            int i;
+
+            Random rnd = new Random();
+            for (i = 0; i < 5; i++)
+                Codigo += Convert.ToChar(rnd.Next(65, 90)).ToString();
+
+            return Codigo;
+        }
         protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Llenar")
@@ -117,10 +185,21 @@ namespace Presentacion.GestionUsuarios
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                
+                E_RSA ER = NU.BuscaRSA(EM.IdMateria);
+                if (ER != null)
+                {
+                    if (ER.Status == 4)
+                    {
+                        Session["MatFirmar"] = EM;
+                        Session["RSAFirmar"] = ER;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalContra()", true);
+                    }
+                }
             }
 
         }
+
+        
         public void ModalPeticiones(string pMsg, EventHandler handler)
         {
             String[] TipoMsg = pMsg.Split(':');

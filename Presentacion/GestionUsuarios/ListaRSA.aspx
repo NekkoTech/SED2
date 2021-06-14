@@ -18,15 +18,14 @@
         <div class="row">
             <div class="text-center">
                 <!--asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />Extraer estado de la base de datos-->
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle w-auto" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="900px">
+                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="900px">
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
-                        <asp:BoundField DataField="Status" HeaderText="Estado" SortExpression="Estado" />
+                        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                         
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Consultar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Consultar</asp:LinkButton>
                                 <asp:LinkButton ID="btnEvaluar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Evaluar" runat="server">Evaluar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>

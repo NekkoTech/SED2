@@ -232,7 +232,30 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Firma no pudo ser ingresada";
         }
+        public DataTable DT_LstCodAlumno() { return SQLD.DT_ListadoGeneral("CodAlumno", "IdCodAlumno, IdRSA, Codigo"); }
+        public List<E_CodAlumno> LstCodAlumno() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_CodAlumno>(DT_LstCodAlumno()); }
+        public E_CodAlumno BuscaCodAlumno(int IdCodAlumno)
+        { return (from CodAlumno in LstCodAlumno() where CodAlumno.IdCodAlumno == IdCodAlumno select CodAlumno).FirstOrDefault(); }
+        public string BorraCodAlumno(int pIdCodAlumno)
+        {
+            E_CodAlumno ECA = new E_CodAlumno()
+            {
+                Accion = "BORRAR",
+                IdCodAlumno = pIdCodAlumno
+            };
+            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", ECA).Contains("Exito"))
+                return "Exito: El registro fue borrado";
+            return "Error: El registro no pudo ser borrado";
+        }
 
+        public string InsertarCodAlumno(E_CodAlumno EntidadCodAlumno)
+        {
+            EntidadCodAlumno.Accion = "INSERTAR";
+
+            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", EntidadCodAlumno).Contains("Exito"))
+                return "Exito: Correo enviado";
+            return "Error: No se pudo enviar el correo";
+        }
         /// <summary>
         /// Segmento de Negocios Para Planes de Estudio Y atributos
         /// </summary>
@@ -587,20 +610,18 @@ namespace NegociosGestionUsuarios
         public string InsertarRSA(E_RSA EntidadRSA)
         {
             EntidadRSA.Accion = "INSERTAR";
-            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
-            return msg;
-            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+           
+            if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
                 return "Exito: RSA Ingresado Exitosamente.";
-            return "Error: No se pudo agregar el RSA.";*/
+            return "Error: No se pudo agregar el RSA.";
         }
         public string ModificarRSA(E_RSA EntidadRSA)
         {
             EntidadRSA.Accion = "MODIFICAR";
-            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
-            return msg;
-            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+          
+            if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
                 return "Exito: El RSA fue modificado con exito.";
-            return "Error: El RSA no pudo ser modificado.";*/
+            return "Error: El RSA no pudo ser modificado.";
         }
         public string EliminarRSA(E_RSA EntidadRSA)
         {
@@ -649,7 +670,7 @@ namespace NegociosGestionUsuarios
             }
             return table;
         }
-        public string InsertaRSAPDF(string NombreEncuadre, string UrlEncuadre, int IdMateria, int IdCoordinador)
+        public string InsertarRSAPDF(string NombreEncuadre, string UrlEncuadre, int IdMateria, int IdRSA)
         {
             SqlCommand SqlComando;
             int code;
@@ -657,7 +678,7 @@ namespace NegociosGestionUsuarios
             SqlComando = new SqlCommand("INSERT INTO DocumentoRSA(RSAUrl,NombreRSA, IdRSA, Calificacion, Observaciones) VALUES (@RSAUrl,@NombreRSA,@IdRSA,@Calificacion, @Observaciones)", SQLD.Conexion);
             SqlComando.Parameters.AddWithValue("@NombreRSA", NombreEncuadre);
             SqlComando.Parameters.AddWithValue("@RSAUrl", UrlEncuadre);
-            SqlComando.Parameters.AddWithValue("@IdRSA", IdCoordinador);
+            SqlComando.Parameters.AddWithValue("@IdRSA", IdRSA);
             SqlComando.Parameters.AddWithValue("@Calificacion", "");
             SqlComando.Parameters.AddWithValue("@Observaciones", "");
 
@@ -677,7 +698,7 @@ namespace NegociosGestionUsuarios
             SqlCommand SqlComando;
             int code;
             SQLD.Conexion.Open();
-            SqlComando = new SqlCommand("UPDATE DocumentoRSA SET RSAUrl=@RSAUrl,NombreRSA=@NombreRSA, IdRSA=@IdRSA, Calificacion=@Calificacion, Observaciones=@Observaciones", SQLD.Conexion);
+            SqlComando = new SqlCommand("UPDATE DocumentoRSA SET RSAUrl=@RSAUrl,NombreRSA=@NombreRSA, Calificacion=@Calificacion, Observaciones=@Observaciones WHERE IdRSA=@IdRSA", SQLD.Conexion);
             SqlComando.Parameters.AddWithValue("@NombreRSA", ERSA.NombreRSA);
             SqlComando.Parameters.AddWithValue("@RSAUrl", ERSA.RSAUrl);
             SqlComando.Parameters.AddWithValue("@IdRSA", ERSA.IdRSA);
@@ -705,9 +726,11 @@ namespace NegociosGestionUsuarios
         public string InsertarPorcentajes(E_Porcentajes EntidadPorcentaje)
         {
             EntidadPorcentaje.Accion = "INSERTAR";
-            if (SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje).Contains("Exito"))
+            string msg = SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje);
+            return msg;
+            /*if (SQLD.IBM_Entidad<E_Porcentajes>("IBM_Porcentajes", EntidadPorcentaje).Contains("Exito"))
                 return "Exito: Procentaje Ingresado.";
-            return "Error: No pudo ser ingresado el porcentaje.";
+            return "Error: No pudo ser ingresado el porcentaje.";*/
         }
         public string ModificarPorcentajes(E_Porcentajes EntidadPorcentaje)
         {

@@ -24,13 +24,13 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Button btnRegresar;
 
         /// <summary>
-        /// Control RSA.
+        /// Control Documento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlIframe RSA;
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Documento;
 
         /// <summary>
         /// Control BtnRechazar.
