@@ -11,7 +11,7 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class Verificacion
+    public partial class AccesoAlumnos
     {
 
         /// <summary>
@@ -42,12 +42,12 @@ namespace Presentacion.GestionUsuarios
         protected global::System.Web.UI.WebControls.Label LblMsg;
 
         /// <summary>
-        /// Control BtnIngreso.
+        /// Control BtnIngresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnIngreso;
+        protected global::System.Web.UI.WebControls.Button BtnIngresar;
     }
 }

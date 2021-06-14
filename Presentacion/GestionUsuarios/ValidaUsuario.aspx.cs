@@ -63,5 +63,10 @@ namespace Presentacion.GestionUsuarios
         {
             Response.Redirect("Forgot.aspx");
         }
+
+        protected void LBAlumno_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AccesoAlumnos.aspx");
+        }
     }
 }

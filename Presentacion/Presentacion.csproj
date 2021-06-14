@@ -93,11 +93,13 @@
     <Content Include="CSS\CrearUsuarios.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="DLL\StrDatosSQL.dll" />
+    <Content Include="GestionUsuarios\AccesoAlumnos.aspx" />
     <Content Include="GestionUsuarios\EncuadreDocente.aspx" />
     <Content Include="GestionUsuarios\CuentaDocente.aspx" />
     <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
     <Content Include="GestionUsuarios\EvaluarRSA.aspx" />
     <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
+    <Content Include="GestionUsuarios\FirmaAlumno.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA2.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA3.aspx" />
@@ -292,6 +294,13 @@
     <Compile Include="Controles\wuc_Text.ascx.designer.cs">
       <DependentUpon>wuc_Text.ascx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\AccesoAlumnos.aspx.cs">
+      <DependentUpon>AccesoAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\AccesoAlumnos.aspx.designer.cs">
+      <DependentUpon>AccesoAlumnos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\EncuadreDocente.aspx.cs">
       <DependentUpon>EncuadreDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +335,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.designer.cs">
       <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\FirmaAlumno.aspx.cs">
+      <DependentUpon>FirmaAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FirmaAlumno.aspx.designer.cs">
+      <DependentUpon>FirmaAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\FormularioRSA.aspx.cs">
       <DependentUpon>FormularioRSA.aspx</DependentUpon>

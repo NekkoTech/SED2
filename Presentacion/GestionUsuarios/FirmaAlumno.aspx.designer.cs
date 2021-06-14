@@ -11,43 +11,43 @@ namespace Presentacion.GestionUsuarios
 {
 
 
-    public partial class Verificacion
+    public partial class FirmaAlumno
     {
 
         /// <summary>
-        /// Control LblTitulo.
+        /// Control ImgFirma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTitulo;
+        protected global::System.Web.UI.WebControls.Image ImgFirma;
 
         /// <summary>
-        /// Control tbCodigo.
+        /// Control FuFirma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CodVerificacion tbCodigo;
+        protected global::System.Web.UI.WebControls.FileUpload FuFirma;
 
         /// <summary>
-        /// Control LblMsg.
+        /// Control LblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMsg;
+        protected global::System.Web.UI.WebControls.Label LblMensaje;
 
         /// <summary>
-        /// Control BtnIngreso.
+        /// Control BtnSubir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnIngreso;
+        protected global::System.Web.UI.WebControls.Button BtnSubir;
     }
 }

@@ -28,6 +28,8 @@
             <br />
             <asp:LinkButton ID="LBForgot" runat="server" CausesValidation="false" OnClick="LBForgot_Click">Olvidaste tu contraseña?</asp:LinkButton>
             <br />
+             <asp:LinkButton ID="LBAlumno" runat="server" CausesValidation="false" OnClick="LBAlumno_Click">Acceso a Alumnos</asp:LinkButton>
+            <br />
         </div>
 
     </div>

@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
-    
-    
-    public partial class ValidaUsuario {
-        
+namespace Presentacion.GestionUsuarios
+{
+
+
+    public partial class ValidaUsuario
+    {
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control tbEmailUsuario.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_Email tbEmailUsuario;
-        
+
         /// <summary>
         /// Control tbPassWord.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Presentacion.Controles.wuc_PassWord tbPassWord;
-        
+
         /// <summary>
         /// Control lblMensaje.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
-        
+
         /// <summary>
         /// Control BtnLogin.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnLogin;
-        
+
         /// <summary>
         /// Control LBForgot.
         /// </summary>
@@ -65,5 +67,14 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LBForgot;
+
+        /// <summary>
+        /// Control LBAlumno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LBAlumno;
     }
 }
