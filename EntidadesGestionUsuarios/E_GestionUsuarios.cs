@@ -452,32 +452,7 @@ namespace EntidadesGestionUsuarios
         
 
     }
-    public class E_CodAlumno
-    {
-        #region Atributos
-        private string _Accion;
-        private int _IdCodAlumno;
-        private int _IdRSA;
-        private string _Codigo;
-        #endregion
-        #region Encapsulamientos
-        public string Accion { get => _Accion; set => _Accion = value; }
-        public int IdCodAlumno { get => _IdCodAlumno; set => _IdCodAlumno = value; }
-        public int IdRSA { get => _IdRSA; set => _IdRSA = value; }
-        public string Codigo { get => _Codigo; set => _Codigo = value; }
-        #endregion
-        #region Constructores
-
-        public E_CodAlumno()
-        {
-            _Accion = string.Empty;
-            IdCodAlumno = 0;
-            IdRSA = 0;
-            Codigo = string.Empty;
-        }
-
-        #endregion
-    }
+  
     public class E_CodAlumno
     {
         #region Atributos
