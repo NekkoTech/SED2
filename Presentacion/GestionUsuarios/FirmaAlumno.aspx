@@ -11,6 +11,7 @@
                         <asp:FileUpload ID="FuFirma" runat="server" CssClass="form-control" Width="250px" />
                         <asp:Label ID="LblMensaje" runat="server"></asp:Label>
                         <asp:Button ID="BtnSubir" CssClass="btn btn-success" Width="60px" runat="server" Text="Subir" OnClick="BtnSubir_Click" CausesValidation="false" />
+                        <asp:Button ID="BtnFirmar" CssClass="btn btn-success" Width="60px" runat="server" Text="Firmar" OnClick="BtnFirmar_Click" CausesValidation="false" />
                     </div>
                 </div>
             </div>

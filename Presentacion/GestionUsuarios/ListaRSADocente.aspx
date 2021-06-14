@@ -22,7 +22,7 @@
         <div class="row">
             <div class="text-center">
                 <!--asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />Extraer estado de la base de datos-->
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle text-center" HeaderStyle-CssClass="HeaderStyle text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="900px" >
+                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle text-center" HeaderStyle-CssClass="HeaderStyle text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand"  Width="900px" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" >
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />

@@ -29,7 +29,7 @@ namespace Presentacion.GestionUsuarios
             GvMaterias.DataSource = NU.BuscaMateriasDocente(EU.IdUsuario);
             GvMaterias.DataBind();
             if (GvMaterias.Rows.Count == 0)
-                Master.ModalMsg("Error:No hay Materias Registradas");
+            Master.ModalMsg("Error:No hay Materias Registradas");
 
         }
 
@@ -47,10 +47,8 @@ namespace Presentacion.GestionUsuarios
 
         }
 
-        protected void GvMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
+        
         protected void ComprobarContra_Click(object sender, EventArgs e)
         {
             if (wuc_RepPassWord.Text==EU.PassWordUsuario)
@@ -238,10 +236,17 @@ namespace Presentacion.GestionUsuarios
                 default: BackGroundHeader = Clr.ClrGeneral; BtnColor = Clr.BtnGeneral; break;
             }
         }
+
+        protected void GvMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
         /*protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
-            GvPlanes.DataBind();
+             GvPlanes.DataSource = NU.LstBuscaPlan(TbSearch.Text.ToString());
+             GvPlanes.DataBind();
         }*/
 
     }
