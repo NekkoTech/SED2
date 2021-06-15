@@ -99,6 +99,8 @@
     <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
     <Content Include="GestionUsuarios\EvaluarRSA.aspx" />
     <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
+    <Content Include="GestionUsuarios\FechaCoordinador.aspx" />
+    <Content Include="GestionUsuarios\FechaSubdirector.aspx" />
     <Content Include="GestionUsuarios\FirmaAlumno.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA2.aspx" />
@@ -335,6 +337,20 @@
     </Compile>
     <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.designer.cs">
       <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaCoordinador.aspx.cs">
+      <DependentUpon>FechaCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaCoordinador.aspx.designer.cs">
+      <DependentUpon>FechaCoordinador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaSubdirector.aspx.cs">
+      <DependentUpon>FechaSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaSubdirector.aspx.designer.cs">
+      <DependentUpon>FechaSubdirector.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\FirmaAlumno.aspx.cs">
       <DependentUpon>FirmaAlumno.aspx</DependentUpon>
