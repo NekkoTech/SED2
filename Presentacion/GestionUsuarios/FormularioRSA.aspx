@@ -75,7 +75,7 @@
          </table>
          <div class="form-row align-content-center text-center">
               <div class="col">
-                <asp:Button runat="server" ID="btnRegresar" CssClass="btn btn-light boton mb-2 box margen"  Text="Regresar" OnClick="btnRegresar_Click"></asp:Button>
+                <asp:Button runat="server" ID="btnRegresar" CssClass="btn btn-light boton mb-2 box margen"  Text="Regresar" OnClick="btnRegresar_Click" CausesValidation="false"></asp:Button>
 
             </div>
              <div class="col">
@@ -88,5 +88,29 @@
          </div>
         </div>
         </div>
-        
+        <!--Modal De Funcionamiento de peticiones-->
+    <div id="master-modal-peticiones" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <div id="EModalHeader" runat="server" class="bg-danger">
+                    <p class="heading lead text-center">Alerta</p>
+                </div>
+                <div class="modal-body">
+                    <span id="EModalBody" runat="server">Al regresar se descartara toda la informacion no guardada, ¿seguro que desea continuar?</span>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btnCancelar" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Cancelar" />
+                    <asp:Button ID="btnConfirmar" type="button" CssClass="btn btn-success" runat="server" OnClick="btnConfirmar_Click" Text="Descartar" CausesValidation="false" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+
+        function openMasterModalPeticion() {
+            $('#master-modal-peticiones').modal('show');
+        }
+       
+    </script>
 </asp:Content>

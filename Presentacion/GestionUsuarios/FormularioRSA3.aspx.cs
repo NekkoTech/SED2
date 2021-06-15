@@ -16,7 +16,7 @@ namespace Presentacion.GestionUsuarios
 {
     public partial class FormularioRSA3 : System.Web.UI.Page
     {
-
+        int bandera=0;
         N_Usuarios NU = new N_Usuarios();
         E_Materias EM = new E_Materias();
         private string BackGroundHeader;
@@ -31,6 +31,26 @@ namespace Presentacion.GestionUsuarios
         E_Porcentajes EPO = new E_Porcentajes();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                E_Usuarios EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 1:
+                        Response.Redirect("InicioMain.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                }
+            }
             ER = (E_RSA)Session["RSA"];
             EU = (E_Usuarios)Session["Usuario"];
             EM = (E_Materias)Session["Materia"];
@@ -112,7 +132,11 @@ namespace Presentacion.GestionUsuarios
                 }
             }
             GeneraRSA();
-            Response.Redirect("ListaRSA.aspx");
+            if(bandera==1)
+                Session["Notificacion"] = "Exito: El RSA fue generado Exitosamente";
+            else
+                Session["Notificacion"] = "Error: Hubo un error al ingresar la direccion del RSA";
+            Response.Redirect("ListaRSADocente.aspx");
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -144,11 +168,13 @@ namespace Presentacion.GestionUsuarios
                         {
                             if (LEP.Count != 0)
                             {
-                                string msg = NU.ModificarPorcentajes(P);
+                                if (NU.ModificarPorcentajes(P).Contains("Exito"))
+                                    Master.ModalMsg("Exito:La informacion fue guardada con exito");
                             }
                             else
                             {
-                                string msg = NU.InsertarPorcentajes(P);
+                                if (NU.InsertarPorcentajes(P).Contains("Exito"))
+                                    Master.ModalMsg("Exito:La informacion fue guardada con exito");
                             }
 
                         }
@@ -165,11 +191,13 @@ namespace Presentacion.GestionUsuarios
                         string[] tect = P.Tecnica.Split('-');
                         if (tect[0] != "")
                         {
-                            NU.InsertarPorcentajes(P);
+                            if(NU.InsertarPorcentajes(P).Contains("Exito"))
+                                Master.ModalMsg("Exito:La informacion fue guardada con exito");
                         }
                     }
                 }
             }
+            
         }
         protected void GeneraRSA()
         {
@@ -187,6 +215,7 @@ namespace Presentacion.GestionUsuarios
             {
                 if (NU.InsertarRSAPDF(EM.Clave.Trim() + "-" + EM.Materia.Trim() + ".pdf", folder + "\\" + EM.Clave.Trim() + " - " + EM.Materia.Trim() + ".pdf", EM.IdMateria, ER.IdRSA).Contains("Exito"))
                 {
+                    bandera++;
                     Console.WriteLine("PDF RSA Ingresado");
                 }
             }
@@ -200,6 +229,7 @@ namespace Presentacion.GestionUsuarios
                 ED.Calificacion = "0";
                 if (NU.ModificarRSAPDF(ED).Contains("Exito"))
                 {
+                    bandera++;
                     Console.WriteLine("PDF RSA Ingresado");
                 }
             }

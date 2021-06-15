@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="FormularioRSA3.aspx.cs" Inherits="Presentacion.GestionUsuarios.FormularioRSA3" %>
+
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">

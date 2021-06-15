@@ -39,7 +39,7 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
-            GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
+            GvMaterias.DataSource = NU.LstMateriasInnerJoinEncuadre(EU.IdUsuario);
             GvMaterias.DataBind();
             //if (GvMaterias.Rows.Count == 0)
                 //Master.ModalMsg("Error:No hay Materias Registradas");

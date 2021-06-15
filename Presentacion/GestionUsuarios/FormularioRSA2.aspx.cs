@@ -27,6 +27,26 @@ namespace Presentacion.GestionUsuarios
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                E_Usuarios EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 1:
+                        Response.Redirect("InicioMain.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                }
+            }
             ER = (E_RSA)Session["RSA"];
             EU = (E_Usuarios)Session["Usuario"];
             EM = (E_Materias)Session["Materia"];

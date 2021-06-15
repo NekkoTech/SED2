@@ -11,7 +11,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
                     <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item">Encuadres</li>
+                    <li class="breadcrumb-item">Lista RSA</li>
                 </ol>
             </nav>
         </div>
@@ -27,6 +27,7 @@
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnEvaluar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Evaluar" runat="server">Evaluar</asp:LinkButton>
+                                <asp:LinkButton ID="btnDescargar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Descargar" runat="server">Descargar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 

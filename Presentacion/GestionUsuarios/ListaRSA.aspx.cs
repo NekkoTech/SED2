@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NegociosGestionUsuarios;
 using EntidadesGestionUsuarios;
+using System.Net;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -40,9 +41,12 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
+            if (Session["Notificacion"] != null)
+                Master.ModalMsg((string)Session["Notificacion"]);
             //GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
             GvMaterias.DataSource = NU.LstMateriasInnerJoinRSA(EU.IdUsuario);
-            GvMaterias.DataBind();
+            if(!IsPostBack)
+                GvMaterias.DataBind();
            //if (GvMaterias.Rows.Count == 0)
                // Master.ModalMsg("Error:No hay Materias Registradas");
 
@@ -106,6 +110,38 @@ namespace Presentacion.GestionUsuarios
                     
                 }
                 
+            }
+            if (e.CommandName == "Descargar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
+                EM = new N_Usuarios().BuscaMateria(IdMateria);
+                ER = NU.BuscaRSA(EM.IdMateria);
+                if (ER != null)
+                {
+                    if (ER.Status == 5)
+                    {
+                        E_RSADocumento ED = NU.BuscaDocumentoRSA(ER.IdRSA);
+                        string FilePath = Server.MapPath(ED.RSAUrl);
+                        WebClient User = new WebClient();
+                        Byte[] FileBuffer = User.DownloadData(FilePath);
+                        if (FileBuffer != null)
+                        {
+                            Response.ContentType = "application/pdf";
+                            Response.AppendHeader("Content-Disposition", "attachment; filename=RSA.pdf");
+                            Response.TransmitFile(FilePath);
+                            Response.End();
+                        }
+                    }
+                    else
+                    {
+                        Master.ModalMsg("Error: Solo se puede realizar la descarga cuando el RSA se encuentra firmado");
+                    }
+                }
+                else
+                {
+                    Master.ModalMsg("Error: Aun no se encuentra con registro Activo de RSA");
+                }
             }
         }
         public void ModalPeticiones(string pMsg, EventHandler handler)

@@ -105,7 +105,9 @@ namespace Presentacion.GestionUsuarios
             rsa.Observaciones = "";
             if (NU.ModificarRSA(ER).Contains("Exito") && NU.ModificarRSAPDF(rsa).Contains("Exito"))
             {
-                Master.ModalMsg("Exito: RSA evaluado con exito");
+                //Master.ModalMsg("Exito: RSA evaluado con exito");
+                Session["Notificacion"] = "Exito: RSA evaluado con exito";
+                Response.Redirect("ListaRSA.aspx");
             }
         }
     }
