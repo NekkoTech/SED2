@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSADocente.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaRSADocente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterDocenteMenu.Master" AutoEventWireup="true" CodeBehind="ListaRSAD.aspx.cs" Inherits="Presentacion.GestionUsuarios.ListaRSAD" %>
 
 <%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
 <%@ Register Src="~/Controles/wuc_RepPassWord.ascx" TagPrefix="uc1" TagName="wuc_RepPassWord" %>
 <%@ Register Src="~/Controles/wuc_Email.ascx" TagPrefix="uc1" TagName="wuc_Email" %>
-
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -13,23 +12,24 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
-                    <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item">Encuadres</li>
+                    <li class="breadcrumb-item"><a href="InicioDocente.aspx">Inicio</a></li>
+                    <li class="breadcrumb-item">RSA</li>
                 </ol>
             </nav>
         </div>
         <div class="row">
             <div class="text-center">
                 <!--asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />Extraer estado de la base de datos-->
-                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle text-center" HeaderStyle-CssClass="HeaderStyle text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand"  Width="900px" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" >
+                <asp:GridView ID="GvMaterias" CssClass="GridViewStyle" HeaderStyle-CssClass="HeaderStyle" runat="server" AutoGenerateColumns="False" DataKeyNames="IdMateria" OnRowCommand="GvMaterias_RowCommand" OnSelectedIndexChanged="GvMaterias_SelectedIndexChanged" Width="900px">
                     <Columns>
                         <asp:BoundField DataField="Materia" HeaderText="Nombre Materia" SortExpression="Materia" />
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
+                        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                         
                         <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnConsultar" CssClass="btn btn-success box"  CommandName="Llenar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Llenar</asp:LinkButton>
-                                <asp:LinkButton ID="btnFirmar" CssClass="btn btn-success box"  CommandName="Firmar" CommandArgument="<%# Container.DataItemIndex%>"  runat="server" >Firmar</asp:LinkButton>
+                                <asp:LinkButton ID="btnEvaluar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Llenar" runat="server">Llenar</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Firmar" runat="server">Firmar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -110,7 +110,7 @@
             </div>
         </div>
     <script>
-        
+
         function openMasterModalPeticion() {
             $('#master-modal-peticiones').modal('show');
         }

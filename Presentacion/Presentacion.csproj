@@ -115,6 +115,7 @@
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\ListaRSA.aspx" />
+    <Content Include="GestionUsuarios\ListaRSAD.aspx" />
     <Content Include="GestionUsuarios\ListaRSADocente.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasDocente.aspx" />
     <Content Include="GestionUsuarios\ListaEncuadres.aspx" />
@@ -447,6 +448,13 @@
     </Compile>
     <Compile Include="GestionUsuarios\ListaRSA.aspx.designer.cs">
       <DependentUpon>ListaRSA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSAD.aspx.cs">
+      <DependentUpon>ListaRSAD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\ListaRSAD.aspx.designer.cs">
+      <DependentUpon>ListaRSAD.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaRSADocente.aspx.cs">
       <DependentUpon>ListaRSADocente.aspx</DependentUpon>
