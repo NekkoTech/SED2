@@ -38,7 +38,7 @@ namespace Presentacion.GestionUsuarios
             EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
             if (ER != null)
             {
-                if (ER.Status == 1)
+                if (ER.Status == 1 || ER.Status==3) 
                 {
                     if (!IsPostBack)
                     {
@@ -180,11 +180,11 @@ namespace Presentacion.GestionUsuarios
                 Directory.CreateDirectory(folder);
 
             }
-            FileStream fs = new FileStream(folder + "\\" + EM.Clave + "-" + EM.Materia + ".pdf", FileMode.Create);
+            FileStream fs = new FileStream(folder + "\\" + EM.Clave.Trim() + "-" + EM.Materia.Trim() + ".pdf", FileMode.Create);
             E_RSADocumento ED = NU.BuscaDocumentoRSA(ER.IdRSA);
             if (ED == null)
             {
-                if (NU.InsertarRSAPDF(EM.Clave + "-" + EM.Materia + ".pdf", folder + "\\" + EM.Clave + " - " + EM.Materia + ".pdf", EM.IdMateria, ER.IdRSA).Contains("Exito"))
+                if (NU.InsertarRSAPDF(EM.Clave.Trim() + "-" + EM.Materia.Trim() + ".pdf", folder + "\\" + EM.Clave.Trim() + " - " + EM.Materia.Trim() + ".pdf", EM.IdMateria, ER.IdRSA).Contains("Exito"))
                 {
                     Console.WriteLine("PDF RSA Ingresado");
                 }
@@ -608,9 +608,9 @@ namespace Presentacion.GestionUsuarios
             tbEjemplo24.AddCell(clCorreo);
 
             //Tabla 25
-            E_Firma EF = NU.BuscaFirma(EU.IdUsuario);
-            Image img = Image.GetInstance(EF.Firma);
-            img.WidthPercentage = 25f;
+            //E_Firma EF = NU.BuscaFirma(EU.IdUsuario);
+            //Image img = Image.GetInstance(EF.Firma);
+            //img.WidthPercentage = 25f;
             /*PdfPCell clFirmaProfesor = new PdfPCell(new Phrase("Firma del Docente", texto));
             //clFirmaProfesor.AddElement(img);
             PdfPCell clFirmaAlumno = new PdfPCell(new Phrase("Nombre y firma del representante de grupo", texto));

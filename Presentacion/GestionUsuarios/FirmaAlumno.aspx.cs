@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using NegociosGestionUsuarios;
 using EntidadesGestionUsuarios;
 using System.Drawing;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Presentacion.GestionUsuarios
 {
@@ -47,6 +49,7 @@ namespace Presentacion.GestionUsuarios
 
                         string ImagenDataURL64 = "data:image/jpg;base64," + Convert.ToBase64String(ByteFirma);
                         ImgFirma.ImageUrl = ImagenDataURL64;
+                        
                     }
                     else
                     {
@@ -69,7 +72,34 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnFirmar_Click(object sender, EventArgs e)
         {
+            ByteFirma =(Byte[])Session["Firma"];
+            ER = NU.BuscaIdRSA(EA.IdRSA);
+            E_PlanEstudio EPE = NU.BuscaPlanCoordinador(ER.IdCoordinador);
+            E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+            E_Materias EM = NU.BuscaMateria(ER.IdMateria);
+            string savePath = "..\\RSA\\";
+            var folder = Server.MapPath(savePath + "\\" + EPE.NombrePlan.Trim());
+            using (Stream inputPdfStream = new FileStream(ERD.RSAUrl.Trim(), FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream outputPdfStream = new FileStream(folder+"\\"+EM.Clave+"-"+EM.Materia+"-Firmado.pdf", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                var reader = new PdfReader(inputPdfStream);
+                var stamper = new PdfStamper(reader, outputPdfStream);
+                var pdfContentByte = stamper.GetOverContent(1);
 
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(ByteFirma);
+                image.SetAbsolutePosition(310, 160);
+                //image.WidthPercentage = 0.05f;
+                image.ScalePercent(40f);
+                pdfContentByte.AddImage(image);
+                stamper.Close();
+            }
+            ERD.RSAUrl = folder + "\\" + EM.Clave + "-" + EM.Materia + "-Firmado.pdf";
+            ERD.NombreRSA = EM.Clave + "-" + EM.Materia + "-Firmado.pdf";
+            string msg=NU.ModificarRSAPDF(ERD);
+            ER.Status = 5;
+            msg=NU.ModificarRSA(ER);
+            msg = NU.BorraCodAlumno(EA.IdCodAlumno);
+            Response.Redirect("ValidaUsuario.aspx");
         }
     }
 }

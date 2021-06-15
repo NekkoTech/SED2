@@ -108,8 +108,9 @@ namespace Presentacion.GestionUsuarios
                 ER.Status = 1;
                 if (NU.InsertarRSA(ER).Contains("Exito"))
                 {
+
                     Console.WriteLine("Rsa Ingresado");
-                    Response.Redirect("InicioDocente.aspx");
+                    
                 }
             }
         }

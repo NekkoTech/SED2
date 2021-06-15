@@ -595,6 +595,8 @@ namespace NegociosGestionUsuarios
         public List<E_RSA> LstRSA() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_RSA>(DT_LstRSA()); }
         public E_RSA BuscaRSA(int IdMateria)
         { return (from RSA in LstRSA() where RSA.IdMateria == IdMateria select RSA).FirstOrDefault(); }
+        public E_RSA BuscaIdRSA(int IdRSA)
+        { return (from RSA in LstRSA() where RSA.IdRSA == IdRSA select RSA).FirstOrDefault(); }
         public string InsertarRSA(E_RSA EntidadRSA)
         {
             EntidadRSA.Accion = "INSERTAR";
@@ -606,10 +608,11 @@ namespace NegociosGestionUsuarios
         public string ModificarRSA(E_RSA EntidadRSA)
         {
             EntidadRSA.Accion = "MODIFICAR";
-          
-            if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
+            return msg;
+            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
                 return "Exito: El RSA fue modificado con exito.";
-            return "Error: El RSA no pudo ser modificado.";
+            return "Error: El RSA no pudo ser modificado.";*/
         }
         public string EliminarRSA(E_RSA EntidadRSA)
         {
@@ -703,6 +706,9 @@ namespace NegociosGestionUsuarios
                                     break;
                                 case 4:
                                     table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                    break;
+                                case 5:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Firmado");
                                     break;
                             }
                         }
