@@ -181,6 +181,7 @@ namespace Presentacion.GestionUsuarios
 
             }
             FileStream fs = new FileStream(folder + "\\" + EM.Clave.Trim() + "-" + EM.Materia.Trim() + ".pdf", FileMode.Create);
+            ER = NU.BuscaRSA(EM.IdMateria);
             E_RSADocumento ED = NU.BuscaDocumentoRSA(ER.IdRSA);
             if (ED == null)
             {
