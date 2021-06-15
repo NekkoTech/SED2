@@ -14,11 +14,18 @@ namespace Presentacion.GestionUsuarios
     {
         E_Usuarios EU = new E_Usuarios();
         N_Usuarios NU = new N_Usuarios();
+        E_RSA ER = new E_RSA();
+        E_CodAlumno EA = new E_CodAlumno();
         Byte[] ByteFirma;
         E_Firma EF = new E_Firma();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Alumno"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            EA = (E_CodAlumno)Session["Alumno"];
+            ER = NU.BuscaRSA(EA.IdRSA);
         }
 
         protected void BtnSubir_Click(object sender, EventArgs e)
@@ -58,6 +65,11 @@ namespace Presentacion.GestionUsuarios
 
                 LblMensaje.Text = "Seleccione una firma primero";
             }
+        }
+
+        protected void BtnFirmar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
