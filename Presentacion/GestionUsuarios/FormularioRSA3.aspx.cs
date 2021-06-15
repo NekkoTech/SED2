@@ -80,7 +80,7 @@ namespace Presentacion.GestionUsuarios
             ER.Programa = TbProgramas.Text;
             ER.Comentarios = TbComentarios.Text;
             ER.Celular = TbCelular.Text;
-            if (ER.Status == 1 || ER.Status==3)
+            if (ER.Status == 1 || ER.Status == 3)
             {
                 ER.Status = 2;
                 if (NU.ModificarRSA(ER).Contains("Exito"))

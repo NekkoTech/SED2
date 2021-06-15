@@ -20,11 +20,11 @@ namespace Presentacion.GestionUsuarios
         E_Firma EF = new E_Firma();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Alumno"] == null)
+            if (Session["Codigo"] == null)
             {
                 Response.Redirect("ValidaUsuario.aspx");
             }
-            EA = (E_CodAlumno)Session["Alumno"];
+            EA = (E_CodAlumno)Session["Codigo"];
             ER = NU.BuscaRSA(EA.IdRSA);
         }
 
