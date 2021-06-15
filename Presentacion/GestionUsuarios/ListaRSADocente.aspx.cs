@@ -260,16 +260,6 @@ namespace Presentacion.GestionUsuarios
             ER = (E_RSA)Session["RSAFirmar"];
             EM = (E_Materias)Session["MatFirmar"];
             List<E_Porcentajes> LEPO = NU.BuscaPorcentajes(ER.IdRSA);
-            for (int i = 0; i > 7; i++)
-            {
-                switch (i)
-                {
-                   
-                }
-                    
-                    
-
-            }
             string savePath = "..\\RSA\\";
             var folder = Server.MapPath(savePath + "\\" + EP.NombrePlan);
             if (!Directory.Exists(folder))

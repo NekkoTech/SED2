@@ -255,7 +255,7 @@
                     </div>
                     <div class="modal-footer">
                             <asp:Button ID="btnCancelar" type="button" CssClass="btn btn-success" runat="server" data-dismiss="modal" CausesValidation="false" Text="Cancelar"/>
-                            <asp:Button ID="btnSubirModal" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnGuardarModal_Click" CausesValidation="false" Text="Subir Encuadre"/>
+                            <asp:Button ID="btnSubirModal" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnGuardarModal_Click" Text="Subir Encuadre"/>
                     </div>
                 </div>
             </div>

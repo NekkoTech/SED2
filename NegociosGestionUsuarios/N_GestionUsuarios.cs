@@ -628,33 +628,43 @@ namespace NegociosGestionUsuarios
             table.Columns.Add("Materia", typeof(string));
             table.Columns.Add("Clave", typeof(string));
             table.Columns.Add("Estado", typeof(string));
-            foreach (E_RSA E in ListR)
+            int tieneRSA = 0;
+            foreach (E_Materias M in ListM)
             {
-                foreach (E_Materias M in ListM)
+                foreach (E_RSA E in ListR)
                 {
-                    if (E.IdMateria == M.IdMateria && E.IdCoordinador == IdCoordinador)
+                    if (E.IdMateria == M.IdMateria)
                     {
-                        switch (E.Status)
-                        {
-                            case 0:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
-                                break;
-                            case 1:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
-                                break;
-                            case 2:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
-                                break;
-                            case 3:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
-                                break;
-                            case 4:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
-                                break;
-                        }
-
+                        tieneRSA = 1;
+                        if (E.IdCoordinador == IdCoordinador)
+                            switch (E.Status)
+                            {
+                                case 0:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                                    break;
+                                case 1:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
+                                    break;
+                                case 2:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                    break;
+                                case 3:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                    break;
+                                case 4:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                    break;
+                            }
                     }
                 }
+                if (tieneRSA == 0)
+                {
+                    if (M.IdDocente == IdCoordinador)
+                    {
+                        table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                    }
+                }
+                tieneRSA = 0;
             }
             return table;
         }
@@ -667,12 +677,14 @@ namespace NegociosGestionUsuarios
             table.Columns.Add("Materia", typeof(string));
             table.Columns.Add("Clave", typeof(string));
             table.Columns.Add("Estado", typeof(string));
+            int tieneRSA = 0;
             foreach (E_Materias M in ListM)
             {
                 foreach (E_RSA E in ListR)
                 {
                     if (E.IdMateria == M.IdMateria)
                     {
+                        tieneRSA = 1;
                         if (M.IdDocente == IdDocente)
                         {
                             switch (E.Status)
@@ -695,33 +707,15 @@ namespace NegociosGestionUsuarios
                             }
                         }
                     }
-                    else
-                    {
-                        if (M.IdDocente == IdDocente)
-                        {
-                            if (table.Rows.Count > 0)
-                            {
-                                int aux = 0;
-                                for (int i = 0; i < table.Rows.Count; i++)
-                                {
-                                    DataRow dr = table.Rows[i];
-                                    int id = (int)dr[0];
-                                    
-
-                                        
-                                       
-                                }
-                            }
-                            else
-                            {
-                                table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
-                            }
-                            
-                            
-                        }
-                    }
-                   
                 }
+                if (tieneRSA == 0)
+                {
+                    if (M.IdDocente == IdDocente)
+                    {
+                        table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                    }
+                }
+                tieneRSA = 0;
             }
             return table;
         }

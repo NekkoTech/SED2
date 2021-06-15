@@ -130,17 +130,22 @@ namespace Presentacion.GestionUsuarios
                 savePath += "\\" + fileName;
                 FUModal.SaveAs(savePath);
                 E_Encuadres EE = NU.BuscaEncuadre(EM.IdMateria);
-                EE.NombreEncuadre = fileName;
-                EE.UrlEncuadre = savePath;
-                EE.EstadoEncuadre = 2;
-                if (EE.EstadoEncuadre == 3 || EE.EstadoEncuadre == 3)
+                if (EE != null)
                 {
-                    Master.ModalMsg(NU.ModificarEncuadre(EE));
+                    EE.NombreEncuadre = fileName;
+                    EE.UrlEncuadre = savePath;
+                    EE.EstadoEncuadre = 2;
+                    if (EE.EstadoEncuadre == 3 || EE.EstadoEncuadre == 3)
+                    {
+                        Master.ModalMsg(NU.ModificarEncuadre(EE));
+                    }
+
                 }
-                if (EE == null)
+                else
                 {
                     Master.ModalMsg(NU.InsertaEncuadre(fileName, savePath, EM.IdMateria, SEU.IdUsuario));
                 }
+                
                 
             }
 
