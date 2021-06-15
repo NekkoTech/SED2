@@ -41,7 +41,7 @@
                 </div>
                 <div class="modal-body">
                     <asp:Label ID="LblObservaciones" runat="server" Text="Observaciones:"></asp:Label>
-                    <asp:TextBox ID="tbObservaciones" Width="200" Height="400" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbObservaciones" Width="200" Height="200" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="BtnCancelar" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Regresar" />

@@ -62,6 +62,14 @@ namespace Presentacion.GestionUsuarios
                 {
                     if (!IsPostBack)
                     {
+                        if (ER.Status == 3)
+                        {
+                            E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+                            tbObservaciones.Text = ERD.Observaciones;
+                            tbObservaciones.Enabled = false;
+                            btnModal.Visible = true;
+                        }
+                            
                         tbHorasTeoria.Text = ER.HorasTeoria.ToString();
                         tbHorasLab.Text = ER.HorasLab.ToString();
                         tbHorasTaller.Text = ER.HorasTaller.ToString();
@@ -681,6 +689,9 @@ namespace Presentacion.GestionUsuarios
 
         }
 
-
+        protected void btnObservaciones_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
+        }
     }
 }

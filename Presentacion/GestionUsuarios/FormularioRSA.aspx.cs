@@ -59,6 +59,13 @@ namespace Presentacion.GestionUsuarios
                  
                 if (!IsPostBack)
                 {
+                    if (ER.Status == 3)
+                    {
+                        E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+                        tbObservaciones.Text = ERD.Observaciones;
+                        tbObservaciones.Enabled = false;
+                        btnModal.Visible = true;
+                    }
                     TbCarrera.Text = EP.NombrePlan.ToLowerInvariant();
                     TbSemestre.Text = EM.Semestre.ToString();
                     TbNumEmpleado.Text = EU.NumeroEmpleado;
@@ -143,6 +150,11 @@ namespace Presentacion.GestionUsuarios
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             Response.Redirect("ListaRSADocente.aspx");
+        }
+
+        protected void btnObservaciones_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
         }
     }
 }

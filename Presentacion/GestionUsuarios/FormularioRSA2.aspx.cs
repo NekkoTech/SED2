@@ -61,7 +61,17 @@ namespace Presentacion.GestionUsuarios
                     if (ListEPO.Count > 0)
                     {
                         if (!IsPostBack)
+                        {
                             LlenaCampos();
+                            if (ER.Status == 3)
+                            {
+                                E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+                                tbObservaciones.Text = ERD.Observaciones;
+                                tbObservaciones.Enabled = false;
+                                btnModal.Visible = true;
+                            }
+                        }
+                            
                     }
 
                 }
@@ -291,5 +301,9 @@ namespace Presentacion.GestionUsuarios
             }
         }
 
+        protected void btnObservaciones_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
+        }
     }
 }

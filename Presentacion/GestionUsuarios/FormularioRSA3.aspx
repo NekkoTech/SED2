@@ -83,20 +83,40 @@
 
             </div>
             <div class="col">
-                 <asp:Button runat="server" ID="Button1" CssClass="btn btn-warning boton mb-2 box margen"   Text="Guardar Informacion" OnClick="btnGuardar_Click"></asp:Button>
+                 <asp:Button runat="server" ID="Button1" CssClass="btn btn-warning box mb-2 margen" Font-Size="Large"   Text="Guardar Informacion" OnClick="btnGuardar_Click"></asp:Button>
+            </div>
+             <div class="col">
+                 <asp:Button runat="server" ID="btnModal" CssClass="btn btn-warning mb-2 box margen" Font-Size="Large"  Text="Ver Retroalimentacion" OnClick="btnObservaciones_Click" Visible="false"></asp:Button>
             </div>
             <div class="col">
                  <asp:Button runat="server" ID="btnEnviar" CssClass="btn btn-light boton mb-2 box margen"   Text="Enviar RSA" OnClick="btnEnviar_Click"></asp:Button>
             </div>
          </div>
     </div>
+     <!--Modal De Funcionamiento de peticiones-->
+    <div id="master-modal-Observaciones" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <div id="Div1" runat="server">
+                    <p class="heading lead text-center">Retroalimentacion:</p>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="LblObservaciones" runat="server" Text="Observaciones:"></asp:Label>
+                    <asp:TextBox ID="tbObservaciones" Width="200" Height="200" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btnObservaciones" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Cerrar" CausesValidation="false"/>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        
+
         function openMasterModalPeticion() {
             $('#master-modal-peticiones').modal('show');
         }
-        function openMasterModalAgregar() {
-            $('#master-modal-agregar').modal('show');
+        function openMasterModalObservaciones() {
+            $('#master-modal-Observaciones').modal('show');
         }
     </script>
 </asp:Content>
