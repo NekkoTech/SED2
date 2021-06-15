@@ -77,7 +77,7 @@ namespace Presentacion.GestionUsuarios
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             LlenaPorcentajes();
-            
+
             if (ER.Status == 1)
             {
                 if (NU.ModificarRSA(ER).Contains("Exito"))
@@ -85,19 +85,15 @@ namespace Presentacion.GestionUsuarios
                     List<E_Porcentajes> LEP = NU.BuscaPorcentajes(ER.IdRSA);
                     foreach (E_Porcentajes P in ListEPO)
                     {
-                        string[] tect = P.Tecnica.Split('-');
-                        if (tect[0] != "")
+                        if (LEP.Count != 0)
                         {
-                            if (LEP.Count!=0)
-                            {
-                                string msg=NU.ModificarPorcentajes(P);
-                            }
-                            else
-                            {
-                                string msg=NU.InsertarPorcentajes(P);
-                            }
-                            
+                            string msg = NU.ModificarPorcentajes(P);
                         }
+                        else
+                        {
+                            string msg = NU.InsertarPorcentajes(P);
+                        }
+
                     }
                 }
             }
@@ -106,18 +102,13 @@ namespace Presentacion.GestionUsuarios
                 ER.Status = 1;
                 if (NU.InsertarRSA(ER).Contains("Exito"))
                 {
-                    foreach ( E_Porcentajes P in ListEPO)
+                    foreach (E_Porcentajes P in ListEPO)
                     {
-                        string[] tect = P.Tecnica.Split('-');
-                        if (tect[0] != "")
-                        {
-                            NU.InsertarPorcentajes(P);
-                        }
+                        NU.InsertarPorcentajes(P);
                     }
                 }
             }
-            
-            
+
         }
 
         private void LlenaPorcentajes()
@@ -125,49 +116,49 @@ namespace Presentacion.GestionUsuarios
             ListEPO.Clear();
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[0].IdAtributo;
-            EPO.Tecnica = TbTecnica1.Text+"-1";
+            EPO.Tecnica = TbTecnica1.Text;
             EPO.Porcentaje = Tb11.Text + "-" + Tb12.Text + "-" + Tb13.Text + "-" + Tb14.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[1].IdAtributo;
-            EPO.Tecnica = TbTecnica2.Text + "-2";
+            EPO.Tecnica = TbTecnica2.Text ;
             EPO.Porcentaje = Tb21.Text + "-" + Tb22.Text + "-" + Tb23.Text + "-" + Tb24.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[2].IdAtributo;
-            EPO.Tecnica = TbTecnica3.Text + "-3";
+            EPO.Tecnica = TbTecnica3.Text;
             EPO.Porcentaje = Tb31.Text + "-" + Tb32.Text + "-" + Tb33.Text + "-" + Tb34.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[3].IdAtributo;
-            EPO.Tecnica = TbTecnica4.Text + "-4";
+            EPO.Tecnica = TbTecnica4.Text;
             EPO.Porcentaje = Tb41.Text + "-" + Tb42.Text + "-" + Tb43.Text + "-" + Tb44.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[4].IdAtributo;
-            EPO.Tecnica = TbTecnica5.Text + "-5";
+            EPO.Tecnica = TbTecnica5.Text;
             EPO.Porcentaje = Tb51.Text + "-" + Tb52.Text + "-" + Tb53.Text + "-" + Tb54.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[5].IdAtributo;
-            EPO.Tecnica = TbTecnica6.Text + "-6";
+            EPO.Tecnica = TbTecnica6.Text;
             EPO.Porcentaje = Tb61.Text + "-" + Tb62.Text + "-" + Tb63.Text + "-" + Tb64.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);
 
             EPO = new E_Porcentajes();
             EPO.IdAtributo = LEA[6].IdAtributo;
-            EPO.Tecnica = TbTecnica7.Text + "-7";
+            EPO.Tecnica = TbTecnica7.Text;
             EPO.Porcentaje = Tb71.Text + "-" + Tb72.Text + "-" + Tb73.Text + "-" + Tb74.Text;
             EPO.IdRSA = ER.IdRSA;
             ListEPO.Add(EPO);

@@ -80,18 +80,23 @@ namespace Presentacion.GestionUsuarios
             ER.Programa = TbProgramas.Text;
             ER.Comentarios = TbComentarios.Text;
             ER.Celular = TbCelular.Text;
-            if (ER.Status == 1 || ER.Status==3)
+            if (ER.Status == 1 || ER.Status == 3)
             {
                 ER.Status = 2;
                 if (NU.ModificarRSA(ER).Contains("Exito"))
                 {
+                    List<E_Porcentajes> LEP = NU.BuscaPorcentajes(ER.IdRSA);
                     foreach (E_Porcentajes P in ListEPO)
                     {
-                        string[] tect = P.Tecnica.Split('-');
-                        if (tect[0] != "")
+                        if (LEP.Count != 0)
                         {
-                            NU.ModificarPorcentajes(P);
+                            string msg = NU.ModificarPorcentajes(P);
                         }
+                        else
+                        {
+                            string msg = NU.InsertarPorcentajes(P);
+                        }
+
                     }
                 }
             }
@@ -102,11 +107,7 @@ namespace Presentacion.GestionUsuarios
                 {
                     foreach (E_Porcentajes P in ListEPO)
                     {
-                        string[] tect = P.Tecnica.Split('-');
-                        if (tect[0] != "")
-                        {
-                            NU.InsertarPorcentajes(P);
-                        }
+                        NU.InsertarPorcentajes(P);
                     }
                 }
             }

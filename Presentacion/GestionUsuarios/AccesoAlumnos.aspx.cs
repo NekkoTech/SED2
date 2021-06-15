@@ -18,15 +18,17 @@ namespace Presentacion.GestionUsuarios
         protected void Page_Load(object sender, EventArgs e)
         {
             Email = (MailMessage)Session["Correo"];
+
         }
 
         protected void BtnIngresar_Click(object sender, EventArgs e)
         {
-            EC= NU.BuscaCodAlumno(tbCodigo.Text.ToString());
-            
+            EC = NU.BuscaCodAlumno(tbCodigo.Text.ToString());
+
             if (EC != null)
             {
                 Session["Codigo"] = EC;
+                
                 Response.Redirect("FirmaAlumno.aspx");
             }
             else

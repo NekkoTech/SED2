@@ -259,17 +259,8 @@ namespace Presentacion.GestionUsuarios
         {
             ER = (E_RSA)Session["RSAFirmar"];
             EM = (E_Materias)Session["MatFirmar"];
+            EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
             List<E_Porcentajes> LEPO = NU.BuscaPorcentajes(ER.IdRSA);
-            for (int i = 0; i > 7; i++)
-            {
-                switch (i)
-                {
-                   
-                }
-                    
-                    
-
-            }
             string savePath = "..\\RSA\\";
             var folder = Server.MapPath(savePath + "\\" + EP.NombrePlan);
             if (!Directory.Exists(folder))
@@ -622,59 +613,132 @@ namespace Presentacion.GestionUsuarios
             tbEjemplo12.AddCell(clTecnica);
             tbEjemplo12.AddCell(tbAux);
 
-            PdfPCell clAtributo1;
-            PdfPCell clTecnica1;
-            PdfPCell clnivel4;
-            PdfPCell clnivel3;
-            PdfPCell clnivel2;
-            PdfPCell clnivel1;
+            //Tabla 13
+
+            PdfPCell clAtributo1 = new PdfPCell(new Phrase("1", texto));
+            clAtributo1.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica1 = new PdfPCell(new Phrase(""+LEPO[0].Tecnica, texto));
+            string[] aux = LEPO[0].Porcentaje.Split('-');
+            PdfPCell clnivel4 = new PdfPCell(new Phrase(""+aux[0], texto));
+            PdfPCell clnivel3 = new PdfPCell(new Phrase("" + aux[1], texto));
+            PdfPCell clnivel2 = new PdfPCell(new Phrase("" + aux[2], texto));
+            PdfPCell clnivel1 = new PdfPCell(new Phrase("" + aux[3], texto));
             float[] widths13 = new float[] { 0.5f, 0.8f, 0.3f, 0.3f, 0.3f, 0.3f };
-            for (int i = 0; i < 7; i++)
-            {
-                int e = i + 1;
-                if (ListEPO.Count > i)
-                {
-                    string[] port = ListEPO[i].Porcentaje.Split('-');
-                    string[] text = ListEPO[i].Tecnica.Split('-');
-                    if (port[1] == i.ToString())
-                    {
-                        clAtributo1 = new PdfPCell(new Phrase("" + e, texto));
-                        clAtributo1.HorizontalAlignment = Element.ALIGN_CENTER;
-                        clTecnica1 = new PdfPCell(new Phrase(text[0], texto));
-                        clnivel4 = new PdfPCell(new Phrase(port[3], texto));
-                        clnivel3 = new PdfPCell(new Phrase(port[2], texto));
-                        clnivel2 = new PdfPCell(new Phrase(port[1], texto));
-                        clnivel1 = new PdfPCell(new Phrase(port[0], texto));
-                        tbEjemplo13.SetWidths(widths13);
-                        tbEjemplo13.AddCell(clAtributo1);
-                        tbEjemplo13.AddCell(clTecnica1);
-                        tbEjemplo13.AddCell(clnivel4);
-                        tbEjemplo13.AddCell(clnivel3);
-                        tbEjemplo13.AddCell(clnivel2);
-                        tbEjemplo13.AddCell(clnivel1);
-                    }
-                }
-                else
-                {
-                    clAtributo1 = new PdfPCell(new Phrase("" + e, texto));
-                    clAtributo1.HorizontalAlignment = Element.ALIGN_CENTER;
-                    clTecnica1 = new PdfPCell(new Phrase("", texto));
-                    clnivel4 = new PdfPCell(new Phrase("", texto));
-                    clnivel3 = new PdfPCell(new Phrase("", texto));
-                    clnivel2 = new PdfPCell(new Phrase("", texto));
-                    clnivel1 = new PdfPCell(new Phrase("", texto));
-                    tbEjemplo13.SetWidths(widths13);
-                    tbEjemplo13.AddCell(clAtributo1);
-                    tbEjemplo13.AddCell(clTecnica1);
-                    tbEjemplo13.AddCell(clnivel4);
-                    tbEjemplo13.AddCell(clnivel3);
-                    tbEjemplo13.AddCell(clnivel2);
-                    tbEjemplo13.AddCell(clnivel1);
-                }
+            tbEjemplo13.SetWidths(widths13);
+            tbEjemplo13.AddCell(clAtributo1);
+            tbEjemplo13.AddCell(clTecnica1);
+            tbEjemplo13.AddCell(clnivel4);
+            tbEjemplo13.AddCell(clnivel3);
+            tbEjemplo13.AddCell(clnivel2);
+            tbEjemplo13.AddCell(clnivel1);
 
+            //Tabla 14
+            PdfPCell clAtributo2 = new PdfPCell(new Phrase("2", texto));
+            clAtributo2.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica2 = new PdfPCell(new Phrase(""+LEPO[1].Tecnica, texto));
+            string[] aux2 = LEPO[1].Porcentaje.Split('-');
+            PdfPCell clnivel42 = new PdfPCell(new Phrase("" + aux2[0], texto));
+            PdfPCell clnivel32 = new PdfPCell(new Phrase("" + aux2[1], texto));
+            PdfPCell clnivel22 = new PdfPCell(new Phrase("" + aux2[2], texto));
+            PdfPCell clnivel12 = new PdfPCell(new Phrase("" + aux2[3], texto));
 
+            tbEjemplo14.SetWidths(widths13);
+            tbEjemplo14.AddCell(clAtributo2);
+            tbEjemplo14.AddCell(clTecnica2);
+            tbEjemplo14.AddCell(clnivel42);
+            tbEjemplo14.AddCell(clnivel32);
+            tbEjemplo14.AddCell(clnivel22);
+            tbEjemplo14.AddCell(clnivel12);
 
-            }
+            //Tabla 15
+            PdfPCell clAtributo3 = new PdfPCell(new Phrase("3", texto));
+            clAtributo3.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica3 = new PdfPCell(new Phrase(""+LEPO[2].Tecnica, texto));
+            string[] aux3 = LEPO[2].Porcentaje.Split('-');
+            PdfPCell clnivel43 = new PdfPCell(new Phrase(""+aux3[0], texto));
+            PdfPCell clnivel33 = new PdfPCell(new Phrase("" + aux3[1], texto));
+            PdfPCell clnivel23 = new PdfPCell(new Phrase("" + aux3[2], texto));
+            PdfPCell clnivel13 = new PdfPCell(new Phrase("" + aux3[3], texto));
+
+            tbEjemplo15.SetWidths(widths13);
+            tbEjemplo15.AddCell(clAtributo3);
+            tbEjemplo15.AddCell(clTecnica3);
+            tbEjemplo15.AddCell(clnivel43);
+            tbEjemplo15.AddCell(clnivel33);
+            tbEjemplo15.AddCell(clnivel23);
+            tbEjemplo15.AddCell(clnivel13);
+
+            //Tabla 16
+            PdfPCell clAtributo4 = new PdfPCell(new Phrase("4", texto));
+            clAtributo4.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica4 = new PdfPCell(new Phrase(""+LEPO[3].Tecnica, texto));
+            string[] aux4 = LEPO[3].Porcentaje.Split('-');
+            PdfPCell clnivel44 = new PdfPCell(new Phrase(""+aux4[0], texto));
+            PdfPCell clnivel34 = new PdfPCell(new Phrase("" + aux4[1], texto));
+            PdfPCell clnivel24 = new PdfPCell(new Phrase("" + aux4[2], texto));
+            PdfPCell clnivel14 = new PdfPCell(new Phrase("" + aux4[3], texto));
+
+            tbEjemplo16.SetWidths(widths13);
+            tbEjemplo16.AddCell(clAtributo4);
+            tbEjemplo16.AddCell(clTecnica4);
+            tbEjemplo16.AddCell(clnivel44);
+            tbEjemplo16.AddCell(clnivel34);
+            tbEjemplo16.AddCell(clnivel24);
+            tbEjemplo16.AddCell(clnivel14);
+
+            //Tabla 17
+            PdfPCell clAtributo5 = new PdfPCell(new Phrase("5", texto));
+            clAtributo5.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica5 = new PdfPCell(new Phrase(""+LEPO[4].Tecnica, texto));
+            string[] aux5 = LEPO[4].Porcentaje.Split('-');
+            PdfPCell clnivel45 = new PdfPCell(new Phrase("" + aux5[0], texto));
+            PdfPCell clnivel35 = new PdfPCell(new Phrase("" + aux5[1], texto));
+            PdfPCell clnivel25 = new PdfPCell(new Phrase("" + aux5[2], texto));
+            PdfPCell clnivel15 = new PdfPCell(new Phrase("" + aux5[3], texto));
+
+            tbEjemplo17.SetWidths(widths13);
+            tbEjemplo17.AddCell(clAtributo5);
+            tbEjemplo17.AddCell(clTecnica5);
+            tbEjemplo17.AddCell(clnivel45);
+            tbEjemplo17.AddCell(clnivel35);
+            tbEjemplo17.AddCell(clnivel25);
+            tbEjemplo17.AddCell(clnivel15);
+
+            //Tabla 18
+            PdfPCell clAtributo6 = new PdfPCell(new Phrase("6", texto));
+            clAtributo6.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica6 = new PdfPCell(new Phrase(""+LEPO[5].Tecnica, texto));
+            string[] aux6 = LEPO[5].Porcentaje.Split('-');
+            PdfPCell clnivel46 = new PdfPCell(new Phrase("" + aux6[0], texto));
+            PdfPCell clnivel36 = new PdfPCell(new Phrase("" + aux6[1], texto));
+            PdfPCell clnivel26 = new PdfPCell(new Phrase("" + aux6[2], texto));
+            PdfPCell clnivel16 = new PdfPCell(new Phrase("" + aux6[3], texto));
+
+            tbEjemplo18.SetWidths(widths13);
+            tbEjemplo18.AddCell(clAtributo6);
+            tbEjemplo18.AddCell(clTecnica6);
+            tbEjemplo18.AddCell(clnivel46);
+            tbEjemplo18.AddCell(clnivel36);
+            tbEjemplo18.AddCell(clnivel26);
+            tbEjemplo18.AddCell(clnivel16);
+
+            //Tabla 19
+            PdfPCell clAtributo7 = new PdfPCell(new Phrase("7", texto));
+            clAtributo7.HorizontalAlignment = Element.ALIGN_CENTER;
+            PdfPCell clTecnica7 = new PdfPCell(new Phrase(""+LEPO[6].Tecnica, texto));
+            string[] aux7 = LEPO[6].Porcentaje.Split('-');
+            PdfPCell clnivel47 = new PdfPCell(new Phrase(""+aux7[0], texto));
+            PdfPCell clnivel37 = new PdfPCell(new Phrase("" + aux7[1], texto));
+            PdfPCell clnivel27 = new PdfPCell(new Phrase("" + aux7[2], texto));
+            PdfPCell clnivel17 = new PdfPCell(new Phrase("" + aux7[3], texto));
+
+            tbEjemplo19.SetWidths(widths13);
+            tbEjemplo19.AddCell(clAtributo7);
+            tbEjemplo19.AddCell(clTecnica7);
+            tbEjemplo19.AddCell(clnivel47);
+            tbEjemplo19.AddCell(clnivel37);
+            tbEjemplo19.AddCell(clnivel27);
+            tbEjemplo19.AddCell(clnivel17);
 
 
             //Tabla 20
