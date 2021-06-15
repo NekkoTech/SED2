@@ -22,7 +22,7 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnIngresar_Click(object sender, EventArgs e)
         {
-            EC= NU.BuscaCodAlumno(tbCodigo.ToString());
+            EC= NU.BuscaCodAlumno(tbCodigo.Text.ToString());
             
             if (EC != null)
             {

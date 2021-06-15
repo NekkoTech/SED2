@@ -100,16 +100,16 @@ namespace Presentacion.GestionUsuarios
             if (FUModal.HasFile)
             {
                 string savePath = "..\\Encuadres\\";
-                var folder = Server.MapPath(savePath+"\\"+EP.NombrePlan);
+                var folder = Server.MapPath(savePath + "\\" + EP.NombrePlan);
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
-                    
+
                 }
                 savePath = folder;
-                string fileName = EM.Clave+"-"+EM.Materia.Trim()+".pdf";
-                string pathToCheck = folder+ "\\" +fileName;
-                string tempfileName = "";        
+                string fileName = EM.Clave + "-" + EM.Materia.Trim() + ".pdf";
+                string pathToCheck = folder + "\\" + fileName;
+                string tempfileName = "";
                 if (System.IO.File.Exists(pathToCheck))
                 {
                     int counter = 2;
@@ -127,9 +127,21 @@ namespace Presentacion.GestionUsuarios
                 {
                     Master.ModalMsg("Exito: El Archivo fue agregado con exito");
                 }
-                savePath += "\\"+fileName;
+                savePath += "\\" + fileName;
                 FUModal.SaveAs(savePath);
-                Master.ModalMsg(NU.InsertaEncuadre(fileName, savePath, EM.IdMateria, SEU.IdUsuario));
+                E_Encuadres EE = NU.BuscaEncuadre(EM.IdMateria);
+                EE.NombreEncuadre = fileName;
+                EE.UrlEncuadre = savePath;
+                EE.EstadoEncuadre = 2;
+                if (EE.EstadoEncuadre == 3 || EE.EstadoEncuadre == 3)
+                {
+                    Master.ModalMsg(NU.ModificarEncuadre(EE));
+                }
+                if (EE == null)
+                {
+                    Master.ModalMsg(NU.InsertaEncuadre(fileName, savePath, EM.IdMateria, SEU.IdUsuario));
+                }
+                
             }
 
         }

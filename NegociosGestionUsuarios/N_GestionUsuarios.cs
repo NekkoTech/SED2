@@ -58,35 +58,18 @@ namespace NegociosGestionUsuarios
             }
             return "Error: Los datos del usuario no pudieron ser modificados correctamente.";*/
         }
-        public string BorraCodAlumno(int pIdCodAlumno)
-        {
-            E_CodAlumno ECA = new E_CodAlumno()
-            {
-                Accion = "BORRAR",
-                IdCodAlumno = pIdCodAlumno
-            };
-            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", ECA).Contains("Exito"))
-                return "Exito: El registro fue borrado";
-            return "Error: El registro no pudo ser borrado";
-        }
+        
 
-        public string InsertarCodAlumno(E_CodAlumno EntidadCodAlumno)
-        {
-            EntidadCodAlumno.Accion = "INSERTAR";
-
-            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", EntidadCodAlumno).Contains("Exito"))
-                return "Exito: Correo enviado";
-            return "Error: No se pudo enviar el correo";
-        }
-        public DataTable DT_LstCodAlumno() { return SQLD.DT_ListadoGeneral("CodAlumno", "IdCodAlumno, IdRSA, Codigo"); }
+       
+        
         
        
         public DataTable DT_LstUsuarios() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
         public DataTable DT_LstUsuariosBloqueados() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Bloqueos", "IdUsuario"); }
         public List<E_Usuarios> LstUsuarios() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuarios()); }
         public List<E_Usuarios> LstUsuariosBloqueados() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Usuarios>(DT_LstUsuariosBloqueados()); }
-        public List<E_CodAlumno> LstCodAlumno() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_CodAlumno>(DT_LstCodAlumno()); }
-
+        
+        
         public E_Usuarios BuscaUsuario(int pIDUsuario)
         { return (from Usuario in LstUsuarios() where Usuario.IdUsuario == pIDUsuario select Usuario).FirstOrDefault(); }
 
@@ -99,8 +82,7 @@ namespace NegociosGestionUsuarios
         public List<E_Usuarios> BuscaUsuarioTipo(int Tipo)
         { return (from Usuario in LstUsuarios() where Usuario.IdTipoUsuario == Tipo select Usuario).ToList(); }
 
-        public E_CodAlumno BuscaCodAlumno(string Codigo)
-        { return (from CodAlumno in LstCodAlumno() where CodAlumno.Codigo == Codigo select CodAlumno).FirstOrDefault(); }
+      
         public List<E_Usuarios> LstBuscaUsuarios(string Criterio)
         {
             return (from Usuario in LstUsuarios()
@@ -123,6 +105,35 @@ namespace NegociosGestionUsuarios
 
         public E_Usuarios ValidaUsuario(string email, string pass)
         { return (from Usuario in LstUsuarios() where Usuario.EmailUsuario == email && Usuario.PassWordUsuario == pass select Usuario).FirstOrDefault(); }
+
+        public DataTable DT_LstCodAlumno() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("CodAlumno", "IdCodAlumno, IdRSA, Codigo"); }
+        public List<E_CodAlumno> LstCodAlumno() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_CodAlumno>(DT_LstCodAlumno()); }
+        /*public E_CodAlumno BuscaCodAlumno(string Codigo)
+        { return (from CodAlumno in LstCodAlumno() where CodAlumno.Codigo == Codigo select CodAlumno).FirstOrDefault(); }*/
+        public E_CodAlumno BuscaCodAlumno(string Cod)
+        { return (from Codigo in LstCodAlumno() where Codigo.Codigo == Cod select Codigo).FirstOrDefault(); }
+        public E_CodAlumno BuscaCodAlumnoRSA(int RSA)
+        { return (from Codigo in LstCodAlumno() where Codigo.IdRSA==RSA select Codigo).FirstOrDefault(); }
+        public string BorraCodAlumno(int pIdCodAlumno)
+        {
+            E_CodAlumno ECA = new E_CodAlumno()
+            {
+                Accion = "BORRAR",
+                IdCodAlumno = pIdCodAlumno
+            };
+            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", ECA).Contains("Exito"))
+                return "Exito: El registro fue borrado";
+            return "Error: El registro no pudo ser borrado";
+        }
+        public string InsertarCodAlumno(E_CodAlumno EntidadCodAlumno)
+        {
+            EntidadCodAlumno.Accion = "INSERTAR";
+
+            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", EntidadCodAlumno).Contains("Exito"))
+                return "Exito: Correo enviado";
+            return "Error: No se pudo enviar el correo";
+        }
+       
         /// <summary>
         /// Segmento de codigo de Negocios Para el manejo de los codigos de comprobacion
         /// </summary>
@@ -232,30 +243,7 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Firma no pudo ser ingresada";
         }
-        public DataTable DT_LstCodAlumno() { return SQLD.DT_ListadoGeneral("CodAlumno", "IdCodAlumno, IdRSA, Codigo"); }
-        public List<E_CodAlumno> LstCodAlumno() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_CodAlumno>(DT_LstCodAlumno()); }
-        public E_CodAlumno BuscaCodAlumno(int IdCodAlumno)
-        { return (from CodAlumno in LstCodAlumno() where CodAlumno.IdCodAlumno == IdCodAlumno select CodAlumno).FirstOrDefault(); }
-        public string BorraCodAlumno(int pIdCodAlumno)
-        {
-            E_CodAlumno ECA = new E_CodAlumno()
-            {
-                Accion = "BORRAR",
-                IdCodAlumno = pIdCodAlumno
-            };
-            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", ECA).Contains("Exito"))
-                return "Exito: El registro fue borrado";
-            return "Error: El registro no pudo ser borrado";
-        }
-
-        public string InsertarCodAlumno(E_CodAlumno EntidadCodAlumno)
-        {
-            EntidadCodAlumno.Accion = "INSERTAR";
-
-            if (SQLD.IBM_Entidad<E_CodAlumno>("IB_CodAlumno", EntidadCodAlumno).Contains("Exito"))
-                return "Exito: Correo enviado";
-            return "Error: No se pudo enviar el correo";
-        }
+        
         /// <summary>
         /// Segmento de Negocios Para Planes de Estudio Y atributos
         /// </summary>
@@ -666,6 +654,73 @@ namespace NegociosGestionUsuarios
                         }
 
                     }
+                }
+            }
+            return table;
+        }
+        public DataTable LstMateriasInnerJoinRSADocente(int IdDocente)
+        {
+            List<E_Materias> ListM = BuscaMateriasDocente(IdDocente);
+            List<E_RSA> ListR = LstRSA();
+            DataTable table = new DataTable();
+            table.Columns.Add("IdMateria", typeof(int));
+            table.Columns.Add("Materia", typeof(string));
+            table.Columns.Add("Clave", typeof(string));
+            table.Columns.Add("Estado", typeof(string));
+            foreach (E_Materias M in ListM)
+            {
+                foreach (E_RSA E in ListR)
+                {
+                    if (E.IdMateria == M.IdMateria)
+                    {
+                        if (M.IdDocente == IdDocente)
+                        {
+                            switch (E.Status)
+                            {
+                                case 0:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                                    break;
+                                case 1:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
+                                    break;
+                                case 2:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                    break;
+                                case 3:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                    break;
+                                case 4:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                    break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (M.IdDocente == IdDocente)
+                        {
+                            if (table.Rows.Count > 0)
+                            {
+                                int aux = 0;
+                                for (int i = 0; i < table.Rows.Count; i++)
+                                {
+                                    DataRow dr = table.Rows[i];
+                                    int id = (int)dr[0];
+                                    
+
+                                        
+                                       
+                                }
+                            }
+                            else
+                            {
+                                table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                            }
+                            
+                            
+                        }
+                    }
+                   
                 }
             }
             return table;

@@ -40,6 +40,7 @@ namespace Presentacion.GestionUsuarios
             }
             GvMaterias.DataSource = NU.BuscaMateriasDocente(EU.IdUsuario);
             GvMaterias.DataBind();
+            
             if (GvMaterias.Rows.Count == 0)
                 Master.ModalMsg("Error:No hay Materias Registradas");
 
