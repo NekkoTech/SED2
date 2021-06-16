@@ -32,8 +32,7 @@ namespace Presentacion.GestionUsuarios
                 EP = (E_PlanEstudio)Session["Plan"];
                 ListAtrib = NU.BuscaAtributos(EP.IdPlan);
                 PEU = NU.BuscaUsuario(EP.IdCoordinador);
-                DdlCoordinadores.Items.Add(new ListItem("Coordinador " + PEU.NombreUsuario + " " + PEU.APaternoUsuario + " " + PEU.AMaternoUsuario, PEU.IdUsuario.ToString()));
-                DdlCoordinadores.SelectedValue = EP.IdCoordinador.ToString();
+                
             }
             if (!IsPostBack)
             {
@@ -45,7 +44,8 @@ namespace Presentacion.GestionUsuarios
                 }
                 else
                 {
-                    
+                    DdlCoordinadores.Items.Add(new ListItem("Coordinador " + PEU.NombreUsuario + " " + PEU.APaternoUsuario + " " + PEU.AMaternoUsuario, PEU.IdUsuario.ToString()));
+                    DdlCoordinadores.SelectedValue = EP.IdCoordinador.ToString();
                     BtnModificar.Visible = true;
                     BtnGuardar.Visible = false;
                     

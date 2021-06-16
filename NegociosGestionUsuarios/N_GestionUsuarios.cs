@@ -904,7 +904,7 @@ namespace NegociosGestionUsuarios
                             E_PlanEstudio EP = BuscaPlanCoordinador(u.IdUsuario);
                             if (EP == null)
                             {
-                                dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
+                                dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + " " + u.AMaternoUsuario, u.IdUsuario.ToString()));
                             }
 
                         }
