@@ -12,7 +12,8 @@ namespace Presentacion.GestionUsuarios
         DateTime myDateTime = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+                CInicio.SelectedDate = myDateTime;
         }
 
         protected void IBInicio_Click(object sender, ImageClickEventArgs e)
@@ -56,13 +57,17 @@ namespace Presentacion.GestionUsuarios
             {
                 date1 = Convert.ToDateTime(tbInicio.Text).Date;
                 date2 = Convert.ToDateTime(tbFinal.Text).Date;
-                switch(DateTime.Compare(date1, date2))
+                int i = DateTime.Compare(date1, date2);
+                switch (i)
                 {
-                    case -1:Master.ModalMsg("Error: La fecha Iniciar es mayor que la Fecha final");
+                    case -1:
+
                         break;
-                    case 0:Master.ModalMsg("Error: Las fechas son iguales");
+                    case 0:
+                        Master.ModalMsg("Error: Las fechas son iguales");
                         break;
                     case 1:
+                        Master.ModalMsg("Error: La fecha Iniciar es mayor que la Fecha final");
                         break;
                 }
                 

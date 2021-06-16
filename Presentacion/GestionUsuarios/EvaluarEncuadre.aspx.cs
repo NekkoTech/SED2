@@ -86,23 +86,30 @@ namespace Presentacion.GestionUsuarios
             E_Usuarios aux = NU.BuscaUsuario(EM.IdDocente);
             try
             {
+                if (EE.Observaciones != string.Empty)
+                {
+                    MailMessage Email = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                    Email.SubjectEncoding = Encoding.UTF8;
+                    Email.BodyEncoding = Encoding.UTF8;
+                    Email.From = new MailAddress("SedFiad@gmail.com", "Administrador del sistema");
+                    Email.Subject = "Notificaciones SED: Estado de Encuadre";
+                    Email.Body = "Hola, te notificamos que tu encuadre de la materia " + Mat.Materia.ToLowerInvariant() + " ha sigo rechazado, le recomendamos que revise las observaciones y que vuelva a subirlo";
 
-                MailMessage Email = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                Email.SubjectEncoding = Encoding.UTF8;
-                Email.BodyEncoding = Encoding.UTF8;
-                Email.From = new MailAddress("SedFiad@gmail.com", "Administrador del sistema");
-                Email.Subject = "Notificaciones SED: Estado de Encuadre";
-                Email.Body = "Hola, te notificamos que tu encuadre de la materia "+Mat.Materia.ToLowerInvariant()+" ha sigo rechazado, le recomendamos que revise las observaciones y que vuelva a subirlo";
 
+                    Email.To.Add(aux.EmailUsuario);
+                    SmtpServer.Port = 587; //SMTP de GMAIL
+                    SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
+                    SmtpServer.EnableSsl = true;
+                    SmtpServer.Send(Email);
+                    Master.ModalMsg(NU.ModificarEncuadre(EE));
 
-                Email.To.Add(aux.EmailUsuario);
-                SmtpServer.Port = 587; //SMTP de GMAIL
-                SmtpServer.Credentials = new NetworkCredential("SedFiad@gmail.com", "SEDFIAD@");      //Hay que crear las credenciales del correo emisor
-                SmtpServer.EnableSsl = true;
-                SmtpServer.Send(Email);
-                Master.ModalMsg(NU.ModificarEncuadre(EE));
-                
+                }
+                else
+                {
+                    Master.ModalMsg("Llene el campo de observaciones para darle retroalimentacion al Docente");
+                }
+
             }
             catch (SmtpException ex)
             {

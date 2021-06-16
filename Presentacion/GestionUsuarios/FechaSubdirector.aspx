@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterSubdirectorMenu.Master" AutoEventWireup="true" CodeBehind="FechaSubdirector.aspx.cs" Inherits="Presentacion.GestionUsuarios.FechaSubdirector" %>
 
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterDocenteMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterSubdirectorMenu.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">

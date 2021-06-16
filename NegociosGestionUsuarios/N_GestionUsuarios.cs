@@ -874,6 +874,38 @@ namespace NegociosGestionUsuarios
                 return "Exito: Procentaje Eliminado.";
             return "Error: No pudo ser eliminar el porcentaje.";
         }
+        /// <summary>
+        /// Manejo de las fechas
+        /// </summary>
+        /// <param name="EntidadFecha"></param>
+        /// <returns></returns>
+        public string InsertarFecha(E_Fecha EntidadFecha)
+        {
+            EntidadFecha.Accion = "INSERTAR";
+            if (SQLD.IBM_Entidad<E_Fecha>("IBM_Fecha", EntidadFecha).Contains("Exito"))
+                return "Exito: Fecha insertada.";
+            return "Error: No se pudo agregar la fecha.";
+        }
+        public string ModificarFecha(E_Fecha EntidadFecha)
+        {
+            EntidadFecha.Accion = "MODIFICAR";
+            if (SQLD.IBM_Entidad<E_Fecha>("IBM_Fecha", EntidadFecha).Contains("Exito"))
+                return "Exito: La fecha fue Modificado.";
+            return "Error: No se pudo modicar la fecha.";
+        }
+        public string EliminarFecha(E_Fecha EntidadFecha)
+        {
+            EntidadFecha.Accion = "BORRAR";
+            if (SQLD.IBM_Entidad<E_Fecha>("IBM_Fecha", EntidadFecha).Contains("Exito"))
+                return "Exito: La fecha fue eliminada.";
+            return "Error: No se pudo eliminar la fecha.";
+        }
+        public DataTable DT_LstFecha() { return SQLD.DT_ListadoGeneral("Fecha", "IdFecha, FechaInicial, FechaFinal, isGlobal, IdPlanEstudio"); }
+        public List<E_Fecha> LstFecha() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Fecha>(DT_LstFecha()); }
+        public E_Fecha BuscaFechaPlanEstudio(int IdPlanEstudio)
+        { return (from Fecha in LstFecha() where Fecha.IdPlanEstudio == IdPlanEstudio select Fecha).FirstOrDefault(); }
+        public E_Fecha BuscaFecha(int IdFecha)
+        { return (from Fecha in LstFecha() where Fecha.IdFecha == IdFecha select Fecha).FirstOrDefault(); }
 
         /// <summary>
         /// Funciones De Funcionamiento

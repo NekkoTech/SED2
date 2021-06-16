@@ -27,6 +27,7 @@ namespace Presentacion.GestionUsuarios
             }
             else
             {
+                SEU = (E_Usuarios)Session["Usuario"];
                 if (SEU.IdTipoUsuario == 3)
                 {
                     EP = NU.BuscaPlanCoordinador(SEU.IdUsuario);
