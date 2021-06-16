@@ -32,6 +32,9 @@ namespace Presentacion.GestionUsuarios
             SEU = (E_Usuarios)Session["Usuario"];
             switch (SEU.IdTipoUsuario)
             {
+                case 1:
+                    Response.Redirect("InicioMain.aspx");
+                    break;
                 case 4:
                     Response.Redirect("InicioDocente.aspx");
                     break;

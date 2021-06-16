@@ -20,11 +20,15 @@ namespace Presentacion.GestionUsuarios
                 Response.Redirect("ValidaUsuario.aspx");
             }
             EU = (E_Usuarios)Session["Usuario"];
-            tbNombre.Text = EU.NombreUsuario;
-            tbAPat.Text = EU.APaternoUsuario;
-            tbAMat.Text = EU.AMaternoUsuario;
-            tbEmail.Text = EU.EmailUsuario;
-            tbNumeroEmpleado.Text = EU.NumeroEmpleado;
+            if (!IsPostBack)
+            {
+                tbNombre.Text = EU.NombreUsuario;
+                tbAPat.Text = EU.APaternoUsuario;
+                tbAMat.Text = EU.AMaternoUsuario;
+                tbEmail.Text = EU.EmailUsuario;
+                tbNumeroEmpleado.Text = EU.NumeroEmpleado;
+            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
