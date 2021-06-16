@@ -906,6 +906,8 @@ namespace NegociosGestionUsuarios
         { return (from Fecha in LstFecha() where Fecha.IdPlanEstudio == IdPlanEstudio select Fecha).FirstOrDefault(); }
         public E_Fecha BuscaFecha(int IdFecha)
         { return (from Fecha in LstFecha() where Fecha.IdFecha == IdFecha select Fecha).FirstOrDefault(); }
+        public E_Fecha BuscaGlobal()
+        { return (from Fecha in LstFecha() where Fecha.isGlobal == 1 select Fecha).FirstOrDefault(); }
 
         /// <summary>
         /// Funciones De Funcionamiento

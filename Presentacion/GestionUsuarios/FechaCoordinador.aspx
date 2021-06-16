@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginasMaestras/MasterCoordinadorMenu.Master" AutoEventWireup="true" CodeBehind="FechaCoordinador.aspx.cs" Inherits="Presentacion.GestionUsuarios.FechaCoordinador" %>
+
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CphContenedorBase" runat="server">
@@ -35,7 +37,7 @@
             </table>
                 </div>
                 </div>
-                    <asp:Button ID="btnGuardar" runat="server" CssClass="btn-success rounded" Text="Guardar Fechas" Width="150px" />
+                    <asp:Button ID="btnGuardar" runat="server" CssClass="btn-success rounded" Text="Guardar Fechas" Width="150px" OnClick="btnGuardar_Click1" />
                 </div>
 
             </div>

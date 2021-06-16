@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
-    
-    
-    public partial class FechaCoordinador {
-        
+namespace Presentacion.GestionUsuarios
+{
+
+
+    public partial class FechaCoordinador
+    {
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control Label2.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// Control lblFechas.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechas;
-        
+
         /// <summary>
         /// Control lblInicio.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInicio;
-        
+
         /// <summary>
         /// Control tbInicio.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbInicio;
-        
+
         /// <summary>
         /// Control IBInicio.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton IBInicio;
-        
+
         /// <summary>
         /// Control CInicio.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar CInicio;
-        
+
         /// <summary>
         /// Control lblFinal.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFinal;
-        
+
         /// <summary>
         /// Control tbFinal.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbFinal;
-        
+
         /// <summary>
         /// Control IBFinal.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton IBFinal;
-        
+
         /// <summary>
         /// Control CFinal.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar CFinal;
-        
+
         /// <summary>
         /// Control btnGuardar.
         /// </summary>
@@ -119,5 +121,19 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterCoordinadorMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterCoordinadorMenu)(base.Master));
+            }
+        }
     }
 }

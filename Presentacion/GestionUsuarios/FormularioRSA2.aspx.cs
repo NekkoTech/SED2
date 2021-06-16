@@ -50,7 +50,7 @@ namespace Presentacion.GestionUsuarios
             ER = (E_RSA)Session["RSA"];
             EU = (E_Usuarios)Session["Usuario"];
             EM = (E_Materias)Session["Materia"];
-            EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
+            //EP = NU.Plan
             if (ER != null)
             {
                 LEA = NU.BuscaAtributos(EP.IdPlan);

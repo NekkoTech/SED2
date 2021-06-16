@@ -487,7 +487,7 @@ namespace EntidadesGestionUsuarios
         private int _IdFecha;
         private DateTime _FechaInicial;
         private DateTime _FechaFinal;
-        private int _Global;
+        private int _isGlobal;
         private int _IdPlanEstudio;
         #endregion
         #region Encapsulamientos
@@ -495,7 +495,7 @@ namespace EntidadesGestionUsuarios
         public int IdFecha { get => _IdFecha; set => _IdFecha = value; }
         public DateTime FechaInicial { get => _FechaInicial; set => _FechaInicial = value; }
         public DateTime FechaFinal { get => _FechaFinal; set => _FechaFinal = value; }
-        public int Global { get => _Global; set => _Global = value; }
+        public int isGlobal { get => _isGlobal; set => _isGlobal = value; }
         public int IdPlanEstudio { get => _IdPlanEstudio; set => _IdPlanEstudio = value; }
 
         #endregion
@@ -507,7 +507,7 @@ namespace EntidadesGestionUsuarios
             IdFecha = 0;
             FechaInicial = new DateTime();
             FechaFinal = new DateTime();
-            Global = 0;
+            isGlobal = 0;
             IdPlanEstudio = 0;
         }
 

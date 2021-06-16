@@ -66,6 +66,9 @@
                                 <li class="nav-item"><a class="nav-link" href="ListaRSA.aspx">RSA</a></li>
                             </div>
                             <div class="col-sm">
+                                <li class="nav-item"><a class="nav-link" href="FechaCoordinador.aspx">Asignar Fechas</a></li>
+                            </div>
+                            <div class="col-sm">
                                 <li class="nav-item"><a class="nav-link" href="#">Cuenta</a></li>
                             </div>
                             <div class="col-sm">
