@@ -102,7 +102,7 @@
                         <span id="ModalBody" runat="server"></span>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="BtnEntendido" runat="server" Text="Entendido" data-dismiss="modal"/>
+                        <asp:Button ID="BtnEntendido" runat="server" Text="Entendido" CausesValidation="false" data-dismiss="modal"/>
                     </div>
                 </div>
             </div>

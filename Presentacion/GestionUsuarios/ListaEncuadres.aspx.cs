@@ -93,6 +93,10 @@ namespace Presentacion.GestionUsuarios
                         Session["Encuadre"] = EE;
                         Response.Redirect("EvaluarEncuadre.aspx");
                     }
+                    if (EE.EstadoEncuadre ==1)
+                    {
+                        Master.ModalMsg("Informacion: El docente no ha enviado el encuadre");
+                    }
                     else
                     {
                         Master.ModalMsg("Informacion: El encuadre ya fue evaluado");

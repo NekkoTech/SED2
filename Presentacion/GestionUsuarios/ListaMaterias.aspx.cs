@@ -80,6 +80,8 @@ namespace Presentacion.GestionUsuarios
             
         }
 
+        
+
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             Session["Mensaje"] = "Agregar";
@@ -91,42 +93,86 @@ namespace Presentacion.GestionUsuarios
             Session["Mensaje"] = "Agregar";
             Response.Redirect("IbmMateria.aspx");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         protected void Eliminar_Click(object sender, EventArgs e)
         {
             EM =(E_Materias) Session["Materia"];
             List<E_Atributos> LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
+            List<E_Encuadres> LEE = NU.BuscaEncuadreMateria(EM.IdMateria);
+            E_RSA ER = NU.BuscaRSA(EM.IdMateria);
+            if (ER != null)
+            {
+                NU.EliminarRSA(ER);
+                E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+                List<E_Porcentajes> LEP = NU.BuscaPorcentajes(ER.IdRSA);
+                foreach (E_Porcentajes c in LEP)
+                {
+                    NU.EliminarPorcentajes(c);
+                }
+                NU.EliminarRSAPDF(ERD.IdRSADocumento);
+            }
+
             int i = 0;
             foreach (E_Atributos a in LEA)
             {
                 if (NU.EliminarAtributoMateria(EM.IdMateria, a.IdAtributo).Contains("Exito"))
                 {
                     i++;
-                    //Master.ModalMsg("Exito: La materia fue insertada con Exito");
                 }
                 else
                 {
                     Master.ModalMsg("Error: Las Aportaciones no pudieron ser eliminadas");
                 }
             }
-            if (i == LEA.Count)
+            foreach (E_Encuadres b in LEE)
             {
-                if (NU.EliminarMateria(EM).Contains("Exito"))
-                {
-                    Master.ModalMsg("Exito: La Materia fue eliminada");
-                }
-                else
-                {
-                    Master.ModalMsg("Error: La Materia no pudo ser eliminada");
-                }
+                NU.EliminarEncuadre(b.IdEncuadre);
+            }
+            if (NU.EliminarMateria(EM).Contains("Exito"))
+            {
+                Master.ModalMsg("Exito: La Materia fue eliminada");
             }
             else
             {
                 Master.ModalMsg("Error: La materia no pudo ser eliminada");
             }
-            
-
-
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         protected void GvMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {

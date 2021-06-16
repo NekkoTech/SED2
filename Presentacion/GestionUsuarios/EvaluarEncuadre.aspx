@@ -15,7 +15,7 @@
         </nav>
         <div class="row-cols-2">
             <div class="col-sm-4 align-items-start">
-                <asp:Button ID="btnRegresar" CssClass="btn btn-success box w-25" runat="server" Text="Regresar" OnClick="BtnRegresar_Click" />
+                <asp:Button ID="btnRegresar" CssClass="btn btn-success box w-25" runat="server" CausesValidation="false" Text="Regresar" OnClick="BtnRegresar_Click" />
             </div>
             <div class="col-sm text-center">
                 <iframe id="Encuadre" style="width: 800px" height="500" runat="server" />
@@ -23,10 +23,10 @@
         </div>
         <div class="row text-center">
             <div class="col-6">
-                    <asp:Button ID="BtnRechazar" CssClass="btn btn-danger box w-25" runat="server" Text="Rechazar" OnClick="BtnRechazar_Click" />
+                    <asp:Button ID="BtnRechazar" CssClass="btn btn-danger box w-25" runat="server" CausesValidation="false" Text="Rechazar" OnClick="BtnRechazar_Click" />
                 </div>
                 <div class="col-6">
-                    <asp:Button ID="BtnAceptar" CssClass="btn btn-success box w-25" runat="server" Text="Aceptar" OnClick="BtnAceptar_Click" />
+                    <asp:Button ID="BtnAceptar" CssClass="btn btn-success box w-25" runat="server" CausesValidation="false" Text="Aceptar" OnClick="BtnAceptar_Click" />
                 </div>
         </div>
         <br />
@@ -44,8 +44,9 @@
                     <asp:TextBox ID="tbObservaciones" Width="200" Height="400" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="BtnCancelar" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Regresar" />
-                    <asp:Button ID="BtnConfirmar" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnEnviarRechazado_Click" Text="Enviar" CausesValidation="false" />
+                    <asp:requiredfieldvalidator ID="rfvtbObservaciones" runat="server" ValidationGroup="Observaciones" errormessage="RequiredFieldValidator" ControlToValidate="tbObservaciones" CssClass="text-danger" Display="Dynamic">Llene el campo de observaciones</asp:requiredfieldvalidator>
+                    <asp:Button ID="BtnCancelar" type="button" CssClass="btn btn-danger" runat="server" CausesValidation="false" data-dismiss="modal" Text="Regresar" />
+                    <asp:Button ID="BtnConfirmar" type="button" CssClass="btn btn-success" runat="server" ValidationGroup="Observaciones" OnClick="BtnEnviarRechazado_Click" Text="Enviar" />
                 </div>
             </div>
         </div>
@@ -58,11 +59,13 @@
                     <p class="heading lead text-center">Favor de ingresar la calificacion de este encuadre (0-100)</p>
                 </div>
                 <div class="modal-body text-center">
-                    <asp:TextBox ID="TbCalificacion" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TbCalificacion" CssClass="form-control" runat="server"></asp:TextBox> <br />
+                    <asp:regularexpressionvalidator runat="server" ValidationGroup="Calificacion" ControlToValidate="TbCalificacion" errormessage="RegularExpressionValidator" ValidationExpression="^[6-9][0-9]?$|^100$">60-100</asp:regularexpressionvalidator>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="Button1" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Regresarr" />
-                    <asp:Button ID="Button2" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnEnviarAceptado_Click" Text="Enviar" CausesValidation="false" />
+                    <asp:requiredfieldvalidator ID="Requiredfieldvalidator1" runat="server" ValidationGroup="Calificacion" errormessage="RequiredFieldValidator" ControlToValidate="TbCalificacion" CssClass="text-danger" Display="Dynamic">Asigne la calificacion</asp:requiredfieldvalidator>
+                    <asp:Button ID="Button1" type="button" CssClass="btn btn-danger" runat="server" CausesValidation="false" data-dismiss="modal" Text="Regresarr" />
+                    <asp:Button ID="Button2" type="button" CssClass="btn btn-success" runat="server" ValidationGroup="Calificacion" OnClick="BtnEnviarAceptado_Click" Text="Enviar"/><br/>
                 </div>
             </div>
         </div>
@@ -78,7 +81,7 @@
                     <asp:Label ID="Label1" runat="server" Text="¿Seguro que desea Aceptar este encuadre?"></asp:Label>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="Button3" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Regresar" />
+                    <asp:Button ID="Button3" type="button" CssClass="btn btn-danger" runat="server" data-dismiss="modal" Text="Regresar" CausesValidation="false" />
                     <asp:Button ID="Button4" type="button" CssClass="btn btn-success" runat="server" OnClick="BtnAceptado_Click" Text="Enviar" CausesValidation="false" />
                 </div>
             </div>

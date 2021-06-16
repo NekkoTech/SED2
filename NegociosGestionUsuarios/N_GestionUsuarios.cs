@@ -636,6 +636,23 @@ namespace NegociosGestionUsuarios
             SQLD.Conexion.Close();
             return "Error: Encuadre No pudo ser registrado";
         }
+        public string EliminarEncuadre(int IdEncuadre)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("DELETE FROM Encuadres WHERE IdEncuadre = @IdEncuadre", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdEncuadre", IdEncuadre);
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Encuadre Eliminado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Encuadre No pudo ser eliminado";
+        }
         public string ModificarEncuadre(E_Encuadres EE)
         {
             SqlCommand SqlComando;
@@ -818,6 +835,23 @@ namespace NegociosGestionUsuarios
             }
             SQLD.Conexion.Close();
             return "Error: RSA No pudo ser registrado";
+        }
+        public string EliminarRSAPDF(int IdRSAPDF)
+        {
+            SqlCommand SqlComando;
+            int code;
+            SQLD.Conexion.Open();
+            SqlComando = new SqlCommand("DELETE FROM DocumentoRSA WHERE IdRSADocumento = @IdRSAPDF", SQLD.Conexion);
+            SqlComando.Parameters.AddWithValue("@IdRSAPDF", IdRSAPDF);
+            code = SqlComando.ExecuteNonQuery();
+
+            if (code == 1)
+            {
+                SQLD.Conexion.Close();
+                return "Exito: Encuadre Eliminado";
+            }
+            SQLD.Conexion.Close();
+            return "Error: Encuadre No pudo ser eliminado";
         }
         public string ModificarRSAPDF(E_RSADocumento ERSA)
         {
