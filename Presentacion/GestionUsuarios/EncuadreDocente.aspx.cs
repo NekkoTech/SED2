@@ -193,13 +193,23 @@ namespace Presentacion.GestionUsuarios
 
         protected void BtnSubirEncuadre_Click(object sender, EventArgs e)
         {
-            if (EE.EstadoEncuadre == 1 || EE.EstadoEncuadre == 3)
+            EP = NU.BuscaPlanMateria(EM.IdMateria);
+            E_Fecha EF = NU.BuscaFechaPlanEstudio(EP.IdPlan);
+            int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
+            if (f < 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+                if (EE.EstadoEncuadre == 1 || EE.EstadoEncuadre == 3)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+                }
+                else
+                {
+                    Master.ModalMsg("Informacion: Ya a enviado un encuadre espere la respuesta del coordinador");
+                }
             }
             else
             {
-                Master.ModalMsg("Informacion: Ya a enviado un encuadre espere la respuesta del coordinador");
+                Master.ModalMsg("Error: La fecha para subir los archivos ya paso");
             }
             
         }

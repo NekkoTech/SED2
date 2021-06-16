@@ -1,0 +1,15 @@
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\WSTimer.exe.config
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\WSTimer.exe
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\WSTimer.pdb
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\EntidadesGestionUsuarios.dll
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\NegociosGestionUsuarios.dll
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\StrDatosSQL.dll
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\EntidadesGestionUsuarios.pdb
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\bin\Debug\NegociosGestionUsuarios.pdb
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.Service1.resources
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.csproj.GenerateResource.cache
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.csproj.CopyComplete
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.exe
+C:\Users\user\Documents\GitHub\SED2\SED\WSTimer\obj\Debug\WSTimer.pdb

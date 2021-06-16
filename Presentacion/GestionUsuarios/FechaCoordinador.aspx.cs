@@ -117,6 +117,7 @@ namespace Presentacion.GestionUsuarios
                             {
                                 EF.FechaInicial = date1;
                                 EF.FechaFinal = date2;
+                                
                                 if (NU.ModificarFecha(EF).Contains("Exito"))
                                     Master.ModalMsg("Exito: Fecha Ingresada");
                             }

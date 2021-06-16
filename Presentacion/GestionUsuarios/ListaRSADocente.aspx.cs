@@ -63,77 +63,100 @@ namespace Presentacion.GestionUsuarios
         }
         protected void GvMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+           
             if (e.CommandName == "Llenar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                E_RSA ER = NU.BuscaRSA(EM.IdMateria);
-                if (ER != null)
+                EP = NU.BuscaPlanMateria(EM.IdMateria);
+                E_Fecha EF = NU.BuscaFechaPlanEstudio(EP.IdPlan);
+                int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
+                if (f < 0) 
                 {
-                    switch (ER.Status)
+                    E_RSA ER = NU.BuscaRSA(EM.IdMateria);
+                    if (ER != null)
                     {
-                        case 1:
-                            Session["Materia"] = EM;
-                            Session["RSA"] = ER;
-                            Session["Mensaje"] = "Llenar";
-                            Response.Redirect("FormularioRSA.aspx");
-                            break;
-                        case 2:
-                            Master.ModalMsg("Error: El RSA ya fue enviado, espere a la respuesta de su Coordinador");
-                            break;
-                        case 3:
-                            if (ER != null)
-                            {
+                        switch (ER.Status)
+                        {
+                            case 1:
                                 Session["Materia"] = EM;
                                 Session["RSA"] = ER;
                                 Session["Mensaje"] = "Llenar";
                                 Response.Redirect("FormularioRSA.aspx");
-                            }
-                            else
-                            {
-                                Master.ModalMsg("Error: La materia no tiene RSA registrado");
-                            }
+                                break;
+                            case 2:
+                                Master.ModalMsg("Error: El RSA ya fue enviado, espere a la respuesta de su Coordinador");
+                                break;
+                            case 3:
+                                if (ER != null)
+                                {
+                                    Session["Materia"] = EM;
+                                    Session["RSA"] = ER;
+                                    Session["Mensaje"] = "Llenar";
+                                    Response.Redirect("FormularioRSA.aspx");
+                                }
+                                else
+                                {
+                                    Master.ModalMsg("Error: La materia no tiene RSA registrado");
+                                }
 
-                            break;
-                        case 4:
-                            Master.ModalMsg("Informacion: El RSA ya fue aceptado, espere a que el Jefe firme el Documento");
-                            break;
-                        case 5:
-                            Master.ModalMsg("Error: El proceso del RSA ya fue terminado, puede descargarlo para visualizarlo");
-                            break;
+                                break;
+                            case 4:
+                                Master.ModalMsg("Informacion: El RSA ya fue aceptado, espere a que el Jefe firme el Documento");
+                                break;
+                            case 5:
+                                Master.ModalMsg("Error: El proceso del RSA ya fue terminado, puede descargarlo para visualizarlo");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Session["Materia"] = EM;
+                        Session["RSA"] = ER;
+                        Session["Mensaje"] = "Llenar";
+                        Response.Redirect("FormularioRSA.aspx");
                     }
                 }
                 else
                 {
-                    Session["Materia"] = EM;
-                    Session["RSA"] = ER;
-                    Session["Mensaje"] = "Llenar";
-                    Response.Redirect("FormularioRSA.aspx");
+                    Master.ModalMsg("Error: La fecha para subir los archivos ya paso");
                 }
+
             }
             if (e.CommandName == "Firmar")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
                 EM = new N_Usuarios().BuscaMateria(IdMateria);
-                E_RSA ER = NU.BuscaRSA(EM.IdMateria);
-                if (ER != null)
+                EP = NU.BuscaPlanMateria(EM.IdMateria);
+                E_Fecha EF = NU.BuscaFechaPlanEstudio(EP.IdPlan);
+                int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
+                if (f < 0)
                 {
-                    if (ER.Status == 4)
+                    E_RSA ER = NU.BuscaRSA(EM.IdMateria);
+                    if (ER != null)
                     {
-                        Session["MatFirmar"] = EM;
-                        Session["RSAFirmar"] = ER;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalContra()", true);
-                    }
-                    else
-                    {
-                        if (ER.Status != 5)
-                            Master.ModalMsg("Error: El RSA debe ser aceptado por el coordinador para poder Firmarlo");
+                        if (ER.Status == 4)
+                        {
+                            Session["MatFirmar"] = EM;
+                            Session["RSAFirmar"] = ER;
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalContra()", true);
+                        }
                         else
-                            Master.ModalMsg("Informacion: Ya se realizo la firma del documento");
+                        {
+                            if (ER.Status != 5)
+                                Master.ModalMsg("Error: El RSA debe ser aceptado por el coordinador para poder Firmarlo");
+                            else
+                                Master.ModalMsg("Informacion: Ya se realizo la firma del documento");
+                        }
                     }
                 }
+                else
+                {
+                    Master.ModalMsg("Error: La fecha para subir los archivos ya paso");
+                }
+
             }
             if (e.CommandName == "Descargar")
             {
