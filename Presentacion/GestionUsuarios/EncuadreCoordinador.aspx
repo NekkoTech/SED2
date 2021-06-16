@@ -250,7 +250,7 @@
                         <asp:FileUpload ID="FUModal" accept="application/pdf"  CssClass="form-control-file" runat="server" />
                         <asp:RegularExpressionValidator ID="rexp" runat="server" ControlToValidate="FUModal"
                              ErrorMessage="Solo archivos PDF"
-                             ValidationExpression="^.*\.(doc|DOC|docx|DOCX|pdf|PDF)$"></asp:RegularExpressionValidator>
+                             ValidationExpression="^.*\.(pdf|PDF)$"></asp:RegularExpressionValidator>
                         
                     </div>
                     <div class="modal-footer">

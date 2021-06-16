@@ -450,30 +450,47 @@ namespace NegociosGestionUsuarios
             table.Columns.Add("Materia", typeof(string));
             table.Columns.Add("Clave", typeof(string));
             table.Columns.Add("Estado", typeof(string));
-            foreach (E_Encuadres E in ListE)
+            int tieneRSA = 0;
+            foreach (E_Materias M in ListM)
             {
-                foreach (E_Materias M in ListM)
+                foreach (E_Encuadres E in ListE)
                 {
-                    if (E.IdMateria == M.IdMateria && E.IdCoordinador==IdCoordinador)
+                    if (E.IdMateria == M.IdMateria)
                     {
-                        switch (E.EstadoEncuadre)
-                        {
-                            case 1:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Listo");
-                                break;
-                            case 2:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
-                                break;
-                            case 3:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
-                                break;
-                            case 4:
-                                table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
-                                break;
-                        }
-                        
+                        tieneRSA = 1;
+                        if (E.IdCoordinador == IdCoordinador)
+                            switch (E.EstadoEncuadre)
+                            {
+                                case 0:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                                    break;
+                                case 1:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
+                                    break;
+                                case 2:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                    break;
+                                case 3:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                    break;
+                                case 4:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                    break;
+                                case 5:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Firmado");
+                                    break;
+                            }
                     }
                 }
+                if (tieneRSA == 0)
+                {
+                    E_PlanEstudio EP = BuscaPlanCoordinador(IdCoordinador);
+                    if (EP.IdCoordinador == IdCoordinador)
+                    {
+                        table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                    }
+                }
+                tieneRSA = 0;
             }
             return table;
         }
@@ -662,7 +679,8 @@ namespace NegociosGestionUsuarios
                 }
                 if (tieneRSA == 0)
                 {
-                    if (M.IdDocente == IdCoordinador)
+                    E_PlanEstudio EP = BuscaPlanCoordinador(IdCoordinador);
+                    if (EP.IdCoordinador == IdCoordinador)
                     {
                         table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
                     }
