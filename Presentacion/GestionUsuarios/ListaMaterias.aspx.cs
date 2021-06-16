@@ -95,23 +95,6 @@ namespace Presentacion.GestionUsuarios
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         protected void Eliminar_Click(object sender, EventArgs e)
         {
             EM =(E_Materias) Session["Materia"];
