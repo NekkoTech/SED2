@@ -156,16 +156,24 @@ namespace Presentacion.GestionUsuarios
         protected void BtnSubirEncuadre_Click(object sender, EventArgs e)
         {
             E_Fecha EF = NU.BuscaFechaPlanEstudio(EP.IdPlan);
-            int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
-            if (f > 1) 
+            if (EF != null)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+                int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
+                if (f > 1)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
+                }
+                else
+                {
+
+                    Master.ModalMsg("Error:La fecha para entrega de encuadres ya expiro");
+                }
             }
             else
             {
-                Master.ModalMsg("La fecha para entrega de encuadres ya expiro");
+                Master.ModalMsg("Error:No ha ingresado la fecha de entrega");
             }
-            
+
         }
 
         protected void BtnModificar_Click(object sender, EventArgs e)

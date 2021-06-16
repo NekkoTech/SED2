@@ -7,20 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion.GestionUsuarios {
-    
-    
-    public partial class InfoCuenta {
-        
-        /// <summary>
-        /// Control lblInfoCuenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoCuenta;
-        
+namespace Presentacion.GestionUsuarios
+{
+
+
+    public partial class InfoCuenta
+    {
+
         /// <summary>
         /// Control tbNombre.
         /// </summary>
@@ -28,8 +21,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNombre;
-        
+        protected global::Presentacion.Controles.wuc_Text tbNombre;
+
         /// <summary>
         /// Control tbAPat.
         /// </summary>
@@ -37,8 +30,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAPat;
-        
+        protected global::Presentacion.Controles.wuc_Text tbAPat;
+
         /// <summary>
         /// Control tbAMat.
         /// </summary>
@@ -46,8 +39,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAMat;
-        
+        protected global::Presentacion.Controles.wuc_Text tbAMat;
+
         /// <summary>
         /// Control tbNumeroEmpleado.
         /// </summary>
@@ -55,8 +48,8 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNumeroEmpleado;
-        
+        protected global::Presentacion.Controles.wuc_NumeroEmpleado tbNumeroEmpleado;
+
         /// <summary>
         /// Control tbEmail.
         /// </summary>
@@ -64,26 +57,35 @@ namespace Presentacion.GestionUsuarios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEmail;
-        
+        protected global::Presentacion.Controles.wuc_CrearUsuarioCorreo tbEmail;
+
         /// <summary>
-        /// Control tbPassWord.
+        /// Control BtnCambio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Presentacion.Controles.wuc_CrearUsuarioPassWord tbPassWord;
-        
+        protected global::System.Web.UI.WebControls.Button BtnCambio;
+
         /// <summary>
-        /// Control lblIngresaContraseña.
+        /// Control TbRepPassWord.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIngresaContraseña;
-        
+        protected global::Presentacion.Controles.wuc_RepPassWord TbRepPassWord;
+
+        /// <summary>
+        /// Control BtnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
+
         /// <summary>
         /// Control lblRespuesta.
         /// </summary>
@@ -92,5 +94,64 @@ namespace Presentacion.GestionUsuarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRespuesta;
+
+        /// <summary>
+        /// Control EModalHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalHeader;
+
+        /// <summary>
+        /// Control EModalTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalTitulo;
+
+        /// <summary>
+        /// Control EModalBody.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EModalBody;
+
+        /// <summary>
+        /// Control BtnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCancelar;
+
+        /// <summary>
+        /// Control BtnConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnConfirmar;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Presentacion.PaginasMaestras.MasterCoordinadorMenu Master
+        {
+            get
+            {
+                return ((Presentacion.PaginasMaestras.MasterCoordinadorMenu)(base.Master));
+            }
+        }
     }
 }

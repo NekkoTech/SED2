@@ -48,7 +48,8 @@ namespace Presentacion.GestionUsuarios
             else
             {
                 btnGuardar.Enabled = false;
-                Master.ModalMsg("El Subdirector aun no indica las fechas para subir los archivos");
+                if (!IsPostBack)
+                    Master.ModalMsg("El Subdirector aun no indica las fechas para subir los archivos");
             }
             
         }
