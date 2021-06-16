@@ -61,12 +61,21 @@ namespace Presentacion.GestionUsuarios
                     Session["Eliminar"] = null;
                 }
             }
-            GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
-            GvMaterias.DataBind();
-            if (GvMaterias.Rows.Count == 0)
+            EP = NU.BuscaPlanCoordinador(EU.IdUsuario);
+            if (EP != null)
             {
-                ModalPeticiones("Agregar:No hay Materias Registradas",Agregar_Click);
+                GvMaterias.DataSource = NU.LstBuscaMaterias(NU.BuscaPlanCoordinador(EU.IdUsuario).IdPlan);
+                GvMaterias.DataBind();
+                if (GvMaterias.Rows.Count == 0)
+                {
+                    ModalPeticiones("Agregar:No hay Materias Registradas", Agregar_Click);
+                }
             }
+            else
+            {
+                Master.ModalMsg("Error: Aun no esta registrado en un Plan de Estudio");
+            }
+            
             
         }
 

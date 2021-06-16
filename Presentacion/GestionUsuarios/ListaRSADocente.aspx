@@ -16,8 +16,8 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white">
-                    <li class="breadcrumb-item"><a href="InicioCoordinador.aspx">Inicio</a></li>
-                    <li class="breadcrumb-item">RSA</li>
+                    <li class="breadcrumb-item"><a href="InicioDocente.aspx">Inicio</a></li>
+                    <li class="breadcrumb-item">Lista RSA</li>
                 </ol>
             </nav>
         </div>
@@ -30,10 +30,11 @@
                         <asp:BoundField DataField="Clave" HeaderText="Clave" SortExpression="Clave" />
                         <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
 
-                        <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="200px">
+                        <asp:TemplateField HeaderText="Acciones" ItemStyle-Width="350px">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnEvaluar" CssClass="btn btn-success box" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Llenar" runat="server">Llenar</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-success box" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Firmar" runat="server">Firmar</asp:LinkButton>
+                                <asp:LinkButton ID="btnFirmar" CssClass="btn btn-success box" CommandArgument="<%# Container.DataItemIndex%>" CommandName="Firmar" runat="server">Firmar</asp:LinkButton>
+                                <asp:LinkButton ID="btnDescargar"  CssClass="btn btn-success box"   CommandArgument="<%# Container.DataItemIndex%>" CommandName="Descargar" runat="server">Descargar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 

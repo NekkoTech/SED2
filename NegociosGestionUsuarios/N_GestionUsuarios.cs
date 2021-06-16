@@ -442,7 +442,8 @@ namespace NegociosGestionUsuarios
         /// <param name="IdMateria"></param>
         public DataTable DT_LstMaterias() { return SQLD.DT_ListadoGeneral("Materias", "IdMateria, Materia, Clave, IdDocente, Semestre"); }
         public List<E_Materias> LstMaterias() { return StrDatosSQL.D_ConvierteDatos.ConvertirDTALista<E_Materias>(DT_LstMaterias()); }
-        public DataTable LstMateriasInnerJoinEncuadre(int IdCoordinador) {
+        public DataTable LstMateriasInnerJoinEncuadre(int IdCoordinador)
+        {
             List<E_Materias> ListM = LstMaterias();
             List<E_Encuadres> ListE = LstEncuadres();
             DataTable table = new DataTable();
@@ -484,8 +485,61 @@ namespace NegociosGestionUsuarios
                 }
                 if (tieneRSA == 0)
                 {
-                    E_PlanEstudio EP = BuscaPlanCoordinador(IdCoordinador);
-                    if (EP.IdCoordinador == IdCoordinador)
+                    if (M.IdDocente == IdCoordinador)
+                    {
+                        table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                    }
+                }
+                tieneRSA = 0;
+            }
+            return table;
+        }
+        public DataTable LstMateriasInnerJoinEncuadreDocente(int IdDocente)
+        {
+            List<E_Materias> ListM = BuscaMateriasDocente(IdDocente);
+            List<E_Encuadres> ListE = LstEncuadres();
+            DataTable table = new DataTable();
+            table.Columns.Add("IdMateria", typeof(int));
+            table.Columns.Add("Materia", typeof(string));
+            table.Columns.Add("Clave", typeof(string));
+            table.Columns.Add("Estado", typeof(string));
+            int tieneRSA = 0;
+            foreach (E_Materias M in ListM)
+            {
+                foreach (E_Encuadres E in ListE)
+                {
+                    if (E.IdMateria == M.IdMateria)
+                    {
+                        tieneRSA = 1;
+                        if (M.IdDocente == IdDocente)
+                        {
+                            switch (E.EstadoEncuadre)
+                            {
+                                case 0:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Sin Llenar");
+                                    break;
+                                case 1:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Guardado");
+                                    break;
+                                case 2:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Enviado");
+                                    break;
+                                case 3:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Rechazado");
+                                    break;
+                                case 4:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Aceptado");
+                                    break;
+                                case 5:
+                                    table.Rows.Add(E.IdMateria, M.Materia, M.Clave, "Firmado");
+                                    break;
+                            }
+                        }
+                    }
+                }
+                if (tieneRSA == 0)
+                {
+                    if (M.IdDocente == IdDocente)
                     {
                         table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
                     }
@@ -679,8 +733,7 @@ namespace NegociosGestionUsuarios
                 }
                 if (tieneRSA == 0)
                 {
-                    E_PlanEstudio EP = BuscaPlanCoordinador(IdCoordinador);
-                    if (EP.IdCoordinador == IdCoordinador)
+                    if (M.IdDocente == IdCoordinador)
                     {
                         table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
                     }
@@ -851,7 +904,7 @@ namespace NegociosGestionUsuarios
                             E_PlanEstudio EP = BuscaPlanCoordinador(u.IdUsuario);
                             if (EP == null)
                             {
-                                dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + "" + u.AMaternoUsuario, u.IdUsuario.ToString()));
+                                dropDownList.Items.Add(new ListItem(usuario + " " + u.NombreUsuario + " " + u.APaternoUsuario + " " + u.AMaternoUsuario, u.IdUsuario.ToString()));
                             }
 
                         }

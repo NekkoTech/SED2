@@ -38,7 +38,7 @@ namespace Presentacion.GestionUsuarios
                         break;
                 }
             }
-            GvMaterias.DataSource = NU.BuscaMateriasDocente(EU.IdUsuario);
+            GvMaterias.DataSource = NU.LstMateriasInnerJoinEncuadreDocente(EU.IdUsuario);
             GvMaterias.DataBind();
             
             if (GvMaterias.Rows.Count == 0)

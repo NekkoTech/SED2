@@ -96,6 +96,12 @@ namespace Presentacion.GestionUsuarios
                             }
 
                             break;
+                        case 4:
+                            Master.ModalMsg("Informacion: El RSA ya fue aceptado, espere a que el Jefe firme el Documento");
+                            break;
+                        case 5:
+                            Master.ModalMsg("Error: El proceso del RSA ya fue terminado, puede descargarlo para visualizarlo");
+                            break;
                     }
                 }
                 else
@@ -105,9 +111,6 @@ namespace Presentacion.GestionUsuarios
                     Session["Mensaje"] = "Llenar";
                     Response.Redirect("FormularioRSA.aspx");
                 }
-
-
-
             }
             if (e.CommandName == "Firmar")
             {
@@ -123,6 +126,47 @@ namespace Presentacion.GestionUsuarios
                         Session["RSAFirmar"] = ER;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalContra()", true);
                     }
+                    else
+                    {
+                        if (ER.Status != 5)
+                            Master.ModalMsg("Error: El RSA debe ser aceptado por el coordinador para poder Firmarlo");
+                        else
+                            Master.ModalMsg("Informacion: Ya se realizo la firma del documento");
+                    }
+                }
+            }
+            if (e.CommandName == "Descargar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int IdMateria = Convert.ToInt32(GvMaterias.DataKeys[index].Value.ToString());
+                EM = new N_Usuarios().BuscaMateria(IdMateria);
+                ER = NU.BuscaRSA(EM.IdMateria);
+                
+                if (ER != null)
+                {
+                    EP = NU.BuscaPlanCoordinador(ER.IdCoordinador);
+                    if (ER.Status == 5)
+                    {
+                        E_RSADocumento ED = NU.BuscaDocumentoRSA(ER.IdRSA);
+                        string FilePath = Server.MapPath("..\\RSA\\"+EP.NombrePlan+"\\"+ED.NombreRSA);
+                        WebClient User = new WebClient();
+                        Byte[] FileBuffer = User.DownloadData(FilePath);
+                        if (FileBuffer != null)
+                        {
+                            Response.ContentType = "application/pdf";
+                            Response.AppendHeader("Content-Disposition", "attachment; filename=RSA.pdf");
+                            Response.TransmitFile(FilePath);
+                            Response.End();
+                        }
+                    }
+                    else
+                    {
+                        Master.ModalMsg("Error: Solo se puede realizar la descarga cuando el RSA se encuentra firmado");
+                    }
+                }
+                else
+                {
+                    Master.ModalMsg("Error: Aun no se encuentra con registro Activo de RSA");
                 }
             }
 

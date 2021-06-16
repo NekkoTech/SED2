@@ -29,7 +29,27 @@ namespace Presentacion.GestionUsuarios
         E_RSA ER = new E_RSA();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ER= (E_RSA)Session["RSA"];
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("ValidaUsuario.aspx");
+            }
+            else
+            {
+                E_Usuarios EU = (E_Usuarios)Session["Usuario"];
+                switch (EU.IdTipoUsuario)
+                {
+                    case 1:
+                        Response.Redirect("InicioMain.aspx");
+                        break;
+                    case 3:
+                        Response.Redirect("InicioCoordinador.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("InicioSubdirector.aspx");
+                        break;
+                }
+            }
+            ER = (E_RSA)Session["RSA"];
             EU = (E_Usuarios)Session["Usuario"];
             if (ER != null)
             {
@@ -39,6 +59,13 @@ namespace Presentacion.GestionUsuarios
                  
                 if (!IsPostBack)
                 {
+                    if (ER.Status == 3)
+                    {
+                        E_RSADocumento ERD = NU.BuscaDocumentoRSA(ER.IdRSA);
+                        tbObservaciones.Text = ERD.Observaciones;
+                        tbObservaciones.Enabled = false;
+                        btnModal.Visible = true;
+                    }
                     TbCarrera.Text = EP.NombrePlan.ToLowerInvariant();
                     TbSemestre.Text = EM.Semestre.ToString();
                     TbNumEmpleado.Text = EU.NumeroEmpleado;
@@ -117,7 +144,17 @@ namespace Presentacion.GestionUsuarios
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalPeticion()", true);
+        }
 
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListaRSADocente.aspx");
+        }
+
+        protected void btnObservaciones_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalObservaciones()", true);
         }
     }
 }

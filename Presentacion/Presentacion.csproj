@@ -99,6 +99,8 @@
     <Content Include="GestionUsuarios\EncuadreCoordinador.aspx" />
     <Content Include="GestionUsuarios\EvaluarRSA.aspx" />
     <Content Include="GestionUsuarios\EvaluarEncuadre.aspx" />
+    <Content Include="GestionUsuarios\FechaCoordinador.aspx" />
+    <Content Include="GestionUsuarios\FechaSubdirector.aspx" />
     <Content Include="GestionUsuarios\FirmaAlumno.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA.aspx" />
     <Content Include="GestionUsuarios\FormularioRSA2.aspx" />
@@ -115,7 +117,6 @@
     <Content Include="GestionUsuarios\InicioDocente.aspx" />
     <Content Include="GestionUsuarios\InicioMain.aspx" />
     <Content Include="GestionUsuarios\ListaRSA.aspx" />
-    <Content Include="GestionUsuarios\ListaRSAD.aspx" />
     <Content Include="GestionUsuarios\ListaRSADocente.aspx" />
     <Content Include="GestionUsuarios\ListaMateriasDocente.aspx" />
     <Content Include="GestionUsuarios\ListaEncuadres.aspx" />
@@ -337,6 +338,20 @@
     <Compile Include="GestionUsuarios\EvaluarEncuadre.aspx.designer.cs">
       <DependentUpon>EvaluarEncuadre.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuarios\FechaCoordinador.aspx.cs">
+      <DependentUpon>FechaCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaCoordinador.aspx.designer.cs">
+      <DependentUpon>FechaCoordinador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaSubdirector.aspx.cs">
+      <DependentUpon>FechaSubdirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuarios\FechaSubdirector.aspx.designer.cs">
+      <DependentUpon>FechaSubdirector.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios\FirmaAlumno.aspx.cs">
       <DependentUpon>FirmaAlumno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,13 +463,6 @@
     </Compile>
     <Compile Include="GestionUsuarios\ListaRSA.aspx.designer.cs">
       <DependentUpon>ListaRSA.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GestionUsuarios\ListaRSAD.aspx.cs">
-      <DependentUpon>ListaRSAD.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GestionUsuarios\ListaRSAD.aspx.designer.cs">
-      <DependentUpon>ListaRSAD.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionUsuarios\ListaRSADocente.aspx.cs">
       <DependentUpon>ListaRSADocente.aspx</DependentUpon>
