@@ -61,8 +61,6 @@ namespace NegociosGestionUsuarios
         
 
        
-        
-        
        
         public DataTable DT_LstUsuarios() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Usuarios", "APaternoUsuario, AMaternoUsuario"); }
         public DataTable DT_LstUsuariosBloqueados() { SQLD.Conexion.Close(); return SQLD.DT_ListadoGeneral("Bloqueos", "IdUsuario"); }
@@ -485,7 +483,8 @@ namespace NegociosGestionUsuarios
                 }
                 if (tieneRSA == 0)
                 {
-                    if (M.IdDocente == IdCoordinador)
+                    E_PlanEstudio EP = BuscaPlanMateria(M.IdMateria);
+                    if (EP.IdCoordinador == IdCoordinador)
                     {
                         table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
                     }
@@ -733,7 +732,8 @@ namespace NegociosGestionUsuarios
                 }
                 if (tieneRSA == 0)
                 {
-                    if (M.IdDocente == IdCoordinador)
+                    E_PlanEstudio EP = BuscaPlanMateria(M.IdMateria);
+                    if (EP.IdCoordinador == IdCoordinador)
                     {
                         table.Rows.Add(M.IdMateria, M.Materia, M.Clave, "Sin Llenar");
                     }

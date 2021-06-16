@@ -9,8 +9,10 @@ namespace Presentacion.GestionUsuarios
 {
     public partial class FechaSubdirector : System.Web.UI.Page
     {
+        DateTime myDateTime = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void IBInicio_Click(object sender, ImageClickEventArgs e)
@@ -44,6 +46,32 @@ namespace Presentacion.GestionUsuarios
         {
             tbFinal.Text = CFinal.SelectedDate.ToShortDateString();
             CFinal.Visible = false;
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            DateTime date1, date2;
+        
+            if(tbInicio.Text!="" && tbFinal.Text != "")
+            {
+                date1 = Convert.ToDateTime(tbInicio.Text).Date;
+                date2 = Convert.ToDateTime(tbFinal.Text).Date;
+                switch(DateTime.Compare(date1, date2))
+                {
+                    case -1:Master.ModalMsg("Error: La fecha Iniciar es mayor que la Fecha final");
+                        break;
+                    case 0:Master.ModalMsg("Error: Las fechas son iguales");
+                        break;
+                    case 1:
+                        break;
+                }
+                
+            }
+            else
+            {
+                Master.ModalMsg("Error: Selecciona Las fechas de inicio y final");
+            }
+            
         }
     }
 }

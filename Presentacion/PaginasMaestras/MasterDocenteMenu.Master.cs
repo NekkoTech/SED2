@@ -23,6 +23,9 @@ namespace Presentacion.PaginasMaestras
                 E_Usuarios EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
                 {
+                    case 1:
+                        Response.Redirect("InicioMain.aspx");
+                        break;
                     case 3:
                         Response.Redirect("InicioCoordinador.aspx");
                         break;

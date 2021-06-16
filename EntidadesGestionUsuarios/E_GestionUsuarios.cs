@@ -479,6 +479,40 @@ namespace EntidadesGestionUsuarios
 
         #endregion
     }
-    
+
+    public class E_Fecha
+    {
+        #region Atributos
+        private string _Accion;
+        private int _IdFecha;
+        private DateTime _FechaInicial;
+        private DateTime _FechaFinal;
+        private int _Global;
+        private int _IdPlanEstudio;
+        #endregion
+        #region Encapsulamientos
+        public string Accion { get => _Accion; set => _Accion = value; }
+        public int IdFecha { get => _IdFecha; set => _IdFecha = value; }
+        public DateTime FechaInicial { get => _FechaInicial; set => _FechaInicial = value; }
+        public DateTime FechaFinal { get => _FechaFinal; set => _FechaFinal = value; }
+        public int Global { get => _Global; set => _Global = value; }
+        public int IdPlanEstudio { get => _IdPlanEstudio; set => _IdPlanEstudio = value; }
+
+        #endregion
+        #region Constructores
+
+        public E_Fecha()
+        {
+            _Accion = string.Empty;
+            IdFecha = 0;
+            FechaInicial = new DateTime();
+            FechaFinal = new DateTime();
+            Global = 0;
+            IdPlanEstudio = 0;
+        }
+
+        #endregion
+    }
+
 
 }
