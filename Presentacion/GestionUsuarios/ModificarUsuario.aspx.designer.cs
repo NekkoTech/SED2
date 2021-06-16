@@ -200,11 +200,11 @@ namespace Presentacion.GestionUsuarios
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterDocenteMenu Master
+        public new Presentacion.PaginasMaestras.MasterAdministradorMenu Master
         {
             get
             {
-                return ((Presentacion.PaginasMaestras.MasterDocenteMenu)(base.Master));
+                return ((Presentacion.PaginasMaestras.MasterAdministradorMenu)(base.Master));
             }
         }
     }
