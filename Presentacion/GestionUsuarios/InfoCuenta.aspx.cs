@@ -41,7 +41,7 @@ namespace Presentacion.GestionUsuarios
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["Pass"] = TbRepPassWord.Text;
-            ModalPeticiones("Informacion: ¿Seguro que desea guardar los cambios a la fecha?");
+            ModalPeticiones("Informacion: ¿Seguro que desea cambiar la contraseña?");
         }
         protected void BtnConfirmar_Click(object sender, EventArgs e)
         {

@@ -32,7 +32,6 @@ namespace Presentacion.GestionUsuarios
             SEU = (E_Usuarios)Session["Usuario"];
             NU.LlenaDropDown(DdlDocentes, "Docente");
             string MsgOpcion = Session["Mensaje"].ToString();
-            Session["IdPlan"] = EP.IdPlan;
             if (!IsPostBack)
             {
                 if (SEU.IdTipoUsuario == 2)
@@ -203,7 +202,8 @@ namespace Presentacion.GestionUsuarios
         protected List<string> ListaAportaciones()
         {
             List<string> ListAport = new List<string>();
-            LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
+            EP = (E_PlanEstudio)Session["PlanSubdirector"];
+            LEA = NU.BuscaAtributos(EP.IdPlan);
             switch (LEA.Count)
             {
                 case 1:

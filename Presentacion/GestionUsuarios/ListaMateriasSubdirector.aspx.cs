@@ -37,7 +37,7 @@ namespace Presentacion.GestionUsuarios
                         Session["NoPlan"] = "No existe plan";
                     }
                     else
-                        Session["IdPlan"] = EP.IdPlan;
+                    Session["Plan"] = EP;
                 }
                 EU = (E_Usuarios)Session["Usuario"];
                 switch (EU.IdTipoUsuario)
@@ -83,7 +83,8 @@ namespace Presentacion.GestionUsuarios
         protected void Eliminar_Click(object sender, EventArgs e)
         {
             EM =(E_Materias) Session["Materia"];
-            List<E_Atributos> LEA = NU.BuscaAtributos((int)Session["IdPlan"]);
+            EP = (E_PlanEstudio)Session["PlanSubdirector"];
+            List<E_Atributos> LEA = NU.BuscaAtributos(EP.IdPlan);
             int i = 0;
             foreach (E_Atributos a in LEA)
             {

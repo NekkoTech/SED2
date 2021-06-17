@@ -380,11 +380,11 @@ namespace Presentacion.GestionUsuarios
         /// <remarks>
         /// Propiedad generada automáticamente.
         /// </remarks>
-        public new Presentacion.PaginasMaestras.MasterCoordinadorMenu Master
+        public new Presentacion.PaginasMaestras.MasterSubdirectorMenu Master
         {
             get
             {
-                return ((Presentacion.PaginasMaestras.MasterCoordinadorMenu)(base.Master));
+                return ((Presentacion.PaginasMaestras.MasterSubdirectorMenu)(base.Master));
             }
         }
     }

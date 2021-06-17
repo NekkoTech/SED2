@@ -159,7 +159,7 @@ namespace Presentacion.GestionUsuarios
             if (EF != null)
             {
                 int f = (int)(DateTime.Now - EF.FechaFinal).TotalDays;
-                if (f > 1)
+                if (f < 1)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "pop", "openMasterModalFU()", true);
                 }

@@ -695,11 +695,11 @@ namespace NegociosGestionUsuarios
         public string ModificarRSA(E_RSA EntidadRSA)
         {
             EntidadRSA.Accion = "MODIFICAR";
-            string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
-            return msg;
-            /*if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
+            /*string msg = SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA);
+            return msg;*/
+            if (SQLD.IBM_Entidad<E_RSA>("IBM_RSA", EntidadRSA).Contains("Exito"))
                 return "Exito: El RSA fue modificado con exito.";
-            return "Error: El RSA no pudo ser modificado.";*/
+            return "Error: El RSA no pudo ser modificado.";
         }
         public string EliminarRSA(E_RSA EntidadRSA)
         {

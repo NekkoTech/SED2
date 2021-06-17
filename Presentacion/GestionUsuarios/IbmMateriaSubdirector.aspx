@@ -5,7 +5,7 @@
 <%@ Register Src="~/Controles/wuc_Text_SR.ascx" TagPrefix="uc1" TagName="wuc_Text_SR" %>
 
 
-<%@ MasterType VirtualPath="../PaginasMaestras/MasterCoordinadorMenu.Master" %>
+<%@ MasterType VirtualPath="../PaginasMaestras/MasterSubdirectorMenu.Master" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
